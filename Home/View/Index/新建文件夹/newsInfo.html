@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>{$news_info.title} - 【田螺阿姨】</title>
+		<meta name="description" content="{$news_info.description}"/>
+		<meta name="keyword" content="{$news_info.keyword}"/>
+
+		<include file="Index/header1"/>
+	</head>
+	<body onselectstart="return false">
+		<!--整体内容开始-->
+		<div class="container" style="width: 100%;height: auto;">
+			<!--   header  -->
+			<include file="Index/header2"/>
+			
+			
+			<div class="news-content-biaoti">
+				
+				<ul>
+					<li><img src="__PUBLIC__/img/tiao.png" /></li>
+					<li><a href="__ROOT__/">首页</a></li>
+					<li>></li>
+					<li><a href="__ROOT__/news/">新闻资讯</a></li>
+					<li>></li>
+				</ul>
+				
+			</div>
+			
+			<div class="compay-content">
+				<p class="content1">{$news_info.title}</p>
+				<p class="guanjianci">关键词：
+				<volist name="keyword" id="vo" offset="0" length='4'>
+					<!--<a href="__ROOT__/news/key/{$vo}.html"> {$vo}</a>-->
+					{$vo}
+				</volist>
+				</p>
+				<p class="fabushijian">发布时间：{$news_info.add_time}</p>
+
+
+				<p class="content4" style="width: 800px;">
+					{$news_info.content|htmlspecialchars_decode}
+
+				</p>
+
+
+				<p class="content6"></p>
+
+
+				<p class="last-article">
+
+					<?php if($down_news&&down_news!=''){?>
+					<a href="__ROOT__/news/<?php echo $down_news[0]['id'];?>.html" class="next-article">下一篇：<?php echo $down_news[0]['title'];?></a>
+					<?php }else{?>
+					<span class="next-article">
+					下一篇：没有了
+						</span>
+					<?php }?>
+
+					<?php if($up_news&&up_news!=''){?>
+					<a href="__ROOT__/news/<?php echo $up_news[0]['id'];?>.html" class="last-article">上一篇：<?php echo $up_news[0]['title'];?></a>
+					<?php }else{?>
+					<span class="last-article">
+					上一篇：没有了
+						</span>
+					<?php }?>
+
+				</p>
+
+				<div class="xiala">
+					<ul>
+						<volist name="news_list" id="vo" >
+							<li><a href="__ROOT__/news/{$vo.id}.html">{$vo.title}</a></li>
+						</volist>
+						<!--<li>中秋快乐，我们双节不打烊中秋快乐，我们双节不打烊!</li>-->
+						<!--<li>中秋快乐，我们双节不打烊中秋快乐，我们双节不打烊!</li>-->
+						<!--<li>中秋快乐，我们双节不打烊中秋快乐，我们双节不打烊!</li>-->
+						<!--<li>中秋快乐，我们双节不打烊中秋快乐，我们双节不打烊!</li>-->
+						<!--<li>中秋快乐，我们双节不打烊中秋快乐，我们双节不打烊!</li>-->
+						<!--<li>中秋快乐，我们双节不打烊中秋快乐，我们双节不打烊!</li>-->
+						<!--<li>中秋快乐，我们双节不打烊中秋快乐，我们双节不打烊!</li>-->
+						<!--<li>中秋快乐，我们双节不打烊中秋快乐，我们双节不打烊!</li>-->
+						<!--<li>中秋快乐，我们双节不打烊中秋快乐，我们双节不打烊!</li>-->
+						<!--<li>中秋快乐，我们双节不打烊中秋快乐，我们双节不打烊!</li>-->
+						<!--<li>中秋快乐，我们双节不打烊中秋快乐，我们双节不打烊!</li>-->
+					</ul>
+				</div>
+
+			</div>
+
+
+			
+			
+			
+			<!-- footer -->
+			<include file="Index/footer"/>
+				
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		<!--轮播图效果-->
+		<script src="__PUBLIC__/js/jquery-2.1.1.min.js"></script>
+	<script src="__PUBLIC__/js/osSlider.js"></script>
+	<script src="__PUBLIC__/js/jquery.kxbdMarquee.js"></script>
+	<script type="text/javascript">
+	    var slider = new osSlider({ //开始创建效果
+	        pNode:'.slider', //容器的选择器 必填
+	        cNode:'.slider-main li', //轮播体的选择器 必填
+	        speed:4000, //速度 默认3000 可不填写
+	        autoPlay:true //是否自动播放 默认true 可不填写
+	    });
+	    
+	</script>
+	</body>
+	<div style=display:none>
+	<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F48cc6318fc4270b2c3fcf8963524234a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

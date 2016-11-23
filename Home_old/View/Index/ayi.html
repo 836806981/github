@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="description" content="婴幼家庭保洁与日式家庭保洁服务是田螺阿姨提出的特色母婴家庭保洁服务，属于婴幼儿家庭的全程日式化专属保洁服务。专业进口工具、0污染源、专业放心、安全可靠。"/>
+		<meta name="keywords" content="婴幼保洁,母婴家庭保洁,婴幼家庭保洁,婴幼家庭保洁价格,母婴家庭保洁价格,家庭保洁培训"/>
+		<include file="Index/header1"/>
+	</head>
+	<body>
+	<include file="Index/header2"/>
+		<div class="ayi-container" style="width: 100%;height: auto;background: #f1f2f3;">
+			<!--   header  -->
+
+			<div class="content1200">
+				<div class="ayi-information">
+					<ul class="infor-ul f-cb">
+						<li class="infor-li1"><img src="__UPLOADS__/{$nurse.title_img}" width="180px" height="185px" /></li>
+						<li class="infor-name">姓名</li>
+						<li class="infor-name-content">{$nurse.name}</li>
+						<li class="infor-height">身高</li>
+						<li class="infor-height-content">{$nurse.hight}cm</li>
+						<li class="infor-age">年龄</li>
+						<li class="infor-age-content">{$nurse.age}岁</li>
+						<li class="infor-weight">体重</li>
+						<li class="infor-weight-content">{$nurse.weight}kg</li>
+						<li class="infor-address">籍贯</li>
+						<li class="infor-address-content">{$nurse.native_place}</li>
+						<li class="infor-level">等级</li>
+						<li class="infor-level-content">{$nurse.level}</li>
+						<li class="infor-zodiac">属相</li>
+						<li class="infor-zodiac-content">{$nurse.zodiac}</li>
+						<li class="infor-marriage">婚姻</li>
+						<li class="infor-marriage-content">{$nurse.marriage}</li>
+						<li class="infor-star">星座</li>
+						<li class="infor-star-content">{$nurse.constellation}</li>
+						<li class="infor-birth">生育</li>
+						<li class="infor-birth-content">{$nurse.birth}</li>
+						<li class="yuding trigger2">立即预订</li>
+					</ul>
+				</div>
+
+				<div class="modal_1 block">
+					<form action="__MODULE__/addDestine" method="post" id="addDestine" enctype="multipart/form-data">
+						<a href="javascript:void(0)" class="close_" style="float: right;">X</a><br />
+						<input type="hidden" name="nurse_id" value="{$nurse.id}"/>
+						<div class="songs f-cb">
+							<ul>
+								<li>姓名：</li>
+								<li><input type="text" name="name" placeholder="例如：李先生，王女士" /></li>
+								<li>电话：</li>
+								<li><input type="text" name="phone" placeholder="请输入您的电话号码" /></li>
+								<li>预产期：</li>
+								<li><input type="date" name="due_date"/></li>
+								<li>宝宝数：</li>
+								<li>
+									<input type="radio" name="baby_num" value="单胎"/>&nbsp;&nbsp;单胎
+									<input type="radio" name="baby_num" value="双胎"/>&nbsp;&nbsp;双胎
+									<input type="radio" name="baby_num" value="多胎"/>&nbsp;&nbsp;多胎
+								</li>
+							</ul>
+						</div>
+						<span class="submit" id="sub_mit">提交</span>
+						<span class="cancel close_">取消</span>
+					</form>
+				</div>
+
+
+				<div class="search ayi-sousuo">
+					<form action="__ROOT__/ayimulu" method="post" id="form">
+						<input type="text" name="name" id="name" class="search-text" placeholder="请输入阿姨姓名" />
+						<img src="__PUBLIC__/img/iconfont-sousuo.png" width="20px" height="20px"   id="search" style="cursor: pointer;"/>
+					</form>
+				</div>
+
+				<div class="advertisement-first">
+
+				</div>
+
+				<div class="talent-map">
+					<div class="talent-map-content">
+						<canvas id="canvas" height="450" width="450"></canvas>
+					</div>
+
+					<div class="talent-grade">
+						<ul class="talent-grade-type">
+							<li>月子餐：</li>
+							<li>病理知识：</li>
+							<li>护理经验：</li>
+							<li>通乳技术：</li>
+							<li>沟通技能：</li>
+							<li>产后恢复：</li>
+							<li>科学喂养：</li>
+						</ul>
+						<ul class="talent-grade-type-grade">
+							<li>{$nurse.skill1}</li>
+							<li>{$nurse.skill2}</li>
+							<li>{$nurse.skill3}</li>
+							<li>{$nurse.skill4}</li>
+							<li>{$nurse.skill5}</li>
+							<li>{$nurse.skill6}</li>
+							<li>{$nurse.skill7}</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="experience">
+					<span class="experience-title">行业经验</span>
+					<ul>
+						<volist name="experience" id="vo">
+							<li>{$vo}</li>
+						</volist>
+
+						<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+						<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+						<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+					</ul>
+				</div>
+
+				<div class="recommend">
+					<span class="recommend-title">推荐人员</span>
+
+					<volist name="nurse_list" id="vo">
+						<a href="__ROOT__/ayi/{$vo.id}.html">
+						<div class="recommend-content">
+							<ul>
+								<li class="recommend-content-img"><img src="__UPLOADS__/{$vo.title_img}"/></li>
+								<li class="recommend-content-name">姓名</li>
+								<li class="recommend-content-name-content">{$vo.name}</li>
+								<li class="recommend-content-height">身高</li>
+								<li class="recommend-content-height-content">{$vo.hight}cm</li>
+								<li class="recommend-content-age">年龄</li>
+								<li class="recommend-content-age-content">{$vo.age}岁</li>
+								<li class="recommend-content-weight">体重</li>
+								<li class="recommend-content-weight-content">{$vo.weight}kg</li>
+								<li class="recommend-content-address">籍贯</li>
+								<li class="recommend-content-address-content">{$vo.native_place}</li>
+								<li class="recommend-content-level">等级</li>
+								<li class="recommend-content-level-content">{$vo.level}</li>
+							</ul>
+						</div>
+						</a>
+					</volist>
+					<!--<div class="recommend-content">-->
+						<!--<ul>-->
+							<!--<li class="recommend-content-img"><img src="__PUBLIC__/img/new-img1.png"/></li>-->
+							<!--<li class="recommend-content-name">姓名</li>-->
+							<!--<li class="recommend-content-name-content">大兄弟</li>-->
+							<!--<li class="recommend-content-height">身高</li>-->
+							<!--<li class="recommend-content-height-content">185cm</li>-->
+							<!--<li class="recommend-content-age">年龄</li>-->
+							<!--<li class="recommend-content-age-content">23岁</li>-->
+							<!--<li class="recommend-content-weight">体重</li>-->
+							<!--<li class="recommend-content-weight-content">55kg</li>-->
+							<!--<li class="recommend-content-address">籍贯</li>-->
+							<!--<li class="recommend-content-address-content">四川成都</li>-->
+							<!--<li class="recommend-content-level">等级</li>-->
+							<!--<li class="recommend-content-level-content">高级</li>-->
+						<!--</ul>-->
+					<!--</div>-->
+					<!---->
+					<!--<div class="recommend-content">-->
+						<!--<ul>-->
+							<!--<li class="recommend-content-img"><img src="__PUBLIC__/img/new-img1.png"/></li>-->
+							<!--<li class="recommend-content-name">姓名</li>-->
+							<!--<li class="recommend-content-name-content">大兄弟</li>-->
+							<!--<li class="recommend-content-height">身高</li>-->
+							<!--<li class="recommend-content-height-content">185cm</li>-->
+							<!--<li class="recommend-content-age">年龄</li>-->
+							<!--<li class="recommend-content-age-content">23岁</li>-->
+							<!--<li class="recommend-content-weight">体重</li>-->
+							<!--<li class="recommend-content-weight-content">55kg</li>-->
+							<!--<li class="recommend-content-address">籍贯</li>-->
+							<!--<li class="recommend-content-address-content">四川成都</li>-->
+							<!--<li class="recommend-content-level">等级</li>-->
+							<!--<li class="recommend-content-level-content">高级</li>-->
+						<!--</ul>-->
+					<!--</div>-->
+
+
+				</div>
+
+				<div class="character">
+					<span class="character-title">性格评价</span>
+					<ul>
+						<volist name="character" id="vo">
+							<li>{$vo}</li>
+						</volist>
+						<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+						<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+						<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+						<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+					</ul>
+				</div>
+
+				<div class="teacher">
+					<span class="teacher-title">导师评价</span>
+					<span class="teacher-tuijian">导师推荐</span>
+					<video src="__UPLOADS__/{$nurse.recommend_video}" controls="controls"  id="video">
+
+					</video>
+					<span class="teacher-tuijian">导师评价</span>
+					<span class="teacher-tuijian-content">{$nurse.specialty}</span>
+				</div>
+
+				<div class="demonstration">
+					<span class="teacher-title">实操演示</span>
+
+					<volist name="video" id="vo" empty='暂无'>
+						<span class="teacher-tuijian">{$vo.word}</span>
+						<video src="__UPLOADS__/{$vo.video}" id="video{$i}" controls="controls" >
+
+						</video>
+
+					</volist>
+				</div>
+
+			</div>
+
+			<include file="Index/footer"/>
+		</div>
+	</body>
+	<script src="__PUBLIC__/js/jquery-1.7.1.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.longyuJs.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/Chart.js" ></script>
+	<script type="text/javascript" src="__PUBLIC__/js/call_modal.js" ></script>
+	<script type="text/javascript" src="__PUBLIC__/js/modal.js" ></script>
+	<script>
+			var skill1= <?php echo $nurse['skill1'];?>;
+			var skill2= <?php echo $nurse['skill2'];?>;
+			var skill3= <?php echo $nurse['skill3'];?>;
+			var skill4= <?php echo $nurse['skill4'];?>;
+			var skill5= <?php echo $nurse['skill5'];?>;
+			var skill6= <?php echo $nurse['skill6'];?>;
+			var skill7= <?php echo $nurse['skill7'];?>;
+			 window.onload = function() {
+				 var ctx = document.getElementById("canvas").getContext("2d");
+				 ctx.fillRect(10, 10, 20, 20);
+			 };
+			var radarChartData = {
+				labels: ["月子餐", "病理知识", "护理经验", "通乳技术", "沟通技能", "产后恢复", "科学喂养"],
+				datasets: [
+					{
+						label: "My First dataset",
+						fillColor: "rgba(71,200,162,0.2)",
+						strokeColor: "rgba(220,220,220,1)",
+						pointColor: "rgba(220,220,220,1)",
+						pointStrokeColor: "#fff",
+						pointHighlightFill: "#fff",
+						pointHighlightStroke: "rgba(220,220,220,1)",
+						data: [skill1,skill2,skill3,skill4,skill5,skill6,skill7]
+					}
+				]
+			};
+
+			window.onload = function(){
+				window.myRadar = new Chart(document.getElementById("canvas").getContext("2d")).Radar(radarChartData, {
+					responsive: true
+				});
+			}
+			$("#search").live('click',function(){
+				$("#form").submit();
+			});
+
+			$('#name').bind('keypress',function(event){
+				if(event.keyCode == "13")
+				{
+					$("#form").submit();
+				}
+			});
+
+	</script>
+
+
+	<!--轮播图效果-->
+	<script src="__PUBLIC__/js/osSlider.js"></script>
+	<script src="__PUBLIC__/js/jquery.kxbdMarquee.js"></script>
+	<script type="text/javascript">
+
+		var slider = new osSlider({ //开始创建效果
+			pNode:'.slider', //容器的选择器 必填
+			cNode:'.slider-main li', //轮播体的选择器 必填
+			speed:4000, //速度 默认3000 可不填写
+			autoPlay:true //是否自动播放 默认true 可不填写
+		});
+		$("#sub_mit").live('click',function(){
+			$("#addDestine").submit();
+		});
+
+	</script>
+
+</html>

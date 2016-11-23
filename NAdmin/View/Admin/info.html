@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>田螺后台</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="__PUBLIC__/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="__PUBLIC__/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="__PUBLIC__/admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div id="wrapper" >
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <include file="Nav/header" />
+        <!-- /.navbar-top-links -->
+
+        <!--左边导航-->
+        <include file="Nav/index" />
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">个人信息</h3>
+            </div>
+            <!-- /.col-lg-12 -->
+
+            <div class="col-lg-8">
+
+
+                <div class="form-group">
+                    <label>用户名：</label>
+                    {$user_info.username}({$user_info.per})
+                </div>
+                <div class="form-group">
+                    <label>上次登录时间：</label>
+                    {$user_info.log_time}
+                    <?php if($_SESSION[C('N_ADMIN_AUTH_KEY')]['id']==$user_info['id']){?>
+                    -----不是本人登录？<a href="__MODULE__/Admin/changepass"><button type="submit" class="btn btn-default">前去修改密码</button></a>
+                    <?php }?>
+                </div>
+                <?php if($user_info['permission']!=1){?>
+                    <div class="form-group">
+                        <label>拥有权限：</label>
+                        <?php if($_SESSION[C('N_ADMIN_AUTH_KEY')]['permission']==1){?>
+                        <form action="__MODULE__/Admin/changeper" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="employee_id" value="<?php echo $user_info['id'];?>"/>
+                        <label style="color: #CC0000"><input name="add_per" id="add_per" type="checkbox" value="1" <?php if($permission['add_per']==1){echo 'checked';}?>/>添加权限</label>
+                        <label style="color: #CC0000"><input name="edit_per" id="edit_per" type="checkbox" value="1" <?php if($permission['edit_per']==1){echo 'checked';}?>/>编辑权限</label>
+                        <label style="color: #CC0000"><input name="del_per" id="del_per" type="checkbox" value="1" <?php if($permission['del_per']==1){echo 'checked';}?>/>删除权限 </label>
+
+
+                        <div class="form-group">
+                            <label>栏目管理：</label>
+                            <!--<label style="color: #CC0000"><input name="nurse" id="nurse" type="checkbox" value="1" <?php if($permission['nurse']==1){echo 'checked';}?>/>阿姨管理</label>-->
+                            <label style="color: #CC0000"><input name="banner" id="banner" type="checkbox" value="1" <?php if($permission['banner']==1){echo 'checked';}?>/>banner </label>
+                            <label style="color: #CC0000"><input name="friend_ship" id="friend_ship" type="checkbox" value="1" <?php if($permission['friend_ship']==1){echo 'checked';}?>/>友链 </label>
+                            <label style="color: #CC0000"><input name="news" id="news" type="checkbox" value="1" <?php if($permission['news']==1){echo 'checked';}?>/>新闻管理 </label>
+                            <!--<label style="color: #CC0000"><input name="job" id="job" type="checkbox" value="1" <?php if($permission['job']==1){echo 'checked';}?>/>招聘管理 </label>-->
+                            <!--<label style="color: #CC0000"><input name="destine" id="destine" type="checkbox" value="1" <?php if($permission['destine']==1){echo 'checked';}?>/>预约管理 </label>-->
+                            <!--<label style="color: #CC0000"><input name="trainee" id="trainee" type="checkbox" value="1" <?php if($permission['trainee']==1){echo 'checked';}?>/>招生管理 </label>-->
+                            <!--<label style="color: #CC0000"><input name="training" id="training" type="checkbox" value="1" <?php if($permission['training']==1){echo 'checked';}?>/>培训管理 </label>-->
+                            <!--<label style="color: #CC0000"><input name="order" id="order" type="checkbox" value="1" <?php if($permission['order']==1){echo 'checked';}?>/>订单管理 </label>-->
+                            <label style="color: #CC0000"><input name="video" id="video" type="checkbox" value="1" <?php if($permission['video']==1){echo 'checked';}?>/>视频管理 </label>
+                            <label style="color: #CC0000"><input name="pay" id="pay" type="checkbox" value="1" <?php if($permission['pay']==1){echo 'checked';}?>/>支付管理 </label>
+
+                        </div>
+
+                        <button type="submit" id="set_per" class="btn btn-default">确认修改权限</button>
+                            </form>
+
+                        <?php }else{?>
+                            <!--<?php if($permission['nurse']==1){echo '阿姨管理';}?>-->
+                            <?php if($permission['banner']==1){echo 'banner';}?>
+                            <?php if($permission['friend_ship']==1){echo '友链';}?>
+                            <?php if($permission['news']==1){echo '新闻管理';}?>
+                            <!--<?php if($permission['job']==1){echo '招聘管理';}?>-->
+                            <!--<?php if($permission['destine']==1){echo '预约管理';}?>-->
+                            <!--<?php if($permission['trainee']==1){echo '招生管理';}?>-->
+                            <!--<?php if($permission['training']==1){echo '培训管理';}?>-->
+                            <!--<?php if($permission['order']==1){echo '订单管理';}?>-->
+                            <?php if($permission['video']==1){echo '视频管理';}?>
+                            <?php if($permission['pay']==1){echo '支付管理';}?>
+
+                            <?php if($permission['add_per']==1){echo '添加权限';}?>
+                            <?php if($permission['edit_per']==1){echo '编辑权限';}?>
+                            <?php if($permission['del_per']==1){echo '删除权限';}?>
+                        <?php }?>
+                    </div>
+
+
+
+                <?php }?>
+
+
+
+
+                <!--<div class="form-group">-->
+                   <!--<span style="color: #0000ff;font-size: 16px; margin-left: 5px;margin-right: 5px;">暂无任何权限！</span>-->
+                <!--</div>-->
+
+                <form action="__MODULE__/Admin/info" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label>昵称：</label>
+                        <input type="hidden" name="id" id="id" value="{$user_info.id}"/>
+                        <input class="form-control"  name="real_name" id="real_name" value="{$user_info.real_name}"  style="width: 150px;"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>电话号码：</label>
+                        <input class="form-control"  name="phone" value="{$user_info.phone}"  style="width: 150px;"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>性别：</label>
+                        <label><input name="sex" type="radio" value="0" <?php if($user_info['sex']==0){echo 'checked';}?>/>保密</label>
+                        <label><input name="sex" type="radio" value="1" <?php if($user_info['sex']==1){echo 'checked';}?>/>男 </label>
+                        <label><input name="sex" type="radio" value="2" <?php if($user_info['sex']==2){echo 'checked';}?>/>女 </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>生日：</label>
+                        <input class="form-control"  name="birthday" value="{$user_info.birthday}"  style="width: 150px;"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>个人说明：</label>
+                        <input class="form-control"  name="remark" value="{$user_info.remark}" />
+                    </div>
+                    <button type="submit" class="btn btn-default">保存个人信息</button>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+    </nav>
+
+
+
+</div>
+
+<!-- jQuery -->
+<script src="__PUBLIC__/admin/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="__PUBLIC__/admin/dist/js/sb-admin-2.js"></script>
+
+
+
+</body>
+
+</html>

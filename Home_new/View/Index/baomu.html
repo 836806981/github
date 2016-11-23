@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>田螺阿姨官方网站</title>
+		<link rel="stylesheet" href="__PUBLIC__/css/new/usually.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/new/index.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/new/yuesao.css" />
+		<include file="Index/header1"/>
+	</head>
+
+	<body style="overflow-x: hidden;background-color: #FFFFFF;">
+		<!-- 头部LOGO背景-->
+
+		<include file="Index/header"/>
+
+		<div class="yuesaofuwu f-cb">
+
+			<ul class="fuwu-ul">
+				<a href="__ROOT__/zhaopin/">
+					<li class="fuwu-img1">
+						<p>找工作</p>
+						<span>
+							更好的待遇<br />
+							更专业的培训<br />
+							更人性化的管理<br />
+					        职业资格证<br />
+						</span>
+					</li>
+				</a>
+				<a href="http://www.tianluoayi.com/kst">
+					<li class="fuwu-img2">
+						<p>找阿姨</p>
+						<span>
+							更贴心的服务<br />
+							更专业的护理<br />
+							更安全的保障<br />
+							24小时不打烊<br />
+						</span>
+					</li>
+				</a>
+				<a href="__ROOT__/zhaopin/">
+					<li class="fuwu-img3">
+						<p>学月嫂</p>
+						<span>
+							更有前景的工作<br />
+							专业的家政机构<br />
+							专业的培训学校<br />
+							专业的培训老师<br />
+						</span>
+					</li>
+				</a>
+			</ul>
+
+		</div>
+
+		<div class="fuwu-content">
+			<div class="fuwu-content-img">
+				<img src="__PUBLIC__/img/baomu/baomu_03.png" />
+			</div>
+		</div>
+
+		<div class="fuwu-dengji-bg">
+			<div class="fuwu-dengji">
+				<img class="dengji-biaoti" style="margin-top: 100px;" src="__PUBLIC__/img/yuesao/yuesao_20.png" width="40%" /><br />
+
+				<img src="__PUBLIC__/img/baomu/baomu_12.png" />
+				<img src="__PUBLIC__/img/baomu/baomu_14.png" />
+				<img src="__PUBLIC__/img/baomu/baomu_07.png" />
+				<img src="__PUBLIC__/img/baomu/baomu_09.png" />
+			</div>
+		</div>
+
+		<div class="fuwu-youshi f-cb">
+
+			<img class="youshi-biaoti" src="__PUBLIC__/img/yuesao/yuesao_07.png" width="40%" />
+
+			<ul class="youshi-ul">
+				<li><img src="__PUBLIC__/img/yuesao/yuesao_11.png" /></li>
+				<li><img src="__PUBLIC__/img/yuesao/yuesao_12.png" /></li>
+				<li><img src="__PUBLIC__/img/yuesao/yuesao_13.png" /></li>
+				<li><img src="__PUBLIC__/img/yuesao/yuesao_15.png" /></li>
+			</ul>
+		</div>
+
+		<div class="tuijianwenzhang">
+			<img class="tuijianwenzhang-biaoti" src="__PUBLIC__/img/yuesao/yuesao_28.png" width="40%" />
+
+			<volist name="news_recommend" id="vo">
+			<div class="tuijian-bg">
+				<img class="toutu" src="__UPLOADS__/{$vo.title_img}" />
+
+				<a class="wenzhang-biaoti" href="__ROOT__/baomu/article/{$vo.id}.html">{$vo.title}</a>
+
+				<p class="wenzhang-guanjianci">
+					关键词：<volist name="vo.keyword" id="rs" offset="0" length='4'>
+					<!--<a href="__ROOT__/news/key/{$rs}.html"> {$rs}</a>-->
+					{$rs}
+				</volist>
+
+					&emsp;&emsp;发布日期：{$vo.add_time}</p>
+
+				<span class="wenzhang-jianjie">
+			 	   	  {$vo.description}
+			 	   </span>
+			</div>
+			</volist>
+
+
+
+			<!--<div class="tuijian-bg">-->
+				<!--<img class="toutu" src="" />-->
+
+				<!--<a class="wenzhang-biaoti">哈哈哈哈哈哈哈哈哈</a>-->
+
+				<!--<p class="wenzhang-guanjianci">关键词：黄金客 月嫂 哈哈 哈&emsp;&emsp;发布日期：2012-05-30</p>-->
+
+				<!--<span class="wenzhang-jianjie">-->
+			 	   	   <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
+			 	   <!--</span>-->
+			<!--</div>-->
+
+			<!--<div class="tuijian-bg">-->
+				<!--<img class="toutu" src="" />-->
+
+				<!--<a class="wenzhang-biaoti">哈哈哈哈哈哈哈哈哈</a>-->
+
+				<!--<p class="wenzhang-guanjianci">关键词：黄金客 月嫂 哈哈 哈&emsp;&emsp;发布日期：2012-05-30</p>-->
+
+				<!--<span class="wenzhang-jianjie">-->
+			 	   	   <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
+			 	   <!--</span>-->
+			<!--</div>-->
+
+			<!--<div class="tuijian-bg">-->
+				<!--<img class="toutu" src="" />-->
+
+				<!--<a class="wenzhang-biaoti">哈哈哈哈哈哈哈哈哈</a>-->
+
+				<!--<p class="wenzhang-guanjianci">关键词：黄金客 月嫂 哈哈 哈&emsp;&emsp;发布日期：2012-05-30</p>-->
+
+				<!--<span class="wenzhang-jianjie">-->
+			 	   	   <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
+			 	   <!--</span>-->
+			<!--</div>-->
+
+		</div>
+
+		<include file="Index/footer" />
+	</body>
+
+</html>

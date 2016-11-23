@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>田螺后台</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="__PUBLIC__/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="__PUBLIC__/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="__PUBLIC__/admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+
+<body>
+
+
+<div id="wrapper" >
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <include file="Nav/header" />
+        <!-- /.navbar-top-links -->
+
+        <!--左边导航-->
+        <include file="Nav/index" />
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">查看留言</h3>
+            </div>
+            <!-- /.col-lg-12 -->
+
+            <div class="col-lg-8">
+
+                    <div class="form-group">
+                        <label>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</label>
+                        {$message.name}
+                    </div>
+                    <div class="form-group">
+                        <label style="float: left;">应聘岗位：</label>
+                        {$message.job}
+                    </div>
+
+                    <div class="form-group">
+                        <label style="float: left;">年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：</label>
+                        {$message.age}
+                    </div>
+
+                    <div class="form-group">
+                        <label style="float: left;">工作经验：</label>
+                        {$message.experience}
+                    </div>
+
+                    <div class="form-group">
+                        <label style="float: left;">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：</label>
+                        {$message.phone}
+                    </div>
+
+                    <div class="form-group">
+                        <label style="float: left;">有无证书：</label>
+                        {$message.certificate}
+                    </div>
+
+                    <div class="form-group">
+                        <label style="float: left;">留言时间：</label>
+                        {$message.add_time}
+                    </div>
+
+                    <div class="form-group">
+                        <label style="float: left;">是否处理：</label>
+                        <?php if($message['status']==1){echo '<span style="color: #00b7ee;">已处理</span>';}else{echo '<span style="color: red;;">未处理</span>';}?>
+
+                        <?php  if($message['status']==1){?>
+                        <a href="__MODULE__/Message/setStatus/id/<?php echo $message['id'];?>/st/0"><button type="submit" class="btn btn-default" >设为未处理</button></a>
+                        <?php }else{?>
+                        <a href="__MODULE__/Message/setStatus/id/<?php echo $message['id'];?>/st/1"><button type="submit"  class="btn btn-default" >设为已处理</button></a>
+                        <?php }?>
+
+
+                    </div>
+
+                <?php  if($message['status']==1){?>
+                    <div class="form-group">
+                        <label style="float: left;">处理时间：</label>
+                        <?php echo $message['last_modified'];   ?>
+                    </div>
+                <?php }?>
+
+                <form action="__MODULE__/Message/remark" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input class="form-control" type="hidden"  name="id" value="{$message.id}"  />
+                        <label style="float: left;">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：</label>
+                        <input class="form-control"  name="remark" id="remark" value="{$message.remark}"  />
+                    </div>
+
+                    <button type="submit" id="submit" class="btn btn-default">确认修改</button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+    </nav>
+
+
+
+</div>
+
+
+
+<!-- jQuery -->
+<script src="__PUBLIC__/admin/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+
+<script src="__PUBLIC__/admin/js/jquery-1.7.1.min.js"></script>
+
+<script src="__PUBLIC__/admin/js/jquery.longyuJs.js"></script>
+
+<script>
+    var MODULE='__MODULE__';
+
+
+    $("#belong").live('change',function(){
+        if($("#belong").val()!=1){
+
+            $("#tuijian").hide();
+        }else{
+            $("#tuijian").show();
+        }
+    })
+
+
+
+
+    $("#belong").live('change',function(){
+        var belong = $("#belong").val();
+        $.AjaxPost(MODULE+"/News/change_order", {belong:belong}, function (backdata) {
+            if (backdata.code == 1000) {
+                var data = backdata.data;
+               $("#order").val(data);
+            }
+        }, true);
+
+    })
+
+</script>
+
+
+
+</body>
+
+</html>

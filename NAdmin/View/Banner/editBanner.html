@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>田螺后台</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="__PUBLIC__/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="__PUBLIC__/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="__PUBLIC__/admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+
+<body>
+
+
+<div id="wrapper" >
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <include file="Nav/header" />
+        <!-- /.navbar-top-links -->
+
+        <!--左边导航-->
+        <include file="Nav/index" />
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">添加Banner</h3>
+            </div>
+            <!-- /.col-lg-12 -->
+
+            <div class="col-lg-8">
+
+                <form action="__MODULE__/Banner/edit_banner" method="post" id="form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>名字：</label>
+                        <input class="form-control"  name="name" id="name" value="{$banner.name}"  />
+                        <input type="hidden" name="id" id="id" value="{$banner.id}"  />
+                    </div>
+
+                    <div class="form-group">
+                        <label>图片：</label>
+                        <img src="__UPLOADS__/{$banner.src}" alt="" style="max-height: 250px;"/>
+                        <input class="form-control"  type="file" name="src" id="src" value=""  />
+                        <input type="hidden" name="src_old" id="src_old" value="{$banner.src}"  />
+                    </div>
+
+                    <div class="form-group">
+                        <label style="float: left;">排序：</label>
+                        <input class="form-control"  name="sort" id="order" value="{$banner.sort}"  style="width: 50px;height:26px; float: left;"/> <span style="font-size: 10px;margin-left: 10px; color: #CCCCCC;">默认最新，无特殊要求不需要更改。</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>所属栏目：</label>
+                        <select name="belong"  id="belong">
+                            <option value="1" <if condition="$banner.belong eq 1">selected</if>>月嫂</option>
+                            <option value="2" <if condition="$banner.belong eq 2">selected</if>>关于我们</option>
+                            <option value="3" <if condition="$banner.belong eq 3">selected</if>>联系我们</option>
+                            <option value="21" <if condition="$banner.belong eq 21">selected</if>>新闻动态</option>
+                            <option value="22" <if condition="$banner.belong eq 22">selected</if>>公司公告</option>
+                            <option value="11" <if condition="$banner.belong eq 11">selected</if>>首页</option>
+                            <!--<option value="4" <if condition="$banner.belong eq 4">selected</if>>4</option>-->
+                            <!--<option value="5" <if condition="$banner.belong eq 5">selected</if>>5</option>-->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>连接：</label>
+                        <input class="form-control"  name="url" id="url" value="{$banner.url}"  />
+                    </div>
+
+                    <div class="form-group">
+                        <label>状态：</label>
+                        <input type="radio" name="status" value="1" <if condition="$banner.status eq 1">checked</if>/>显示
+                        <input type="radio" name="status" value="2" <if condition="$banner.status eq 2">checked</if>/>不显示
+                    </div>
+                    <!--<span id="erro" style="color: #CC0000;font-size: 12px;display: none;">用户名已存在！</span>-->
+                    <br/>
+                    <span id="submit" class="btn btn-default">确认修改</span>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+    </nav>
+
+
+
+</div>
+
+
+
+<!-- jQuery -->
+<script src="__PUBLIC__/admin/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+
+<script src="__PUBLIC__/admin/js/jquery-1.7.1.min.js"></script>
+
+<script src="__PUBLIC__/admin/js/jquery.longyuJs.js"></script>
+
+<script>
+    var MODULE='__MODULE__';
+
+    $("#submit").live('click',function(){
+
+        $("#form").submit();
+    });
+
+
+</script>
+
+
+
+</body>
+
+</html>

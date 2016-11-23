@@ -1,0 +1,228 @@
+<include file="Nav/header"/>
+
+		<div class="list_right">
+			<div class="search">
+
+				<?php if($_GET['type']<10){ if($_GET['type']!=5&&$_GET['type']!=8){?>
+
+				&emsp;兼职:
+				<select id="jianzhi">
+					<option value="0">否</option>
+					<option value="1">是</option>
+				</select>
+				<?php }else{?>
+					&emsp;联系人:
+					<select id="employee_name" name="employee_name">
+						<option value="0">全部</option>
+						<option value="黄显钧">黄显钧</option>
+						<option value="顾利荣">顾利荣</option>
+						<option value="臧夕">臧夕</option>
+						<option value="王凤芹">王凤芹</option>
+						<option value="刘庆">刘庆</option>
+						<option>赵婷婷</option>
+						<option>刘清华</option>
+						<option>陈颖</option>
+						<option>李燕平</option>
+					</select>
+				<?php }?>
+				&emsp;年龄:
+				<input type="text" placeholder="最低年龄" class="search_input" id="age1"/> ~
+				<input type="text" placeholder="最高年龄" class="search_input" id="age2"/>
+				&emsp;价格:
+				<input type="text" placeholder="最低价格" class="search_input" id="l_price"/> ~
+				<input type="text" placeholder="最高价格" class="search_input" id="h_price"/>
+				&emsp;属相:
+				<select style="width:65px;" id="zodiac">
+					<option value="0">全部</option>
+					<option>鼠</option>
+					<option>牛</option>
+					<option>虎</option>
+					<option>兔</option>
+					<option>龙</option>
+					<option>蛇</option>
+					<option>马</option>
+					<option>羊</option>
+					<option>猴</option>
+					<option>鸡</option>
+					<option>狗</option>
+					<option>猪</option>
+				</select>
+
+				&emsp;空档期:
+				<input type="text" placeholder="开始时间" class="search_input" id="b_time"/> ~
+				<input type="text" placeholder="结束时间" class="search_input" id="s_time"/>
+				&emsp;上传日期:
+				<input type="text" placeholder="开始时间" class="search_input" id="add_time_b"/> ~
+				<input type="text" placeholder="结束时间" class="search_input" id="add_time_s"/>
+				<input type="button" value="查询" class="search-button"  id="search"/>
+			<?php }?>
+
+				<span style="display: inline-block; width: 200px;">
+					<input type="text" placeholder="输入阿姨姓名搜索" style="width: 120px;" id="name"/><input type="button" value="搜索" class="search-button"  id="find"/>
+				</span>
+			</div>
+
+			<div class="table">
+				<table class="hovertable" id="nurse_list">
+					<tr>
+						<?php if(in_array($_GET['type'],[1,2,3,4])){?>
+							<th>姓名</th>
+							<th>年龄</th>
+							<th>价格</th>
+							<th>添加时间</th>
+							<th>上单时间</th>
+							<th>导师评价</th>
+							<th>属相</th>
+							<th>操作</th>
+						<?php } elseif($_GET['type']==5){?>
+							<!--<th style="width: 250px;">编号</th>-->
+							<th>姓名</th>
+							<th style="width: 60px;">头像</th>
+							<th>添加时间</th>
+							<th>上单时间</th>
+							<th>联系人</th>
+							<th>联系时间</th>
+							<th>联系详情</th>
+							<th>操作</th>
+						<?php } elseif($_GET['type']==8){?>
+						<!--<th style="width: 250px;">编号</th>-->
+						<th>姓名</th>
+						<th style="width: 60px;">头像</th>
+						<th>添加时间</th>
+						<th>上单时间</th>
+						<th>生日</th>
+						<?php } elseif($_GET['type']==10){?>
+							<th style="width: 250px;">编号</th>
+							<th style="width: 60px;">头像</th>
+							<th>姓名</th>
+							<th>年龄</th>
+							<th>价格</th>
+							<th>从业时间</th>
+							<th>属相</th>
+							<th>黑名单原因</th>
+							<th>加入时间</th>
+							<th>操作</th>
+						<?php } elseif($_GET['type']==20){?>
+							<th style="width: 250px;">编号</th>
+							<th style="width: 60px;">头像</th>
+							<th>姓名</th>
+							<th>年龄</th>
+							<th>价格</th>
+							<th>从业时间</th>
+							<th>属相</th>
+							<th>删除理由</th>
+							<th>删除时间</th>
+							<th>操作</th>
+						<?php } elseif($_GET['type']==30){?>
+						<th>姓名</th>
+						<th>年龄</th>
+						<th>电话</th>
+						<th>身份证</th>
+						<th>输出时间</th>
+						<th>操作</th>
+						<?php }?>
+					</tr>
+					<!--<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">-->
+						<!--<td>1</td>-->
+						<!--<td><img src="__UPLOADS__/nurse/57_HY2/head/5667f043bcf8c.jpg" title="点击看大图" style="width: 60px;height: 26px;" id="dd"/></td>-->
+						<!--<td>23</td>-->
+					    <!--<td>5000~5600</td>-->
+						<!--<td>牛</td>-->
+					<!--</tr>-->
+				</table>
+			</div>
+
+			<div class="page" id="pagenum" style="margin:25px auto;width: 80%; text-align: center;">
+
+
+			</div>
+
+
+
+		</div>
+
+
+<img src="" id="divID">
+
+<div id="useBox">
+
+</div>
+
+<include file="Nav/footer"/>
+<script>
+	var type=<?php echo $_GET['type']?$_GET['type']:1;?>;
+	var type_arr=[1,2,3,4,5,8,10,20,30];//从培训系统报到阿姨
+	if(jQuery.inArray(type,type_arr)==-1){
+		alert('地址异常');
+		window.location.href=""+MODULE+"/Ayi/list/type/1";
+	}
+
+
+	$(".table").css('max-height',$(window).height()-250);
+
+
+	$("#showUse").live('click',function(){
+		var str_use = $(this).next('div').html();
+		$("#useBox").html(str_use);
+
+		if($("#useBox").css('display')=='block'){
+			$("#useBox").css('display','none');
+		}else{
+			var e_ = window.event || e; // 兼容IE，FF事件源
+			var x = e_.clientX,y = e_.clientY; // 获取鼠标位置
+
+			$("#useBox").css('left',(x-10)+'px');
+			$("#useBox").css('top',(y-15)+'px');
+			$("#useBox").css('display','block');
+		}
+	});
+	$("#useBox").live('click',function(){
+		$("#useBox").css('display','none');
+	});
+
+	$("#useBox").live('mouseon',function(){
+		$("#useBox").css('display','block');
+	});
+	$("#useBox").live('mouseout',function(){
+		$("#useBox").css('display','none');
+	});
+
+
+
+	$("#dd").live('click',function(){
+		var src = $(this).attr('src');
+		$("#divID").attr('src',src);
+
+		if($("#divID").css('display')=='block'){
+			$("#divID").css('display','none');
+		}else{
+			var e_ = window.event || e; // 兼容IE，FF事件源
+			var x = e_.clientX,y = e_.clientY; // 获取鼠标位置
+
+			$("#divID").css('left',(x-90)+'px');
+//			if((y-100)>$("#divID").height()){
+//				y = y-$("#divID").height();
+//			}
+			$("#divID").css('top',(y-90)+'px');
+			$("#divID").css('display','block');
+		}
+	});
+	$("#divID").live('click',function(){
+		$("#divID").css('display','none');
+	});
+
+	$("#divID").live('mouseon',function(){
+		$("#divID").css('display','block');
+	});
+	$("#divID").live('mouseout',function(){
+		$("#divID").css('display','none');
+	});
+
+
+
+</script>
+
+	<script src="__PUBLIC__/js/nurse.js"></script>
+	<script src="__PUBLIC__/js/common.js"></script>
+
+</html>

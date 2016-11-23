@@ -1,0 +1,160 @@
+.page_1 {
+	position: relative;
+}
+
+.page_1 a {
+	display: block;
+	position: absolute;
+	top: 66.61%;
+}
+
+.page_1 a.liaojie {
+	left: 7.6%;
+}
+
+.page_1 a.zixun {
+	left: 28%;
+}
+
+.page_2 {
+	background: url(../img/vs.jpg) no-repeat 50% 70%;
+}
+
+.page_2 p.p1 {
+	text-align: center;
+	line-height: 1.5em;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #333;
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
+
+.m_1 {
+	width: 50%;
+	text-align: center;
+	float: left;
+}
+
+.p_org,.p_blk {
+	color: #f29156;
+	line-height: 2.4em;
+	font-weight: bold;
+	margin-top: 24px;
+	font-size: 1.2em;
+}
+
+.p_blk {
+	color: #333333;
+}
+
+.p_2 {
+	color: #666;
+	line-height: 1.8em;
+	font-size: 0.8em;
+}
+
+.m_1 img{
+	width: 70%;
+	height: auto;
+}
+
+.page_3{
+	background: url(../img/ys/ys_3.png) no-repeat;
+	margin-top: 40px;
+	position: relative;
+}
+
+.page_3 p{
+	color: #dc8383;
+	font-size: 0.8em;
+	text-align: center;
+	font-weight: 800;
+	position: absolute;
+	top: 9.08%;
+	width: 100%;
+}
+.page_3 p:last-child{
+	top: 54.89%;
+}
+.page_4{
+	background: url(../img/bz.png) center 5% no-repeat;
+	background-color: #f1ebe5;
+	position: relative;
+	margin-bottom: 30px;
+	padding-bottom: 40px;
+}
+.page_4 ul{
+	top: 38.92%;
+	position: absolute;
+}
+.page_4 ul li,.page_5 ul li,.page_6 ul li{
+	float: left;
+}
+.page_4 ul li p{
+	font-size: 0.2em;
+	line-height: 1.6em;
+	text-align: center;
+	margin-top: 10px;
+}
+.page_5 ul li p,.page_6 ul li p{
+	font-size: 0.5em;
+	line-height: 1.6em;
+	text-align: center;
+	margin-top: 10px;
+}
+.page5_title,.page5_title2{
+	padding: 10px 20px;
+	background: #f6c484;
+	margin: 40px auto 30px;
+	font-size: 0.4em;
+	width: 50%;
+	text-align: center;
+	color: #FFFFFF;
+	border-radius: 6px;
+}
+.page5_title2{
+	width: 75%;
+}
+.page5_img{
+	background: url(../img/yes/yes_5.png) no-repeat;
+	margin-bottom: 60px;
+}
+.page_6{
+	background: url(../img/sl.png) center 5% no-repeat;
+	padding-top: 80px;
+	background-color: #f1ebe5;
+	background-size: 65% auto;
+}
+.page_6 ul{
+	padding-bottom: 40px;
+}
+.page_8{
+	height: auto;
+	padding: 40px 0 0;
+	background: #a7d8e4;
+}
+.page_8_div_s{
+	padding-bottom: 40px;
+}
+.page_8_div{
+	position: relative;
+}
+.page_8_div a{
+	display: block;
+	width:100%;
+	height:100%;
+}
+.page_8_div a img{
+	width:100%;
+	height:100%;
+}
+.ipt{
+	background: none;
+	border: none;
+	font-size: 1em;
+	color: #FFFFFF;
+	position: absolute;
+	left: 30.53%;
+	top: 28.70%;
+}

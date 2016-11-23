@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>田螺后台</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="__PUBLIC__/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="__PUBLIC__/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="__PUBLIC__/admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+
+</head>
+
+
+
+<body>
+
+
+<div id="wrapper"  style="margin-bottom: 150px;">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <include file="Nav/header" />
+        <!-- /.navbar-top-links -->
+
+        <!--左边导航-->
+        <include file="Nav/index" />
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <div id="page-wrapper" style="margin-bottom: 150px;">
+        <div class="row" >
+            <div class="col-lg-12">
+                <h3 class="page-header">添加月嫂</h3>
+            </div>
+            <!-- /.col-lg-12 -->
+            <div class="col-lg-8">
+                <form action="__MODULE__/Confinement/editInfo" method="post" id="form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <span style="float: left;">姓名：</span>
+                    <input type="hidden" name="id" value="{$nurse.id}"/>
+                    <input   name="name" id="name" value="{$nurse.name}"   style="width: 15%;height: 20px; float: left" placeholder="填文字，如张三" />
+                    <span style="float: left;margin-left: 5%;">级别：</span>
+                    <select  name="level"  id="level" style="float: left;width:  15%;">
+                        <option value="1" <?php if($nurse['level']==1){echo selected;};?>>初级</option>
+                        <option value="2" <?php if($nurse['level']==2){echo selected;};?>>中级</option>
+                        <option value="3" <?php if($nurse['level']==3){echo selected;};?>>高级</option>
+                        <option value="4" <?php if($nurse['level']==4){echo selected;};?>>星级</option>
+                        <option value="4" <?php if($nurse['level']==5){echo selected;};?>>金牌</option>
+                    </select>
+                    <span style="float: left;margin-left:  5%;">学历：</span>
+                    <select  name="educational"  id="educational" style="float: left;width:  15%;">
+                        <option value="1" <?php if($nurse['educational']==1){echo selected;};?>>小学</option>
+                        <option value="2" <?php if($nurse['educational']==2){echo selected;};?>>初中</option>
+                        <option value="3" <?php if($nurse['educational']==3){echo selected;};?>>高中</option>
+                        <option value="4" <?php if($nurse['educational']==4){echo selected;};?>>大学</option>
+                    </select>
+                </div>
+                <br/><br/>
+
+                <div class="form-group" style="margin-top: 8px;">
+                    <span style="float: left;">生日：</span>
+                    <input   type="date" name="age" id="age" value="{$nurse.age}"   style="width:  15%;height: 20px; float: left" placeholder="填数字,如33"/>
+
+                    <span style="float: left;margin-left:  5%;">属相：</span>
+                    <select  name="zodiac"  id="zodiac" style="float: left;width:  15%;">
+                        <option value="鼠" <?php if($nurse['zodiac']=='鼠'){echo selected;};?>>鼠</option>
+                        <option value="牛" <?php if($nurse['zodiac']=='牛'){echo selected;};?>>牛</option>
+                        <option value="虎" <?php if($nurse['zodiac']=='虎'){echo selected;};?>>虎</option>
+                        <option value="兔" <?php if($nurse['zodiac']=='兔'){echo selected;};?>>兔</option>
+                        <option value="龙" <?php if($nurse['zodiac']=='龙'){echo selected;};?>>龙</option>
+                        <option value="蛇" <?php if($nurse['zodiac']=='蛇'){echo selected;};?>>蛇</option>
+                        <option value="马" <?php if($nurse['zodiac']=='马'){echo selected;};?>>马</option>
+                        <option value="羊" <?php if($nurse['zodiac']=='羊'){echo selected;};?>>羊</option>
+                        <option value="猴" <?php if($nurse['zodiac']=='猴'){echo selected;};?>>猴</option>
+                        <option value="鸡" <?php if($nurse['zodiac']=='鸡'){echo selected;};?>>鸡</option>
+                        <option value="狗" <?php if($nurse['zodiac']=='狗'){echo selected;};?>>狗</option>
+                        <option value="猪" <?php if($nurse['zodiac']=='猪'){echo selected;};?>>猪</option>
+                    </select>
+
+                    <span style="float: left;margin-left:  5%;">星座：</span>
+                    <select  name="constellation"  id="constellation" style="float: left;width:  15%;">
+                        <option value="水瓶座" <?php if($nurse['constellation']=='水瓶座'){echo selected;};?>>水瓶座(1.20-2.18)</option>
+                        <option value="双鱼座" <?php if($nurse['constellation']=='双鱼座'){echo selected;};?>>双鱼座(2.19-3.20)</option>
+                        <option value="白羊座" <?php if($nurse['constellation']=='白羊座'){echo selected;};?>>白羊座(3.21-4.19)</option>
+                        <option value="金牛座" <?php if($nurse['constellation']=='金牛座'){echo selected;};?>>金牛座(4.20-5.20)</option>
+                        <option value="双子座" <?php if($nurse['constellation']=='双子座'){echo selected;};?>>双子座(5.21-6.21)</option>
+                        <option value="巨蟹座" <?php if($nurse['constellation']=='巨蟹座'){echo selected;};?>>巨蟹座(6.22-7.22)</option>
+                        <option value="狮子座" <?php if($nurse['constellation']=='狮子座'){echo selected;};?>>狮子座(7.23-8.22)</option>
+                        <option value="处女座" <?php if($nurse['constellation']=='处女座'){echo selected;};?>>处女座(8.23-9.22)</option>
+                        <option value="天秤座" <?php if($nurse['constellation']=='天秤座'){echo selected;};?>>天秤座(9.23-10.23)</option>
+                        <option value="天蝎座" <?php if($nurse['constellation']=='天蝎座'){echo selected;};?>>天蝎座(10.24-11.22)</option>
+                        <option value="射手座" <?php if($nurse['constellation']=='射手座'){echo selected;};?>>射手座(11.23-12.21)</option>
+                        <option value="摩羯座" <?php if($nurse['constellation']=='摩羯座'){echo selected;};?>>摩羯座(12.22-1.19)</option>
+                    </select>
+
+                </div>
+                    <br/><br/>
+                    <div class="form-group" >
+                        <span style="float: left;">籍贯：</span>
+                        <input   name="native_place" id="native_place" value="{$nurse.native_place}"   style="width:  15%;height: 20px; float: left" placeholder="填文字,如四川"/>
+
+                        <span style="float: left;margin-left:  5%;">身高：</span>
+                        <input   name="hight" id="hight" value="{$nurse.hight}"   style="width:  15%;height: 20px; float: left" placeholder="填数字,如165"/>
+
+                        <span style="float: left;margin-left:  5%;">体重：</span>
+                        <input   name="weight" id="weight" value="{$nurse.weight}"   style="width:  15%;height: 20px; float: left" placeholder="填数字,如59"/>
+
+                    </div>
+                    <br/><br/>
+
+                <div class="form-group" style="margin-top: -9px;">
+
+                    <span style="float: left;">婚姻：</span>
+                    <select  name="marriage"  id="marriage" style="float: left;width:  15%;">
+                        <option value="未婚" <?php if($nurse['marriage']=='未婚'){echo selected;};?>>未婚</option>
+                        <option value="已婚" <?php if($nurse['marriage']=='已婚'){echo selected;};?>>已婚</option>
+                        <option value="离异" <?php if($nurse['marriage']=='离异'){echo selected;};?>>离异</option>
+                    </select>
+                    <span style="float: left;margin-left:  5%;">生育：</span>
+                    <select  name="birth"  id="birth" style="float: left;width:  15%;">
+                        <option value="未育" <?php if($nurse['birth']=='未育'){echo selected;};?>>未育</option>
+                        <option value="已育" <?php if($nurse['birth']=='已育'){echo selected;};?>>已育</option>
+                        <option value="多育" <?php if($nurse['birth']=='多育'){echo selected;};?>>多育</option>
+                    </select>
+                </div>
+                    <br/><br/>
+
+                 <div class="form-group" style="margin-top: -9px;">
+                        <span style="float: left;">带宝宝数量：</span>
+                        <input   name="baby_num" id="baby_num" value="{$nurse.baby_num}"   style="width: 11%;height: 20px; float: left" placeholder="填数字,如3"/>
+                </div>
+                    <br/><br/>
+
+                    <div class="form-group" style="margin-top: -9px;">
+                        <label style="float: left;">排序：</label>
+                        <input class="form-control"  name="sort" id="order" value="{$nurse.sort}"  style="width: 50px;height:26px; float: left;"/> <span style="font-size: 10px;margin-left: 10px; color: #CCCCCC;">默认最新，无特殊要求不需要更改。</span>
+
+                    </div>
+                    <br/><br/>
+
+                <div class="form-group" style="margin-top: -9px;">
+                    <span style="float: left;">技能等级：</span>
+                    <input type="text" nam="skill1" id="skill1"  style="width: 60px;margin-right: 10px;" value="{$nurse.skill1}"/>
+                    <input type="text" nam="skill2" id="skill2"  style="width: 60px;margin-right: 10px;" value="{$nurse.skill2}"/>
+                    <input type="text" nam="skill3" id="skill3"  style="width: 60px;margin-right: 10px;" value="{$nurse.skill3}"/>
+                    <input type="text" nam="skill4" id="skill4"  style="width: 60px;margin-right: 10px;" value="{$nurse.skill4}"/>
+                    <input type="text" nam="skill5" id="skill5"  style="width: 60px;margin-right: 10px;" value="{$nurse.skill5}"/>
+                    <input type="text" nam="skill6" id="skill6"  style="width: 60px;margin-right: 10px;" value="{$nurse.skill6}"/>
+                    <input type="text" nam="skill7" id="skill7"  style="width: 60px;margin-right: 10px;" value="{$nurse.skill7}"/>
+
+                    <!--<select  name="skill6"  id="skill6" style="float: left;width:  5%;margin-left: 2%;">-->
+                        <!--<option value="1" <?php if($nurse['skill6']==1){echo selected;};?>>1</option>-->
+                        <!--<option value="2" <?php if($nurse['skill6']==2){echo selected;};?>>2</option>-->
+                        <!--<option value="3" <?php if($nurse['skill6']==3){echo selected;};?>>3</option>-->
+                    <!--</select>-->
+                </div>
+                    <br/><br/>
+                    <div class="form-group">
+                        <span style="float: left;">头像：</span>
+                        <img src="__UPLOADS__/{$nurse.title_img}" alt=""  style="max-width: 150px;"/>
+                        <input type="file" name="title_img" id="title_img"/>
+                        <input type="hidden" name="title_img_old"  value="{$nurse.title_img}"/>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <span>推荐：</span>
+                        <!--<input type="test" readonly value="------" style="width: 100px;height: 20px;" id="fuzhi1"/>-->
+                        <!--<input type="button" id="dianji1" value="复制" />-->
+                        <textarea name="specialty" id="specialty" style="width: 80%;height: 150px; margin-top: 5px;"  class="form-control" >{$nurse.specialty}</textarea>
+
+                    </div>
+
+                    <div class="form-group">
+                        <span>经验：</span> <input type="test" readonly value="------" style="width: 100px;height: 20px;" id="fuzhi2"/>
+                        <input type="button" id="dianji2" value="复制" />
+                        <textarea name="experience" id="experience" style="width: 80%;height: 150px;margin-top: 5px;"  class="form-control" >{$nurse.experience}</textarea>
+
+                    </div>
+
+                    <div class="form-group">
+                        <span>性格：</span> <input type="test" readonly value="------" style="width: 100px;height: 20px;" id="fuzhi3"/>
+                        <input type="button" id="dianji3" value="复制" />
+                        <textarea name="character" id="character" style="width: 80%;height: 150px;margin-top: 5px;"  class="form-control" >{$nurse.character}</textarea>
+
+                    </div>
+
+
+                    <span  id="submit" class="btn btn-default">确认修改</span>
+
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+
+
+</div>
+
+<!-- jQuery -->
+<script src="__PUBLIC__/admin/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+
+<script src="__PUBLIC__/admin/js/jquery-1.7.1.min.js"></script>
+
+<script src="__PUBLIC__/admin/js/jquery.longyuJs.js"></script>
+
+
+<script src="__PUBLIC__/ajaxfileupload.js"></script>
+
+<script>
+    var MODULE='__MODULE__';
+    $("#submit").live('click',function(){
+         if($("#name").val()==''||$("#name").val().length>5){
+            alert('请填写姓名，不超过五个字');
+            return false;
+        }else  if($("#age").val()==''||$("#age").val()>99||$("#age").val()<18){
+            alert('请填写正确年龄，18-99');
+            return false;
+        }else  if($("#native_place").val()==''){
+            alert('请填写籍贯');
+            return false;
+        }else  if($("#hight").val()==''||$("#hight").val()>200||$("#hight").val()<80){
+            alert('请填写正确身高，80-200');
+            return false;
+        }else  if($("#weight").val()==''||$("#weight").val()<30||$("#weight").val()>150){
+            alert('请填写正确体重，30-150');
+            return false;
+        }else  if($("#baby_num").val()==''){
+            alert('请填写带宝宝数量，没有请填0');
+            return false;
+        }else  if($("#skill1").val()<0||$("#skill1").val()>100||$("#skill2").val()>100||$("#skill2").val()<0||$("#skill3").val()>100||$("#skill3").val()<0||$("#skill4").val()>100||$("#skill4").val()<0||$("#skill5").val()>100||$("#skill5").val()<0||$("#skill6").val()>100||$("#skill6").val()<0||$("#skill7").val()>100||$("#skill7").val()<0){
+             alert('技能等级请填写0-100;');
+             return false;
+         }
+
+
+        $("#form").submit();
+    })
+
+    $("#dianji1").live('click',function(){
+        var d = document.getElementById("fuzhi1");
+        d.select();
+        document.execCommand("Copy");
+    })
+    $("#dianji2").live('click',function(){
+        var d = document.getElementById("fuzhi2");
+        d.select();
+        document.execCommand("Copy");
+    })
+    $("#dianji3").live('click',function(){
+        var d = document.getElementById("fuzhi3");
+        d.select();
+        document.execCommand("Copy");
+    })
+
+
+
+
+//
+//    $("#img").live("change",function(){
+    //        $.ajaxFileUpload({
+    //            url:MODULE+'/Confinement/editNews_p',            //需要链接到服务器地址,参数为img,图片文件
+    //            type: 'post',
+    //            secureuri:false,
+    //            fileElementId:'img',                        //文件选择框的id属性
+    //            dataType: 'JSON',                                     //服务器返回的格式，可以是json
+    //            success: function (data, status)            //data返回图片的地址和id
+    //            {
+    //                var imgurl=data//;.substring(0,data.length-1);
+    //                var numstr=num==1?'<span class="shoutu_tip">商品首图</span>':"";
+    //                var str='<div class="bi_imgsBox fl mr20 position_re bi_imgsbox_div">'+numstr+'<input type="hidden" name="imgid" value="'+imgurl+'" /><img class="bi_img" src="'+imgurl+'" alt=""/><span class="icon_b icon_del"></span></div>';
+    //                if(num==10){
+    //                    $("#img").parent(".bi_imgsBox").hide();
+    //                }
+    //                num++;
+    //                $("#img_div").append(str);
+    //            }
+    //        });
+    //    });
+</script>
+
+
+
+</body>
+
+</html>

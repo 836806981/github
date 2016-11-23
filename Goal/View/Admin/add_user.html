@@ -1,0 +1,134 @@
+<include file="Nav/header" />
+
+		<div class="add" style="min-height: 600px;">
+			<form action="__MODULE__/Admin/add_User" method="post" id="form" onsubmit="javascript:return window.confirm('确定添加么？')"  enctype="multipart/form-data">
+		   	 <h1 style="font-size: 45px;font-weight: normal;">添加新学员</h1>
+		   	 <div class="kuang">
+
+				 <input type="hidden"  name="trainee_id" value="{$trainee_info.id}"/>
+				 上  级：  <select style="min-width:200px;height: 28px; display: inline-block;vertical-align: middle;" id="pid" name="pid">
+				 		<if condition="$have_pid eq 1">
+				 			<option value="0">无</option>
+					 	</if>
+
+				 			{$users}
+			 			</select>
+
+				 <br />
+				 <br />
+				 电话： <input type="text" class="text" style="width: 20%;" name="phone" id="phone" value="" placeholder="用来登录的用户名"/>
+				 <br />
+				 <br />
+
+				 姓名： <input type="text" class="text" style="width: 20%;" name="name" id="name" value="" placeholder="名字"/>
+				 <br />
+				 <br />
+
+				 邮箱： <input type="text" class="text" style="width: 20%;" name="email" id="email" value="" placeholder="用来接收邮件"/>
+				 <br />
+				 <br />
+				 职位： <input type="text" class="text" style="width: 20%;" name="job" id="job" value="" placeholder="手动输入"/>
+				 <br />
+				 <br />
+
+
+				<span class="save-button"  style="width:20%;margin-top: 20px;margin-left: 3%;" id="submit" >保&nbsp;存</span>
+		   	 </div>
+			</form>
+		</div>
+
+
+
+
+<include file="Nav/footer" />
+
+
+<script>
+	var MODULE='__MODULE__';
+
+	$("#submit").live('click',function(){
+
+		$("#form").submit();
+	})
+
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

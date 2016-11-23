@@ -1,0 +1,85 @@
+
+<include file="Nav/header"/>
+
+
+
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+
+		<!--加入黑名单弹出框-->
+
+		<div style="width:80%;padding-bottom: 150px;padding-top: 90px;padding-left: 15%;color: #333F50;font-family: 'microsoft yahei';font-size: 18px;margin-left: 5%;" >
+		   	 <h1 style="font-size: 45px;font-weight: normal;margin: 30px 0 20px 5%;">分配订单</h1>
+
+			<include file="Nav/info_header"/>
+
+
+			<br/>
+
+			<div class="ayi-information" style="height: auto;display: inline-block; position: relative;">
+				<ul class="infor-ul f-cb">
+					<li class="infor-address" style="width: 80px;height: 30px;">学员名字</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.name}</li>
+
+
+					<li class="infor-address" style="width: 80px;height: 30px;">是否分配</li>
+					<li class="infor-address-content" style="width: 220px;height: 30px;color: #47C8A2">{$info.sales_name}</li>
+
+					<li class="infor-address" style="width: 80px;height: 30px;">联系方式</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.contact_way}:{$info.contact_number}</li>
+
+					<li class="infor-address" style="width: 80px;height: 30px;">订单类型</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">
+						<if condition="$info.type eq 1">
+							月嫂/月子导师
+							<elseif condition="$info.type eq 2"/>
+							育儿嫂
+							<elseif condition="$info.type eq 3"/>
+							保姆
+							<elseif condition="$info.type eq 4"/>
+							钟点工
+						</if>
+					</li>
+
+				</ul>
+			</div>
+			<br/>
+			<br/>
+			<div class="ayi-information" style="height: auto;display: inline-block; position: relative;">
+				<form action="__MODULE__/Order/distribution_to" method="post" id="form" onsubmit="javascript:return window.confirm('确定要分配么？')"  enctype="multipart/form-data">
+					<ul class="infor-ul f-cb">
+						<li class="infor-address" style="width: 120px;height: 30px;">重新分配给</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">
+							<select name="sales_id"  id="sales_id" style="height: 28px;width: 220px;">
+								<volist name="permission3" id="vo">
+									<option value="{$vo.id}">{$vo.real_name}</option>
+								</volist>
+							</select>
+						</li>
+						<input type="hidden" name="id" value="{$info.id}"/>
+						<li class="infor-address-content" style="width: 80px;height: 30px;font-size: 15px;"><input type="button" name="" id="submit_form" value="确认分配" style="height: 25px; "/></li>
+					</ul>
+				</form>
+			</div>
+			<i style="clear: both;"></i>
+
+		</div>
+
+<include file="Nav/footer"/>
+
+
+<script>
+	var date=/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+
+	$('#submit_form').live('click',function() {
+		if($("#sales_id").val()==''||$("#sales_id").val()==0||$("#sales_id").val()==null){
+			alert('未选择销售顾问，无法分配！');
+			return false;
+		}
+		$("#form").submit();
+	});
+
+</script>
+
+
+</html>
+

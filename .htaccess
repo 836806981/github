@@ -1,0 +1,96 @@
+<IfModule mod_rewrite.c>
+  Options +FollowSymlinks
+  RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)([`~!@#\$\^&\*\(\)_\+<>:\"{},;'])$  index.php/Index/404.html [QSA,PT,L]
+
+RewriteCond %{HTTP_HOST} ^tianluoayi.com
+RewriteRule ^(.*)$ http://www.tianluoayi.com/$1 [R=permanent,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^m/yuesao/([A-Za-z]+)(.html){0,1}$  m.php/Index/yuesao/type/$1 [QSA,PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^m/yuesao/([A-Za-z]+)/([0-9]+)(.html){0,1}$  m.php/Index/newsCnt/id/$2 [QSA,PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^m/newsEvents/([0-9]+)(.html){0,1}$  m.php/Index/newsEventCnt/id/$1 [QSA,PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^m/notice/([0-9]+)(.html){0,1}$  m.php/Index/newsEventCnt/id/$1 [QSA,PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^m/keywords/(.*)$  m.php/Index/yuesao/type/yzc/key/$1 [QSA,PT,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^m/(.*)$  m.php/Index/$1 [QSA,PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^xitong[/]{0,1}$  order.php/Admin/xitong [QSA,PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^yhq/([0-9]+)(.html){0,1}$  index.php/Index/yhq/id/$1 [QSA,PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ayi/([0-9]+)(.html){0,1}$  index.php/Index/ayi/id/$1 [QSA,PT,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([A-Za-z]+)/article/([0-9]+)(.html){0,1}$  index.php/Index/$1/type/article/id/$2 [QSA,PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^yuesao/([A-Za-z]+)(.html){0,1}$  index.php/Index/yuesao/type/$1 [QSA,PT,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^newsEvents/([0-9]+)(.html){0,1}$  index.php/Index/newsEventCnt/id/$1 [QSA,PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^notice/([0-9]+)(.html){0,1}$  index.php/Index/newsEventCnt/id/$1 [QSA,PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^yuesao/([A-Za-z]+)/([0-9]+)(.html){0,1}$  index.php/Index/newsCnt/id/$2 [QSA,PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^keywords/(.*)$  index.php/Index/yuesao/type/yzc/key/$1 [QSA,PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$  index.php/Index/$1 [QSA,PT,L]
+
+
+
+  Deny from 182.148.27.228
+  Deny from 112.193.147.179
+  Deny from 180.97.221.109
+  Deny from 115.236.185.10
+  Deny from 112.66.16.65
+  Deny from 171.212.222.173
+  Deny from 182.149.193.239
+  Deny from 125.77.25.231
+  Deny from 180.97.79.143
+  Deny from 182.149.207.131
+  Deny from 111.206.36.0/24
+  Deny from 182.149.206.95
+  Deny from 182.148.27.239
+
+
+</IfModule>

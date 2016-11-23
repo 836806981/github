@@ -1,0 +1,170 @@
+<include file="Nav/header" />
+
+		<div class="add" style="min-height: 600px;">
+			<form action="__MODULE__/Goal/add_goal_data" method="post" id="form" onsubmit="javascript:return window.confirm('确定添加么？')"  enctype="multipart/form-data">
+		   	 <h1 style="font-size: 30px;font-weight: normal;">{$to_user}添加目标</h1>
+		   	 <div class="kuang">
+
+				 <input type="hidden"  name="user_id" value="{$id}"/>
+				 目标名称： <input type="text" class="text" style="width: 20%;" name="name" id="name" value=""/>
+				 <br />
+				 <br />
+
+				 目标描述：  <textarea name="data" id="data" rows="5" style="vertical-align: text-top;width:20%;"></textarea>
+				 <br />
+				 <br />
+
+				 开始时间： <input type="text" class="text" style="width: 20%;" name="b_time" id="b_time" value=""/>
+				 <br />
+				 <br />
+
+				 目标耗时： <input type="text" class="text" style="width: 20%;" name="day_number" id="day_number" value=""/>
+				 <br />
+				 <br />
+
+				 附件格式：<input type="checkbox" name="file_type_1" value="图片,"/>图片
+				 <input type="checkbox" name="file_type_2" value="WORD,"/>WORD
+				 <input type="checkbox" name="file_type_3" value="EXCEL,"/>EXCEL
+				 <input type="checkbox" name="file_type_4" value="PPT,"/>PPT
+				 <input type="checkbox" name="file_type_5" value="PDF,"/>PDF <br/>
+
+				 &emsp;&emsp;&emsp;&emsp;&emsp;
+
+				 <input type="checkbox" name="file_type_6" value="VISIO,"/>VISIO
+				 <input type="checkbox" name="file_type_7" value="MindManager,"/>MindManager
+				 <input type="checkbox" name="file_type_8" value="其他,"/>其他
+				 <br />
+				 <br />
+
+				 附件数量：
+				 <select name="file_number" id="file_number" style="width: 20%;">
+					 <option>1</option>
+					 <option>2</option>
+					 <option>3</option>
+					 <option>4</option>
+					 <option>5</option>
+					 <option>6</option>
+					 <option>7</option>
+					 <option>8</option>
+					 <option>9</option>
+					 <option>10</option>
+				 </select>
+				 <br />
+				 <br />
+
+
+				<span class="save-button"  style="width:20%;margin-top: 20px;margin-left: 3%;" id="submit" >保&nbsp;存</span>
+		   	 </div>
+			</form>
+		</div>
+
+
+
+
+<include file="Nav/footer" />
+
+
+<script>
+	var MODULE='__MODULE__';
+
+	var reg=/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+	var reg_number = /^[1-9]+[0-9]*$/;
+	$("#submit").live('click',function(){
+		if($('#name').val()==''){
+			alert("请填写目标名称！");
+			return false;
+		}else if($("#data").val()==''){
+			alert("请填写目标描述！");
+			return false;
+		}else if(!reg.test($("#b_time").val())){
+			alert("请填写正确开始日期!");
+			return false;
+		}else if(!reg_number.test($("#day_number").val())){
+			alert("请填写正确耗时!");
+			return false;
+		}
+
+		$("#form").submit();
+	})
+
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

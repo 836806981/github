@@ -1,0 +1,65 @@
+<include file="Nav/header"/>
+
+<div class="right">
+	<table border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td><img src="__PUBLIC__/img/yonghu.png" /></td>
+		</tr>
+		<tr>
+			<td style="text-align:left;width: 100px;height: 100px;">用户名：</td>
+			<td>{$user_info.username}</td>
+		</tr>
+		<tr>
+			<td style="text-align:left;width: 200px;height: 50px;">上次登录时间：</td>
+			<td> {$user_info.log_time} -----不是本人登录？</td>
+			<td><a href="{:U('Admin/changepass')}"><input type="button" value="前去修改密码" /></a>
+			</td>
+		</tr>
+
+		<form action="__MODULE__/Admin/info" method="post" id="form" enctype="multipart/form-data" >
+			<tr>
+				<td>昵称：</td>
+			</tr>
+			<tr>
+				<td><input class="name" name="real_name" value="{$user_info.real_name}"></td>
+				<input type="hidden" name="id" value="<?php echo $_SESSION[C('AYI_AUTH_KEY')]['id'];?>"/>
+			</tr>
+			<tr>
+				<td height="60px">电话号码：</td>
+			</tr>
+			<tr>
+				<td><input class="tel" name="phone" value="{$user_info.phone}"></td>
+			</tr>
+			<tr>
+				<td height="60px">生日：</td>
+			</tr>
+			<tr>
+				<td><input class="tel" name="birthday" value="{$user_info.birthday}"></td>
+			</tr>
+			<tr>
+				<td height="60px">个人说明：</td>
+			</tr>
+			<tr>
+				<td><input class="tel" style="width: 300%;" name="remark" value="{$user_info.remark}"></td>
+			</tr>
+
+			<tr>
+				<td height="60px"></td>
+			</tr>
+
+			<tr>
+				<td class="save" id="submit">保存个人信息</td>
+			</tr>
+		</form>
+	</table>
+</div>
+<include file="Nav/footer"/>
+
+<script>
+	$("#submit").live('click',function(){
+		$("#form").submit();
+	});
+
+</script>
+
+</html>

@@ -1,0 +1,39 @@
+.top{
+    height: 783px;
+    width: 100%;
+    background: #e3e4df;
+    position: relative;
+    background:url(../images/c_baner.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.map {
+    width: 1032px;
+    height: 402px;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.contact-info-box {
+    font-size: 20px;
+    padding: 35px 0px;
+}
+
+.info-one {
+    padding-top: 25px;
+    width: 600px;
+    margin: auto;
+    text-align: left;
+}
+
+.info-name {
+    display: inline-block;
+    width: 60px;
+}
+.wb{
+   color: #55c7a5;
+    text-decoration: underline;
+}
+
+

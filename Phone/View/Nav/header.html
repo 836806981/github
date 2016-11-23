@@ -1,0 +1,81 @@
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.1.min.js" ></script>
+<link rel="stylesheet" href="__PUBLIC__/css/meanmenu.min.css" media="all" />
+<script src="__PUBLIC__/js/jquery.meanmenu.min.js"></script>
+<script>
+    var MODULE  = '__MODULE__';
+    var UPLOADS  = '__UPLOADS__';
+    var ROOT  = '__ROOT__';
+    jQuery(document).ready(function () {
+        jQuery('.navMenu').meanmenu();
+    });
+
+    var ACTION_NAME='<?php echo ACTION_NAME;?>';
+    switch (ACTION_NAME){
+        case 'yuesao':
+            var m_html = 'yuesao';
+            break;
+        case 'index':
+            var m_html = '';
+            break;
+        case 'yuersao':
+            var m_html = 'yuersao';
+            break;
+        case 'baomu':
+            var m_html = 'baomu';
+            break;
+        case 'zhaopin':
+            var m_html = 'zhaopin';
+            break;
+        default :
+            var m_html = '';
+            break;
+    }
+    try{
+        var urlhash = window.location.hash;
+        if (!urlhash.match("fromapp"))
+        {
+            if ((!navigator.userAgent.match(/(iPhone|Android|ios)/i)))
+            {
+                window.location="http://www.tianluoayi.com/"+m_html+"";
+            }
+        }
+    }
+    catch(err)
+    {
+    }
+
+</script>
+<header style="height: 44px;">
+    <nav class="navMenu">
+        <ul>
+            <li><a href="__ROOT__/m/">首页</a></li>
+            <li><a href="__ROOT__/m/yuesao.html">月嫂</a>
+                <ul class="sec_nav" style="display: none;">
+                    <li><a href="__ROOT__/m/yuesao/yzc.html">月子餐</a></li>
+                    <li><a href="__ROOT__/m/yuesao/tr.html">通乳</a></li>
+                    <li><a href="__ROOT__/m/yuesao/wybj.html">宝宝喂养与保健</a></li>
+                    <li><a href="__ROOT__/m/yuesao/jkhf.html">妈妈健康与恢复</a></li>
+                    <li><a href="__ROOT__/m/yuesao/jqbyx.html">锦旗与表扬信</a></li>
+                    <li><a href="__ROOT__/m/yuesao/yxys.html">优秀月嫂</a></li>
+                    <li><a href="__ROOT__/m/tejiayuesao.html">特价月嫂</a></li>
+                </ul>
+            </li>
+            <li> <a href="__ROOT__/m/about.html">关于我们</a></li>
+            <li><a href="__ROOT__/m/contact.html">联系我们</a></li>
+            <li><a href="#">新闻公告</a>
+                <ul class="sec_nav" style="display: none;">
+                    <li><a href="__ROOT__/m/newsEvents.html">新闻动态</a></li>
+                    <li><a href="__ROOT__/m/notice.html">公司公告</a></li>
+                </ul>
+            </li>
+            <li><a href="#">合作中心</a>
+                <ul class="sec_nav" style="display: none;">
+                    <li><a href="__ROOT__/m/jiameng.html">免费加盟</a></li>
+                    <li><a href="__ROOT__/m/rencai.html">人才输送</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+

@@ -1,0 +1,61 @@
+<include file="Nav/header"/>
+
+<div class="right">
+	<table border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td><img src="__PUBLIC__/img/yonghu.png" /></td>
+		</tr>
+
+		<form action="__MODULE__/Admin/editUser" method="post" id="form" enctype="multipart/form-data" >
+			<tr>
+				<td>用户名：</td>
+			</tr>
+			<tr>
+				<td><input class="tel" name="username" value="{$info.username}">
+					<input type="hidden" name="id" value="{$info.id}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>昵称：</td>
+			</tr>
+			<tr>
+				<td><input class="tel" name="real_name" value="{$info.real_name}"></td>
+			</tr>
+			<tr>
+				<td>是否查看：</td>
+			</tr>
+			<tr>
+				<td>
+					<select class="tel" name="permission_have" >
+					<option value="1" title="有查看金额权限" <?php if($info['permission_have']==1){echo 'selected';}?> >有</option>
+					<option value="0" title="无查看金额权限" <?php if($info['permission_have']==0){echo 'selected';}?> >无</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td>电话：</td>
+			</tr>
+			<tr>
+				<td><input class="tel" name="phone" value="{$info.phone}"></td>
+			</tr>
+
+			<tr>
+				<td ></td>
+			</tr>
+
+			<tr>
+				<td class="save" id="submit">修改员工</td>
+			</tr>
+		</form>
+	</table>
+</div>
+<include file="Nav/footer"/>
+
+<script>
+	$("#submit").live('click',function(){
+		$("#form").submit();
+	});
+
+</script>
+
+</html>

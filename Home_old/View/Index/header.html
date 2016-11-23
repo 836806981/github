@@ -1,0 +1,103 @@
+<div class="header-bg">
+    <div style="width: 1200px;height: auto;margin: 0 auto;">
+        <div class="logo">
+            <a href="__ROOT__/"><img src="__PUBLIC__/img/logo.png" width="70%" /></a>
+        </div>
+        <div class="tel">
+            <img src="__PUBLIC__/img/tel.png" width="80%" />
+        </div>
+    </div>
+</div>
+
+<div class="banner" style="text-align: center;">
+    <img src="__PUBLIC__/img/index_02.png"/>
+</div>
+
+<nav class="nav">
+    <ul id="jMenu">
+        <li><a class="fNiv" href="__ROOT__/">首页</a></li>
+        <li><a class="fNiv" href="__ROOT__/yuesao/">月嫂服务</a>
+            <ul>
+                <li><a href="__ROOT__/yuesao">月嫂服务</a></li>
+                <li><a href="__ROOT__/yuesao/">月子导师</a></li>
+                <li><a href="__ROOT__/jiajiao/">母婴家教</a></li>
+            </ul>
+        </li>
+
+        <li><a class="fNiv" href="__ROOT__/yuersao/">育儿服务</a>
+        </li>
+
+        <li><a class="fNiv" href="__ROOT__/baomu/">保姆/钟点工</a></li>
+
+        <li><a class="fNiv" href="__ROOT__/jianjie/">关于我们</a>
+            <ul>
+                <li><a href="__ROOT__/news/">新闻资讯</a></li>
+                <!--<li><a href="__MODULE__/Index/">田螺到家</a></li>-->
+                <li><a href="__ROOT__/jianjie/">公司简介</a></li>
+            </ul>
+        </li>
+
+        <li><a class="fNiv" href="__ROOT__/zhaopin/">招聘信息</a>
+            <ul>
+                <li><a href="__ROOT__/zhaopin/">招聘月嫂学员</a></li>
+                <li><a href="__ROOT__/tongru/">招聘通乳学员</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+
+<div class="new-right">
+		<ul>
+			<li><a href="http://kefu6.kuaishang.cn/bs/im.htm?cas=44007___383073&fi=47302" target="_blank"><img src="__PUBLIC__/img/right-1.png" /></a></li>
+			<li><a href="http://wpa.qq.com/msgrd?V=3&uin=1520371983&Site=田螺阿姨&Menu=yes" target="_blank"><img src="__PUBLIC__/img/right-2.png" /></a></li>
+			<li>
+				<a style="position: relative;" href=""><img onmouseover="show1()" onmouseout="leave1()" class="new-dianhua" src="__PUBLIC__/img/right-3.png" /></a>
+				<div id="haha1" class="new-right-dianhua">
+						<img src="__PUBLIC__/img/right-8.png" title="400-808-6090" alt="联系电话：400-808-6090" />
+				</div>
+			</li>
+			<li><a href=""><img  onmouseover="show2()" onmouseout="leave2()" src="__PUBLIC__/img/right-4.png" /></a>
+				   <div id="haha2" class="new-right-erweima">
+							<img src="__PUBLIC__/img/erweima.jpg" title="微信二维码" alt="田螺阿姨月嫂/保姆家政公司机构官方微信二维码" />
+				    </div>
+			</li>
+			<li><a href="http://weibo.com/tianluoayi"><img src="__PUBLIC__/img/right-5.png" /></a></li>
+			<li><a href="#"><img src="__PUBLIC__/img/right-7.png" /></a></li>
+		</ul>
+</div>
+
+
+
+
+<script src="__PUBLIC__/js/jquery-1.7.1.min.js"></script>
+<!--<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>-->
+<!--<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>-->
+<script type="text/javascript" src="__PUBLIC__/js/jquery-ui.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jMenu.jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#jMenu").jMenu();
+    })
+    
+    function show1(){
+	    var haha= document.getElementById("haha1");       
+	    haha.style.display="block";  
+	}
+    
+    function leave1(){
+	    var haha= document.getElementById("haha1");       
+	    haha.style.display="none";  
+	}
+    
+    function show2(){
+	    var haha= document.getElementById("haha2");       
+	    haha.style.display="block";  
+	}
+    
+    function leave2(){
+	    var haha= document.getElementById("haha2");       
+	    haha.style.display="none";  
+	}
+    
+</script>

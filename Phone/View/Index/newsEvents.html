@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>新闻动态-【田螺阿姨】</title>
+		<meta name="Keywords" content="田螺阿姨新闻" >
+        <meta name="Description" content="田螺阿姨的最新新闻及公告信息" >
+			<link rel="stylesheet" href="__PUBLIC__/css/style.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/news.css" />
+
+		<script type="text/javascript" src="__PUBLIC__/layer_mobile/layer.js" ></script>
+
+	</head>
+	<body>
+	<include file="Nav/header"/>
+		<div class="banner">
+			<img src="__PUBLIC__/img/banner.jpg" alt="比朋友更靠谱的母婴专家" title="比朋友更靠谱的母婴专家" />
+		</div>
+		<input type="hidden" name="belong" id="belong" value="{$belong}"/>
+		<div class="page">
+			<ul class="classly f-cb">
+				<li <?php if(ACTION_NAME=='newsEvents'){?>class="active" <?php }?>><a href="__ROOT__/m/newsEvents.html">新闻动态</a></li>
+				<li <?php if(ACTION_NAME=='notice'){?>class="active" <?php }?>><a href="__ROOT__/m/notice.html">公司公告</a></li>
+			</ul>
+			<if condition="$belong eq 21">
+				<i id="go_news_top"></i>
+			<ul class="newslist">
+				<volist name="news_list" id="vo">
+				<li>
+					<a class="f-cb" href="__ROOT__/m/newsEvents/{$vo.id}.html">
+						<img src="__UPLOADS__/{$vo.title_img}" class="newsimg f-fl" />
+						<div class="newscnt f-fr">
+							<p class="p1">{$vo.title}</p>
+							<p class="p2">{$vo.add_time}</p>
+							<p class="p3">{$vo.description}</p>
+						</div>
+					</a>
+				</li>
+				</volist>
+
+				<!--<li>-->
+					<!--<a class="f-cb" href="#">-->
+						<!--<img src="__PUBLIC__/img/index/newsImg.jpg" class="newsimg f-fl" />-->
+						<!--<div class="newscnt f-fr">-->
+							<!--<p class="p1">田螺阿姨官网2.0正式上线啦</p>-->
+							<!--<p class="p2">2016-07-01</p>-->
+							<!--<p class="p3">田螺阿姨官网2.0正式上线了啦啦啦，好开心，哈哈哈啊哈啊哈哈哈开始懂了空间里疯狂的</p>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+			</ul>
+			</if>
+
+			<ul class="newslist newslist2">
+				<!--<li>-->
+					<!--<a class="f-cb" href="#">-->
+						<!--<div class="newscnt f-fr">-->
+							<!--<p class="p1">田螺阿姨官网2.0正式上线啦</p>-->
+							<!--<p class="p2">2016-07-01</p>-->
+							<!--<p class="p3">田螺阿姨官网2.0正式上线了啦啦啦，好开心，哈哈哈啊哈啊哈哈哈开始懂了空间里疯狂的</p>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+			</ul>
+			<!--分页-->
+			<div class="page" id="pagenum" style="clear: both;padding-top: 30px;">
+
+			</div>
+			<!--分页end-->
+		</div>
+
+	<script src="__PUBLIC__/js/jquery.longyuJs.js"></script>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script src="__PUBLIC__/js/news.js"></script>
+
+		<div class="footer">
+			<a href="wtai://wp//mc;4008086090"><img src="__PUBLIC__/img/tel.png" class="telnum" title="tel:400-808-6090" /></a>
+			<p>地址：成都高新区天府大道1700号环球中心E2-18楼</p>
+			<p>©2014-2015 成都亿家政网络科技有限公司 版权所有蜀ICP备15008974号-1</p>
+		</div>
+	<include file="Nav/footer"/>
+	</body>
+</html>

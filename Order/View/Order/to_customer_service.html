@@ -1,0 +1,442 @@
+
+<include file="Nav/header"/>
+
+
+
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+
+		<!--加入黑名单弹出框-->
+
+		<div style="width:80%;padding-bottom: 150px;padding-top: 90px;padding-left: 15%;color: #333F50;font-family: 'microsoft yahei';font-size: 18px;margin-left: 5%;" >
+		   	 <h1 style="font-size: 45px;font-weight: normal;margin: 30px 0 20px 5%;">转化售后</h1>
+
+			<include file="Nav/info_header"/>
+
+
+			<br/>
+			<form action="__MODULE__/Order/add_customer_service" method="post" id="form" onsubmit="javascript:return window.confirm('确定保存么？')"  enctype="multipart/form-data">
+				<input type="hidden" name="is_customer_service" id="is_customer_service" value="{$info.id}"/>
+			<div class="ayi-information" style="height: auto;display: inline-block; position: relative;">
+				<ul class="infor-ul f-cb">
+					<li class="infor-address" style="width: 80px;height: 30px;">客户名字</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.name}
+
+						<if condition="$info.is_customer_service gt 0">
+							<a href="__MODULE__/Order/info/id/{$info.is_customer_service}.html"><i  class="row_text" 	title="售后单,点击查看原订单情况！">售</i></a>
+						</if>
+						<a href="__MODULE__/Order/editOrder/id/{$info.id}.html" style="float: right;"><i  class="row_text" 	title="修改基本信息">修</i></a></li>
+
+					<li class="infor-address" style="width: 80px;height: 30px;">订单状态</li>
+					<li class="infor-address-content" style="width: 200px;height: 30px;color: #47C8A2">
+						<if condition="$info.status eq 0">
+							<a href="{:U('Order/oList',array('type'=>0))}"><i  class="row_text" 	title="未派单">未</i></a>
+							<elseif condition="$info.status eq 1"/>
+							<a href="{:U('Order/oList',array('type'=>1))}"><i  class="row_text" 	title="已派单">派</i></a>
+							<elseif condition="$info.status eq 2"/>
+							<a href="{:U('Order/oList',array('type'=>2))}"><i  class="row_text" 	title="已签单">签</i></a>
+							<elseif condition="$info.status eq 3"/>
+							<a href="{:U('Order/oList',array('type'=>3))}"><i  class="row_text" 	title="已上户">户</i></a>
+							<elseif condition="$info.status eq 4"/>
+							<a href="{:U('Order/oList',array('type'=>4))}"><i  class="row_text" 	title="已下户">下</i></a>
+							<elseif condition="$info.status eq 5"/>
+							<a href="{:U('Order/oList',array('type'=>5))}"><i  class="row_text" 	title="已结算">结</i></a>
+							<elseif condition="$info.status eq 10"/>
+							<a href="{:U('Order/oList',array('type'=>10))}"><i  class="row_text" 	title="已放弃">弃{$info.die_time}</i></a>
+						</if>
+					</li>
+
+
+					<li class="infor-address" style="width: 80px;height: 30px;">订单类型</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.type_name}</li>
+
+					<li class="infor-address" style="width: 80px;height: 30px;">销售顾问</li>
+					<li class="infor-address-content" style="width: 200px;height: 30px;color: #47C8A2">
+						<select name="sales_id" id="sales_id">
+							<volist name="permission3" id="vo">
+								<option value="{$vo.id}" <?php if($info['sales_id']==$vo['id']){echo 'selected';}?>>{$vo.real_name}</option>
+							</volist>
+						</select>
+					</li>
+
+					<li class="infor-address" style="width: 80px;height: 30px;">添加时间</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.add_time|date='Y-m-d H:i:s',###}</li>
+
+
+					<li class="infor-address" style="width: 80px;height: 30px;">添加人</li>
+					<li class="infor-address-content" style="width: 200px;height: 30px;color: #47C8A2">{$info.add_employee} </li>
+
+
+					<li class="infor-address" style="width: 80px;height: 30px;">渠道来源</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.source}</li>
+
+
+					<li class="infor-address" style="width: 80px;height: 30px;">价位要求</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.price_l}--{$info.price_h}</li>
+
+					<li class="infor-address" style="width: 80px;height: 30px;">联系方式</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.contact_way}:{$info.contact_number}</li>
+
+					<li class="infor-address" style="width: 80px;height: 30px;">联系地址</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.contact_address}</li>
+
+					<li class="infor-address" style="width: 120px;height: 30px;">售后截止日期</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 560px;height: 30px;color: #47C8A2">{$covenant.customer_service_time}</li>
+
+					<if condition="$covenant.can eq 1">
+						<li class="infor-address" style="width: 300px;height: 30px;">已超过售后日期</li>
+						<else/>
+						<li class="infor-address" style="width: 80px;height: 30px;">售后原因</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">
+							<input type="text" name="service_reason" style="width: 500px;"/></li>
+
+
+						<li class="infor-address" style="width: 80px;height: 30px;">客户要求</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">
+							<input type="text" name="service_ask" style="width: 500px;"/></li>
+
+					</if>
+
+					<if condition="$info.status eq 10">
+						<li class="infor-address" style="width: 80px;height: 30px;">放弃原因</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: auto;color: #47C8A2">{$info.die_reason}</li>
+					</if>
+				</ul>
+			</div>
+				<if condition="$covenant.can neq 1">
+					<div style="width:60%;min-width: 780px;">
+						<span id="addOrder"  class="btn btn-default" style="margin-left: 45px;float: right">确认生成新订单</span>
+
+					</div>
+				</if>
+			</form>
+
+
+			<br/>
+			<br/>
+			<div class="ayi-information" style="height: auto;display: inline-block; position: relative;">
+				<span style="font-size: 20px;color: #476849;margin-left: 330px;">阿姨匹配</span> <br/>
+				<ul class="infor-ul f-cb">
+						<li class="infor-address" style="width: 80px;height: 30px;">阿姨名字</li>
+						<li class="infor-address-content" id="li_nurse_re" style="vertical-align: middle;width: 600px;height: auto;color: #47C8A2">
+
+
+
+							<volist name="nurse_re" id="vo">
+								<!--<div class="nurse_re" style="border-radius: 2px;border: 1px solid red;">-->
+									<!--{$vo.name}-->
+								<!--</div>-->
+								<div class="nurse_re" style="border-radius: 2px;border: 1px solid #47c8a2; width: auto;display: inline-block;margin-top: 3px;margin-left: 10px;position: relative;">
+									<if condition="$info.status eq 1">
+										<i name="del" order_nurse_id="{$vo.id}" style="display:none;position: absolute;top: -8px;right: -8px; background: #47c8a2; border-radius: 7px;width: 14px;height: 14px;line-height: 14px;text-align: center;cursor: pointer;color: #ffffff;font-size: 8px;"  title="移除该阿姨">X</i>
+										<i name="choose" order_nurse_id="{$vo.id}" style="display:none;position: absolute;top: -8px;right: 8px; background: #47c8a2; border-radius: 7px;width: 14px;height: 14px;line-height: 14px;text-align: center;cursor: pointer;color: #ffffff;font-size: 8px;"  title="选定该">√</i>
+									</if>
+									{$vo.name}
+								</div>
+
+							</volist>
+							<if condition="$info.status eq 1">
+								<a href="__MODULE__/Order/addNurse/id/{$info.id}"><i  class="row_text" 	title="新增阿姨匹配">+</i></a>
+								<if condition="count($nurse_re) eq 1">
+								<a href="__MODULE__/Order/covenant/id/{$info.id}"  style="display: <?php if($info['status1']==1){if($nurse_count==1){echo block;}else{echo 'none';}}?>" id="covenant">签订合同</a>
+								</if>
+							<elseif condition="$info.status gt 1"/>
+								<a href="__MODULE__/Order/covenant_info/id/{$info.id}"  style="display: <?php if($info['status1']==1){if($nurse_count==1){echo block;}else{echo 'none';}}?>" id="covenant_info">查看合同</a>
+
+							</if>
+
+
+
+
+						</li>
+				</ul>
+			</div>
+
+
+			<div class="ayi-information" style="height: auto;display: inline-block; position: relative;">
+				<span style="font-size: 20px;color: #476849;margin-left: 330px;">基本信息</span> <br/>
+				<ul class="infor-ul f-cb">
+					<if condition="$info.type eq 1">
+						<li class="infor-address" style="width: 80px;height: 30px;">预产期</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.base_information1}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">胎数</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.base_information2}</li>
+					<elseif condition="$info.type eq 2"/>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">宝宝数量</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.base_information1}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">宝宝性别</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.base_information2}</li>
+
+						<li class="infor-address" style="width: 120px;height: 30px;">宝宝出生日期</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 500px;height: 30px;color: #47C8A2">{$info.base_information3}</li>
+
+
+					<elseif condition="$info.type eq 3"/>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">家庭面积</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.base_information1}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">家庭成员</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.base_information2}</li>
+					<elseif condition="$info.type eq 4"/>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">家庭保洁</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.base_information1}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">用餐人数</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.base_information2}</li>
+
+
+						<li class="infor-address" style="width: 80px;height: 30px;">做饭餐次</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.base_information3}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">洗衣情况</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.base_information4}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">小孩接送</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.base_information5}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">照顾老人</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.base_information6}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">公司做饭</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.base_information7}</li>
+
+					</if>
+				</ul>
+			</div>
+
+
+
+			<div class="ayi-information" style="height: auto;display: inline-block; position: relative;">
+				<span style="font-size: 20px;color: #476849;margin-left: 330px;">阿姨信要求</span> <br/>
+				<ul class="infor-ul f-cb">
+					<li class="infor-address" style="width: 80px;height: 30px;">年龄</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.nurse_ask1}</li>
+
+					<li class="infor-address" style="width: 80px;height: 30px;">性格</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.nurse_ask2}</li>
+
+					<li class="infor-address" style="width: 80px;height: 30px;">技能</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.nurse_ask3}</li>
+
+					<li class="infor-address" style="width: 80px;height: 30px;">其他</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.nurse_ask4}</li>
+				</ul>
+			</div>
+
+
+
+			<div class="ayi-information" style="height: auto;display: inline-block; position: relative;">
+				<span style="font-size: 20px;color: #476849;margin-left: 330px;">家庭情况</span> <br/>
+				<ul class="infor-ul f-cb">
+					<if condition="$info.type eq 1">
+						<li class="infor-address" style="width: 80px;height: 30px;">生活要求</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.family1}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">家庭成员</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.family2}</li>
+					<elseif condition="$info.type eq 2"/>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">生活要求</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.family1}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">家庭成员</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.family2}</li>
+
+					<elseif condition="$info.type eq 3"/>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">保洁要求</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.family1}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">饭菜要求</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.family2}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">收纳要求</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.family3}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">洗衣要求</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.family4}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">其他要求</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.family5}</li>
+
+					<elseif condition="$info.type eq 4"/>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">生活要求</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.family1}</li>
+
+						<li class="infor-address" style="width: 80px;height: 30px;">家庭成员</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: 30px;color: #47C8A2">{$info.family2}</li>
+
+					</if>
+				</ul>
+			</div>
+
+
+
+
+
+		</div>
+
+			<i style="clear: both;"></i>
+		   	
+		</div>
+<include file="Nav/footer"/>
+
+<script src="__PUBLIC__/js/Chart.js"></script>
+
+<script>
+	var price_time = <?php echo $info['price_time']?$info['price_time']:0;?>;
+	var date=/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+
+
+
+	//匹配阿姨的移入效果
+	$('.nurse_re').live('mouseover',function(){
+		$(this).find('i').show();
+	});
+	$('.nurse_re').live('mouseout',function(){
+		$(this).find('i').hide();
+	});
+
+	//匹配阿姨点击事件
+
+	$('i[name=del]').live('click',function(){
+		var this_i = $(this);
+		$.AjaxPost(MODULE+"/Order/del_order_nurse", {id:$(this).attr('order_nurse_id')}, function (backdata) {
+			if (backdata.code == 1000) {
+				this_i.parents('div[class=nurse_re]').remove();
+				if($('div[class=nurse_re]').length==1){
+					$('#covenant').show();
+				}else{
+					$('#covenant').hide();
+				}
+			}else{
+				alert('异常失败！');
+			}
+
+		});
+	});
+
+	$('i[name=choose]').live('click',function(){
+		var this_i = $(this).parents('div[class=nurse_re]');
+		$.AjaxPost(MODULE+"/Order/choose_order_nurse", {id:$(this).attr('order_nurse_id')}, function (backdata) {
+			if (backdata.code == 1000) {
+				this_i.siblings('div').remove();
+				if($('div[class=nurse_re]').length==1){
+					$('#covenant').show();
+				}else{
+					$('#covenant').hide();
+				}
+			}else{
+				alert('异常失败！');
+			}
+		});
+	});
+
+
+	$("#add_stop").live('click',function(){
+		$("#add_stop_div").toggle();
+	});
+
+	$("#cancel_stop").live('click',function(){
+		$("#add_stop_div").toggle();
+	});
+
+
+	$("#addOrder").live('click',function(){
+
+
+		$("#form").submit();
+	});
+
+
+
+	$("#add_price").live('click',function(){
+		$("#add_price_div").toggle();
+		if($("#add_price_div").css('display')=='block'){
+			$('#price_ul').hide();
+		}else{
+			if(price_time!=0){
+				$('#price_ul').show();
+			}
+		}
+	});
+
+	$("#cancel_price").live('click',function(){
+		$("#add_price_div").toggle();
+		if($("#add_price_div").css('display')=='block'){
+			$('#price_ul').hide();
+		}else{
+			if(price_time!=0){
+				$('#price_ul').show();
+			}
+		}
+	});
+
+	$("#submit_price").live('click',function(){
+		if(!(date.test($("#price_time").val()))){
+			alert("请填写正确日期!");
+			return false;
+		}else if($('#price_standard').val()==''){
+			alert("请填写评薪标准!");
+			return false;
+		}else if($('#price').val()==''){
+			alert("请填写薪资金额!");
+			return false;
+		}else if($("#skill1").val()==''||$("#skill2").val()==''||$("#skill3").val()==''||$("#skill4").val()==''||$("#skill5").val()==''||$("#skill6").val()==''||$("#skill7").val()==''||$("#skill1").val()<0||$("#skill1").val()>100||$("#skill2").val()>100||$("#skill2").val()<0||$("#skill3").val()>100||$("#skill3").val()<0||$("#skill4").val()>100||$("#skill4").val()<0||$("#skill5").val()>100||$("#skill5").val()<0||$("#skill6").val()>100||$("#skill6").val()<0||$("#skill7").val()>100||$("#skill7").val()<0) {
+			alert("请完善技能评价!");
+			return false;
+
+		}
+
+		$("#price_form").submit();
+	});
+
+
+$("#to_submit").live('click',function(){
+	if($("#remark").val()==''){
+		alert('联系详情不能为空');
+		return false;
+	}
+	var reg=/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+
+	if(!reg.test($("#next_time").val())){
+		alert('下次联系时间格式不正确！');
+		return false;
+	}
+	var trainee_id = $("#trainee_id").val();
+	var employee_name = $("#employee_name").val();
+	var next_time = $("#next_time").val();
+	var remark = $("#remark").val();
+
+
+	$.AjaxPost(MODULE+"/Trainee/addRecord", {trainee_id:trainee_id,employee_name:employee_name,next_time:next_time,remark:remark}, function (backdata) {
+		if (backdata.code == 1000) {
+			alert('添加成功！');
+			window.location.reload();
+		}else if(backdata.code == 1001){
+			alert('已存在该条联系记录，请勿重复添加！');
+		}else{
+			alert('添加失败！');
+		}
+	});
+});
+
+$("#to_cancel").live('click',function(){
+	if(window.confirm('确定重置么？')){
+		$("#employee_name option:first").prop("selected", 'selected');
+		$("#next_time").val('');
+		$("#remark").val('');
+	}
+});
+
+
+</script>
+
+
+</html>
+

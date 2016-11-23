@@ -1,0 +1,65 @@
+.banner img,.banner{
+	width: 100%;
+	height: auto;
+}
+
+/***************************************page***************************************/
+.page{
+	padding: 20px;
+}
+.tls{
+	font-size: 2em;
+	font-weight: 700;
+	color: #ff4a01;
+	text-align: center;
+	padding: 20px 0;
+}
+.tjys1{
+	width: 100%;
+	height: auto;
+	padding-bottom: 20px;
+}
+.page_tle{
+	font-size: 2em;
+	color: #ff4a01;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.page_tle>span{
+	font-size: 0.7em;
+	font-weight: normal;
+	color: #666666;
+	padding-left: 5px;
+}
+.p1{
+	color: #333333;
+	font-size: 1.6em;
+	font-weight: bold;
+	line-height: 30px;
+}
+.p1>i{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-color: #333333;
+	border-radius: 50%;
+	vertical-align: middle;
+	margin: -4px 6px 0px 0px;
+}
+.p2{
+	padding-left: 17px;
+	line-height: 2em;
+	margin-bottom: 10px;
+	font-size: 1.4em;
+	color: #666;
+}
+.zx{
+	width: 100%;
+	height: auto;
+	display: block;
+	margin-bottom: 20px;
+}
+.zx img{
+	width: 100%;
+	height: auto;
+}

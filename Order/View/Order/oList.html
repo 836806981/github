@@ -1,0 +1,367 @@
+<include file="Nav/header"/>
+
+<div class="right">
+	<div class="table">
+
+		<?php $sales = M('order_user')->where('permission=3')->select();
+		?>
+
+		<?php if($_GET['type']=='user'){?>
+		<a href="__MODULE__/Admin/addUser"><input type="button" value="添加员工" style="width: 80px;border-radius: 5px;margin-left: 200px;"/></a>
+		<?php }?>
+
+		<if condition="$_GET['type'] eq 33">
+			<div class="search">
+				&emsp;订单类型:
+				<select style="height: 28px;" id="type" name="type">
+					<option value="">全部</option>
+					<option value="1">月嫂</option>
+					<option value="5">月子导师</option>
+					<option value="2">育儿嫂</option>
+					<option value="3">保姆</option>
+					<option value="4">钟点工</option>
+					<option value="10">其他业务</option>
+				</select>
+
+				&emsp;订单状态:
+				<select style="height: 28px;" id="status" name="status">
+					<option value="">全部</option>
+					<option value="0">未派单</option>
+					<option value="1">已派单</option>
+					<option value="2">已签单</option>
+					<option value="3">已上户</option>
+					<option value="4">已下户</option>
+					<option value="5">已结算</option>
+					<option value="10">已放弃</option>
+					<option value="20">已售后</option>
+				</select>
+
+				&emsp;顾问:
+				<select style="height: 28px;" id="sales_id" name="sales_id">
+					<option value="">全部</option>
+					<volist name="sales" id="vo">
+						<option value="{$vo.id}">{$vo.real_name}</option>
+					</volist>
+
+
+				</select>
+
+
+				<input type="button" value="搜索" class="search-button"  id="search"/>
+					<span style="  margin-left: 80px; ">
+						<input type="text" placeholder="输入客户姓名或联系电话进行搜索" style="width:20%;" id="keyword"/><input type="button" value="搜索" class="search-button"  id="find"/>
+					</span>
+			</div>
+		</if>
+
+		<table class="hovertable" id="nurse_list">
+			<?php if($_GET['type']=='user'){?>
+			<tr>
+				<th>用户名</th>
+				<th>权限</th>
+				<th>电话</th>
+				<th>姓名</th>
+				<th>操作</th>
+			</tr>
+			<?php } elseif($_GET['type']==0){?>
+
+			<tr>
+				<th>创建人</th>
+				<th>创建时间</th>
+				<th>客户姓名</th>
+				<th>联系方式</th>
+				<th>渠道来源</th>
+				<th>操作</th>
+			</tr>
+
+
+			<?php }elseif($_GET['type']==1){?>
+			<tr>
+				<th>创建人</th>
+				<th>派单时间</th>
+				<th>客户姓名</th>
+				<th>联系方式</th>
+				<th>渠道来源</th>
+				<th>母婴顾问</th>
+				<th>订单类型</th>
+				<th>订单状态</th>
+				<th>操作</th>
+			</tr>
+
+			<?php }elseif($_GET['type']==2){?>
+			<tr>
+				<th>创建人</th>
+				<th>创建时间</th>
+				<th>客户姓名</th>
+				<th>联系方式</th>
+				<th>渠道来源</th>
+				<th>母婴顾问</th>
+				<th>订单类型</th>
+				<th>护理人员姓名</th>
+				<th>签单时间</th>
+				<th>操作</th>
+			</tr>
+			<?php }elseif($_GET['type']==3){?>
+			<tr>
+				<th>创建人</th>
+				<th>创建时间</th>
+				<th>订单类别</th>
+				<th>护理人员姓名</th>
+				<th>联系电话</th>
+				<th>计划上户</th>
+				<th>实际上户</th>
+				<th>计划下户</th>
+				<th>母婴顾问</th>
+				<th>操作</th>
+			</tr>
+			<?php }elseif($_GET['type']==4){?>
+			<tr>
+				<th>订单类别</th>
+				<th>护理人员姓名</th>
+				<th>联系电话</th>
+				<th>计划上户</th>
+				<th>实际上户</th>
+				<th>计划下户</th>
+				<th>实际下户</th>
+				<th>母婴顾问</th>
+				<th>操作</th>
+			</tr>
+
+			<?php }elseif($_GET['type']==5){?>
+			<tr>
+				<th>订单类别</th>
+				<th>护理人员姓名</th>
+				<th>联系电话</th>
+				<th>计划下户</th>
+				<th>实际下户</th>
+				<th>服务费</th>
+				<th>实际结算</th>
+				<!--<th>操作</th>-->
+			</tr>
+			<?php }elseif($_GET['type']==6){?>
+			<tr>
+				<th>创建人</th>
+				<th>创建时间</th>
+				<th>客户姓名</th>
+				<th>联系方式</th>
+				<th>母婴顾问</th>
+				<th>订单类型</th>
+				<th>订单状态</th>
+				<th>上户或下户日期</th>
+				<th>下次回访日期</th>
+				<th>操作</th>
+			</tr>
+
+			<?php }elseif($_GET['type']==7){?>
+			<tr>
+				<th>护理人员姓名</th>
+				<th>联系电话</th>
+				<th>紧急联系电话</th>
+				<th>微信</th>
+				<th>上单日期</th>
+				<th>计划体检日期</th>
+				<th>操作</th>
+			</tr>
+
+			<?php }elseif($_GET['type']==8){?>
+			<tr>
+				<th>护理人员姓名</th>
+				<th>联系电话</th>
+				<th>紧急联系电话</th>
+				<th>微信</th>
+				<th>上单日期</th>
+				<th>计划投保日期</th>
+				<th>操作</th>
+			</tr>
+
+
+
+			<?php }elseif($_GET['type']==9){?>
+			<tr>
+				<th>客户姓名</th>
+				<th>联系方式</th>
+				<th>付款金额</th>
+				<th>付款日期</th>
+				<th>母婴顾问</th>
+				<th>操作</th>
+			</tr>
+
+
+
+			<?php }elseif($_GET['type']==10){?>
+			<tr>
+				<th>客户姓名</th>
+				<th>联系方式</th>
+				<th>渠道来源</th>
+				<th>母婴顾问</th>
+				<th>订单类型</th>
+				<th>放弃时间</th>
+				<th>放弃原因</th>
+				<th>操作</th>
+			</tr>
+
+
+			<?php }elseif($_GET['type']==11){?>
+			<tr>
+				<th>订单类别</th>
+				<th>护理人员姓名</th>
+				<th>联系电话</th>
+				<th>计划上户</th>
+				<th>上户3天前</th>
+				<th>上户15天前</th>
+				<th>实际上户</th>
+				<th>计划下户</th>
+				<th>母婴顾问</th>
+				<th>操作</th>
+			</tr>
+			<?php }elseif($_GET['type']==12){?>
+			<tr>
+				<th>订单类别</th>
+				<th>护理人员姓名</th>
+				<th>联系电话</th>
+				<th>计划上户</th>
+				<th>实际上户</th>
+				<th>计划下户</th>
+				<th>母婴顾问</th>
+				<th>操作</th>
+			</tr>
+
+
+			<?php }elseif($_GET['type']==13){?>
+			<!--面试计划-->
+			<tr>
+				<th>客户姓名</th>
+				<th>联系方式</th>
+				<th>母婴顾问</th>
+				<th>面试阿姨</th>
+				<th>面试时间</th>
+				<th>订单类型</th>
+				<th>操作</th>
+			</tr>
+
+			<?php }elseif($_GET['type']==14){?>
+			<!--督导计划-->
+			<tr>
+				<th>客户姓名</th>
+				<th>护理人员姓名</th>
+				<th>联系电话</th>
+				<th>母婴顾问</th>
+				<th>订单类型</th>
+				<th>督导时间</th>
+				<th>操作</th>
+			</tr>
+			<?php }elseif($_GET['type']==33){?>
+			<!--督导计划-->
+			<tr>
+				<th>创建时间</th>
+				<th>创建人</th>
+				<th>客户姓名</th>
+				<th>订单类型</th>
+				<th>联系方式</th>
+				<th>渠道来源</th>
+				<th>顾问</th>
+				<th>订单状态</th>
+				<th>操作</th>
+			</tr>
+			<?php }?>
+			<!--<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">-->
+			<!--<td>1</td>-->
+			<!--<td><img src="__UPLOADS__/nurse/57_HY2/head/5667f043bcf8c.jpg" title="点击看大图" style="width: 60px;height: 26px;" id="dd"/></td>-->
+			<!--<td>23</td>-->
+			<!--<td>5000~5600</td>-->
+			<!--<td>牛</td>-->
+			<!--</tr>-->
+		</table>
+	</div>
+
+	<div class="page" id="pagenum" style="margin:25px auto;width: 80%; text-align: center;">
+
+
+	</div>
+
+</div>
+<include file="Nav/footer"/>
+
+<script>
+	var date=/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+
+	var today  = "<?php echo date('Y-m-d',time());?>";
+	var type=<?php echo $_GET['type']||$_GET['type']==0?$_GET['type']:1;?>;
+	var type_arr=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,33];//6为回访客户 7//7体检计划  //8 投保计划 // 9付款//10放弃//11上户提醒// 12下户提醒//13 面试计划//14督导计划//33总订单
+	if(jQuery.inArray(type,type_arr)==-1){
+		alert('地址异常');
+		window.location.href=""+MODULE+"/Order/oList/type/1.html";
+	}
+
+	$('a[name=go_customer]').live('click',function(){
+		var true_time = window.prompt('如上户时间变化，请更改',today);
+		if(true_time){
+			if(!date.test(true_time)){
+				alert('上户时间格式不正确！');
+				return false;
+			}else{
+				var href = $(this).attr('href');
+				$(this).attr('href',href+'/true_expect_time_b/'+true_time+'.html');
+			}
+		}else{
+			return false;
+		}
+
+	});
+
+	//修改上户日期
+	$('a[name=change_time_b]').live('click',function(){
+		var true_time = window.prompt('修改上户日期为',today);
+		if(true_time){
+			if(!date.test(true_time)){
+				alert('上户时间格式不正确！');
+				return false;
+			}else{
+				var href = $(this).attr('href');
+				$(this).attr('href',href+'/expect_time_b/'+true_time+'.html');
+			}
+		}else{
+			return false;
+		}
+
+	});
+//修改下户日期
+	$('a[name=change_time_s]').live('click',function(){
+		var true_time = window.prompt('修改下户日期为',today);
+		if(true_time){
+			if(!date.test(true_time)){
+				alert('下户时间格式不正确！');
+				return false;
+			}else{
+				var href = $(this).attr('href');
+				$(this).attr('href',href+'/expect_time_s/'+true_time+'.html');
+			}
+		}else{
+			return false;
+		}
+
+	});
+
+	$('a[name=out_customer]').live('click',function(){
+		var true_time = window.prompt('如下户时间变化，请更改',today);
+		if(true_time){
+			if(!date.test(true_time)){
+				alert('下户时间格式不正确！');
+				return false;
+			}else{
+				var href = $(this).attr('href');
+				$(this).attr('href',href+'/true_expect_time_s/'+true_time+'.html');
+			}
+		}else{
+			return false;
+		}
+
+	});
+
+
+</script>
+
+<script src="__PUBLIC__/js/order.js"></script>
+<script src="__PUBLIC__/js/common.js"></script>
+
+</html>

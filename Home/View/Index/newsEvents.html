@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>新闻公告-【田螺阿姨】</title>
+		<meta name="Keywords" content="田螺阿姨新闻,田螺阿姨公告" >
+        <meta name="Description" content="田螺阿姨的最新新闻及公告信息" >
+		<link rel="stylesheet" href="__PUBLIC__/css/usually.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/events.css" />
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.1.min.js" ></script>
+	</head>
+	<body>
+	<include file="Index/header1"/>
+	<include file="Index/header2"/>
+		
+		<script>
+			$(".nav>li").eq(4).addClass("active");
+		</script>
+
+
+		
+		<div class="news_cnt">
+			<div class="content">
+				<ul class="classly f-cb">
+					<input type="hidden" name="belong" id="belong" value="{$belong}"/>
+
+					<li <?php if(ACTION_NAME=='newsEvents'){?>class="active" <?php }?>><a href="__ROOT__/newsEvents.html">新闻动态</a></li>
+					<li <?php if(ACTION_NAME=='notice'){?>class="active" <?php }?>><a href="__ROOT__/notice.html">公司公告</a></li>
+				</ul>
+				<if condition="$belong eq 21">
+				<div class="news_top f-cb">
+
+					<volist name="news_list" id="vo">
+						<div class="news_exp f-cb">
+							<div class="news_img">
+								<a href="__ROOT__/newsEvents/{$vo.id}.html"><img src="__UPLOADS__/{$vo.title_img}"/></a>
+							</div>
+							<div class="news_info">
+								<p class="news_tle"><a href="__ROOT__/newsEvents/{$vo.id}.html">{$vo.title}</a></p>
+								<p class="news_pf">{$vo.description}</p>
+							</div>
+						</div>
+					</volist>
+					<!--新闻列表模块-->
+
+					<!---->
+					<!--<div class="news_exp f-cb">-->
+						<!--<div class="news_img">-->
+							<!--<a href="#"><img src="__PUBLIC__/img/news_img.jpg"/></a>-->
+						<!--</div>-->
+						<!--<div class="news_info">-->
+							<!--<p class="news_tle"><a href="#">田螺阿姨官网2田螺阿姨官网2田螺阿姨官网2.0正式上线啦</a></p>-->
+							<!--<p class="news_pf">田螺阿姨官网2.0正式上线了啦啦啦，好开心，哈哈哈啊哈啊哈哈哈开始懂了空间里疯狂的</p>-->
+						<!--</div>-->
+					<!--</div>-->
+					
+				</div>
+				</if>
+				
+				<div class="news_bottom f-cb" id="news_list">
+
+					<!--<div class="news_li">-->
+						<!--<p class="news_tle"><a href="#">田螺阿姨官网2.0正式上线啦</a></p>-->
+						<!--<p class="news_pf">田螺阿姨官网2.0正式上线了啦啦啦，好开心，哈哈哈啊哈啊哈哈哈开始懂了空间里疯狂的田螺阿姨官网2.0正式上线了啦啦啦，好开心，哈哈哈啊哈啊哈哈哈开始懂了空间里疯狂的</p>-->
+						<!--<div class="green"></div>-->
+					<!--</div>-->
+
+					<div class="page" id="pagenum" style="clear: both;padding-top: 30px;margin-left: 20px;">
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	<include file="Index/footer"/>
+
+	<script src="__PUBLIC__/js/jquery.longyuJs.js"></script>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script src="__PUBLIC__/js/news.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/layer/layer.js" ></script>
+	<script>
+		$(".news_li").live('mouseenter',function(){
+			$(this).find(".green").stop().animate({
+				width:'100%'
+			});
+		});
+		$(".news_li").live('mouseleave',function(){
+			$(this).find(".green").stop().animate({
+				width:'0px'
+			});
+		});
+
+	</script>
+
+	</body>
+</html>

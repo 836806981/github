@@ -1,0 +1,34 @@
+
+<script type="text/javascript">
+    var ACTION_NAME='<?php echo ACTION_NAME;?>';
+    switch (ACTION_NAME){
+        case 'ys':
+            var m_html = 'ys';
+            break;
+        case 'yes':
+            var m_html = 'yes';
+            break;
+        case 'bm':
+            var m_html = 'bm';
+            break;
+        case 'zp':
+            var m_html = 'zp';
+            break;
+        default :
+            var m_html = '';
+            break;
+    }
+
+    try {
+        var urlhash = window.location.hash;
+        if (!urlhash.match("fromapp"))
+        {
+            if ((navigator.userAgent.match(/(iPhone|iPad|Android|ios)/i)))
+            {
+                window.location="http://www.tianluoayi.com/m/"+m_html+"/";
+            }
+        }
+    }
+    catch(err)
+    {
+    }</script>

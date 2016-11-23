@@ -1,0 +1,83 @@
+.zhaopin-banner-bg{
+	width: 100%;
+	height: 655px;
+	background-color: #b0e2e0;
+}
+
+.zhaopin-banner{
+	width: 1200px;
+	height: 655px;
+	margin: 0 auto;
+	background:url(../../img/new_jj/zhaopin/jingjia-zhaopin_03.png) no-repeat center;
+}
+body {
+	font-family: "微软雅黑";
+}
+.content_1200{
+	width: 1200px;height: auto;margin: 0 auto;text-align: center;margin-top:120px;
+}
+.jiesao{
+	width: 1200px;
+	height: 219px;
+	background: url(../../img/new_jj/zhaopin/zp_10.jpg) no-repeat center;
+	margin-top: 30px;
+}
+.cui{
+	background: url(../../img/new_jj/zhaopin/zp_12.png) no-repeat center;
+	height: 259px;
+}
+.jiesao p{
+	text-align: left;
+    padding: 90px 70px 0px 185px;
+    line-height: 36px;
+}
+.jiesao p span{
+	color: #f66161;
+    font-size: 30px;
+    margin-right: 10px;
+}
+.zhuanye{
+	width: 521px;
+    height: 149px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 100px;
+    background: url(../../img/new_jj/zhaopin/zp_22.jpg) no-repeat;
+    padding: 130px 40px 0 0;
+    line-height: 36px;
+    font-size: 16px;
+}
+.page8_cnt ul{
+	height: auto;
+	width: 1005px;
+	margin: 50px auto 0;
+}
+.page8_cnt ul li{
+	text-align: center;
+	float: left;
+	margin-left: 39px;
+}
+.sss ul li{
+	margin-left: 27px;
+}
+.page8_cnt ul li.first_li{
+	margin: 0;
+}
+.page8_cnt ul li p{
+	font-size: 18px;
+	color: #666666;
+	margin-top: 20px;
+}
+.pingjia{
+	margin: 50px auto;
+}
+.pingjia ul li{
+	width: 720px;
+	height: 99px;
+	margin: 10px auto 0;
+}
+.pingjia ul li p{
+	text-align: left;
+    padding-left: 150px;
+    line-height: 99px;
+}

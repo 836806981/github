@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>田螺后台</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="__PUBLIC__/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="__PUBLIC__/admin/dist/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="__PUBLIC__/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="__PUBLIC__/admin/bower_components/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="__PUBLIC__/admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <include file="Nav/header" />
+        <!-- /.navbar-top-links -->
+
+        <!--左边导航-->
+
+        <include file="Nav/index" />
+
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">支付管理
+                    &emsp; &emsp;
+                    已支付单量：{$trade_status_number}
+                    &emsp; &emsp;
+                    已支付金额：￥{$sub_total_fee}
+
+                </h3>
+
+
+            </div>
+
+            <!-- /.col-lg-12 -->
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+
+                            <th>订单ID</th>
+                            <th>付款人</th>
+                            <th>电话</th>
+                            <th>所选产品</th>
+                            <th>支付宝账号</th>
+                            <th>应付款金额</th>
+                            <th>实际付款金额</th>
+                            <th>实际付款时间</th>
+                            <th>支付状态</th>
+                            <th>处理状态</th>
+                            <th style="text-align: center;">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="alipay_list" id="vo">
+                            <tr>
+                                <td style="vertical-align:middle">{$vo.id}</td>
+                                <td style="vertical-align:middle">{$vo.buy_name}</td>
+                                <td style="vertical-align:middle">{$vo.phone}</td>
+                                <td style="vertical-align:middle">{$vo.product}</td>
+                                <td style="vertical-align:middle">{$vo.buyer_email}</td>
+                                <td style="vertical-align:middle;">{$vo.total_fee}</td>
+                                <td style="vertical-align:middle;max-width: 300px; text-align: center">{$vo.total_fee_real}</td>
+                                <td style="vertical-align:middle;width: auto;">{$vo.notify_time}</td>
+                                <td style="vertical-align:middle">{$vo.trade_status}（{$vo.trade_status_name}）</td>
+                                <td style="vertical-align:middle">{$vo.order_status_name}</td>
+
+                                <td style="vertical-align:middle;width: 100px;">
+                                    <a href="__MODULE__/Pay/info/id/<?php echo $vo['id'];?>.html">查看</a>
+                                </td>
+
+                            </tr>
+                        </volist>
+
+                        </tbody>
+
+                        <input type="text" name="keyword" id="keyword" value="{$_GET.k}"/><input type="button" id="search" value="搜索"/>&emsp;
+
+                        <a href="__MODULE__/Pay/index"><input type="button" value="清空搜索"/></a>
+                    </table>
+
+
+
+                    <div class="pagination pagination-left">
+                        <ul>{$page}</ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="__PUBLIC__/admin/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/raphael/raphael-min.js"></script>
+<script src="__PUBLIC__/admin/bower_components/morrisjs/morris.min.js"></script>
+<script src="__PUBLIC__/admin/js/morris-data.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="__PUBLIC__/admin/dist/js/sb-admin-2.js"></script>
+
+<script>
+    $('#search').click(function(){
+        if($('#keyword').val()&&$('#keyword').val()!=''){
+            var keyword = $.trim($('#keyword').val());
+            window.location.href = '__MODULE__/Pay/index/k/'+keyword;
+        }else{
+            alert('请输入手机号、支付宝账号或者付款人姓名！')
+        }
+
+    });
+
+
+
+</script>
+
+
+</body>
+
+</html>

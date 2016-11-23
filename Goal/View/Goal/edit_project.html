@@ -1,0 +1,233 @@
+<include file="Nav/header" />
+<style>
+	.del_user{
+		width: 15px; height: 15px; border-radius: 15px;display: inline-block;background: #666666;font-size:8px;color: #ffffff; text-align: center;  cursor: pointer;
+	}
+</style>
+
+		<div class="add" style="min-height: 600px;">
+			<form action="__MODULE__/Goal/edit_project_data" method="post" id="form" onsubmit="javascript:return window.confirm('确定修改么？')"  enctype="multipart/form-data">
+		   	 <h1 style="font-size: 30px;font-weight: normal;">修改项目</h1>
+		   	 <div class="kuang">
+
+				 <input type="hidden"  name="id" value="{$goal_project.id}"/>
+				 项目名称： <input type="text" class="text" style="width: 20%;" name="name" id="name" value="{$goal_project.name}"/>
+				 <br />
+				 <br />
+				 项目成员：
+				 <volist name="goal_user" id="vo" key="k">
+					 <input type="checkbox" name="users" user_id="{$vo.id}" user_name="{$vo.name}"    <?php if(in_array($vo['id'],$users_id)){echo 'checked';} ?> />{$vo.name}  &nbsp;
+					 <if condition="$k%7 eq 0 ">
+						 <br/> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+						 </if>
+
+				 </volist>
+				 <br />
+				 <br />
+				 项目描述：  <textarea name="data" id="data" rows="5" style="vertical-align: text-top;width:20%;">{$goal_project.data}</textarea>
+				 <br />
+				 <br />
+
+				 开始时间： <input type="text" class="text" style="width: 20%;" name="b_time" id="b_time" value="{$goal_project.b_time}"/>
+				 <br />
+				 <br />
+
+				 项目耗时： <input type="text" class="text" style="width: 20%;" name="day_number" id="day_number" value="{$goal_project.day_number}"/>
+				 <br />
+				 <br />
+
+				 <div id="user_data">
+					<volist name="goal_project.goal" id="vo">
+						 <span span_user_id="{$vo.user_id}" span_goal_id="{$vo.id}">{$vo.user_name}： <input type="text" class="text" style="width: 20%;" name="detail_edit[]"  value="{$vo.data}" placeholder="请填写职责"/>
+						<input type="hidden"  name="users_id_edit[]"  value="{$vo.user_id}"/>
+					<i class="del_user">X</i>
+							<br/>
+							 &emsp;&emsp;&emsp;附件格式：<input type="checkbox" name="file_type_1_{$vo.user_id}" value="图片,"  <if condition="$vo.file_type_1 eq 1">checked</if>/>图片
+					<input type="checkbox" name="file_type_2_{$vo.user_id}" value="WORD,"  <if condition="$vo.file_type_2 eq 1">checked</if>/>WORD
+			<input type="checkbox" name="file_type_3_{$vo.user_id}" value="EXCEL,"  <if condition="$vo.file_type_3 eq 1">checked</if>/>EXCEL
+			<input type="checkbox" name="file_type_4_{$vo.user_id}" value="PPT,"  <if condition="$vo.file_type_4 eq 1">checked</if>/>PPT<br/>
+							 &emsp;&emsp;&emsp;&emsp;&emsp;
+			<input type="checkbox" name="file_type_5_{$vo.user_id}" value="PDF,"  <if condition="$vo.file_type_5 eq 1">checked</if>/>PDF
+			<input type="checkbox" name="file_type_6_{$vo.user_id}" value="VISIO,"  <if condition="$vo.file_type_6 eq 1">checked</if>/>VISIO
+			<input type="checkbox" name="file_type_7_{$vo.user_id}" value="MindManager,"  <if condition="$vo.file_type_7 eq 1">checked</if>/>MindManager
+			<input type="checkbox" name="file_type_8_{$vo.user_id}" value="其他,"  <if condition="$vo.file_type_8 eq 1">checked</if>/>其他
+
+							 <br/>&emsp;&emsp;&emsp;
+							 附件数量： <select name="file_number[]" style="width: 15%;">
+								 <option <if condition="$vo.file_number eq 1">selected</if>>1</option>
+								 <option <if condition="$vo.file_number eq 2">selected</if>>2</option>
+								 <option <if condition="$vo.file_number eq 3">selected</if>>3</option>
+								 <option <if condition="$vo.file_number eq 4">selected</if>>4</option>
+								 <option <if condition="$vo.file_number eq 5">selected</if>>5</option>
+								 <option <if condition="$vo.file_number eq 6">selected</if>>6</option>
+								 <option <if condition="$vo.file_number eq 7">selected</if>>7</option>
+								 <option <if condition="$vo.file_number eq 8">selected</if>>8</option>
+								 <option <if condition="$vo.file_number eq 9">selected</if>>9</option>
+							 </select>
+					<br />
+					<br />
+					</span>
+
+					</volist>
+
+				 </div>
+				 <input type="hidden" name="del_id" value="" id="del_id"/>
+
+				<span class="save-button"  style="width:20%;margin-top: 20px;margin-left: 3%;" id="submit" >保&nbsp;存</span>
+		   	 </div>
+			</form>
+		</div>
+
+
+
+
+<include file="Nav/footer" />
+
+
+<script>
+	var MODULE='__MODULE__';
+
+	var reg=/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+	var reg_number = /^[1-9]+[0-9]*$/;
+
+	var users_id = <?php echo json_encode($users_id);?>;
+
+	var dal_id = [];
+
+
+	$("#submit").live('click',function(){
+
+		$("#form").submit();
+	});
+
+
+	$('input[name=users]').live('change',function(){
+		if(jQuery.inArray($(this).attr('user_id'),users_id)!=-1){
+			if($(this).attr('checked')=='checked'){
+				$('span[span_user_id='+$(this).attr('user_id')+']').show();
+				dal_id.splice(jQuery.inArray($('span[span_user_id='+$(this).attr('user_id')+']').attr('span_goal_id'),dal_id),1);
+
+			}else{
+				$('span[span_user_id='+$(this).attr('user_id')+']').hide();
+				dal_id.push($('span[span_user_id='+$(this).attr('user_id')+']').attr('span_goal_id'));
+			}
+		}else{
+			if($(this).attr('checked')=='checked'){
+				var str = ' <span span_user_id="'+$(this).attr('user_id')+'">'+$(this).attr('user_name')+'： <input type="text" class="text" style="width: 20%;" name="detail[]"  value="" placeholder="请填写职责"/>\
+				<input type="hidden"  name="users_id[]"  value="'+$(this).attr('user_id')+'"/>\
+						<i class="del_user">X</i>\
+			<br/> &emsp;&emsp;&emsp;附件格式：<input type="checkbox" name="file_type_1_'+$(this).attr('user_id')+'" value="图片,"/>图片\
+					<input type="checkbox" name="file_type_2_'+$(this).attr('user_id')+'" value="WORD,"/>WORD\
+			<input type="checkbox" name="file_type_3_'+$(this).attr('user_id')+'" value="EXCEL,"/>EXCEL\
+			<input type="checkbox" name="file_type_4_'+$(this).attr('user_id')+'" value="PPT,"/>PPT<br/>\
+			&emsp;&emsp;&emsp;&emsp;&emsp;\
+			<input type="checkbox" name="file_type_5_'+$(this).attr('user_id')+'" value="PDF,"/>PDF \
+			<input type="checkbox" name="file_type_6_'+$(this).attr('user_id')+'" value="VISIO,"/>VISIO\
+			<input type="checkbox" name="file_type_7_'+$(this).attr('user_id')+'" value="MindManager,"/>MindManager\
+			<input type="checkbox" name="file_type_8_'+$(this).attr('user_id')+'" value="其他,"/>其他\
+			<br/>&emsp;&emsp;&emsp;附件数量： <select name="file_number[]" style="width: 15%;">\
+			<option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> <option>6</option> <option>7</option> <option>8</option> <option>9</option>\
+			</select>\
+						<br />\
+						<br />\
+						</span>';
+				$('#user_data').append(str);
+			}else{
+				$('span[span_user_id='+$(this).attr('user_id')+']').remove();
+			}
+		}
+		$('#del_id').val(dal_id.join(','));
+	});
+
+	$('.del_user').live('click',function(){
+		$('input[user_id='+$(this).parent('span').attr('span_user_id')+']').attr('checked',false);
+		if(jQuery.inArray($(this).parent('span').attr('span_user_id'),users_id)!=-1){
+			$(this).parent('span').hide();
+			dal_id.push($(this).parent('span').attr('span_goal_id'));
+		}else{
+			$(this).parent('span').remove();
+		}
+		$('#del_id').val(dal_id.join(','));
+
+	});
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

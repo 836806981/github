@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>田螺阿姨官方网站</title>
+		<link rel="stylesheet" href="__PUBLIC__/css/new/usually.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/new/index.css" />
+		<include file="Index/header1"/>
+	</head>
+	
+	<body style="overflow-x: hidden;background-color: #f9f9f9;">
+	<div id="video_map" style="display: none; position: fixed;width: 100%; height:100%;z-index:666;background: #333333; opacity:0.4;filter:alpha(opacity =40); ">
+
+	</div>
+	<div  style="display: none;width: 70%; height:60%;margin-top: 10%;margin-left: 15%;position: fixed;z-index:667;" id="video">
+		<i style="position: absolute;top: -10px;right: -10px; background: #47c8a2; border-radius: 15px;width: 30px;height: 30px;line-height: 30px;text-align: center;cursor: pointer;color: #ffffff;" id="close_video">X</i>
+
+		<embed style="width: 100%;height: 100%;"  wmode="window" flashvars="vid=z0179trjcx9&amp;tpid=3&amp;showend=1&amp;showcfg=1&amp;searchbar=1&amp;shownext=1&amp;list=2&amp;autoplay=1&amp;outhost=http%3A%2F%2Fv.qq.com%2Fboke%2Fpage%2Fz%2F0%2F9%2Fz0179trjcx9.html&amp;openbc=0&amp;fakefull=1&amp;title=%20%E7%94%B0%E8%9E%BA%E9%98%BF%E5%A7%A8%20%E6%AF%8D%E5%A9%B4%E6%8A%A4%E7%90%86%20%E8%A7%86%E9%A2%91%E4%BB%8B%E7%BB%8D" src="http://imgcache.qq.com/tencentvideo_v1/player/TencentPlayer.swf?max_age=86400&amp;v=20140714" quality="high" name="tenvideo_flash_player_1453270565846" id="tenvideo_flash_player_1453270565846" bgcolor="#000000"  align="middle" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash" pluginspage="http://get.adobe.com/cn/flashplayer/">
+			<!--<embed src="http://v.qq.com/boke/page/z/0/9/z0179trjcx9.html" allowFullScreen="true" quality="high"  style="width: 100%;height: 100%;" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>-->
+	</div>
+		<!-- 头部LOGO背景-->
+
+		<include file="Index/header"/>
+
+		<div class="product">
+
+			<img class="product-biaoti" src="__PUBLIC__/img/index_05.png" width="40%" />
+
+			<div class="product-content">
+				<a href="__ROOT__/yuesao/"><img class="product-img1" src="__PUBLIC__/img/index_09.png" width="20%" /></a>
+				<a href="__ROOT__/yuersao/"><img class="product-img2" src="__PUBLIC__/img/index_11.png" width="20%" /></a>
+				<a href="__ROOT__/yuesao/"><img class="product-img3" src="__PUBLIC__/img/index_13.png" width="20%" /></a>
+				
+				<a href="__ROOT__/baomu/"><img class="product-img5" src="__PUBLIC__/img/index_22.png" width="20%" /></a>
+			</div>
+
+		</div>
+
+
+
+		<div class="news">
+
+			<img class="news-biaoti" src="__PUBLIC__/img/index_27.png" width="40%" />
+
+			<div class="vdieo">
+				<p><img src="__PUBLIC__/img/index_31.png" style="float: left;" /></p>
+				<!--<p><a href="#" class="news-more">更多</a></p>-->
+
+				<img style="margin-top: 10px;cursor: pointer;" src="__PUBLIC__/img/index_38.png"  id="go_video"/>
+			</div>
+
+			<div class="news-content">
+				<img src="__PUBLIC__/img/index_33.png" style="float: left;" />
+				<p><a href="__ROOT__/news/" class="news-more">更多</a></p>
+
+
+				<volist name="news_list" id="vo" key="k">
+				<ul class="news-content-ul">
+					<li>0{$k}</li>
+					<li><a href="__ROOT__/news/{$vo.id}.html" title="{$vo.title}">{$vo.title}</a></li>
+					<li>
+						{$vo.description}
+					</li>
+				</ul>
+
+				</volist>
+
+				<!--<ul class="news-content-ul">-->
+					<!--<li>02</li>-->
+					<!--<li><a href="#">2016月嫂育儿内容讲哈哈哈哈哈哈</a></li>-->
+					<!--<li>-->
+						<!--2016月嫂育儿育儿内容讲哈哈哈2016月嫂育儿内容616月嫂育儿内容616月嫂育儿内容616月嫂育儿内容616月嫂育儿内容616月嫂育儿内容616月嫂育儿内容616月嫂育儿内容616月嫂育儿内容616月嫂育儿内容6月嫂育儿内容讲哈哈哈哈哈哈-->
+					<!--</li>-->
+				<!--</ul>-->
+			</div>
+
+		</div>
+
+		<div class="huoban">
+
+			<div class="huoban-content">
+
+				<img class="news-biaoti" src="__PUBLIC__/img/index_42.png" width="40%" />
+
+				<ul class="huoban-ul">
+					<li><img src="__PUBLIC__/img/index_45.png" /></li>
+					<li><img src="__PUBLIC__/img/index_47.png" /></li>
+					<li><img src="__PUBLIC__/img/index_49.png" /></li>
+					<li><img src="__PUBLIC__/img/index_51.png" /></li>
+					<li><img src="__PUBLIC__/img/index_56.png" /></li>
+					<li><img src="__PUBLIC__/img/index_58.png" /></li>
+					<li><img src="__PUBLIC__/img/index_60.png" /></li>
+					<li><img src="__PUBLIC__/img/index_62.png" /></li>
+				</ul>
+
+			</div>
+		</div>
+
+
+
+		<include file="Index/footer" />
+
+
+	</body>
+	
+	<script type="text/javascript">
+
+//		视频点击效果
+		$('#go_video').click(function(){
+			$('#video').show();
+			$('#video_map').show();
+			$('#go_video_div').hide();
+
+		});
+		$('#close_video').click(function(){
+			$('#video').hide();
+			$('#video_map').hide();
+			$('#go_video_div').show();
+		});
+	</script>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>田螺后台</title>
+
+    <style>
+
+        .addimg{
+            float: left;
+
+            height: 41px;
+
+
+            width: 144px;
+
+            position:relative;
+
+        }
+
+        .jiahao{
+
+            text-align:center;
+
+            padding-top:12px;
+
+            font-size:15px;
+
+            font-weight:800
+
+        }
+
+        .files{
+
+            width: 100px;
+
+            height: 100px;
+
+            cursor: pointer;
+
+            font-size: 30px;
+
+            outline: medium none;
+
+            position: absolute;
+
+            filter:alpha(opacity=0);
+
+            -moz-opacity:0;
+
+            opacity:0;
+
+            left:0px;
+
+            top: 0px;
+
+        }
+
+    </style>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="__PUBLIC__/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="__PUBLIC__/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="__PUBLIC__/admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+
+</head>
+
+
+
+<body>
+
+
+<div id="wrapper" >
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <include file="Nav/header" />
+        <!-- /.navbar-top-links -->
+
+        <!--左边导航-->
+        <include file="Nav/index" />
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">阿姨信息</h3>
+            </div>
+            <!-- /.col-lg-12 -->
+
+            <!--<div class="col-lg-8">-->
+
+                    <!--<a class="addimg" href="javascript:" style="text-align: center; width: 100px;height: 100px;border: 1px solid #00b7ee;text-decoration:none;">-->
+
+                        <!--<div style="font-size: 50px; color: #00b7ee" class="jiahao">+</div>-->
+
+                        <!--<input type="file" class="files" id="img" />-->
+
+                    <!--</a>-->
+            <!--</div>-->
+
+            <form action="__MODULE__/Confinement/addTest_p/smp/<?php echo $_GET['smp']?>" method="post" id="form" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label>阿姨姓名：</label>{$nurse.name}
+                <input   type="hidden" name="id" id="id" value="{$nurse.id}"  />
+                <input   type="hidden" name="name" id="name" value="{$nurse.name}"  />
+            </div>
+
+            <div class="form-group">
+                <label style="float: left;">测试成绩图片：</label>
+                <br/><br/>
+                <?php if($test_img[0]){?>
+                    <img src="__UPLOADS__/<?php echo $test_img[0];?>" alt="" style="max-width: 500px;"/>
+                    <input type="hidden" name="test_img0" value="<?php echo $test_img[0];?>"/>
+                <?php }?>
+                <input type="file" name="test_img0" />
+                <br/>
+
+                <?php if($test_img[1]){?>
+                <img src="__UPLOADS__/<?php echo $test_img[1];?>" alt="" style="max-width: 500px;"/>
+                <input type="hidden" name="test_img1" value="<?php echo $test_img[1];?>"/>
+                <?php }?>
+                <input type="file" name="test_img1" />
+                <br/>
+                <?php if($test_img[0]){?>
+                <img src="__UPLOADS__/<?php echo $test_img[2];?>" alt="" style="max-width: 500px;"/>
+                <input type="hidden" name="test_img2" value="<?php echo $test_img[2];?>"/>
+                <?php }?>
+                <input type="file" name="test_img2" />
+
+            </div>
+
+                <div class="form-group">
+                    <label style="float: left;">导师评价视频：</label>
+                    <br/><br/>
+                    <?php if($nurse['recommend_video']){?>
+
+                    <video src="__UPLOADS__/<?php echo $nurse['recommend_video'];?>" controls="controls" style="max-width: 500px;">
+                        您的浏览器不支持 video 标签。
+                    </video>
+                    <input type="hidden" name="recommend_video" value="<?php echo $nurse['recommend_video'];?>"/>
+                    <?php }?>
+                    <input type="file" name="recommend_video" />
+                    <br/>
+
+                </div>
+
+
+
+                <button type="submit" id="submit" class="btn btn-default">提交</button>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+
+
+</div>
+
+
+
+<!-- jQuery -->
+<script src="__PUBLIC__/admin/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+
+<script src="__PUBLIC__/admin/js/jquery-1.7.1.min.js"></script>
+
+<script src="__PUBLIC__/admin/js/jquery.longyuJs.js"></script>
+
+
+<script src="__PUBLIC__/ajaxfileupload.js"></script>
+
+<script>
+    var MODULE='__MODULE__';
+
+
+    $("#img").live("change",function(){
+        $.ajaxFileUpload({
+            url:MODULE+'/Confinement/addTest_p',            //需要链接到服务器地址,参数为img,图片文件
+            type: 'post',
+            secureuri:false,
+            fileElementId:'img',                        //文件选择框的id属性
+            dataType: 'JSON',                                     //服务器返回的格式，可以是json
+            success: function (data, status)            //data返回图片的地址和id
+            {
+                var imgurl=data//;.substring(0,data.length-1);
+                var numstr=num==1?'<span class="shoutu_tip">商品首图</span>':"";
+                var str='<div class="bi_imgsBox fl mr20 position_re bi_imgsbox_div">'+numstr+'<input type="hidden" name="imgid" value="'+imgurl+'" /><img class="bi_img" src="'+imgurl+'" alt=""/><span class="icon_b icon_del"></span></div>';
+                if(num==10){
+                    $("#img").parent(".bi_imgsBox").hide();
+                }
+                num++;
+                $("#img_div").append(str);
+            }
+        });
+    });
+
+</script>
+
+
+
+</body>
+
+</html>

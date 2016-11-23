@@ -1,0 +1,101 @@
+<include file="Nav/header" />
+
+<div class="add">
+    <h1 style="font-size: 45px;font-weight: normal;">导师评价视频</h1>
+        <form action="__MODULE__/Ayi/addTest_p/smp/<?php echo $_GET['smp']?>" method="post" id="form" enctype="multipart/form-data">
+            <div class="kuang">
+            <div class="form-group">
+                <label>阿姨姓名：</label>{$nurse.name}
+                <input   type="hidden" name="id" id="id" value="{$nurse.id}"  />
+                <input   type="hidden" name="name" id="name" value="{$nurse.name}"  />
+            </div>
+
+            <div class="form-group">
+                <label style="float: left;">上传相应图片：</label>
+                <br/><br/>
+                <?php if($test_img[0]){?>
+                    <img src="__UPLOADS__/<?php echo $test_img[0];?>" alt="" style="max-width: 350px;"/>
+                <br/>
+                    <input type="hidden" name="test_img0" value="<?php echo $test_img[0];?>"/>
+                <?php }?>
+                <input type="file" name="test_img0"  style="margin-bottom: 30px;"/>
+                <br/>
+
+                <?php if($test_img[1]){?>
+                <img src="__UPLOADS__/<?php echo $test_img[1];?>" alt="" style="max-width: 350px;"/>
+                <br/>
+                <input type="hidden" name="test_img1" value="<?php echo $test_img[1];?>"/>
+                <?php }?>
+                <input type="file" name="test_img1"  style="margin-bottom: 30px;"/>
+                <br/>
+                <?php if($test_img[2]){?>
+                <img src="__UPLOADS__/<?php echo $test_img[2];?>" alt="" style="max-width: 350px;"/>
+                <br/>
+                <input type="hidden" name="test_img2" value="<?php echo $test_img[2];?>"/>
+                <?php }?>
+                <input type="file" name="test_img2"  style="margin-bottom: 30px;"/>
+
+
+                <br/>
+                <?php if($test_img[3]){?>
+                <img src="__UPLOADS__/<?php echo $test_img[3];?>" alt="" style="max-width: 350px;"/>
+                <br/>
+                <input type="hidden" name="test_img3" value="<?php echo $test_img[3];?>"/>
+                <?php }?>
+                <input type="file" name="test_img3"  style="margin-bottom: 30px;"/>
+
+            </div>
+
+                <div class="form-group">
+                    <label style="float: left;">导师评价视频：</label>
+                    <br/><br/>
+                    <?php if($nurse['recommend_video']){?>
+
+                    <video src="__UPLOADS__/<?php echo $nurse['recommend_video'];?>" controls="controls" style="max-width: 500px;">
+                        您的浏览器不支持 video 标签。
+                    </video>
+                    <input type="hidden" name="recommend_video" value="<?php echo $nurse['recommend_video'];?>"/>
+                    <?php }?>
+                    <br/>
+                    <input type="file" name="recommend_video" />
+                    <br/>
+
+                </div>
+
+
+
+                <button type="submit" id="submit" class="save-button" style="margin-top: 50px;">提交</button>
+
+
+            </div>
+        </form>
+    </div>
+
+<include file="Nav/footer" />
+<script>
+    var MODULE='__MODULE__';
+
+
+    $("#img").live("change",function(){
+        $.ajaxFileUpload({
+            url:MODULE+'/Ayi/addTest_p',            //需要链接到服务器地址,参数为img,图片文件
+            type: 'post',
+            secureuri:false,
+            fileElementId:'img',                        //文件选择框的id属性
+            dataType: 'JSON',                                     //服务器返回的格式，可以是json
+            success: function (data, status)            //data返回图片的地址和id
+            {
+                var imgurl=data//;.substring(0,data.length-1);
+                var numstr=num==1?'<span class="shoutu_tip">商品首图</span>':"";
+                var str='<div class="bi_imgsBox fl mr20 position_re bi_imgsbox_div">'+numstr+'<input type="hidden" name="imgid" value="'+imgurl+'" /><img class="bi_img" src="'+imgurl+'" alt=""/><span class="icon_b icon_del"></span></div>';
+                if(num==10){
+                    $("#img").parent(".bi_imgsBox").hide();
+                }
+                num++;
+                $("#img_div").append(str);
+            }
+        });
+    });
+
+</script>
+</html>

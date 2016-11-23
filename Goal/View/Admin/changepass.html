@@ -1,0 +1,80 @@
+<include file="Nav/header"/>
+
+<div class="right">
+	<table border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td><h2>修改密码</h2></td>
+		</tr>
+		<tr>
+			<td style="text-align:left;width: 100px;height: 100px;">用户名：</td>
+			<td>{$user_info.phone}({$user_info.name})</td>
+		</tr>
+			<tr>
+				<td>原密码：</td>
+			</tr>
+			<tr>
+				<td><input type="password" class="tel" name="old" id="old" value=""  placeholder="请输入原密码"></td>
+				<input type="hidden" name="id" value="{$user_info.id}"/>
+			</tr>
+			<tr>
+				<td height="60px">新密码：</td>
+			</tr>
+			<tr>
+				<td><input class="tel" type="password" name="new" id="new" value=""  placeholder="请输入新密码"></td>
+			</tr>
+			<tr>
+				<td height="60px">重复输入：</td>
+			</tr>
+			<tr>
+				<td><input class="tel" type="password" name="newre" id="newre" value=""  placeholder="请再次输入新密码 "></td>
+			</tr>
+			<tr>
+				<td><span id="view" style="color: #CC0000;"></span></td>
+			</tr>
+			<tr>
+				<td><span class="save" id="submit">确认修改</span></td>
+			</tr>
+	</table>
+</div>
+<include file="Nav/footer"/>
+
+<script>
+	var MODULE='__MODULE__';
+
+	$("#submit").live('click',function(){
+		$("#view").hide();
+		var old = $.trim($("#old").val());
+		var new_p = $.trim($("#new").val());
+		var new_re_p = $.trim($("#newre").val());
+		if(old==''||new_p==''||new_re_p==''){
+			$("#view").text("密码不能为空");
+			$("#view").show();
+			return false;
+		}else if(new_p!=new_re_p){
+			$("#view").text("两次密码不一致");
+			$("#view").show();
+			return false;
+		}else if(new_p.length<6||new_p.length>18){
+			$("#view").text("请使用6-18位密码");
+			$("#view").show();
+			return false;
+		}
+		$.AjaxPost(MODULE+"/Admin/changepass", {old:old,new:new_p,newre:new_re_p}, function (backdata) {
+			if (backdata.code == 1000) {
+				alert('修改成功');
+				window.location.href=MODULE+"/Admin/info.html"
+			}else if(backdata.code == 1001){
+				alert('密码不能为空');
+			}else if(backdata.code == 1002){
+				alert('请使用6-18位密码');
+			}else if(backdata.code == 1003){
+				$("#view").text("原密码错误");
+				$("#view").show();
+			}else if(backdata.code == 1004){
+				alert('修改失败');
+			}
+		}, true);
+	})
+</script>
+
+</html>

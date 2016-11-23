@@ -1,0 +1,66 @@
+<include file="Nav/header"/>
+
+<div class="right">
+	<table border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td><img src="__PUBLIC__/img/yonghu.png" /></td>
+		</tr>
+
+		<form action="__MODULE__/Admin/addUser" method="post" id="form" enctype="multipart/form-data" >
+			<tr>
+				<td>用户名：</td>
+			</tr>
+			<tr>
+				<td><input class="tel" name="username" value=""> <span style="font-size: 16px; color: #CCCCCC;display: inline-block;vertical-align: middle;">默认密码：tlay123</span></td>
+			</tr>
+			<tr>
+				<td>昵称：</td>
+			</tr>
+			<tr>
+				<td><input class="tel" name="real_name" value=""></td>
+			</tr>
+
+			<tr>
+				<td >权限：</td>
+			</tr>
+			<tr>
+				<td>
+					<select class="tel" name="permission" id="">
+						<option value="2">客服</option>
+						<option value="3">销售</option>
+						<option value="4">阿姨管理人员</option>
+						<option value="5">财务</option>
+					</select>
+					<select class="tel" name="permission_have" >
+						<option value="1" title="有查看金额权限">有</option>
+						<option value="0" title="无查看金额权限">无</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>电话：</td>
+			</tr>
+			<tr>
+				<td><input class="tel" name="phone" value=""></td>
+			</tr>
+
+			<tr>
+				<td ></td>
+			</tr>
+
+			<tr>
+				<td class="save" id="submit">添加员工</td>
+			</tr>
+		</form>
+	</table>
+</div>
+<include file="Nav/footer"/>
+
+<script>
+	$("#submit").live('click',function(){
+		$("#form").submit();
+	});
+
+</script>
+
+</html>

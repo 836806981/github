@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title></title>
+		<link rel="stylesheet" href="__PUBLIC__/css/style.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/pay.css" />
+		
+	</head>
+	<body>
+	<include file="Nav/header"/>
+
+
+	<script type="text/javascript" src="__PUBLIC__/layer_mobile/layer.js" ></script>
+		<div class="banner">
+			<img src="__PUBLIC__/img/banner.jpg" alt="比朋友更靠谱的母婴专家" title="比朋友更靠谱的母婴专家" />
+		</div>
+	<form action="__ROOT__/m/doalipay" method="post" id="form_buy" enctype="multipart/form-data">
+		<div class="page">
+			<p class="p1">请输入订单信息方便工作人员与您联系！</p>
+			<ul class="pay_info">
+				<li class="f-cb">
+					<label>价格：</label>
+					<div class="xuan">
+
+						<input value="5880" type="button" class="btn <?php if($_GET['price'] == 5880){echo 'active';}?>" price="btn_n"/>
+						<input value="7880" type="button" class="btn <?php if($_GET['price'] == 7880){echo 'active';}?>" price="btn_n"/>
+						<input value="9880" type="button" class="btn <?php if($_GET['price'] == 9880){echo 'active';}?>" price="btn_n"/>
+						<input value="12880" type="button" class="btn <?php if($_GET['price'] == 12880){echo 'active';}?>" price="btn_n"/>
+					</div>
+				</li>
+				<li class="f-cb">
+					<label>付款比例：</label>
+					<div class="bili">
+						<input type="radio" name="scale" value="0.2" id="radio1" ><label for="radio1">20%</label> &nbsp;&nbsp;
+						<input type="radio" name="scale" value="0.3" id="radio2"><label for="radio2">30%</label> &nbsp;&nbsp;
+						<input type="radio" name="scale" value="0.5" id="radio3"><label for="radio3">50%</label> <br />
+						<input type="radio" name="scale" value="0.8" id="radio4"><label for="radio4">80%</label> &nbsp;&nbsp;
+						<input type="radio" name="scale" value="1" id="radio5" checked><label for="radio5">100%</label>
+					</div>
+				</li>
+				<li class="f-cb">
+					<label>付款金额：</label>
+					<input type="text" readonly="readonly"   name="total_fee_show" id="total_fee_show"/>
+					<input type="hidden" readonly="readonly"  name="total_fee" id="total_fee"/>
+					<input type="hidden" readonly="readonly" name="total_fee_choice" id="total_fee_choice"/>
+				</li>
+				<li class="f-cb">
+					<label>姓名：</label>
+					<input type="text" name="buy_name" id="buy_name"  value=""/>
+				</li>
+				<li class="f-cb">
+					<label>地区：</label>
+					<input type="text" name="area" id="area"  value=""/>
+				</li>
+				<li class="f-cb">
+					<label>联系电话：</label>
+					<input type="text"  name="phone" id="phone" value=""/>
+				</li>
+				<li class="f-cb">
+					<label>订单要求：</label>
+					<textarea id="txtarea" name="ask"></textarea>
+				</li>
+			</ul>
+			<input type="button" class="subbtn" value="立即购买" id="sub_buy"/>
+		</div>
+		</form>
+		<div class="footer">
+			<a href="wtai://wp//mc;4008086090"><img src="__PUBLIC__/img/tel.png" class="telnum" title="tel:400-808-6090" /></a>
+			<p>地址：成都高新区天府大道1700号环球中心E2-18楼</p>
+			<p>©2014-2015 成都亿家政网络科技有限公司 版权所有蜀ICP备15008974号-1</p>
+		</div>
+	<include file="Nav/footer"/>
+
+
+	<script src="__PUBLIC__/js/jquery.longyuJs.js"></script>
+	<script>
+		var PRICE_NUMBER = 1;
+		var SCALE = 1;
+		$(function(){
+			var price = "{$_GET.price}";
+			$('#total_fee_show').val(price);
+			$('#total_fee').val(price);
+			$('#total_fee_choice').val(price);
+		});
+		$("input[price=btn_n]").click(function() {
+			SCALE = $('input[name=scale]:checked').val();//弹框付款金额
+			PRICE_NUMBER = $("input[price=btn_n]").index(this);//弹框金额选择
+			$(this).addClass("active").siblings().removeClass("active");//弹框金额选择样式
+			$("input[price=btn]").eq(PRICE_NUMBER).addClass("active").siblings().removeClass("active");//页面样式
+
+			$('#total_fee').val($("input[price=btn_n]").eq(PRICE_NUMBER).val()*SCALE);//计算实际支付金额到total_fee
+			$('#total_fee_choice').val($("input[price=btn_n]").eq(PRICE_NUMBER).val());//计算实际应付支付金额到total_fee_choice
+			$('#total_fee_show').val($("input[price=btn_n]").eq(PRICE_NUMBER).val()*SCALE);//显示实际支付金额
+		});
+
+
+
+
+		$("input[name=scale]").click(function() {
+			SCALE = $('input[name=scale]:checked').val();//弹框付款金额
+			$('#total_fee').val($("input[price=btn_n]").eq(PRICE_NUMBER).val()*SCALE);//计算实际支付金额到total_fee
+			$('#total_fee_show').val($("input[price=btn_n]").eq(PRICE_NUMBER).val()*SCALE);//显示实际支付金额
+		});
+
+
+
+
+
+		$('#sub_buy').click(function(){
+			var reg2 = /^((0?1[34578]\d{9})|((0(10|2[1-9]|[3-9]\d{2}))?(-)?[1-9]\d{6,7}))$/;
+			if($('#total_fee').val()==''){
+				layer.open({content: '请选择价位',skin: 'msg',time: 1});
+				return false;
+			}else if(!(reg2.test($("#phone").val()))){
+				layer.open({content: '请填写正确的联系电话',skin: 'msg',time: 1});
+				return false;
+			}else  if($('#buy_name').val()==''){
+				layer.open({content: '请填写姓名或称呼',skin: 'msg',time: 1});
+				return false;
+			}else  if($('#area').val()==''){
+				layer.open({content: '请填写地区',skin: 'msg',time: 1});
+				return false;
+			}else  if($('#txtarea').val()==''){
+				layer.open({content: '请填写订单要求',skin: 'msg',time: 1});
+				return false;
+			}
+			$('#form_buy').submit();
+		});
+
+	</script>
+
+
+
+
+		<script>
+			$(".xuan>.btn").click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+		</script>
+	</body>
+</html>

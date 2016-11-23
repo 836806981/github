@@ -1,0 +1,86 @@
+.footer{
+	margin-top: 60px;
+}
+
+.page{
+	width: 100%;
+}
+.page1>.content{
+	padding: 60px 0;
+}
+.page1>.content>.font{
+	background: url(../img/about1.png) no-repeat top left;
+	width: 600px;
+	/* height: 340px; */
+	padding: 15px;
+	float: left;
+}
+.page1>.content>.font>.p1{
+	font-size: 24px;
+	color: #333333;
+	padding-left: 35px;
+	line-height: 90px;
+	margin-bottom: 48px;
+}
+.page1>.content>.font>.p2{
+	font-size: 18px;
+	color: #333333;
+	text-indent: 2em;
+	line-height: 40px;
+}
+.page1>.content>img{
+	float: right;
+	display: block;
+	margin-top: 78px;
+}
+/**********************************page2**********************************/
+.page2{
+	background-color: #47c8a2;
+}
+.page2>.content{
+	padding: 60px 0;
+	background-color: #47c8a2;
+}
+.page2>.content>.font{
+	background: url(../img/about_07.png) no-repeat top left;
+	width: 674px;
+	/* height: 340px; */
+	padding: 15px;
+	float: right;
+}
+.page2>.content>.font>.p1{
+	font-size: 20px;
+	color: #FFFFFF;
+	padding-left: 26px;
+	line-height: 60px;
+	margin-bottom: 20px;
+}
+.page2>.content>.font>.p2{
+	font-size: 14px;
+	color: #FFFFFF;
+	text-indent: 2em;
+	line-height: 26px;
+}
+.page2>.content>img{
+	float: left;
+	display: block;
+	margin: 12px 0px 0px 72px;
+}
+/**********************************page3**********************************/
+.page3>.content{
+	padding: 60px 0;
+}
+.page3>.content>.font{
+	background: url(../img/about_15.png) no-repeat top left;
+	width: 1114px;
+	/* height: 340px; */
+	padding: 15px 0;
+	margin: 0 auto;
+}
+.page3>.content>.font>.p1{
+	font-size: 22px;
+	color: #333333;
+	padding-left: 36px;
+	line-height: 60px;
+	margin-bottom: 20px;
+}

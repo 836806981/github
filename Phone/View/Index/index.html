@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>田螺阿姨【官网】</title>
+		<meta name="description" content="田螺阿姨月嫂服务中心是成都最好的月嫂/育儿嫂服务及培训机构公司,咨询月嫂/育儿嫂请拨打:400-808-6090."/>
+		<meta name="keywords" content="田螺阿姨|月嫂|育儿嫂|成都月嫂|成都育儿嫂|成都月嫂机构|成都月嫂公司|成都育儿嫂机构|成都月嫂培训|成都育儿嫂培训|成都月嫂培训机构|成都育儿嫂培训机构"/>
+		<link rel="stylesheet" href="__PUBLIC__/css/style.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/index.css" />
+		
+	</head>
+	<body>
+	<include file="Nav/header"/>
+	<script type="text/javascript" src="__PUBLIC__/layer_mobile/layer.js" ></script>
+		<div class="page1">
+			<div class="content f-cb">
+				<img src="__PUBLIC__/img/index/indexPage1Font.png" title="在家坐月子" alt="相同的服务品质 月子酒店1/5的价格 让在家坐月子，服务超所值"/>
+				<a href="__ROOT__/kst.html" class="f-fr cantbtn">点击咨询</a>
+			</div>
+		</div>
+		<div class="page2">
+			<div class="content f-cb">
+				<img src="__PUBLIC__/img/index/indexPage2Font.png" title="母婴护理学院" alt="自产自销 我们不是月嫂中介 田螺阿姨母婴护理学院、国家育婴师指定考点"/>
+				<a href="__ROOT__/kst.html" class="f-fl cantbtn">订购月嫂</a>
+			</div>
+		</div>
+		<div class="page3">
+			<div class="content f-cb">
+				<img src="__PUBLIC__/img/index/indexPage3Font.png" title="保险体检" alt="买保险，做体检，安全更多一步 双方美年大体检、PICC百万保险、专业医护支持"/>
+				<a href="__ROOT__/kst.html" class="f-fl cantbtn">查看详情</a>
+			</div>
+		</div>
+		<div class="page4">
+			<p class="p1">颠覆传统，重新定义母婴护理</p>
+			<p class="p2">在田螺阿姨，坐月子不是难题</p>
+			<div class="content">
+				<a onclick="openVideo1()" class="cantbtn">产后恢复操</a>
+				<a onclick="openVideo2()" class="cantbtn cantbtn2">月嫂的一天</a>
+				<a onclick="openVideo3()" class="cantbtn">电视台采访</a>
+				<a onclick="openVideo4()" class="cantbtn cantbtn2">月嫂健康操</a>
+			</div>
+			
+			<img src="__PUBLIC__/img/index/indexPage4.jpg" />
+		</div>
+		<script>
+			function openVideo1(){
+			  	layer.open({
+			  		content: '<iframe class="video" frameborder="0" width="100%" src="http://v.qq.com/iframe/player.html?vid=a0330gdqzbk&tiny=0&auto=0" allowfullscreen></iframe>'
+				});
+				$('.video').css('height',$('.video').width()*0.6);
+			}
+			function openVideo2(){
+			  	layer.open({
+			  		content: '<iframe class="video" frameborder="0" width="100%" src="http://v.qq.com/iframe/player.html?vid=n0332899nr3&tiny=0&auto=0" allowfullscreen></iframe>'
+				});
+				$('.video').css('height',$('.video').width()*0.6);
+			}
+			function openVideo3(){
+			  	layer.open({
+			  		content: '<iframe class="video" frameborder="0" width="100%" src="http://v.qq.com/iframe/player.html?vid=b0332wnzyki&tiny=0&auto=0" allowfullscreen></iframe>'
+				});
+				$('.video').css('height',$('.video').width()*0.6);
+			}
+			function openVideo4(){
+			  	layer.open({
+			  		content: '<iframe class="video" frameborder="0" width="100%" src="http://v.qq.com/iframe/player.html?vid=g0332n7p59y&tiny=0&auto=0" allowfullscreen></iframe>'
+				});
+				$('.video').css('height',$('.video').width()*0.6);
+			}
+		</script>
+		<div class="page5">
+			<img src="__PUBLIC__/img/index/indexTle1.png" class="tle" title="新闻"/>
+
+				<li><a href="__ROOT__/{$vo.belong_url}/{$vo.id}.html"><span>{$vo.add_time}</span>{$vo.title}</a></li>
+			</volist>
+
+			<ul class="newslist">
+
+				<volist name="news_list" id="vo">
+				<li>
+					<a class="f-cb" href="__ROOT__/m/{$vo.belong_url}/{$vo.id}.html">
+						<img src="__UPLOADS__/{$vo.title_img}" class="newsimg f-fl" />
+						<div class="newscnt f-fr">
+							<p class="p1">{$vo.title}</p>
+							<p class="p2">{$vo.add_time}</p>
+							<p class="p3">{$vo.description}</p>
+						</div>
+					</a>
+				</li>
+
+				</volist>
+				
+				<!--<li>-->
+					<!--<a class="f-cb" href="#">-->
+						<!--<img src="__PUBLIC__/img/index/newsImg.jpg" class="newsimg f-fl" />-->
+						<!--<div class="newscnt f-fr">-->
+							<!--<p class="p1">田螺阿姨官网2.0正式上线啦</p>-->
+							<!--<p class="p2">2016-07-01</p>-->
+							<!--<p class="p3">田螺阿姨官网2.0正式上线了啦啦啦，好开心，哈哈哈啊哈啊哈哈哈开始懂了空间里疯狂的</p>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+				<!---->
+				<!--<li>-->
+					<!--<a class="f-cb" href="#">-->
+						<!--<img src="__PUBLIC__/img/index/newsImg.jpg" class="newsimg f-fl" />-->
+						<!--<div class="newscnt f-fr">-->
+							<!--<p class="p1">田螺阿姨官网2.0正式上线啦</p>-->
+							<!--<p class="p2">2016-07-01</p>-->
+							<!--<p class="p3">田螺阿姨官网2.0正式上线了啦啦啦，好开心，哈哈哈啊哈啊哈哈哈开始懂了空间里疯狂的</p>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+			</ul>
+		</div>
+		
+		<div class="page6">
+			<img src="__PUBLIC__/img/index/indexTle2.png" class="tle" title="合作伙伴"/>
+			<div class="pater">
+				<img src="__PUBLIC__/img/index/pater1.png" class="m0" title="中国人寿保险">
+				<img src="__PUBLIC__/img/index/pater2.png" title="合生元">
+				<img src="__PUBLIC__/img/index/pater3.png" title="美年大健康">
+				<img src="__PUBLIC__/img/index/pater4.png" title="惠氏">
+				<br />
+				<img src="__PUBLIC__/img/index/pater5.png" class="m0" title="贝因美">
+				<img src="__PUBLIC__/img/index/pater6.png" title="贝贝爱">
+				<img src="__PUBLIC__/img/index/pater7.png" title="康达诊所">
+				<img src="__PUBLIC__/img/index/pater8.png" title="360">
+			</div>
+			<!--友情链接-->
+
+			<!--友情链接end-->
+		</div>
+		<div class="footer">
+			<a href="wtai://wp//mc;4008086090"><img src="__PUBLIC__/img/tel.png" class="telnum" title="tel:400-808-6090" /></a>
+			<p>地址：成都高新区天府大道1700号环球中心E2-18楼</p>
+			<p>©2014-2015 成都亿家政网络科技有限公司 版权所有蜀ICP备15008974号-1</p>
+		</div>
+	<include file="Nav/footer"/>
+		<script>
+			var window_wid=$(window).width();$(".page1,.page2,.page3").css("width",window_wid).css("height",window_wid*0.6131).css("background-size","100% 100%");
+		</script>
+	</body>
+	
+</html>

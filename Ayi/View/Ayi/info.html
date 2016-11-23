@@ -1,0 +1,616 @@
+
+<include file="Nav/header"/>
+
+
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+
+		<!--加入黑名单弹出框-->
+		<div id="dialog">
+			<p class="close"><a href="#" onclick="closeBg();">X</a></p>
+			<p style="text-align: center; margin-top: 30px;color: red;" id="warning_p">你确认要将韩宇加入黑名单么？</p>
+
+			<br/>
+
+			理由: <input type="text" id="remark_del"  style="width: 80%" />
+			<input type="hidden" value="10" id="status" />
+
+
+			<br/>
+			<br/>
+			<span  class="btn btn-default" id="del_nurse" style="margin-left: 55px;">确认</span>
+			<span  class="btn btn-default"  onclick="closeBg();" style="margin-left: 130px;">取消</span>
+
+		</div>
+
+		<div class="nurse_info" >
+		   	 <h1 style="font-size: 45px;font-weight: normal;margin: 30px 0 20px 5%;">阿姨详情</h1>
+
+
+			<?php if($_SESSION[C('AYI_AUTH_KEY')]['permission']==1||$_SESSION[C('AYI_AUTH_KEY')]['edit_per']==1){?>
+
+			<a href="__MODULE__/Ayi/editNurse_1/id/<?php echo $info['id'];?>"><span type="submit"  class="btn btn-default" style="margin-left: 45px;">修改基本信息</span></a>
+			<a href="__MODULE__/Ayi/addTest/id/<?php echo $info['id'];?>"><span type="submit"  class="btn btn-default">修改导师推荐视频</span></a>
+			<a href="__MODULE__/Ayi/addVideo/id/<?php echo $info['id'];?>"><span type="submit"  class="btn btn-default">修改个人视频及简介</span></a>
+			<?php }?>
+
+			<?php if($info['status']<10){?>
+			<?php if($_SESSION[C('AYI_AUTH_KEY')]['permission']==1||$_SESSION[C('AYI_AUTH_KEY')]['del_per']==1){?>
+				<a href="javascript:showBg1();"  onclick="javascript:return window.confirm('确认加入黑名单吗？')"><span type="submit"  class="btn btn-default" >加入黑名单</span></a>
+
+
+
+				<a href="javascript:showBg2();" onclick="javascript:return window.confirm('确认删除吗？')"><span type="submit"  class="btn btn-default">删除</span></a>
+			<?php }?>
+
+			<?php }else{echo '<span style="color:red;">'.($info['status']==10?'用户已被加入黑名单':'用户已被删除').'</span>';}?>
+
+
+
+			<a href="__MODULE__/Ayi/record/id/<?php echo $info['id'];?>"><span  class="btn btn-default" style="margin-left: 45px;">联系记录</span></a>
+
+
+			<br/>
+		   	 <div class="ayi-information" style="position: absolute; ">
+					<ul class="infor-ul f-cb">
+						<li class="infor-li1"><img src="__UPLOADS__/{$info.title_img}" width="180px" height="185px" /></li>
+						<li class="infor-name">姓名</li>
+						<li class="infor-name-content" id="name">{$info.name}
+
+						<if condition="$info.is_training gt 0">
+							<a href="__MODULE__/Ayi/go_training/id/{$info.is_training}" style="text-align: right;" title="查看培训记录">查</a>
+						</if>
+
+						</li>
+						<li class="infor-height">身高</li>
+						<li class="infor-height-content">{$info.hight}cm</li>
+						<li class="infor-age">年龄</li>
+						<li class="infor-age-content">{$info.age}岁</li>
+						<li class="infor-weight">体重</li>
+						<li class="infor-weight-content">{$info.weight}kg</li>
+						<li class="infor-address">籍贯</li>
+						<li class="infor-address-content">{$info.native_place}</li>
+						<li class="infor-level">价位</li>
+						<li class="infor-level-content">{$info.l_price}~{$info.h_price}</li>
+						<li class="infor-zodiac">属相</li>
+						<li class="infor-zodiac-content">{$info.zodiac}</li>
+						<li class="infor-marriage">婚姻</li>
+						<li class="infor-marriage-content">{$info.marriage}</li>
+						<li class="infor-star">星座</li>
+						<li class="infor-star-content">{$info.constellation}</li>
+						<li class="infor-birth">生育</li>
+						<li class="infor-birth-content">{$info.birth}</li>
+					</ul>
+
+				 <div class="ayi-information" style="width: 400px; height: auto; position: relative;top:-300px; right: -800px;">
+					 <volist name="record" id="vo">
+						 <ul class="infor-ul f-cb">
+							 <li class="infor-address-content" style="vertical-align: middle;width: 200px;height: 20px;color: #47C8A2">{$vo.add_time|date="Y-m-d H:i:s",###}</li>
+
+							 <li class="infor-address-content" style="width: 80px;height: 20px;color: #47C8A2">{$vo.employee_name} </li>
+
+							 <li  class="infor-address-content" style=" width:85%;color: #47C8A2;height: auto; ">{$vo.remark}</li>
+						 </ul>
+					 </volist>
+				 </div>
+				</div>
+
+
+
+			<div class="ayi-information" style="height: auto;margin-top: 400px;">
+				<ul class="infor-ul f-cb">
+					<li class="infor-address"style="width: 70px;height: 30px;">编号</li>
+					<li class="infor-address-content"style="vertical-align: middle;width: 230px;height: 30px;">{$info.number}</li>
+
+					<li class="infor-address"style="width: 70px;height: 30px;">类型</li>
+					<li class="infor-address-content"style="width: 230px;height: 30px;">{$info.type}</li>
+
+
+					<li class="infor-address" style="width: 70px;height: 30px;">身份证</li>
+					<li class="infor-address-content" style="width: 230px;height: 30px; text-align: left">{$info.id_card}</li>
+
+					<li class="infor-address" style="width: 70px;height: 30px;">兼职</li>
+					<li class="infor-address-content" style="width: 230px;height: 30px;">{$info.others}</li>
+
+					<li class="infor-address" style="width: 70px;height: 30px;"> 证书</li>
+					<li class="infor-address-content" style="width: 230px;height: 30px; text-align: left">{$info.zhengshu_name}</li>
+
+					<li class="infor-address" style="width: 90px;height: 30px;">领证日期</li>
+					<li class="infor-address-content" style="width: 200px;height: 30px; margin-left: 20px;">{$info.zhengshu_date}</li>
+
+
+
+					<li class="infor-address" style="width: 90px;height: 30px;"> 培训机构</li>
+					<li class="infor-address-content" style="width: 230px;height: 30px; text-align: left;margin-left: 20px;">{$info.train}</li>
+
+					<li class="infor-address" style="width: 90px;height: 30px;">从业时间</li>
+					<li class="infor-address-content" style="width: 200px;height: 30px; margin-left: 20px;">{$info.work_date}</li>
+
+					<li class="infor-address" style="width: 90px;height: 30px;"> 电话</li>
+					<li class="infor-address-content" style="width: 230px;height: 30px; text-align: left;margin-left: 20px;">{$info.phone}</li>
+
+					<li class="infor-address" style="width: 90px;height: 30px;">紧急电话</li>
+					<li class="infor-address-content" style="width: 200px;height: 30px; margin-left: 20px;">{$info.urgent_phone}</li>
+
+					<li class="infor-address" style="width: 90px;height: 30px;"> 微信号</li>
+					<li class="infor-address-content" style="width: 230px;height: 30px; text-align: left;margin-left: 20px;">{$info.wechat}</li>
+					<li class="infor-address" style="width: 90px;height: 30px;">学历</li>
+					<li class="infor-address-content" style="width: 200px;height: 30px; margin-left: 20px;">{$info.educational}</li>
+
+				</ul>
+
+				<span class="infor-address" style="width: 90px;height: 30px;"> 上单时间</span>
+				<?php if($_SESSION[C('AYI_AUTH_KEY')]['permission']==1||$_SESSION[C('AYI_AUTH_KEY')]['add_per']==1){?>
+
+				<span id="addUse" class="btn btn-default" title="添加上单记录">+</span>
+				<?php }?>
+
+				<span style="width: 715px; margin:10px auto 20px 50px;display: inline-block">
+				<volist name="nurse_use" id="vo">
+				{$vo.b_time}~~~~{$vo.s_time}
+
+					<?php if($_SESSION[C('AYI_AUTH_KEY')]['permission']==1||$_SESSION[C('AYI_AUTH_KEY')]['edit_per']==1){?>
+					<i style="margin-left: 15px;color: #0075b0;cursor:pointer;" title="修改" id="dui" val="<?php echo $vo['id'];?>" remark="<?php echo $vo['remark'];?>" s_time="<?php echo $vo['s_time'];?>" b_time="<?php echo $vo['b_time'];?>">√</i>
+					<?php }?>
+
+
+					<?php if($_SESSION[C('AYI_AUTH_KEY')]['permission']==1||$_SESSION[C('AYI_AUTH_KEY')]['del_per']==1){?>
+					<i style="margin-left: 15px;margin-right: 15px;;color: red ;cursor:pointer; " title="删除" id="del" val="<?php echo $vo['id'];?>"  onclick="javascript:return window.confirm('确认删除吗？')">X</i>
+					<?php }?>
+					<span style="color: #ccc">{$vo.remark}</span><br/>
+				</volist>
+
+
+				</span>
+
+
+				<div id="use" style="width: 660px; height: 150px;margin-left: 50px; font-size:14px; display: none;border: 1px solid lightblue;margin-bottom: 10px; padding: 10px 0 0 10px;">
+
+					<input type="hidden" id="id" value="{$info.id}"/>
+					<input type="hidden" id="use_id" value=""/>
+					上单时间：<input type="text" id="b_time" style="width: 200px; height: 20px; margin-right: 50px;" placeholder="2015-05-03"/>
+					结束时间：<input type="text" id="s_time" style="width: 200px; height: 20px;margin-right: 50px;" placeholder="2015-05-03"/>
+					备注：<input type="text" id="remark" style="width: 550px; height: 20px; margin-top: 30px;margin-bottom: 30px;"/>
+
+					<span id="submit"  class="btn btn-default">确认</span> <span id="cancel" class="btn btn-default">取消</span>
+
+				</div>
+
+			</div>
+				
+				<div class="talent-map">
+					<div class="talent-map-content">
+						<canvas id="canvas" height="450" width="450"></canvas>
+					</div>
+					
+					<div class="talent-grade">
+						<ul class="talent-grade-type">
+							<?php if($info['ayi_type']==1){?>
+							<li>月子餐：</li>
+							<li>病理知识：</li>
+							<li>护理经验：</li>
+							<li>通乳催乳：</li>
+							<li>心理疏导：</li>
+							<li>产后恢复：</li>
+							<li>科学喂养：</li>
+							<?php }elseif($info['ayi_type']==2){?>
+							<li>辅食添加：</li>
+							<li>早教：</li>
+							<li>抚触/被动操：</li>
+							<li>普通话：</li>
+							<li>宝宝生活习惯调养：</li>
+							<li>病理知识：</li>
+							<li>小儿推拿：</li>
+							<?php }elseif($info['ayi_type']==3){?>
+							<li>家庭保洁：</li>
+							<li>厨房收纳：</li>
+							<li>饭菜烹饪：</li>
+							<li>普通话：</li>
+							<li>衣服熨烫：</li>
+							<li>家庭收纳：</li>
+							<li>早餐西餐：</li>
+							<?php }?>
+
+						</ul>
+						<ul class="talent-grade-type-grade">
+							<li>{$info.skill1}</li>
+							<li>{$info.skill2}</li>
+							<li>{$info.skill3}</li>
+							<li>{$info.skill4}</li>
+							<li>{$info.skill5}</li>
+							<li>{$info.skill6}</li>
+							<li>{$info.skill7}</li>
+						</ul>
+					</div>					
+				</div>
+
+			<div class="experience">
+				<span class="experience-title">家庭情况</span>
+				<ul>
+					<volist name="family" id="vo">
+						<li>{$vo}</li>
+					</volist>
+					<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+					<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+					<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+				</ul>
+			</div>
+
+
+				<div class="experience">
+					<span class="experience-title">行业经验</span>
+					<ul>
+						<volist name="experience" id="vo">
+							<li>{$vo}</li>
+						</volist>
+						<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+						<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+						<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+					</ul>
+				</div>
+				
+				
+				
+				<div class="character">
+					<span class="character-title">性格评价</span>
+					<ul>
+						<volist name="character" id="vo">
+							<li>{$vo}</li>
+						</volist>
+						<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+						<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+						<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+						<!--<li>哈哈哈哈哈哈哈哈哈哈哈哈呵</li>-->
+					</ul>
+				</div>
+
+				<div class="teacher">
+					<span class="teacher-title">导师评价</span>
+					<if condition="$info.recommend_video neq ''">
+						<span class="teacher-tuijian">导师推荐</span>
+						<video id="video" src="__UPLOADS__/{$info.recommend_video}" controls="controls" >
+
+						</video>
+					</if>
+					<span class="teacher-tuijian">导师评价</span>
+					<span class="teacher-tuijian-content">{$info.specialty}</span>
+				</div>
+				
+				<div class="demonstration">
+					<span class="teacher-title">实操演示</span>
+
+
+					<volist name="video" id="vo" empty="暂无">
+						<span class="teacher-tuijian">{$vo.word}</span>
+						<video src="__UPLOADS__/{$vo.video}" id="video{$i}" controls="controls" >
+
+						</video>
+
+					</volist>
+					<!--<span class="teacher-tuijian">拍隔</span>-->
+					<!--<video id="video" src="1.mp4" controls="controls" >-->
+						<!---->
+					<!--</video>-->
+					<!--<span class="teacher-tuijian">拍隔</span>-->
+					<!--<video id="video" src="1.mp4" controls="controls" >-->
+						<!---->
+					<!--</video>-->
+					<!--<span class="teacher-tuijian">拍隔</span>-->
+					<!--<video id="video" src="1.mp4" controls="controls" >-->
+						<!---->
+					<!--</video>-->
+				</div>
+
+			<div class="teacher" style="text-align: center;">
+				<span class="teacher-title">相关附件图</span>
+				<volist name="test_img" id="vo" empty='暂无'>
+					<if condition="$vo neq ''">
+						<img src="__UPLOADS__/{$vo}" alt="" style="max-width:60%; width: 350px;margin-top: 15px;"/><br/>
+					</if>
+				</volist>
+			</div>
+			<i style="clear: both;"></i>
+		   	
+		</div>
+<include file="Nav/footer"/>
+
+<script src="__PUBLIC__/js/Chart.js"></script>
+
+
+<script type="text/javascript">
+		//显示灰色 jQuery 遮罩层
+		function showBg1() {
+			var bh = $("body").height();
+			var bw = $("body").width();
+			var warning_p_str = '你确定要将<span style="color: #46b8da"> '+$("#name").text()+'</span>加入黑名单？';
+			$("#warning_p").html(warning_p_str);
+			$("#status").val('10');
+			$("#dialog").show();
+		}
+
+		function showBg2() {
+			var bh = $("body").height();
+			var bw = $("body").width();
+			var warning_p_str = '你确定要将<span style="color: #46b8da"> '+$("#name").text()+'</span>删除？';
+			$("#warning_p").html(warning_p_str);
+
+
+			$("#status").val('20');
+			$("#dialog").show();
+		}
+
+
+		$("#del_nurse").live('click',function(){
+				var id = $("#id").val();
+				var status = $("#status").val();
+				var remark_del = $("#remark_del").val();
+				if(remark_del=='') {
+					alert('备注必须填写！');
+					return false;
+				}
+					$.AjaxPost(MODULE + "/Ayi/deleteNurse", {id: id, status: status, remark_del: remark_del}, function (backdata) {
+						if (backdata.code == 1000) {
+							alert('操作成功');
+							window.location.reload();
+						} else if (backdata.code == 1002) {
+							alert('已经被删除或已经被加入黑名单！');
+							window.location.reload();
+						} else if (backdata.code == 1003) {
+							alert('无权限！');
+						} else {
+							alert('提交失败');
+						}
+					}, true);
+
+
+
+		});
+
+		//关闭灰色 jQuery 遮罩
+		function closeBg() {
+			$("#fullbg,#dialog").hide();
+		}
+
+
+
+
+
+
+
+
+
+		function duibi(a, b) {
+			var arr = a.split("-");
+			var starttime = new Date(arr[0], arr[1], arr[2]);
+			var starttimes = starttime.getTime();
+
+			var arrs = b.split("-");
+			var lktime = new Date(arrs[0], arrs[1], arrs[2]);
+			var lktimes = lktime.getTime();
+			if (starttimes >= lktimes) {
+				alert('上单时间大于结束时间，请检查');
+				return false;
+			}else{
+				return true;
+			}
+		}
+
+		$("#addUse").live('click',function(){
+			if($("#use").css('display')=='block'){
+				$("#use").css('display','none');
+				return false;
+			}
+
+			$("#b_time").attr('placeholder','2015-05-03');
+			$("#s_time").attr('placeholder','2015-05-03');
+			$("#remark").attr('placeholder','输入备注');
+
+			$("#b_time").val('');
+			$("#s_time").val('');
+			$("#remark").val('');
+
+			$("#use_id").val(0);
+			$("#use").css('display','block');
+		});
+
+		$("#cancel").live('click',function(){
+			$("#use").css('display','none');
+		});
+
+		$("#dui").live('click',function(){
+			$("#b_time").val($(this).attr('b_time'));
+			$("#s_time").val($(this).attr('s_time'));
+			$("#remark").val($(this).attr('remark'));
+			var val = $(this).attr('val');
+			$("#use_id").val(val);
+			$("#use").css('display','block');
+		});
+
+		$("#del").live('click',function(){
+			var val = $(this).attr('val');
+			$.AjaxPost(MODULE+"/Ayi/delUse", {id:val}, function (backdata) {
+				if (backdata.code == 1000) {
+					alert('删除成功');
+					window.location.reload();
+				} else {
+					alert('删除失败');
+				}
+			}, true);
+		});
+		var id = $("#id").val();
+		var reg=/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+
+		$("#submit").live('click',function(){
+			var b_time = $("#b_time").val();
+			var s_time = $("#s_time").val();
+			var remark = $("#remark").val();
+			var use_id = $("#use_id").val();
+			if(duibi(b_time,s_time)) {
+				if (reg.test(b_time) && (reg.test(s_time)||s_time=='')) {
+					$.AjaxPost(MODULE + "/Ayi/addUse", {
+						nurse_id: id,
+						b_time: b_time,
+						s_time: s_time,
+						remark: remark,
+						use_id: use_id
+					}, function (backdata) {
+						if (backdata.code == 1000) {
+							alert('提交成功');
+							window.location.reload();
+						}else if(backdata.code == 1002){
+							alert('时间存在交叉！请确认');
+						} else if(backdata.code == 1005){
+							alert('你没有权限');
+						}else {
+							alert('提交失败');
+						}
+					}, true);
+				} else {
+					alert('日期格式不正确');
+				}
+			}
+
+		});
+
+
+
+		var skill1= <?php echo $info['skill1'];?>;
+		var skill2= <?php echo $info['skill2'];?>;
+		var skill3= <?php echo $info['skill3'];?>;
+		var skill4= <?php echo $info['skill4'];?>;
+		var skill5= <?php echo $info['skill5'];?>;
+		var skill6= <?php echo $info['skill6'];?>;
+		var skill7= <?php echo $info['skill7'];?>;
+
+
+		var ayi_type = <?php echo $info['ayi_type'];?>;
+		window.onload = function() {
+			var ctx = document.getElementById("canvas").getContext("2d");
+			ctx.fillRect(10, 10, 20, 20);
+		};
+
+		if(parseInt(ayi_type) ==1){
+			var array = ['月子餐','病理知识','护理经验','通乳催乳','心里疏导','产后恢复','科学喂养'];
+		}else if(parseInt(ayi_type)==2){
+			var array = ['辅食添加','早教','抚触/被动操','普通话','宝宝生活习惯调养','病理知识','小儿推拿'];
+		}else if(parseInt(ayi_type)==3){
+			var array = ['家庭保洁','厨房收纳','饭菜烹饪','普通话','衣服熨烫','家庭收纳','早餐西餐'];
+		}
+
+		var radarChartData = {
+			labels: [array[0], array[1], array[2],array[3], array[4],array[5],array[6]],
+			datasets: [
+				{
+
+					fillColor: "rgba(71,200,162,0.1)",
+					strokeColor: "rgba(220,220,220,1)",
+					pointColor: "rgba(220,220,220,1)",
+					pointHighlightStroke: "rgba(220,220,220,1)",
+					data : [100,100,100,100,100,100,100]
+
+				},
+				{
+					fillColor : "rgba(151,187,205,0.6)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					data: [skill1,skill2,skill3,skill4,skill5,skill6,skill7]
+				}
+			]
+		};
+			window.onload = function(){
+				window.myRadar = new Chart(document.getElementById("canvas").getContext("2d")).Radar(radarChartData, {
+					responsive: true
+				});
+			}
+
+	</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

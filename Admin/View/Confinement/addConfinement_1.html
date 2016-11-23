@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>田螺后台</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="__PUBLIC__/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="__PUBLIC__/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="__PUBLIC__/admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+
+</head>
+
+
+
+<body>
+
+
+<div id="wrapper"  style="margin-bottom: 150px;">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <include file="Nav/header" />
+        <!-- /.navbar-top-links -->
+
+        <!--左边导航-->
+        <include file="Nav/index" />
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <div id="page-wrapper" style="margin-bottom: 150px;">
+        <div class="row" >
+            <div class="col-lg-12">
+                <h3 class="page-header">添加月嫂</h3>
+            </div>
+            <!-- /.col-lg-12 -->
+            <div class="col-lg-8">
+                <form action="__MODULE__/Confinement/addInfo" method="post" id="form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <span style="float: left;">姓名：</span>
+                    <input   name="name" id="name" value=""   style="width: 15%;height: 20px; float: left" placeholder="填文字，如张三"/>
+                    <span style="float: left;margin-left: 5%;">级别：</span>
+                    <select  name="level"  id="level" style="float: left;width:  15%;">
+                        <option value="1">初级</option>
+                        <option value="2">中级</option>
+                        <option value="3">高级</option>
+                        <option value="4">星级</option>
+                        <option value="5">金牌</option>
+                    </select>
+                    <span style="float: left;margin-left:  5%;">学历：</span>
+                    <select  name="educational"  id="educational" style="float: left;width:  15%;">
+                        <option value="1">小学</option>
+                        <option value="2">初中</option>
+                        <option value="3">高中</option>
+                        <option value="4">大学</option>
+                    </select>
+                </div>
+                <br/><br/>
+
+                <div class="form-group" style="margin-top: 8px;">
+                    <span style="float: left;">生日：</span>
+                    <input  type="date" name="age" id="age" value=""   style="width:  15%;height: 20px; float: left" placeholder="填数字,如33"/>
+
+                    <span style="float: left;margin-left:  5%;">属相：</span>
+                    <select  name="zodiac"  id="zodiac" style="float: left;width:  15%;">
+                        <option value="鼠">鼠</option>
+                        <option value="牛">牛</option>
+                        <option value="虎">虎</option>
+                        <option value="兔">兔</option>
+                        <option value="龙">龙</option>
+                        <option value="蛇">蛇</option>
+                        <option value="马">马</option>
+                        <option value="羊">羊</option>
+                        <option value="猴">猴</option>
+                        <option value="鸡">鸡</option>
+                        <option value="狗">狗</option>
+                        <option value="猪">猪</option>
+                    </select>
+
+                    <span style="float: left;margin-left:  5%;">星座：</span>
+                    <select  name="constellation"  id="constellation" style="float: left;width:  15%;">
+                        <option value="水瓶座">水瓶座(1.20-2.18)</option>
+                        <option value="双鱼座">双鱼座(2.19-3.20)</option>
+                        <option value="白羊座">白羊座(3.21-4.19)</option>
+                        <option value="金牛座">金牛座(4.20-5.20)</option>
+                        <option value="双子座">双子座(5.21-6.21)</option>
+                        <option value="巨蟹座">巨蟹座(6.22-7.22)</option>
+                        <option value="狮子座">狮子座(7.23-8.22)</option>
+                        <option value="处女座">处女座(8.23-9.22)</option>
+                        <option value="天秤座">天秤座(9.23-10.23)</option>
+                        <option value="天蝎座">天蝎座(10.24-11.22)</option>
+                        <option value="射手座">射手座(11.23-12.21)</option>
+                        <option value="摩羯座">摩羯座(12.22-1.19)</option>
+                    </select>
+
+                </div>
+                    <br/><br/>
+                    <div class="form-group" >
+                        <span style="float: left;">籍贯：</span>
+                        <input   name="native_place" id="native_place" value=""   style="width:  15%;height: 20px; float: left" placeholder="填文字,如四川"/>
+
+                        <span style="float: left;margin-left:  5%;">身高：</span>
+                        <input   name="hight" id="hight" value=""   style="width:  15%;height: 20px; float: left" placeholder="填数字,如165"/>
+
+                        <span style="float: left;margin-left:  5%;">体重：</span>
+                        <input   name="weight" id="weight" value=""   style="width:  15%;height: 20px; float: left" placeholder="填数字,如59"/>
+
+                    </div>
+                    <br/><br/>
+
+                <div class="form-group" style="margin-top: -9px;">
+
+                    <span style="float: left;">婚姻：</span>
+                    <select  name="marriage"  id="marriage" style="float: left;width:  15%;">
+                        <option value="未婚">未婚</option>
+                        <option value="已婚">已婚</option>
+                        <option value="离异">离异</option>
+                    </select>
+                    <span style="float: left;margin-left:  5%;">生育：</span>
+                    <select  name="birth"  id="birth" style="float: left;width:  15%;">
+                        <option value="未育">未育</option>
+                        <option value="已育">已育</option>
+                        <option value="多育">多育</option>
+                    </select>
+                </div>
+                    <br/><br/>
+
+                 <div class="form-group" style="margin-top: -9px;">
+                        <span style="float: left;">带宝宝数量：</span>
+                        <input   name="baby_num" id="baby_num" value=""   style="width: 11%;height: 20px; float: left" placeholder="填数字,如3"/>
+                </div>
+                    <br/><br/>
+
+                    <div class="form-group" style="margin-top: -9px;">
+                        <label style="float: left;">排序：</label>
+                        <input class="form-control"  name="sort" id="order" value="<?php echo $sort_num;?>"  style="width: 50px;height:26px; float: left;"/> <span style="font-size: 10px;margin-left: 10px; color: #CCCCCC;">默认最新，无特殊要求不需要更改。</span>
+
+                    </div>
+                    <br/><br/>
+
+                <div class="form-group" style="margin-top: -9px;">
+                    <span style="float: left;">技能等级(0-100)：</span>
+                    <input type="text" name="skill1" id="skill1"  style="width: 60px;margin-right: 10px;" placeholder="月子餐"/>
+                    <input type="text" name="skill2" id="skill2"  style="width: 60px;margin-right: 10px;" placeholder="病理知识"/>
+                    <input type="text" name="skill3" id="skill3"  style="width: 60px;margin-right: 10px;" placeholder="护理经验"/>
+                    <input type="text" name="skill4" id="skill4"  style="width: 60px;margin-right: 10px;" placeholder="通乳技术"/>
+                    <input type="text" name="skill5" id="skill5"  style="width: 60px;margin-right: 10px;" placeholder="沟通技能"/>
+                    <input type="text" name="skill6" id="skill6"  style="width: 60px;margin-right: 10px;" placeholder="产后恢复"/>
+                    <input type="text" name="skill7" id="skill7"  style="width: 60px;margin-right: 10px;" placeholder="科学喂养"/>
+
+
+                    <!--<select  name="skill6"  id="skill6" style="float: left;width:  5%;margin-left: 2%;">-->
+                        <!--<option value="1">1</option>-->
+                        <!--<option value="2">2</option>-->
+                        <!--<option value="3">3</option>-->
+                    <!--</select>-->
+                </div>
+                    <br/><br/>
+                    <div class="form-group">
+                        <span style="float: left;">头像：</span>
+                        <input type="file" name="title_img" id="title_img"/>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <span>推荐：</span>
+                        <!--<input type="test" readonly value="------" style="width: 100px;height: 20px;" id="fuzhi1"/>-->
+                        <!--<input type="button" id="dianji1" value="复制" />-->
+                        <textarea name="specialty" id="specialty" style="width: 80%;height: 150px; margin-top: 5px;"  class="form-control" ></textarea>
+
+                    </div>
+
+                    <div class="form-group">
+                        <span>经验：</span> <input type="test" readonly value="------" style="width: 100px;height: 20px;" id="fuzhi2"/>
+                        <input type="button" id="dianji2" value="复制" />
+                        <textarea name="experience" id="experience" style="width: 80%;height: 150px;margin-top: 5px;"  class="form-control" ></textarea>
+
+                    </div>
+
+                    <div class="form-group">
+                        <span>性格：</span> <input type="test" readonly value="------" style="width: 100px;height: 20px;" id="fuzhi3"/>
+                        <input type="button" id="dianji3" value="复制" />
+                        <textarea name="character" id="character" style="width: 80%;height: 150px;margin-top: 5px;"  class="form-control" ></textarea>
+
+                    </div>
+
+
+                    <span  id="submit" class="btn btn-default">确认添加</span>
+
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+
+
+</div>
+
+<!-- jQuery -->
+<script src="__PUBLIC__/admin/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+
+<script src="__PUBLIC__/admin/js/jquery-1.7.1.min.js"></script>
+
+<script src="__PUBLIC__/admin/js/jquery.longyuJs.js"></script>
+
+
+<script src="__PUBLIC__/ajaxfileupload.js"></script>
+
+<script>
+    var MODULE='__MODULE__';
+    $("#submit").live('click',function(){
+        if($("#title_img").val()==''){
+            alert('请上传头像');
+            return false;
+        }else  if($("#name").val()==''||$("#name").val().length>5){
+            alert('请填写姓名，不超过五个字');
+            return false;
+        }else  if($("#age").val()==''){
+            alert('请填写正确生日');
+            return false;
+        }else  if($("#native_place").val()==''){
+            alert('请填写籍贯');
+            return false;
+        }else  if($("#hight").val()==''||$("#hight").val()>200||$("#hight").val()<80){
+            alert('请填写正确身高，80-200');
+            return false;
+        }else  if($("#weight").val()==''||$("#weight").val()<30||$("#weight").val()>150){
+            alert('请填写正确体重，30-150');
+            return false;
+        }else  if($("#baby_num").val()==''){
+            alert('请填写带宝宝数量，没有请填0');
+            return false;
+        }else  if($("#skill1").val()<0||$("#skill1").val()>100||$("#skill2").val()>100||$("#skill2").val()<0||$("#skill3").val()>100||$("#skill3").val()<0||$("#skill4").val()>100||$("#skill4").val()<0||$("#skill5").val()>100||$("#skill5").val()<0||$("#skill6").val()>100||$("#skill6").val()<0||$("#skill7").val()>100||$("#skill7").val()<0){
+            alert('技能等级请填写0-100;');
+            return false;
+        }
+
+
+        $("#form").submit();
+    })
+
+    $("#dianji1").live('click',function(){
+        var d = document.getElementById("fuzhi1");
+        d.select();
+        document.execCommand("Copy");
+    })
+    $("#dianji2").live('click',function(){
+        var d = document.getElementById("fuzhi2");
+        d.select();
+        document.execCommand("Copy");
+    })
+    $("#dianji3").live('click',function(){
+        var d = document.getElementById("fuzhi3");
+        d.select();
+        document.execCommand("Copy");
+    })
+</script>
+
+
+
+</body>
+
+</html>

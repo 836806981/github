@@ -1,0 +1,297 @@
+<include file="Nav/header" />
+
+		<div class="add" style="min-height: 600px;">
+			<form action="__MODULE__/Order/addOrder" method="post" id="form" onsubmit="javascript:return window.confirm('确定添加么？')"  enctype="multipart/form-data">
+		   	 <div class="kuang" style="font-size: 14px;">
+
+				 <span style="font-size: 20px;color:#47C8A2">联系信息</span> <br/>
+				 &emsp;订单类型：<select name="type" id="type" style="width: 20%;font-size: 14px;">
+				 <option value="1">月嫂</option>
+				 <option value="5">月子导师</option>
+				 <option value="2">育儿嫂</option>
+				 <option value="3">保姆</option>
+				 <option value="4">钟点工</option>
+				 <option value="10">其他业务</option>
+				 </select>
+				 <br/> <br/>
+				&emsp;客户姓名：<input type="text" class="text" style="width: 20%;" name="name" id="name" />
+				 <br />
+				 <br />
+				 &emsp;联系方式：<select name="contact_way" id="contact_way" style="width: 4.5%;font-size: 14px;min-width: 50px;height: 23px;">
+				 <option>电话</option>
+				 <option>微信</option>
+				 <option>QQ</option>
+				 <option>邮箱</option>
+			 	</select>
+				 <input type="text" class="text" style="width: 15%; font-size: 14px;" name="contact_number" id="contact_number" placeholder="请输入对应的号码"/>
+				 <br />
+				 <br />
+
+				 &emsp;渠道来源：
+				 <select name="source" id="source">
+					 <option>菜市场广告牌</option>
+					 <option>眉山的广场视频广告</option>
+					 <option>朋友介绍</option>
+					 <option>公司网站</option>
+					 <option>传单</option>
+					 <option>其他</option>
+				 </select>
+
+
+				 <!--<input type="text" class="text" style="width: 20%;" name="source" id="source"/>-->
+				 <br />
+				 <br />
+
+				 <div id="type_5">
+					 &emsp;价位范围：<input type="text" class="text" style="width: 9%;" name="price_l" id="price_l" />~~<input type="text" class="text" style="width: 9%;" name="price_h" id="price_h" />
+
+					 <br/>
+					 <br/>
+					 &emsp;联系地址：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="contact_address" id="contact_address"></textarea>
+					 <br />
+					 <br/>
+
+
+
+
+				 <span style="font-size: 20px;color:#47C8A2">基本信息</span> <br/>
+				 <div id="base_information">
+					 &emsp;&emsp;预产期：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information1" id="base_information1"></textarea>
+					 <br />
+					 <br />
+					 &emsp;&emsp;&emsp;胎数：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information2" id="base_information2"></textarea>
+					 <br />
+					 <br />
+				 </div>
+
+				 <span style="font-size: 20px;color:#47C8A2">阿姨要求</span> <br/>
+				 <div id="nurse_ask">
+					 &emsp;年龄要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask1" id="nurse_ask1"></textarea>
+					 <br />
+					 <br />
+					 &emsp;性格要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask2" id="nurse_ask2"></textarea>
+					 <br />
+					 <br />
+
+					 &emsp;技能要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask3" id="nurse_ask3"></textarea>
+					 <br />
+					 <br />
+					 &emsp;其他要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask4" id="nurse_ask4"></textarea>
+					 <br />
+					 <br />
+				 </div>
+
+				 <span style="font-size: 20px;color:#47C8A2">家庭情况</span> <br/>
+				 <div id="family">
+					 &emsp;生活要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="family1" id="family1"></textarea>
+					 <br />
+					 <br />
+					 &emsp;家庭成员：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="family2" id="family2"></textarea>
+					 <br />
+					 <br />
+				 </div>
+				 </div>
+
+				 &emsp;&emsp;&emsp;备注：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="remark" id="remark"></textarea>
+				 <br />
+				 <br />
+				<span class="save-button"  style="width:20%;margin-top: 20px;margin-left: 3%;" id="submit" >保&nbsp;存</span>
+		   	 </div>
+			</form>
+		</div>
+
+
+
+
+<include file="Nav/footer" />
+
+
+<script>
+	var MODULE='__MODULE__';
+
+	$('#type').live('change',function(){
+		var nurse_type = $('#type').val();
+		if(nurse_type==1||nurse_type==5){
+			$('#type_5').show();
+			var base_information = ' &emsp;&emsp;预产期：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information1" id="base_information1"></textarea>\
+					<br />\
+					<br />\
+					&emsp;&emsp;&emsp;胎数：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information2" id="base_information2"></textarea>\
+					<br />\
+					<br />';
+			var nurse_ask = ' &emsp;年龄要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask1" id="nurse_ask1"></textarea>\
+					<br />\
+					<br />\
+					&emsp;性格要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask2" id="nurse_ask2"></textarea>\
+					<br />\
+					<br />\
+					&emsp;技能要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask3" id="nurse_ask3"></textarea>\
+					<br />\
+					<br />\
+					&emsp;其他要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask4" id="nurse_ask4"></textarea>\
+					<br />\
+					<br />';
+
+			var family = ' &emsp;生活要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="family1" id="family1"></textarea>\
+					<br />\
+					<br />\
+					&emsp;家庭成员：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="family2" id="family2"></textarea>\
+					<br />\
+					<br />';
+		}else if(nurse_type==2){
+			$('#type_5').show();
+			var base_information = ' &emsp;宝宝数量：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information1" id="base_information1"></textarea>\
+					<br />\
+					<br />\
+					 &emsp;宝宝出生日期：<textarea  rows="3" style="width: 37%;vertical-align: text-top;"  name="base_information2" id="base_information2"></textarea>\
+					<br />\
+					<br />\
+					&emsp;宝宝性别：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information3" id="base_information3"></textarea>\
+					<br />\
+					<br />';
+			var nurse_ask = ' &emsp;年龄要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask1" id="nurse_ask1"></textarea>\
+					<br />\
+					<br />\
+					&emsp;性格要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask2" id="nurse_ask2"></textarea>\
+					<br />\
+					<br />\
+					&emsp;技能要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask3" id="nurse_ask3"></textarea>\
+					<br />\
+					<br />\
+					&emsp;其他要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask4" id="nurse_ask4"></textarea>\
+					<br />\
+					<br />';
+
+			var family = ' &emsp;生活要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="family1" id="family1"></textarea>\
+					<br />\
+					<br />\
+					&emsp;家庭成员：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="family2" id="family2"></textarea>\
+					<br />\
+					<br />';
+		}else if(nurse_type==3){
+			$('#type_5').show();
+			var base_information = ' &emsp;家庭面积：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information1" id="base_information1"></textarea>\
+					<br />\
+					<br />\
+					&emsp;家庭成员：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information2" id="base_information2"></textarea>\
+					<br />\
+					<br />';
+			var nurse_ask = ' &emsp;年龄要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask1" id="nurse_ask1"></textarea>\
+					<br />\
+					<br />\
+					&emsp;性格要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask2" id="nurse_ask2"></textarea>\
+					<br />\
+					<br />\
+					&emsp;技能要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask3" id="nurse_ask3"></textarea>\
+					<br />\
+					<br />\
+					&emsp;其他要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask4" id="nurse_ask4"></textarea>\
+					<br />\
+					<br />';
+
+			var family = ' &emsp;保洁要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="family1" id="family1"></textarea>\
+					<br />\
+					<br />\
+					&emsp;饭菜要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="family2" id="family2"></textarea>\
+					<br />\
+					<br />\
+					&emsp;收纳要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="family3" id="family3"></textarea>\
+					<br />\
+					<br />\
+					&emsp;洗衣要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="family4" id="family4"></textarea>\
+					<br />\
+					<br />\
+					&emsp;其他要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="family5" id="family5"></textarea>\
+					<br />\
+					<br />';
+		}else if(nurse_type==4){
+			$('#type_5').show();
+			var base_information = ' &emsp;家庭保洁：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information1" id="base_information1"></textarea>\
+					<br />\
+					<br />\
+					&emsp;用餐人数：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information2" id="base_information2"></textarea>\
+					<br />\
+					<br />\
+					&emsp;做饭餐次：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information3" id="base_information3"></textarea>\
+					<br />\
+					<br />\
+					&emsp;洗衣情况：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information4" id="base_information4"></textarea>\
+					<br />\
+					<br />\
+					&emsp;小孩接送：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information5" id="base_information5"></textarea>\
+					<br />\
+					<br />\
+					&emsp;照顾老人：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information6" id="base_information6"></textarea>\
+					<br />\
+					<br />\
+					&emsp;公司做饭：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="base_information7" id="base_information7"></textarea>\
+					<br />\
+					<br />';
+
+			var nurse_ask = ' &emsp;年龄要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask1" id="nurse_ask1"></textarea>\
+					<br />\
+					<br />\
+					&emsp;性格要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask2" id="nurse_ask2"></textarea>\
+					<br />\
+					<br />\
+					&emsp;技能要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask3" id="nurse_ask3"></textarea>\
+					<br />\
+					<br />\
+					&emsp;其他要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="nurse_ask4" id="nurse_ask4"></textarea>\
+					<br />\
+					<br />';
+
+			var family = ' &emsp;生活要求：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="family1" id="family1"></textarea>\
+					<br />\
+					<br />\
+					&emsp;家庭成员：<textarea  rows="3" style="width: 40%;vertical-align: text-top;"  name="family2" id="family2"></textarea>\
+					<br />\
+					<br />';
+		}else if(nurse_type==10){
+			$('#type_5').hide();
+		}
+		$('#base_information').html(base_information);
+		$('#nurse_ask').html(nurse_ask);
+		$('#family').html(family);
+	});
+
+
+
+
+	var reg=/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+	var reg1 = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+	var reg2 = /^((0?1[34578]\d{9})|((0(10|2[1-9]|[3-9]\d{2}))?(-)?[1-9]\d{6,7}))$/;
+	$("#submit").live('click',function(){
+//		if(!(reg2.test($("#phone").val()))){
+//			alert("请填写学员正确的电话!");
+//			return false;
+//		}else if(!reg.test($("#birthday").val())){
+//				alert("出生日期格式不正确！");
+//				return false;
+//		}else if(!reg1.test($("#id_card").val())){
+//			alert("身份证格式不正确！");
+//			return false;
+//		}else if($("#id_card").val()==''||$("#birth").val()==''||$("#address").val()==''||$("#family").val()==''||$("#character").val()==''||$("#age").val()==''||$("#height").val()==''||$("#weight").val()==''||$("#native_place").val()==''){
+//			alert("请完善基本信息！");
+//			return false;
+//		}
+		if($('#price_l').val()==''||$('#price_h').val()==''){
+			alert("请完善客户价位范围！");
+			return false;
+		}
+		if($('#type').val()==1||$('#type').val()==5){
+			if(!reg.test($("#base_information1").val())){
+				alert("预产期格式不正确！");
+				return false;
+			}
+		}
+		if($('#name').val()==''){
+			alert("请输入客户姓名！");
+			return false;
+		}
+		$("#form").submit();
+	})
+
+</script>
+
+</html>

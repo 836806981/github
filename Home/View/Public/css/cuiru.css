@@ -1,0 +1,128 @@
+.page1>.content{
+	height: 549px;
+	background: url(../img/cuiru/cr1.png) no-repeat center;
+}
+.page>.tle>.p1{
+	color: #333333;
+	font-size: 30px;
+	text-align: center;
+	font-weight: bold;
+	padding-top: 40px;
+}
+.page>.tle>.p2{
+	color: #ff935a;
+	font-size: 24px;
+	text-align: center;
+	padding: 5px 0px 10px;
+}
+.page2{
+	padding: 40px 0;
+}
+.page2>.content1{
+	background: url(../img/cuiru/cr2.jpg) no-repeat center;
+	height: 468px;
+}
+.page2>.content1>.p1{
+	font-size: 24px;
+	color: #333333;
+	padding: 122px 0 0 545px;
+}
+.page2>.content1>.p2{
+	color: #a27651;
+	font-size: 18px;
+	line-height: 38px;
+	padding: 21px 20px 0 545px;
+}
+.page2>.content2{
+	background: url(../img/cuiru/cr3.jpg) no-repeat center bottom;
+	padding-top: 40px;
+	height: 410px;
+}
+.page2>.content2>.p1{
+	font-size: 24px;
+	color: #333333;
+	padding: 74px 0 0 24px;
+}
+.page2>.content2>.p2{
+	color: #a27651;
+	font-size: 18px;
+	line-height: 38px;
+	padding: 21px 535px 0 24px;
+}
+.page2>.content>p>i{
+	color: #f13838;
+	font-size: 28px;
+}
+.page2>.content3{
+	background: url(../img/cuiru/cr4.jpg) no-repeat center bottom;
+	padding-top: 40px;
+	height: 410px;
+}
+.page2>.content3>.p1{
+	font-size: 24px;
+	color: #333333;
+	padding: 109px 0 0 540px;
+}
+.page2>.content3>.p2{
+	color: #a27651;
+	font-size: 18px;
+	line-height: 38px;
+	padding: 26px 24px 0 540px;
+}
+.page2>.content4>img{
+	margin: 40px auto 0;
+	display: block;
+	width: 762px;
+	height: 265px;
+}
+.page3{
+	background: #F8F8F8;
+}
+.page3>.content{
+	background: #F8F8F8;
+}
+.page3>.content1{
+	height: auto;
+	background: url(../img/cuiru/cr0.png) no-repeat top center;
+	padding: 80px 0 20px;
+}
+.page3>.content1>ul>li{
+	width: 241px;
+	height: 306px;
+	float: left;
+	margin: 0 17px;
+	font-size: 24px;
+	color: #333333;
+	padding-top: 180px;
+	line-height: 34px;
+	padding-left: 24px;
+}
+.page3>.content1>ul>li.l1{
+	background: url(../img/cuiru/cr23.png) no-repeat center;
+}
+.page3>.content1>ul>li.l2{
+	background: url(../img/cuiru/cr25.png) no-repeat center;
+}
+.page3>.content1>ul>li.l3{
+	background: url(../img/cuiru/cr27.png) no-repeat center;
+}
+.page3>.content1>ul>li.l4{
+	background: url(../img/cuiru/cr29.png) no-repeat center;
+}
+.page4>.content1{
+	height: auto;
+	background: url(../img/cuiru/cr0.png) no-repeat top center;
+	padding: 80px 0 20px;
+}
+.page4>.content1>img{
+	margin-left: 16px;
+	width: 386px;
+	height: 386px;
+	margin-bottom: 20px;
+}
+.page4>.content1>img.first_img{
+	margin-left: 0;
+}
+.pa-bt{
+	padding-bottom: 80px;
+}

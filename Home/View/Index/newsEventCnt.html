@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>新闻公告-【田螺阿姨】</title>
+		<meta name="Keywords" content="田螺阿姨新闻,田螺阿姨公告" >
+        <meta name="Description" content="田螺阿姨的最新新闻及公告信息" >
+
+		<link rel="stylesheet" href="__PUBLIC__/css/usually.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/events.css" />
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.1.min.js" ></script>
+		<script type="text/javascript" src="__PUBLIC__/js/nav.js" ></script>
+	</head>
+	<body>
+
+	<include file="Index/header1"/>
+	<include file="Index/header2"/>
+		
+		<script>
+			$(".nav>li").eq(4).addClass("active");
+		</script>
+
+
+		<div class="nCnt">
+			<div class="content f-cb">
+				<p class="address">当前页面：首页&gt;
+					<if condition="$news_info.belong eq 21">
+						<a href="__ROOT__/newsEvents.html">新闻动态</a>&gt;新闻详情
+						<elseif condition="$news_info.belong eq 21" />
+						<a href="__ROOT__/notice.html">公司公告</a>&gt;公告详情
+					</if>
+				</p>
+				<div class="nCnt_lef f-cb">
+					<p class="nTle">{$news_info.title}</p>
+					<p class="nInf f-cb">
+						<span class="f-fr">时间：{$news_info.add_time}&nbsp;&nbsp;&nbsp;&nbsp;作者：{$news_info.author}</span>
+					</p>
+					<div class="nTxt">
+						{$news_info.content|htmlspecialchars_decode}
+					</div>
+					<p class="f-cb">
+						<?php if($down_news&&down_news!=''){?>
+						<a href="__ROOT__/<?php echo $belong_url;?>/<?php echo $down_news[0]['id'];?>.html" class="next-article">上一篇：<?php echo $down_news[0]['title'];?></a>
+						<?php }else{?>
+					<span class="next-article">
+					下一篇：没有了
+						</span>
+						<?php }?>
+
+						<?php if($up_news&&up_news!=''){?>
+						<a href="__ROOT__/<?php echo $belong_url;?>/<?php echo $up_news[0]['id'];?>.html" class="last-article">下一篇：<?php echo $up_news[0]['title'];?></a>
+						<?php }else{?>
+					<span class="last-article">
+					上一篇：没有了
+						</span>
+						<?php }?>
+
+					</p>
+				</div>
+			</div>
+		</div>
+
+	<include file="Index/footer"/>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+
+<style>
+
+    .row_text:hover{box-shadow: #5C372E 0px 0px 5px;background: #47C900;}
+    .rew_text_hover{box-shadow: #0002F4 0px 0px 5px;background: #47C9FF;}
+</style>
+<a href="{:U('Training/tlist',array('type'=>2))}" id="back_list"><i  class="row_text"  title="返回" style="margin-left: 15px;">返</i></a>
+
+<a href="__MODULE__/Training/info/id/{$training.id}"><i  class="row_text <?php if(ACTION_NAME=='info'){echo 'rew_text_hover';}?>" 	title="学员基本信息"  style="margin-left: 50px;">基</i></a>
+<a href="__MODULE__/Training/stay/id/{$training.id}"><i  class="row_text <?php if(ACTION_NAME=='stay'){echo 'rew_text_hover';}?>" 	title="住宿信息" >住</i></a>
+<a href="__MODULE__/Training/hygiene/id/{$training.id}"><i  class="row_text <?php if(ACTION_NAME=='hygiene'){echo 'rew_text_hover';}?>" 	title="住宿卫生">卫</i></a>
+<a href="__MODULE__/Training/class_show/id/{$training.id}"><i  class="row_text <?php if(ACTION_NAME=='class_show'){echo 'rew_text_hover';}?>" 	title="考勤和随堂表现">勤</i></a>
+<a href="__MODULE__/Training/class_score/id/{$training.id}"><i  class="row_text <?php if(ACTION_NAME=='class_score'){echo 'rew_text_hover';}?>" 	title="课程得分">课</i></a>
+<a href="__MODULE__/Training/body_test/id/{$training.id}"><i  class="row_text <?php if(ACTION_NAME=='body_test'){echo 'rew_text_hover';}?>" 	title="体检记录">体</i></a>
+<a href="__MODULE__/Training/tra_use/id/{$training.id}"><i  class="row_text <?php if(ACTION_NAME=='tra_use'){echo 'rew_text_hover';}?>" 	title="签单记录">签</i></a>
+<a href="__MODULE__/Training/view/id/{$training.id}"><i  class="row_text <?php if(ACTION_NAME=='view'){echo 'rew_text_hover';}?>" 	title="筛选情况">筛</i></a>
+<a href="__MODULE__/Training/zhengshu/id/{$training.id}"><i  class="row_text <?php if(ACTION_NAME=='zhengshu'){echo 'rew_text_hover';}?>" 	title="考证记录">证</i></a>
+<a href="__MODULE__/Training/face/id/{$training.id}"><i  class="row_text <?php if(ACTION_NAME=='face'){echo 'rew_text_hover';}?>" 	title="面试情况">面</i></a>
+
+<?php if($_SESSION[C('TRAINING_AUTH_KEY')]['permission']==1||$_SESSION[C('TRAINING_AUTH_KEY')]['edit_per']==1){?>
+<a href="javascript:" id="die_training" ><i  class="row_text"   	title="淘汰该学员">淘</i></a>
+<?php }?>

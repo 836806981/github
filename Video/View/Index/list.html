@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+					   <html>
+					   <head>
+						   <meta charset="utf-8" />
+						   <title>田螺阿姨视频教学</title>
+						   <link rel="stylesheet" href="__PUBLIC__/css/list.css" />
+						   <link rel="stylesheet" href="__PUBLIC__/css/usually.css" />
+						   <link rel="stylesheet" href="__PUBLIC__/css/page.css" />
+					   </head>
+					   <body>
+
+
+
+					   <div class="title">
+						   <p>田螺之家</p>
+					   </div>
+
+					   <volist name="news_list" id="vo">
+						   <a href="__MODULE__/Index/content/id/{$vo.id}">
+							   <div class="video">
+					   <img class="video-img" src="__UPLOADS__/{$vo.src}"  />
+
+					   <span class="video-title">{$vo.name}</span>
+
+					   <p class="date">{$vo.add_time}</p>
+					   <p class="author">上传者：{$vo.auther}</p>
+				   </div>
+			   </a>
+
+		   </volist>
+
+
+		   
+		   <!--<a href="#">-->
+		   	<!--<div class="video">-->
+		   	      <!--<img class="video-img" src=""  />-->
+		   	      <!---->
+		   	      <!--<span class="video-title">哈哈哈其实我也不知道标题是什么</span>-->
+		   	      <!---->
+		   	      <!--<p class="date">2015-12-5</p>-->
+		   	      <!--<p class="author">上传者：叶其敏</p>  -->
+		   <!--</div>-->
+		   <!--</a>-->
+		   <!---->
+		   <!--<a href="#">-->
+		   	<!--<div class="video">-->
+		   	      <!--<img class="video-img" src=""  />-->
+		   	      <!---->
+		   	      <!--<span class="video-title">哈哈哈其实我也不知道标题是什么</span>-->
+		   	      <!---->
+		   	      <!--<p class="date">2015-12-5</p>-->
+		   	      <!--<p class="author">上传者：叶其敏</p>  -->
+		   <!--</div>-->
+		   <!--</a>-->
+
+		   <div class="pagination pagination-left">
+			   <ul>{$page}</ul>
+		   </div>
+		   
+	</body>
+</html>

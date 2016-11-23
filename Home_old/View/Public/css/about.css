@@ -1,0 +1,68 @@
+.top{
+    height: 765px;
+    width: 100%;
+    background: #e3e4df;
+    position: relative;
+    background:url(../images/a_banner.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.content {
+    width: 1150px;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+.tab ul li{
+   padding-top: 50px; 
+}
+.tab ul li span a{
+color:#5e5e5e;
+}
+.tab ul li span a:hover{
+color:#57bea0;
+}
+.tab {
+    float: left;
+    padding-bottom: 60px;
+    padding-right: 50px;
+}
+
+.content-img {
+    width: 165px;
+    height: 165px;
+    float: left;
+    background: #ccc;
+}
+
+.content-one {
+    font-size: 14px;
+    color: #5e5e5e;
+    line-height: 30px;
+    width: 800px;
+}
+
+.one-title {
+    font-size: 24px;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    color: #5e5e5e;
+}
+
+.content-list {
+    float: left;
+}
+
+.content-list ul li{
+    background: #f0f0f3;
+    margin-top: 18px;
+}
+
+.content-text {
+    float: left;
+    padding:0 32px;
+}

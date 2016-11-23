@@ -1,0 +1,62 @@
+
+</body>
+
+<script src="__PUBLIC__/js/jquery-1.7.1.min.js"></script>
+<!--<script src="__PUBLIC__/js/jquery-2.1.1.min.js"></script>-->
+
+<script src="__PUBLIC__/js/jquery.longyuJs.js"></script>
+
+<script>
+    var MODULE = '__MODULE__';
+    var UPLOADS = '__UPLOADS__';
+
+    var left_min_heigth = ($(window).height()-160)/6;
+    $(".left ul li img").css('max-height',left_min_heigth+'px');
+
+    var ACTION_NAME = '<?php echo ACTION_NAME;?>';
+    if(ACTION_NAME=='body_test'){
+        $('#back_list').attr('href',MODULE+'/Training/tlist/type/6.html')
+        $('#back_list i').attr('title','返回体检计划');
+    }else if(ACTION_NAME=='tra_use'){
+        $('#back_list').attr('href',MODULE+'/Training/tlist/type/3.html')
+        $('#back_list i').attr('title','返回已上单');
+    }else if(ACTION_NAME=='zhengshu'){
+        $('#back_list').attr('href',MODULE+'/Training/tlist/type/5.html')
+        $('#back_list i').attr('title','返回已考证');
+    }else{
+        var status = '<?php echo $training["status"];?>';
+        $('#back_list').attr('href',MODULE+'/Training/tlist/type/'+status+'.html')
+        var back_array = ['','返回培训中','返回已结业','返回已上单','返回已淘汰'];
+        $('#back_list i').attr('title',back_array[status]);
+
+
+    }
+
+
+    //关闭灰色 jQuery 遮罩
+    function closeBg() {
+        $("#fullbg,#dialog").hide();
+    }
+
+
+    $('#computer').live('click',function(){
+        $("#dialog").toggle()
+    });
+
+    $("#computer_to").live('click',function(){
+        var str = $('#computer_birth').val();
+        var reg=/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+
+        var reg1 = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+        if(!reg.test(str)&&!reg1.test(str)){
+            alert('格式不正确！');
+            return false;
+        }
+        $.AjaxPost(MODULE+"/Common/computer_birth", {str:str}, function (backdata) {
+            if (backdata.code == 1000) {
+                $('#birth_zodiac').text(backdata.data);
+            }
+        }, true);
+    });
+
+</script>

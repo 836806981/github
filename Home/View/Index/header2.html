@@ -1,0 +1,67 @@
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.1.min.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/js/banner.js" ></script>
+<script type="text/javascript" src="__PUBLIC__/js/nav.js" ></script>
+<div class="top">
+    <div class="content f-cb">
+        <a href="__ROOT__/" class="logo" alt="田螺阿姨" title="田螺阿姨"></a>
+
+        <ul class="nav f-cb">
+            <li><a href="__ROOT__/">首页</a></li>
+            <li onmouseover="showMenu(this)" onmouseout="hideMenu(this)">
+                <a href="__ROOT__/yuesao.html">月嫂</a>
+                <ul class="sec_nav">
+                    <li><a href="__ROOT__/yuesao/yzc.html">月子餐</a></li>
+                    <li><a href="__ROOT__/yuesao/tr.html">通乳</a></li>
+                    <li><a href="__ROOT__/yuesao/wybj.html">宝宝喂养与保健</a></li>
+                    <li><a href="__ROOT__/yuesao/jkhf.html">妈妈健康与恢复</a></li>
+                    <li><a href="__ROOT__/yuesao/jqbyx.html">锦旗与表扬信</a></li>
+                    <li><a href="__ROOT__/yuesao/yxys.html">优秀月嫂</a></li>
+                    <li><a href="__ROOT__/tejiayuesao.html">特价月嫂</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="__ROOT__/about.html">关于我们</a>
+            </li>
+            <li><a href="__ROOT__/contact.html">联系我们</a></li>
+            <li  onmouseover="showMenu(this)" onmouseout="hideMenu(this)">
+                <a href="#" >新闻公告</a>
+                <ul class="sec_nav">
+                    <li><a href="__ROOT__/newsEvents.html">新闻动态</a></li>
+                    <li><a href="__ROOT__/notice.html">公司公告</a></li>
+                </ul>
+            </li>
+            <li onmouseover="showMenu(this)" onmouseout="hideMenu(this)">
+                <a href="#" >合作中心</a>
+                <ul class="sec_nav">
+                    <li><a href="__ROOT__/jiameng.html">免费加盟</a></li>
+                    <li><a href="__ROOT__/rencai.html">人才输送</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="banner">
+    <ul class="bannerImg">
+        <volist name="banner" id="vo">
+            <li style="background: url('__UPLOADS__/{$vo.src}') no-repeat center;"><a href="{$vo.url}" target="_blank"></a></li>
+        </volist>
+        <!--<li style="background: url('img/banner1.jpg') no-repeat center;"></li>-->
+        <!--<li style="background: url(img/activity/activitybanner.jpg) no-repeat center;"></li>-->
+    </ul>
+    <ul class="lunbtn f-cb">
+        <volist name="banner" id="vo" k="key">
+            <if condition="$key eq 0">
+                <li class="btncur"></li>
+                <else/>
+                <li></li>
+            </if>
+        </volist>
+    </ul>
+</div>
+		
+
+
+

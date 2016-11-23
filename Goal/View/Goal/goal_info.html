@@ -1,0 +1,426 @@
+<include file="Nav/header" />
+
+		<div class="add" style="min-height: 600px;">
+
+			<style>
+				.table_diy{
+					max-width: 80%;
+				}
+				.table_diy th{
+					border-width: 1px;
+					padding: 8px;
+					border-style: solid;
+					border-color: #a9c6c9;
+					text-align: center;
+				}
+				.table_diy td {
+					border-width: 1px;
+					padding: 8px;
+					border-style: solid;
+					border-color: #a9c6c9;
+				}
+			</style>
+			<a href="javascript:history.go(-1);" style="color: #666;"> <返回 </a>  <h1 style="font-size: 30px;font-weight: normal;">目标详情</h1>
+
+			<if condition="$goal_info.project_id eq 0">
+
+				<form action="__MODULE__/Goal/up_goal_data" method="post" id="form_goal" onsubmit="javascript:return window.confirm('确定上传么？')"  enctype="multipart/form-data">
+				<table style="border-width: 1px;
+							border-color: #999999;
+							border-collapse: collapse;
+							text-align: center;font-size: 10px;margin: 0;  " class="table_diy">
+					<tr>
+						<th>目标名称</th>
+						<th colspan="7">{$goal_info.name}</th>
+					</tr>
+					<tr>
+						<th>目标进度</th>
+						<th colspan="7">{$goal_info.status_name}</th>
+					</tr>
+					<tr>
+						<th>目标担当者</th>
+						<th colspan="7">{$goal_info.user_name}</th>
+					</tr>
+					<tr>
+						<th>目标描述</th>
+						<th colspan="7">{$goal_info.data}</th>
+					</tr>
+					<tr>
+						<th>附件类型</th>
+						<th colspan="7">{$goal_info.file_type}</th>
+					</tr>
+					<tr>
+						<th>附件数量</th>
+						<th colspan="7">{$goal_info.file_number}</th>
+					</tr>
+					<tr>
+						<th rowspan="2">时间进度</th>
+						<th>创建时间</th>
+						<th>项目耗时</th>
+						<th>预计结束时间</th>
+						<th>实际结束时间</th>
+						<th>实际耗时</th>
+					</tr>
+					<tr>
+						<th>{$goal_info.add_time|date='Y-m-d H:i:s',###}</th>
+						<th>{$goal_info.day_number}</th>
+						<th>{$goal_info.s_time}</th>
+						<th>{$goal_info.s_time_true}</th>
+						<th>{$goal_info.true_day_number}</th>
+					</tr>
+					<tr>
+						<th colspan="8" style="color: #007bb6;text-align: left">已完成该目标？请上传(重新上传)附件和总结完成该目标！</th>
+					</tr>
+
+					<tr>
+						<th>目标附件</th>
+						<th colspan="7">
+							<volist name="goal_info.file" id="vo">
+								<if condition="$vo.type eq 1">
+									<img src="__UPLOADS__/{$vo.url}" title="点击看大图" style="width: 60px;height: 26px;" id="dd"/>
+								<elseif condition="$vo.type eq 2"/>
+									<a href="__UPLOADS__/{$vo.url}" title="下载文件"><button>↓</button>{$vo.type_name}</a>
+									<else/>
+									无附件
+								</if>
+
+							</volist>
+
+						</th>
+					</tr>
+
+
+					<if condition="$goal_info.status lt 3 and $goal_info.user_id eq $_SESSION[C('GOAL_AUTH_KEY')]['id']">
+					<tr>
+						<th>附件上传</th>
+						<th colspan="7">
+							上传格式：<span style="color: #b94a48">{$goal_info.file_type}</span> <br/>
+							<input type="hidden" name="id" value="{$goal_info.id}"/>
+							<?php for($i=1;$i<=$goal_info['file_number'];$i++){?>
+								<input type="file" name="file_goal[]" /><br/>
+							<?php }?>
+							<input type="button" value="＋" id="add_file" />
+
+						</th>
+					</tr>
+					</if>
+
+
+					<tr>
+						<th>目标总结</th>
+						<if condition="$goal_info.status lt 3 and $goal_info.user_id eq $_SESSION[C('GOAL_AUTH_KEY')]['id']">
+							<th colspan="7"><textarea name="summed" id="summed_goal" rows="5" style="vertical-align: text-top;width:100%;border: none;">{$goal_info.summed}</textarea>
+
+
+								<input type="button" value="提交" id="submit_goal" style="float: right;"/>
+							</th>
+						<else/>
+							<th colspan="7">{$goal_info.summed}</th>
+						</if>
+					</tr>
+
+						
+
+
+				</table>
+				</form>
+
+				<else/>
+
+				<form action="__MODULE__/Goal/up_project_data" method="post" id="form_project" onsubmit="javascript:return window.confirm('确定上传么？')"  enctype="multipart/form-data">
+				<table style="border-width: 1px;
+							border-color: #999999;
+							border-collapse: collapse;
+							text-align: center;font-size: 10px;margin: 0;" class="table_diy">
+					<tr>
+						<th>项目名称</th>
+						<th colspan="8">{$project.name}   	<if condition="$project.status eq 3">
+							（<span style="color: #444;font-size: 14px;">已完成</span>）
+							<elseif condition="$can_not_status_3 eq 1 and $project.user_id eq $_SESSION[C('GOAL_AUTH_KEY')]['id']"/>
+							<a href="__MODULE__/Goal/edit_project_complete/id/{$project.id}" title="所以项目成员都完成了可完结该项目">完结项目</a>
+						</if>
+
+						</th>
+					</tr>
+					<tr>
+						<th>项目进度</th>
+						<th colspan="8">{$project.status_name}</th>
+					</tr>
+					<tr>
+						<th>项目发起者</th>
+						<th colspan="8">{$project.user_name}</th>
+					</tr>
+					<tr>
+						<th>项目描述</th>
+						<th colspan="8">{$project.data}</th>
+					</tr>
+					<tr>
+						<th rowspan="2">时间进度</th>
+						<th>创建时间</th>
+						<th>项目耗时</th>
+						<th>预计结束时间</th>
+						<th>实际结束时间</th>
+						<th>实际耗时</th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+					<tr>
+						<th>{$project.add_time|date='Y-m-d H:i:s',###}</th>
+						<th>{$project.day_number}</th>
+						<th>{$project.s_time}</th>
+						<th>{$project.s_time_true}</th>
+						<th>{$project.true_day_number}</th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+
+					<tr>
+						<th colspan="9"></th>
+					</tr>
+					<tr>
+						<th>姓名</th>
+						<th>职责</th>
+						<th>状态</th>
+						<th>实际完成时间</th>
+						<th>附件类型</th>
+						<th>附件数量</th>
+						<th>项目总结</th>
+						<th>附件</th>
+						<th>操作</th>
+					</tr>
+
+					<volist name="project.goal" id="vo">
+						<tr>
+							<th>{$vo.user_name}</th>
+							<th>{$vo.data}</th>
+							<th>{$vo.status_name}</th>
+							<th>{$vo.s_time_true}</th>
+							<th>{$vo.file_type}</th>
+							<th>{$vo.file_number}</th>
+							<th>{$vo.summed}</th>
+							<th>
+								<volist name="vo.files" id="rs">
+									<if condition="$rs.type eq 1">
+										<img src="__UPLOADS__/{$rs.url}" title="点击看大图" style="width: 60px;height: 26px;" id="dd"/>
+										<elseif condition="$rs.type eq 2"/>
+										<a href="__UPLOADS__/{$rs.url}" title="下载文件"><button>↓</button>{$rs.type_name}</a>
+										<else/>
+										无附件
+									</if>
+
+								</volist>
+
+							</th>
+							<th>
+								<if condition="$project.user_id eq $_SESSION[C('GOAL_AUTH_KEY')]['id']">
+									<if condition=" $vo.status eq 2">
+										<a href="__MODULE__/Goal/edit_project_status_3/id/{$vo.id}" onclick="javascript:return window.confirm('确定通过么？点击确定后通过且无法再做修改！')" >通过审核</a>
+										<elseif condition="$vo.status eq 3"/>
+										已审核
+									</if>
+								</if>
+							</th>
+						</tr>
+					</volist>
+
+
+
+
+
+					<tr>
+						<th>目标附件</th>
+						<th colspan="8">
+							<volist name="goal_info.file" id="vo">
+								<if condition="$vo.type eq 1">
+									<img src="__UPLOADS__/{$vo.url}" title="点击看大图" style="width: 60px;height: 26px;" id="dd"/>
+									<elseif condition="$vo.type eq 2"/>
+									<a href="__UPLOADS__/{$vo.url}" title="下载文件"><button>↓</button>{$vo.type_name}</a>
+									<else/>
+									无附件
+								</if>
+
+							</volist>
+
+						</th>
+					</tr>
+
+
+
+						<if condition="$goal_info.status lt 3 and $goal_info.user_id eq $_SESSION[C('GOAL_AUTH_KEY')]['id']">
+							<tr>
+								<th>附件上传</th>
+								<th colspan="8">
+									上传格式：<span style="color: #b94a48">{$goal_info.file_type}</span> <br/>
+
+									<?php for($i=1;$i<=$goal_info['file_number'];$i++){?>
+									<input type="file" name="file_goal[]" /><br/>
+									<?php }?>
+									<input type="hidden" name="id" value="{$goal_info.id}"/>
+									<input type="hidden" name="project_id" value="{$goal_info.project_id}"  id="add_file_html"/>
+									<input type="button" value="＋" id="add_file_p" />
+
+								</th>
+							</tr>
+
+						</if>
+
+						<tr>
+							<th>目标总结</th>
+							<if condition="$goal_info.status lt 3 and $goal_info.user_id eq $_SESSION[C('GOAL_AUTH_KEY')]['id']">
+								<th colspan="8"><textarea name="summed" id="summed_project" rows="5" style="vertical-align: text-top;width:100%;border: none;">{$goal_info.summed}</textarea>
+									<input type="button" value="提交" id="submit_project" style="float: right;"/>
+								</th>
+							<else/>
+								<th colspan="8">{$goal_info.summed}</th>
+							</if>
+						</tr>
+
+
+
+
+				</table>
+				</form>
+			</if>
+
+			</div>
+
+
+
+<img src="" id="divID">
+
+
+<include file="Nav/footer" />
+
+
+<script>
+	var MODULE='__MODULE__';
+
+	$('#submit_goal').live('click',function(){
+		if($('#file_goal').val()==''){
+			alert("请上传附件！");
+			return false;
+		}else if($('#summed_goal').val()==''){
+			alert("请填写总结！");
+			return false;
+		}
+		$('#form_goal').submit();
+	});
+
+	$('#add_file').live('click',function(){
+		var str = '<input type="file" name="file_goal[]" /><br/>';
+		$(this).before(str);
+	});
+	$('#add_file_p').live('click',function(){
+		var str = '<input type="file" name="file_goal[]" /><br/>';
+		$('#add_file_html').after(str);
+	});
+
+	$('#submit_project').live('click',function(){
+		if($('#file_project').val()==''){
+			alert("请上传附件！");
+			return false;
+		}else if($('#summed_project').val()==''){
+			alert("请填写总结！");
+			return false;
+		}
+		$('#form_project').submit();
+	});
+
+	$("#dd").live('click',function(){
+		var src = $(this).attr('src');
+		$("#divID").attr('src',src);
+
+		if($("#divID").css('display')=='block'){
+			$("#divID").css('display','none');
+		}else{
+			$("#divID").css('display','block');
+		}
+	});
+	$("#divID").live('click',function(){
+		$("#divID").css('display','none');
+	});
+
+
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

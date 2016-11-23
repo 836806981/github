@@ -1,0 +1,158 @@
+
+<include file="Nav/header"/>
+
+
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+
+		<!--加入黑名单弹出框-->
+		<div id="dialog">
+			<p class="close"><a href="#" onclick="closeBg();">X</a></p>
+			<p style="text-align: center; margin-top: 30px;color: red;" id="warning_p">你确认要将韩宇加入黑名单么？</p>
+
+			<br/>
+
+			理由: <input type="text" id="remark_del"  style="width: 80%" />
+			<input type="hidden" value="10" id="status" />
+
+
+			<br/>
+			<br/>
+			<span  class="btn btn-default" id="del_nurse" style="margin-left: 55px;">确认</span>
+			<span  class="btn btn-default"  onclick="closeBg();" style="margin-left: 130px;">取消</span>
+
+		</div>
+
+		<div class="nurse_info" >
+		   	 <h1 style="font-size: 45px;font-weight: normal;margin: 30px 0 20px 5%;">阿姨详情</h1>
+
+
+			<?php if($_SESSION[C('AYI_AUTH_KEY')]['permission']==1||$_SESSION[C('AYI_AUTH_KEY')]['edit_per']==1){?>
+
+			<a href="__MODULE__/Ayi/editNurse_1/id/<?php echo $info['id'];?>"><span type="submit"  class="btn btn-default" style="margin-left: 45px;">修改基本信息</span></a>
+			<a href="__MODULE__/Ayi/addTest/id/<?php echo $info['id'];?>"><span type="submit"  class="btn btn-default">修改导师推荐视频</span></a>
+			<a href="__MODULE__/Ayi/addVideo/id/<?php echo $info['id'];?>"><span type="submit"  class="btn btn-default">修改个人视频及简介</span></a>
+			<?php }?>
+
+			<?php if($info['status']<10){?>
+			<?php if($_SESSION[C('AYI_AUTH_KEY')]['permission']==1||$_SESSION[C('AYI_AUTH_KEY')]['del_per']==1){?>
+				<a href="javascript:showBg1();"  onclick="javascript:return window.confirm('确认加入黑名单吗？')"><span type="submit"  class="btn btn-default" >加入黑名单</span></a>
+
+
+
+				<a href="javascript:showBg2();" onclick="javascript:return window.confirm('确认删除吗？')"><span type="submit"  class="btn btn-default">删除</span></a>
+			<?php }?>
+
+			<?php }else{echo '<span style="color:red;">'.($info['status']==10?'用户已被加入黑名单':'用户已被删除').'</span>';}?>
+
+
+
+			<a href="__MODULE__/Ayi/info/id/<?php echo $info['id'];?>"><span  class="btn btn-default" style="margin-left: 45px;">阿姨详情</span></a>
+
+
+			<br/>
+
+			<div class="ayi-information" style="height: auto">
+				<ul class="infor-ul f-cb">
+					<li class="infor-address" style="width: 80px;height: 30px;">阿姨编号</li>
+					<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.number}</li>
+
+					<li class="infor-address" style="width: 80px;height: 30px;">阿姨姓名</li>
+					<li class="infor-address-content" style="width: 200px;height: 30px;color: #47C8A2">{$info.name} </li>
+				</ul>
+			</div>
+			<br/>
+			<span id="addRecode"  class="btn btn-default" style="margin-left: 45px;">添加联系记录</span>
+
+
+			<div id="recode" style="width: 660px; height: 200px;margin-left: 50px;margin-top: 50px;font-size:14px;display:none;border: 1px solid lightblue;margin-bottom: 10px; padding: 10px 0 0 10px;">
+				<form action="__MODULE__/Ayi/record" method="post" id="form" onsubmit="javascript:return window.confirm('确定添加么？')"  enctype="multipart/form-data">
+
+					<span style="float: right;margin-top: -10px;cursor: pointer; width: 30px;height: 25px;line-height: 25px;text-align: center" id="close">X</span>
+					<input type="hidden" id="nurse_id" name="nurse_id" value="{$info.id}"/>
+					联系人：
+					<select style="width: 20%;height: 28px;" id="employee_name" name="employee_name">
+						<option value="黄显钧">黄显钧</option>
+						<option value="顾利荣">顾利荣</option>
+						<option value="臧夕">臧夕</option>
+						<option value="王凤芹">王凤芹</option>
+						<option value="刘庆">刘庆</option>
+						<option>赵婷婷</option>
+						<option>刘清华</option>
+						<option>陈颖</option>
+						<option>李燕平</option>
+						<option>杨柳</option>
+						<option>刘燃</option>
+					</select>
+
+
+					<br/><br/>
+					联系详情：<textarea name="remark" id="remark" style="vertical-align: text-top;width:80%;height: 80px;"></textarea><br/><br/>
+					<span id="to_submit"  class="btn btn-default" style="margin-left: 20%; width:70px;">确认</span> <span id="to_cancel"  class="btn btn-default" style="margin-left: 10%;width: 70px;">重置</span>
+				</form>
+			</div>
+
+
+			<volist name="record" id="vo">
+				<div class="ayi-information" style="height: auto">
+					<ul class="infor-ul f-cb">
+						<li class="infor-address" style="width: 80px;height: 30px;">联系时间</li>
+						<li class="infor-address-content" style="vertical-align: middle;width: 230px;height: 30px;color: #47C8A2">{$vo.add_time|date="Y-m-d H:i:s",###}</li>
+
+						<li class="infor-address" style="width: 70px;height: 30px;">联系人</li>
+						<li class="infor-address-content" style="width: 200px;height: 30px;color: #47C8A2">{$vo.employee_name} </li>
+
+						<li  class="infor-address"style="width: 80px;height: 30px;">联系详情</li>
+						<li  class="infor-address-content" style=" width:60%;color: #47C8A2;height: auto; text-indent: 2em;">{$vo.remark}</li>
+
+					</ul>
+				</div>
+
+			</volist>
+
+			<i style="clear: both;"></i>
+		   	
+		</div>
+<include file="Nav/footer"/>
+
+<script src="__PUBLIC__/js/Chart.js"></script>
+
+<script>
+
+	$('#close').live('mouseover',function(){
+		$(this).css('background', '#47c8a2');
+		$(this).css('color', '#ffffff');
+
+	});
+	$('#close').live('mouseout',function(){
+		$(this).css('background', '#eeeeee');
+		$(this).css('color', '#000');
+	});
+
+$("#to_submit").live('click',function(){
+	if($("#remark").val()==''){
+		alert('联系详情不能为空');
+		return false;
+	}
+
+	$("#form").submit();
+});
+$("#addRecode").live('click',function(){
+	$("#recode").toggle();
+});
+
+$("#close").live('click',function(){
+	$("#recode").toggle();
+});
+
+$("#to_cancel").live('click',function(){
+	if(window.confirm('确定重置么？')){
+		$("#form")[0].reset();
+	}
+});
+
+
+</script>
+
+
+</html>
+

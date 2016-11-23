@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>【新闻动态】-【田螺阿姨】</title>
+		<meta name="description" content="田螺阿姨新闻动态中心"/>
+		<meta name="keyword" content="新闻动态,田螺阿姨新闻"/>
+		<include file="Index/header1"/>
+	</head>
+	<body>
+		<!--整体内容开始-->
+		<div class="container" style="width: 100%;height: auto;">
+			<!--   header  -->
+			<include file="Index/header2"/>
+
+
+
+			
+			<div class="biaoti-news">
+				<ul>
+					<li class="zhuangshi"></li>
+					<li class="dazi">新闻动态<p>News information</p></li>
+					<a href="http://wpa.qq.com/msgrd?V=3&uin=1520371983&Site=田螺阿姨&Menu=yes" target="_blank"><li class="qq">QQ咨询</li></a>
+					<a href="http://kefu6.kuaishang.cn/bs/im.htm?cas=44007___383073&fi=47302" target="_blank"><li class="zixun">在线咨询</li></a>
+				</ul>
+				
+			</div>
+
+			<volist name="news_list" id="vo">
+				<div class="xinwen-kuang">
+					<ul>
+						<li><img src="__UPLOADS__/{$vo.title_img}" width="190px" height="190px" /></li>
+						<li><a href="__ROOT__/news/{$vo.id}.html">{$vo.title}</a></li>
+						<li>
+							关键词：
+							<volist name="vo.keyword" id="rs" offset="0" length='4'>
+								<!--<a href="__ROOT__/news/key/{$rs}.html"> {$rs}</a>-->
+								{$rs}
+							</volist>
+						</li>
+						<li style="float: right;">发布日期:{$vo.add_time}</li>
+						<li>{$vo.description}</li>
+					</ul>
+				</div>
+			</volist>
+
+
+
+			<!--<div	 class="biaoti">-->
+					<!--<img src="__PUBLIC__/img/news-img.png" />-->
+				    <!--<ul>-->
+						<!--<li><a class="biaoti-1" href="#">中秋快乐，我们双节不打烊！············································································2015年9月26日</a></li>-->
+						<!--<li class="text">孕早期腹部没有隆起，而且除了“害喜”的不适反应准妈妈还不能感受到胎儿的存在。特别是有些没有妊娠反应的准妈妈，甚至会怀疑自己是不是真的怀孕了，为什么一点感觉都没有。直到第一次······</li>-->
+					<!--</ul>-->
+			<!--</div>-->
+			<!---->
+			<!--<div	 class="biaoti">-->
+					<!--<img src="__PUBLIC__/img/news-img.png" />-->
+				    <!--<ul>-->
+						<!--<li><a class="biaoti-1" href="#">中秋快乐，我们双节不打烊！············································································2015年9月26日</a></li>-->
+						<!--<li class="text">孕早期腹部没有隆起，而且除了“害喜”的不适反应准妈妈还不能感受到胎儿的存在。特别是有些没有妊娠反应的准妈妈，甚至会怀疑自己是不是真的怀孕了，为什么一点感觉都没有。直到第一次······</li>-->
+					<!--</ul>-->
+			<!--</div>-->
+			<!---->
+			<!--<div	 class="biaoti">-->
+					<!--<img src="__PUBLIC__/img/news-img.png" />-->
+				    <!--<ul>-->
+						<!--<li><a class="biaoti-1" href="#">中秋快乐，我们双节不打烊！············································································2015年9月26日</a></li>-->
+						<!--<li class="text">孕早期腹部没有隆起，而且除了“害喜”的不适反应准妈妈还不能感受到胎儿的存在。特别是有些没有妊娠反应的准妈妈，甚至会怀疑自己是不是真的怀孕了，为什么一点感觉都没有。直到第一次······</li>-->
+					<!--</ul>-->
+			<!--</div>-->
+			<!---->
+			<!--<div	 class="biaoti">-->
+					<!--<img src="__PUBLIC__/img/news-img.png" />-->
+				    <!--<ul>-->
+						<!--<li><a class="biaoti-1" href="#">中秋快乐，我们双节不打烊！············································································2015年9月26日</a></li>-->
+						<!--<li class="text">孕早期腹部没有隆起，而且除了“害喜”的不适反应准妈妈还不能感受到胎儿的存在。特别是有些没有妊娠反应的准妈妈，甚至会怀疑自己是不是真的怀孕了，为什么一点感觉都没有。直到第一次······</li>-->
+					<!--</ul>-->
+			<!--</div>-->
+			<!---->
+			<!--<div	 class="biaoti">-->
+					<!--<img src="__PUBLIC__/img/news-img.png" />-->
+				    <!--<ul>-->
+						<!--<li><a class="biaoti-1" href="#">中秋快乐，我们双节不打烊！············································································2015年9月26日</a></li>-->
+						<!--<li class="text">孕早期腹部没有隆起，而且除了“害喜”的不适反应准妈妈还不能感受到胎儿的存在。特别是有些没有妊娠反应的准妈妈，甚至会怀疑自己是不是真的怀孕了，为什么一点感觉都没有。直到第一次······</li>-->
+					<!--</ul>-->
+			<!--</div>-->
+			<!---->
+			<!--<div	 class="biaoti">-->
+					<!--<img src="__PUBLIC__/img/news-img.png" />-->
+				    <!--<ul>-->
+						<!--<li><a class="biaoti-1" href="#">中秋快乐，我们双节不打烊！············································································2015年9月26日</a></li>-->
+						<!--<li class="text">孕早期腹部没有隆起，而且除了“害喜”的不适反应准妈妈还不能感受到胎儿的存在。特别是有些没有妊娠反应的准妈妈，甚至会怀疑自己是不是真的怀孕了，为什么一点感觉都没有。直到第一次······</li>-->
+					<!--</ul>-->
+			<!--</div>-->
+			<!---->
+			<!--<div	 class="biaoti">-->
+					<!--<img src="__PUBLIC__/img/news-img.png" />-->
+				    <!--<ul>-->
+						<!--<li><a class="biaoti-1" href="#">中秋快乐，我们双节不打烊！············································································2015年9月26日</a></li>-->
+						<!--<li class="text">孕早期腹部没有隆起，而且除了“害喜”的不适反应准妈妈还不能感受到胎儿的存在。特别是有些没有妊娠反应的准妈妈，甚至会怀疑自己是不是真的怀孕了，为什么一点感觉都没有。直到第一次······</li>-->
+					<!--</ul>-->
+			<!--</div>-->
+
+
+			<div class="pagination pagination-left">
+				<ul>{$page}</ul>
+			</div>
+			<div class="page" id="pagenum">
+
+
+			</div>
+			<!-- footer -->
+			<include file="Index/footer"/>
+				
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		<!--轮播图效果-->
+		<script src="__PUBLIC__/js/jquery-2.1.1.min.js"></script>
+	<script src="__PUBLIC__/js/osSlider.js"></script>
+	<script src="__PUBLIC__/js/jquery.kxbdMarquee.js"></script>
+
+
+
+		<script src="__PUBLIC__/js/jquery-1.7.1.min.js"></script>
+		<script src="__PUBLIC__/js/jquery.longyuJs.js"></script>
+		<script src="__PUBLIC__/js/common.js"></script>
+		<script src="__PUBLIC__/js/distributor_b.js"></script>
+
+
+
+
+	<script type="text/javascript">
+	    var slider = new osSlider({ //开始创建效果
+	        pNode:'.slider', //容器的选择器 必填
+	        cNode:'.slider-main li', //轮播体的选择器 必填
+	        speed:4000, //速度 默认3000 可不填写
+	        autoPlay:true //是否自动播放 默认true 可不填写
+	    });
+
+		$.ajaxFileUpload({
+			url:MODULE+'/Confinement/editNews_p',            //需要链接到服务器地址,参数为img,图片文件
+			type: 'post',
+			secureuri:false,
+			fileElementId:'img',                        //文件选择框的id属性
+			dataType: 'JSON',                                     //服务器返回的格式，可以是json
+			success: function (data, status)            //data返回图片的地址和id
+			{
+				var imgurl=data//;.substring(0,data.length-1);
+				var numstr=num==1?'<span class="shoutu_tip">商品首图</span>':"";
+				var str='<div class="bi_imgsBox fl mr20 position_re bi_imgsbox_div">'+numstr+'<input type="hidden" name="imgid" value="'+imgurl+'" /><img class="bi_img" src="'+imgurl+'" alt=""/><span class="icon_b icon_del"></span></div>';
+				if(num==10){
+					$("#img").parent(".bi_imgsBox").hide();
+				}
+				num++;
+				$("#img_div").append(str);
+			}
+		});
+
+
+
+
+
+	    
+	</script>
+	</body>
+	<div style=display:none>
+	<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F48cc6318fc4270b2c3fcf8963524234a' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

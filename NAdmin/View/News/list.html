@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>田螺后台</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="__PUBLIC__/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="__PUBLIC__/admin/dist/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="__PUBLIC__/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="__PUBLIC__/admin/bower_components/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="__PUBLIC__/admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        .size_12{
+            font-size: 10px;
+        }
+        .i_con{
+            color: #ffffff; cursor: pointer;line-height: 18px;width: 18px;height: 18px; border-radius: 18px;display:inline-block;background: red;text-align: center;font-size: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <include file="Nav/header" />
+        <!-- /.navbar-top-links -->
+
+        <!--左边导航-->
+
+        <include file="Nav/index" />
+
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">新闻列表</h3>
+                <a href="{:U('News/index',array('type'=>1))}"><button  class="btn btn-default size_12" style="margin-left:20%;width:100px;<?php if($_GET['type']==1){ echo 'background: #999;';}?>">月子餐</button></a>
+                <a href="{:U('News/index',array('type'=>2))}"><button  class="btn btn-default size_12" style="width:100px;<?php if($_GET['type']==2){ echo 'background: #999;';}?>">通乳</button></a>
+                <a href="{:U('News/index',array('type'=>3))}"><button  class="btn btn-default size_12" style="width:100px;<?php if($_GET['type']==3){ echo 'background: #999;';}?>">宝宝喂养与保健</button></a>
+                <a href="{:U('News/index',array('type'=>4))}"><button  class="btn btn-default size_12" style="width:100px;<?php if($_GET['type']==4){ echo 'background: #999;';}?>">妈妈健康与恢复</button></a>
+                <a href="{:U('News/index',array('type'=>5))}"><button  class="btn btn-default size_12" style="width:100px;<?php if($_GET['type']==5){ echo 'background: #999;';}?>">锦旗与表扬信</button></a>
+                <a href="{:U('News/index',array('type'=>6))}"><button  class="btn btn-default size_12" style="width:100px;<?php if($_GET['type']==6){ echo 'background: #999;';}?>">优秀月嫂</button></a>
+                <a href="{:U('News/index',array('type'=>21))}"><button  class="btn btn-default size_12" style="width:100px;<?php if($_GET['type']==21){ echo 'background: #999;';}?>">新闻动态</button></a>
+                <a href="{:U('News/index',array('type'=>22))}"><button  class="btn btn-default size_12" style="width:100px;<?php if($_GET['type']==22){ echo 'background: #999;';}?>">公司公告</button></a>
+            </div>
+
+            <!-- /.col-lg-12 -->
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+
+                            <th>ID</th>
+                            <th>头图</th>
+                            <th>标题</th>
+                            <th style="text-align: center;width: 250px;">简介</th>
+                            <th>所属栏目</th>
+                            <th>排序</th>
+                            <th style="text-align: center;">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="news_list" id="vo">
+                            <tr>
+                                <td style="vertical-align:middle">
+                                    <if condition="$vo.index_show eq 1"><span class="i_con" title="首页头条">头</span></if>
+                                    <if condition="$vo.recommend eq 1"><span class="i_con" title="首页推荐">荐</span></if>
+                                    <if condition="$vo.detail_show eq 1"><span class="i_con" title="新闻置顶">置</span></if>
+
+
+                                    {$vo.id}</td>
+                                <td style="vertical-align:middle">
+                                    <img src="__UPLOADS__/{$vo.title_img}" alt="" style="width: 50px;"/>
+                                </td>
+                                <td style="vertical-align:middle;">{$vo.title}</td>
+                                <td style="vertical-align:middle;max-width: 300px; text-align: center">
+                                    <span style="display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;max-width: 300px;">{$vo.description}</span>
+                                </td>
+                                <td style="vertical-align:middle;width: auto;">{$vo.belong}</td>
+                                <td style="vertical-align:middle">{$vo.sort}</td>
+
+                                <td style="vertical-align:middle;width: 130px;">
+
+                                    <a href="__ROOT__/newsEvents/<?php echo $vo['id'];?>.html" target="_blank">预览</a>
+
+                                    <?php if($_SESSION[C('N_ADMIN_AUTH_KEY')]['permission']==1||$_SESSION[C('N_ADMIN_AUTH_KEY')]['edit_per']==1){?>
+                                    <a href="__MODULE__/News/editNews/id/<?php echo $vo['id'];?>.html">修改</a>
+                                    <?php }?>
+                                    <?php if($_SESSION[C('N_ADMIN_AUTH_KEY')]['permission']==1||$_SESSION[C('N_ADMIN_AUTH_KEY')]['del_per']==1){?>
+                                    <a href="__MODULE__/News/deleteNews/id/<?php echo $vo['id'];?>/p/<?php echo $_GET['p'];?>.html">删除</a>
+                                    <?php }?>
+                                </td>
+
+                            </tr>
+                        </volist>
+
+                        </tbody>
+                        <?php if($_SESSION[C('N_ADMIN_AUTH_KEY')]['permission']==1||$_SESSION[C('N_ADMIN_AUTH_KEY')]['add_per']==1){?>
+                        <a href="__MODULE__/News/addNews.html"> <button type="submit" class="btn btn-default">添加</button></a>
+                        <?php }?>
+                    </table>
+                    <div class="pagination pagination-left">
+                        <ul>{$page}</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="__PUBLIC__/admin/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/raphael/raphael-min.js"></script>
+<script src="__PUBLIC__/admin/bower_components/morrisjs/morris.min.js"></script>
+<script src="__PUBLIC__/admin/js/morris-data.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="__PUBLIC__/admin/dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>

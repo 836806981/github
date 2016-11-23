@@ -1,0 +1,74 @@
+
+body{
+	background-color: #ffffff;
+}
+
+.login{
+	width: 80%;
+	height: 800px;
+	margin: 0 auto;
+	margin-top: 300px;
+	background-color: #f0f0f0;
+	border-radius: 50px;
+	box-shadow: 0  10px 40px #eeeeee;
+}
+
+.name{
+	display: inline-block;
+	font-family: "microsoft yahei";
+	color: #666666;
+	font-size:50px;
+	margin-top: 200px;
+	letter-spacing: 5px;
+	margin-left: 10%;
+}
+
+.name-text{
+	display: inline-block;
+	width: 50%;
+	height: 60px;
+	font-size: 40px;
+	font-family: "microsoft yahei";
+	letter-spacing: 5px;
+	text-indent: .5em;
+	border: 1px solid #444444;
+}
+
+
+.pwd{
+	display: inline-block;
+	font-family: "microsoft yahei";
+	color: #666666;
+	font-size:50px;
+	margin-top: 50px;
+	letter-spacing: 5px;
+	margin-left: 17%;
+	
+}
+
+.pwd-text{
+	display: inline-block;
+	width: 50%;
+	height: 60px;
+	font-size: 40px;
+	font-family: "microsoft yahei";
+	letter-spacing: 5px;
+	text-indent: .5em;
+	border: 1px solid #444444;
+}
+
+.button{
+	border: none;
+	display: inline-block;
+	width: 182px;
+	height: 45px;
+	background-image: url(../img/button.png);
+	margin-top: 120px;
+	margin-left: 35%;
+}
+
+
+
+
+
+

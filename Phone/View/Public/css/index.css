@@ -1,0 +1,155 @@
+.page1{
+	background: url(../img/index/indexPage1.jpg) no-repeat center #f7f4ee;
+	position: relative;
+}
+.page1 .content{
+	width: 46.44%;
+	height: auto;
+	position: absolute;
+	top: 24.35%;
+	left: 0;
+}
+.content img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.content a.cantbtn{
+	font-size: 1.2em;
+	color: #FFFFFF;
+	margin-right: 1.6%;
+	background: #ff4a01;
+	padding: 4px 5px;
+	border-radius: 2px;
+	margin-top: 8px;
+}
+.page2{
+	background: url(../img/index/indexPage2.jpg) no-repeat center #c8f4ed;
+	position: relative;
+}
+.page2 .content{
+	width: 48.94%;
+	height: auto;
+	position: absolute;
+	top: 28.11%;
+	right: 0%;
+}
+.page2 .content a.cantbtn{
+    color: #ff4a01;
+    border: #ff4a01 1px solid;
+    background: none;
+    padding: 3px 5px;
+}
+.page3{
+	background: url(../img/index/indexPage3.jpg) no-repeat center #e6d9c9;
+	position: relative;
+}
+.page3 .content{
+	width: 53.81%;
+	height: auto;
+	position: absolute;
+	top: 34.11%;
+	left: 3%;
+}
+.page4{
+	padding: 30px 0 20px;
+}
+.page4 .p1{
+	color: #666666;
+	font-size: 2em;
+	text-align: center;
+}
+.page4 .p2{
+	color: #666666;
+	font-size: 1.5em;
+	text-align: center;
+	padding-top: 10px;
+}
+.page4 .content{
+	padding: 20px 0;
+	text-align: center;
+}
+.page4 .content a.cantbtn{
+    margin: 0;
+}
+.page4 .content a.cantbtn2{
+    color: #ff4a01;
+    border: #ff4a01 1px solid;
+    background: none;
+    padding: 3px 5px;
+}
+.page4 img{
+	display: block;
+	margin: 20px auto 0;
+	width: 78.94%;
+	height: auto;
+}
+.page5,.page6{
+	padding: 0 5%;
+}
+img.tle{
+	width: 17.10%;
+	height: auto;
+	display: block;
+}
+.newslist{
+	padding: 20px 0;
+}
+.newslist li{
+	margin-bottom: 20px;
+}
+.newslist li:last-child{
+	margin-bottom: 0;
+}
+.newslist li a{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.newslist li img.newsimg{
+	width: 32.89%;
+	height: auto;
+}
+.newslist li div.newscnt{
+	width: 63%;
+	height: auto;
+}
+.newslist li div.newscnt .p1{
+	font-size: 1.6em;
+	text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	color: #333333;
+}
+.newslist li div.newscnt .p2{
+	font-size: 1.2em;
+	color: #999999;
+	line-height: 2em;
+}
+.newslist li div.newscnt .p3{
+	font-size: 1.4em;
+	color: #999999;
+	text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.page6{
+	padding-top: 10px;
+}
+.pater{
+	padding-top: 20px;
+}
+.pater img{
+	width: 20.46%;
+	margin-left: 5%;
+	margin-bottom: 20px;
+}
+.pater img.m0{
+	margin-left: 0;
+}

@@ -1,0 +1,86 @@
+.banner img,.banner{
+	width: 100%;
+	height: auto;
+}
+.page{
+	padding: 20px 10px;
+}
+.pay_info>li{
+	margin-bottom: 10px;
+	vertical-align: middle;
+	line-height: 36px;
+	font-size: 1.5em;
+	color: #666666;
+}
+.pay_info>li>label{
+	    display: inline-block;
+	    float: left;
+	    width: 24%;
+	    text-align: right;
+	    color: #666;
+	    height: 36px;
+	    line-height: 36px;
+}
+.pay_info>li>input[type=text],.pay_info>li>textarea{
+	display: inline-block;
+	float: left;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border: 1px solid #aaa;
+	width: 60%;
+	height: 32px;
+	padding: 0 5px;
+	margin-top: 2px;
+	border-radius: 3px;
+	color: #666666;
+}
+.pay_info>li>textarea{
+	height: 80px;
+	padding: 6px 5px;
+}
+.xuan,.bili{
+	width: 70%;
+	float: left;
+	/* margin-top: 3px; */
+}
+.xuan>input{
+	background: none;
+	color: #666;
+	border: 1px #aaa solid;
+	box-sizing: border-box;
+	font-size: 1.2em;
+	margin-right: 4px;
+	width: 20%;
+	height: 30px;
+	border-radius: 3px;
+	outline:none;
+	font-size: 0.8em;
+}
+.xuan>input.active{
+	color: #ff4a01;
+	border: 1px #ff4a01 solid;
+}
+.bili>input[type=radio]{
+	vertical-align: middle;
+	margin-right: 4px;
+	display: inline-block;
+	margin-top: -2px;
+}
+.subbtn{
+	width: 70%;
+	margin: 0 auto;
+	display: block;
+	height: 36px;
+	background: #ff4a01;
+	color: #FFFFFF;
+	border: none;
+	font-size: 1.6em;
+	border-radius: 3px;
+	margin-top: 20px;
+}
+.p1{
+	text-align: center;
+	color: #FF4A01;
+	font-size: 1.6em;
+	padding-bottom: 20px;
+}

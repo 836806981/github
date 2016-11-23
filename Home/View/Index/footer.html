@@ -1,0 +1,178 @@
+<div class="footer">
+    <div class="content f-cb">
+        <div class="foot_cnt">
+            <ul class="ft_ul">
+                <li class="first_li"><a href="__ROOT__/">首页</a></li>
+                <li><a href="__ROOT__/about/">关于我们</a></li>
+                <li><a href="__ROOT__/contact/">联系我们</a></li>
+                <li><a href="__ROOT__/newsEvents/">新闻中心</a></li>
+                <li><a href="__ROOT__/yuesao/yxys.html">优秀人员</a></li>
+                <li><a href="__ROOT__/yuesao/jqbyx.html">锦旗与表扬信</a></li>
+            </ul>
+            <ul class="ft_ul">
+                <li class="first_li"><a href="__ROOT__/yuesao/">月嫂服务</a></li>
+                <li><a href="__ROOT__/yuesao/yzc.html">月子餐</a></li>
+                <li><a href="__ROOT__/yuesao/tr.html">通乳</a></li>
+                <li><a href="__ROOT__/yuesao/wybj.html">宝宝喂养与保健</a></li>
+                <li><a href="__ROOT__/yuesao/jkhf.html">妈妈健康与恢复</a></li>
+            </ul>
+            <ul class="ft_ul">
+                <li class="first_li"><a href="#">育儿嫂服务</a></li>
+                <li><a href="#">婴幼儿饮食</a></li>
+                <li><a href="#">早期教育</a></li>
+                <li><a href="#">日常护理</a></li>
+            </ul>
+            <ul class="ft_ul">
+                <li class="first_li"><a href="__ROOT__/zp">月嫂培训</a></li>
+                <li><a href="__ROOT__/zhaopin/">月嫂培训</a></li>
+                <li><a href="#">姥姥奶奶班</a></li>
+                <li><a href="#">妈咪班</a></li>
+            </ul>
+            <ul class="ft_ul">
+                <li class="first_li"><a href="#">其他培训</a></li>
+                <li><a href="#">育儿嫂培训</a></li>
+                <li><a href="__ROOT__/tongru/">通乳师培训</a></li>
+                <li><a href="#">小儿推拿培训</a></li>
+            </ul>
+            <ul class="ft_ul">
+                <li class="first_li"><a href="#">其他服务</a></li>
+                <li><a href="#">保姆钟点工</a></li>
+                <li><a href="__ROOT__/zp">通乳</a></li>
+                <li><a href="#">小儿推拿</a></li>
+                <li><a href="#">孕检陪护</a></li>
+                <li><a href="#">月子房检测</a></li>
+            </ul>
+            
+        </div>
+
+        <div class="foot_logo"></div>
+    </div>
+    <p class="banquan">&copy;2014-2015 成都亿家政网络科技有限公司 版权所有<br />蜀ICP备15008974号-1</p>
+</div>
+
+<div class="right_contant">
+    <ul>
+        <li class="lr1"><a href="/kst.html" target="_blank">在线<br />咨询</a></li>
+        <li class="lr2"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1520371983&amp;site=qq&amp;menu=yes" target="_blank">QQ<br />咨询</a></li>
+        <li class="lr3">
+            <a>联系<br />电话</a>
+            <div id="rgtTel">
+                <div class="tel">
+                    <p class="p1">4008086090 028-65863755</p>
+                    <p class="p2">比朋友介绍更靠谱的</p>
+                    <p class="p3">母婴护理团队</p>
+                </div>
+            </div>
+            
+        </li>
+        <li class="lr4">
+            <a>微信公<br />众号</a>
+            <div id="rgtWei">
+                <div class="weixin">
+                    <img src="__PUBLIC__/img/gongzonghao.png" />
+                    <p>“扫一扫”关注 <br />田螺阿姨公众号</p>
+                </div>
+            </div>
+            
+        </li>
+        <li class="lr5"><a href="http://weibo.com/tianluoayi" target="_blank">新浪<br />微博</a></li>
+        <li class="lr6"><a href="__ROOT__/contact/" target="_blank">公司<br />地址</a></li>
+        <li class="lr7">
+            <a href="#">返回<br />顶部</a>
+        </li>
+    </ul>
+</div>
+<!-- <div class="yaoqing">
+    <div class="yq_btn">
+        <a onclick="hide_yq()"></a>
+        <a href="/kst.html" target="_blank"></a>
+    </div>
+</div> -->
+<script>
+    // var Interval = setInterval(function (){
+    //     $('.yaoqing').show();
+    //     clearInterval(Interval);
+    // },3000)
+    
+    // function hide_yq(){
+    //     $('.yaoqing').hide();
+    //     var Timer = setInterval(function(){
+    //         $('.yaoqing').show()
+    //         clearInterval(Timer);
+    //     },12000);
+    // }
+    $(".right_contant>ul>li").mouseover(function(){
+        $(this).find("a").animate({
+            opacity:'1',
+            width:'100%'
+        },200);
+    }).mouseleave(function(){
+        $(this).find("a").animate({
+            opacity:'0',
+            width:'0'
+        },200);
+    });
+    $(".right_contant>ul>li.lr3").mouseover(function(){
+        $("#rgtTel").slideDown(200);
+    }).mouseleave(function(){
+        $("#rgtTel").slideUp(200);
+    });
+    $(".right_contant>ul>li.lr4").mouseover(function(){
+        $("#rgtWei").slideDown(200);
+    }).mouseleave(function(){
+        $("#rgtWei").slideUp(200);
+    });
+</script>
+
+    <div style="display:none" >
+	    <!--美恰-->
+        <script type='text/javascript'>
+    (function(m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = '//static.meiqia.com/dist/meiqia.js';
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', 38353);
+
+	// 在这里开启无按钮模式
+    _MEIQIA('withoutBtn');
+        </script>
+    </div>
+    <div style="display:none;">
+        <script src="http://s4.cnzz.com/z_stat.php?id=1256534005&web_id=1256534005" language="JavaScript" rel=“nofollow”></script>
+        <script type="text/javascript" charset="utf-8" async src="http://lxbjs.baidu.com/lxb.js?sid=7382075" rel=“nofollow”></script>
+
+        <script>
+        var _hmt = _hmt || [];
+        var MODULE  = '__MODULE__';
+        var UPLOADS  = '__UPLOADS__';
+        var ROOT  = '__ROOT__';
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?48cc6318fc4270b2c3fcf8963524234a";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+    </div>
+
+             <script type="text/javascript">
+var _mvq = _mvq || [];
+_mvq.push(['$setAccount', 'm-192570-0']);
+
+_mvq.push(['$logConversion']);
+(function() {
+var mvl = document.createElement('script');
+mvl.type = 'text/javascript'; mvl.async = true;
+mvl.src = ('https:' == document.location.protocol ? 'https://static-ssl.mediav.com/mvl.js' : 'http://static.mediav.com/mvl.js');
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(mvl, s);
+})();
+
+</script>

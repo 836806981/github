@@ -1,0 +1,184 @@
+<include file="Nav/header"/>
+
+<style>
+
+	.icon_number{width: 20px; height: 20px; border-radius: 10px;display: block;background: red;font-size:10px;color: #ffffff; line-height: 20px;text-align: center;position: absolute; right:-3px;top:-3px;}
+</style>
+		<div class="list_right">
+			<div class="col-lg-12">
+
+				<a href="{:U('Trainee/tlist',array('type'=>7))}"><span  style="position: relative; <?php if($_GET['type']==7||!$_GET['type']){ echo 'background: #47C8A2;color:#ffffff;';}?>">客服派单
+			{$number[7]}
+			</span></a>
+			<a href="{:U('Trainee/tlist',array('type'=>6))}"><span  style="position: relative; <?php if($_GET['type']==6||!$_GET['type']){ echo 'background: #47C8A2;color:#ffffff;';}?>">要联系的
+			{$number[0]}
+			</span></a>
+			<a href="{:U('Trainee/tlist',array('type'=>1))}"><span  style="position: relative; <?php if($_GET['type']==1){ echo 'background: #47C8A2;color:#ffffff;';}?>">新意向学员
+				{$number[1]}
+			</span></a>
+			<a href="{:U('Trainee/tlist',array('type'=>2))}"><span  style="position: relative; <?php if($_GET['type']==2){ echo 'background: #47C8A2;color:#ffffff;';}?>">跟进中学员
+				{$number[2]}
+			</span></a>
+			<a href="{:U('Trainee/tlist',array('type'=>3))}"><span  style="position: relative; <?php if($_GET['type']==3){ echo 'background: #47C8A2;color:#ffffff;';}?>">已缴费学员
+				{$number[3]}
+			</span></a>
+			<a href="{:U('Trainee/tlist',array('type'=>4))}"><span  style="position: relative; <?php if($_GET['type']==4){ echo 'background: #47C8A2;color:#ffffff;';}?>">已报到学员
+				{$number[4]}
+			</span></a>
+			<a href="{:U('Trainee/tlist',array('type'=>5))}"><span  style="position: relative; <?php if($_GET['type']==5){ echo 'background: #47C8A2;color:#ffffff;';}?>">已放弃学员
+				{$number[5]}
+			</span></a>
+		</div>
+			<div class="search">
+
+				<?php if($_GET['type']==6||$_GET['type']<3||!$_GET['type']){?>
+
+				&emsp;意向等级:
+				<select style="width: 10%;height: 28px;" id="priority" name="priority">
+					<option value="0">全部</option>
+					<option value="1">非常有意向</option>
+					<option value="2">比较有意向</option>
+					<option value="3">一般</option>
+					<option value="4">没有意向</option>
+				</select>
+
+				<?php }?>
+				&emsp;招生顾问:
+				<select style="width: 10%;height: 28px;" id="employee_name" name="employee_name">
+					<option value="0">全部</option>
+					<option value="张群华">张群华</option>
+					<option value="曾军">曾军</option>
+					<option value="孙飞龙">孙飞龙</option>
+				</select>
+
+				<span style="  margin-left: 30%; ">
+					<input type="text" placeholder="输入学员姓名或联系电话进行搜索" style="width:20%;" id="keyword"/><input type="button" value="搜索" class="search-button"  id="find"/>
+				</span>
+			</div>
+
+			<div class="table">
+				<table class="hovertable" id="nurse_list">
+					<tr>
+						<th>渠道</th>
+						<th>姓名</th>
+						<th>年龄</th>
+						<th>电话</th>
+						<?php if($_GET['type']==6||!$_GET['type']){?>
+						<th>状态</th>
+						<?php }if($_GET['type']==6||$_GET['type']<3||!$_GET['type']){?>
+						<th>意向等级</th>
+						<?php }?>
+						<th>下次联系时间</th>
+						<?php if($_GET['type']==7){?>
+						<th>顾问</th>
+						<?php }?>
+						<?php if($_GET['type']==4){?>
+						<th>报道时间</th>
+						<?php }?>
+						<th>操作</th>
+					</tr>
+					<!--<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">-->
+						<!--<td>1</td>-->
+						<!--<td><img src="__UPLOADS__/nurse/57_HY2/head/5667f043bcf8c.jpg" title="点击看大图" style="width: 60px;height: 26px;" id="dd"/></td>-->
+						<!--<td>23</td>-->
+					    <!--<td>5000~5600</td>-->
+						<!--<td>牛</td>-->
+					<!--</tr>-->
+				</table>
+			</div>
+
+			<div class="page" id="pagenum" style="margin:25px auto;width: 80%; text-align: center;">
+
+
+			</div>
+
+
+
+		</div>
+
+
+<img src="" id="divID">
+
+<div id="useBox" style="min-height: 80px;">
+
+</div>
+
+<include file="Nav/footer"/>
+<script>
+	var type=<?php echo $_GET['type']?$_GET['type']:6;?>;
+	var type_arr=[1,2,3,4,5,6,7];
+	if(jQuery.inArray(type,type_arr)==-1){
+		alert('地址异常');
+		window.location.href=""+MODULE+"/Trainee/tlist/type/1.html";
+	}
+
+
+	var current = type-1;
+	if(type==10){
+		current=4;
+	}else if(type==20){
+		current=5;
+	}
+
+	$("#showUse").live('click',function(){
+		var str_use = $(this).next('div').html();
+		$("#useBox").html(str_use);
+
+		if($("#useBox").css('display')=='block'){
+			$("#useBox").css('display','none');
+		}else{
+			var e_ = window.event || e; // 兼容IE，FF事件源
+			var x = e_.clientX,y = e_.clientY; // 获取鼠标位置
+
+			$("#useBox").css('left',(x-10)+'px');
+			$("#useBox").css('top',(y-15)+'px');
+			$("#useBox").css('display','block');
+		}
+	});
+	$("#useBox").live('click',function(){
+		$("#useBox").toggle();
+	});
+
+	$("#useBox").live('mouseon',function(){
+		$("#useBox").toggle();;
+	});
+
+
+
+	$("#dd").live('click',function(){
+		var src = $(this).attr('src');
+		$("#divID").attr('src',src);
+
+		if($("#divID").css('display')=='block'){
+			$("#divID").css('display','none');
+		}else{
+			var e_ = window.event || e; // 兼容IE，FF事件源
+			var x = e_.clientX,y = e_.clientY; // 获取鼠标位置
+
+			$("#divID").css('left',(x-90)+'px');
+//			if((y-100)>$("#divID").height()){
+//				y = y-$("#divID").height();
+//			}
+			$("#divID").css('top',(y-90)+'px');
+			$("#divID").css('display','block');
+		}
+	});
+	$("#divID").live('click',function(){
+		$("#divID").css('display','none');
+	});
+
+	$("#divID").live('mouseon',function(){
+		$("#divID").css('display','block');
+	});
+	$("#divID").live('mouseout',function(){
+		$("#divID").css('display','none');
+	});
+
+
+
+</script>
+
+	<script src="__PUBLIC__/js/trainee.js"></script>
+	<script src="__PUBLIC__/js/common.js"></script>
+
+</html>

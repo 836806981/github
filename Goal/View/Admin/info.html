@@ -1,0 +1,121 @@
+<include file="Nav/header"/>
+
+<div class="right">
+	<table border="0" cellspacing="0" cellpadding="0" style="margin-top: 0px;">
+		<tr>
+			<td><img src="__PUBLIC__/img/yonghu.png" /></td>
+		</tr>
+		<tr>
+			<td style="text-align:left;width: 80px;height: 100px;">用户名：</td>
+			<td>{$user_info.phone}</td>
+		</tr>
+		<tr>
+			<td style="text-align:left;width: 200px;height: 50px;">上次登录时间：</td>
+			<td> {$user_info.log_time} -----
+				<?php if($_SESSION[C('GOAL_AUTH_KEY')]['permission']==1 && $user_info['id'] == $_SESSION[C('GOAL_AUTH_KEY')]['id']){?>
+						不是本人登录？
+
+					</td>
+					<td><a href="__MODULE__/Admin/changepass"><input type="button" value="前去修改密码" /></a>
+					</td>
+				<?php }elseif($_SESSION[C('GOAL_AUTH_KEY')]['permission']==1 && $user_info['id'] != $_SESSION[C('GOAL_AUTH_KEY')]['id']){?>
+
+					</td>
+					<td><a href="__MODULE__/Admin/resetPassword/id/<?php echo $user_info['id'] ;?>" onclick="javascript:return window.confirm('确认重置密码？')"><input type="button" value="重置密码" /></a>
+					</td>
+
+			<?php }elseif($_SESSION[C('GOAL_AUTH_KEY')]['permission']!=1 ) {?>
+						不是本人登录？
+
+			</td>
+			<td><a href="__MODULE__/Admin/changepass"><input type="button" value="前去修改密码" /></a>
+			</td>
+			<?php }?>
+	</tr>
+
+
+		<if condition="$_SESSION[C('GOAL_AUTH_KEY')]['permission'] eq 1">
+			<form action="__MODULE__/Admin/info" method="post" id="form" enctype="multipart/form-data" >
+				<tr>
+					<td>用户名：</td>
+				</tr>
+				<tr>
+					<td><input class="name" name="phone" value="{$user_info.phone}"></td>
+				</tr>
+
+				<tr>
+					<td>昵称：</td>
+				</tr>
+				<tr>
+					<td><input class="name" name="name" value="{$user_info.name}"></td>
+					<input type="hidden" name="id" value="{$user_info.id}"/>
+				</tr>
+
+				<tr>
+					<td>邮箱：</td>
+				</tr>
+				<tr>
+					<td><input class="name" name="email" value="{$user_info.email}"></td>
+				</tr>
+
+				<tr>
+					<td>职位：</td>
+				</tr>
+				<tr>
+					<td><input class="name" name="job" value="{$user_info.job}"></td>
+				</tr>
+
+
+
+				<tr>
+					<td height="60px"></td>
+				</tr>
+
+				<tr>
+					<td class="save" id="submit">保存个人信息</td>
+				</tr>
+			</form>
+			<else/>
+			<tr>
+				<td>昵称：</td>
+			</tr>
+			<tr>
+				<td>{$user_info.name}</td>
+			</tr>
+
+			<tr>
+				<td>邮箱：</td>
+			</tr>
+			<tr>
+				<td>{$user_info.email}</td>
+			</tr>
+
+			<tr>
+				<td>职位：</td>
+			</tr>
+			<tr>
+				<td>{$user_info.job}</td>
+			</tr>
+
+
+
+			<tr>
+				<td height="60px"></td>
+			</tr>
+
+
+		</if>
+
+
+	</table>
+</div>
+<include file="Nav/footer"/>
+
+<script>
+	$("#submit").live('click',function(){
+		$("#form").submit();
+	});
+
+</script>
+
+</html>

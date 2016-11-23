@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+
+		<if condition="$belong eq 1">
+			<!--月子餐-->
+		<title>月子餐_月子餐食谱_月子餐制作及方法【田螺阿姨】</title>
+		<meta name="description" content="田螺阿姨是成都专业的母婴护理机构，提供专业的月嫂、育儿嫂等服务，此处为您展示田螺阿姨月嫂们制作的月子餐和提供的月子餐食谱，及月子餐制作方法。"/>
+		<meta name="keywords" content="月子餐,月子餐食谱,月子餐制作,月子餐制作方法"/>
+
+
+		<elseif condition="$belong eq 2"/>
+			<!--通乳-->
+		<title>通乳_催乳_开奶【田螺阿姨】</title>
+		<meta name="description" content="田螺阿姨是成都专业的母婴护理机构，提供专业的月嫂、育儿嫂等服务，此处为您展示田螺阿姨月嫂阿姨们自述的通乳、催乳、开奶的经验知识。"/>
+		<meta name="keywords" content="通乳,催乳,开奶"/>
+
+
+			<elseif condition="$belong eq 3"/>
+			<!--宝宝喂养与保健-->
+			<title>【宝宝喂养与保健】宝宝喂养_疾病观察_日常护理_黄疸_饮食-【田螺阿姨】</title>
+		    <meta name="description" content="田螺阿姨是成都专业的母婴护理机构，提供专业的月嫂、育儿嫂等服务，此处为您展示田螺阿姨月嫂阿姨们总结分享的经验，包括宝宝喂养知识,疾病观察的经验,日常护理的经验和知识,黄疸观察,饮食的搭配。"/>
+		    <meta name="keywords" content="宝宝喂养,疾病观察,黄疸,黄疸观察,宝宝饮食"/>
+			<elseif condition="$belong eq 4"/>
+			<!--妈妈健康与恢复-->
+			<title>【妈妈健康与恢复】产褥期护理_产褥期健康观察_形体恢复_产后恢复-【田螺阿姨】</title>
+		    <meta name="description" content="田螺阿姨是成都专业的母婴护理机构，提供专业的月嫂、育儿嫂等服务，此处为您提供妈妈保健知识，包括产褥期护理，产褥期健康观察，产后形体恢复恢复等知识。"/>
+		    <meta name="keywords" content="妈妈健康,产后健康观察,产后恢复,产后形体恢复"/>
+			<elseif condition="$belong eq 5"/>
+			<!--锦旗与表扬信-->
+			<title>【锦旗与表扬信】月嫂锦旗_月嫂表扬信-【田螺阿姨】</title>
+		    <meta name="description" content="田螺阿姨是成都专业的母婴护理机构，提供专业的月嫂、育儿嫂等服务，此处为您展示田螺阿姨月嫂阿姨们获得的锦旗与表扬信"/>
+		    <meta name="keywords" content="月嫂锦旗,月嫂表扬信"/>
+			<elseif condition="$belong eq 6"/>
+			<!--优秀月嫂-->
+			<title>【优秀月嫂】-【田螺阿姨】</title>
+		    <meta name="description" content="田螺阿姨是成都专业的母婴护理机构，提供专业的月嫂、育儿嫂等服务，此处为您展示田螺阿姨的优秀月嫂展示，为您推荐优秀的阿姨"/>
+		    <meta name="keywords" content="优秀月嫂"/>
+
+
+		</if>
+		<link rel="stylesheet" href="__PUBLIC__/css/usually.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/news.css" />
+		
+	</head>
+
+	<body>
+	<include file="Index/header1"/>
+	<include file="Index/header2"/>
+		
+		<script>
+			$(".nav>li").eq(1).addClass("active");
+		</script>
+
+
+	<input type="hidden" id="belong" value="{$belong}"/>
+
+		<div class="news_nav">
+			<if condition="$keywords['type'] eq 1">
+			<div class="content f-cb">
+				<ul class="news_ul f-cb">
+					<li <if condition="$belong eq 1">class="active" </if> ><a href="__ROOT__/yuesao/yzc.html" class="nav_a1">月子餐</a></li>
+					<li <if condition="$belong eq 2">class="active" </if> ><a href="__ROOT__/yuesao/tr.html" class="nav_a2">通乳</a></li>
+					<li <if condition="$belong eq 3">class="active" </if> ><a href="__ROOT__/yuesao/wybj.html" class="nav_a3">宝宝喂养与保健</a></li>
+					<li <if condition="$belong eq 4">class="active" </if> ><a href="__ROOT__/yuesao/jkhf.html" class="nav_a4">妈妈健康与恢复</a></li>
+					<li <if condition="$belong eq 5">class="active" </if> ><a href="__ROOT__/yuesao/jqbyx.html" class="nav_a5">锦旗与表扬信</a></li>
+					<li <if condition="$belong eq 6">class="active" </if> ><a href="__ROOT__/yuesao/yxys.html" class="nav_a6">优秀月嫂</a></li>
+				</ul>
+			</div>
+			</if>
+		</div>
+
+		<div class="news_cnt">
+			<div class="content f-cb">
+				<p class="address">当前页面：<a href="__ROOT__/">首页</a>&gt;{$nav}</p>
+				<div class="news_lef f-cb" id="news_list" {$px}>
+					<!--新闻列表模块-->
+					<!--<div class="news_exp f-cb">-->
+						<!--<div class="news_img">-->
+							<!--<a href="#"><img src="__PUBLIC__/img/news_img.jpg"/></a>-->
+						<!--</div>-->
+						<!--<div class="news_info">-->
+							<!--<p class="news_tle"><a href="#">田螺阿姨官网2田螺阿姨官网2田螺阿姨官网2.0正式上线啦</a></p>-->
+							<!--<p class="news_key">关键词：月嫂&nbsp;育儿嫂&nbsp;通乳&nbsp;月子餐&nbsp;</p>-->
+							<!--<p class="news_pf">田螺阿姨官网2.0正式上线了啦啦啦，好开心，哈哈哈啊哈啊哈哈哈开始懂了空间里疯狂的</p>-->
+						<!--</div>-->
+					<!--</div>-->
+
+					<!--新闻列表模块 end-->
+					
+					<!--新闻列表分页-->
+					
+					<!--新闻列表分页 end-->
+
+					<div class="page" id="pagenum" style="clear: both;padding-top: 30px;">
+
+					</div>
+
+				</div>
+				
+				<div class="news_rgt">
+					<div class="sea">
+						<input type="text" class="sea_ipt" value="{$keywords.keywords}" placeholder="此处输入关键词" id="keywords"/>
+						<input type="submit" class="sea_sub"  value="&nbsp;" id="search"/>
+					</div>
+
+					<div class="rgt_pic">
+						<a href="__ROOT__/tejiayuesao" target="_blank"><img src="__PUBLIC__/img/adv1.jpg"/></a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+	<include file="Index/footer"/>
+	</body>
+	<script>
+//		新闻右侧浮动
+		$(function() {
+			$(window).scroll(function() {
+				var seaTop = $(window).scrollTop() - 770;
+				if (seaTop > 0) {
+					var top = $(window).scrollTop() - 770 + 59;
+					$(".news_rgt").animate({
+						"top": top
+					}, 30);
+				} else {
+					$(".news_rgt").css("top", "59px")
+				}
+			});
+		});
+
+
+
+
+
+	</script>
+	<!-- 图片轮播 -->
+	<script type="text/javascript" src="__PUBLIC__/js/lunbo.js" ></script>
+
+	<script src="__PUBLIC__/js/jquery.longyuJs.js"></script>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script src="__PUBLIC__/js/news.js"></script>
+
+	<script type="text/javascript" src="__PUBLIC__/layer/layer.js" ></script>
+
+	<script>
+		$('#search').live('click',function(){
+			var keywords = $('#keywords').val();
+			if(keywords&&keywords!=''){
+				window.location.href = ROOT +"/keywords/"+keywords;
+			}
+		});
+	</script>
+
+
+
+</html>

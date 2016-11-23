@@ -1,0 +1,272 @@
+.page1>.content{
+	padding: 80px 0;
+}
+.tle{
+	width: 513px;
+	height: 98px;
+	background: url(../img/rencai/rencaitle.png) no-repeat center;
+	margin: 0 auto;
+}
+.tle>.p1{
+	text-align: center;
+	font-size: 30px;
+	color: #333333;
+	padding-top: 20px;
+}
+.tle>.p2{
+	text-align: center;
+	font-size: 18px;
+	color: #CCCCCC;
+}
+.rencaifont{
+	width: 1200px;
+	height: 158px;
+	margin: 60px 0;
+}
+.xuanze{
+	width: 1200px;
+	height: 460px;
+	position: relative;
+	background: url(../img/rencai/xuan.png) no-repeat center 50px;
+	margin: 100px 0 60px;
+}
+.xuanze>.num{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	display: none;
+}
+.xuanze>.n1{
+	background: url(../img/rencai/n1.png) no-repeat center;
+	left: 486px;
+	top: 14px;
+}
+.xuanze>.n2{
+	background: url(../img/rencai/n2.png) no-repeat center;
+	left: 676px;
+	top: 14px;
+}
+.xuanze>.n3{
+	background: url(../img/rencai/n3.png) no-repeat center;
+	left: 732px;
+	top: 188px;
+}
+.xuanze>.n4{
+	background: url(../img/rencai/n4.png) no-repeat center;
+	left: 579px;
+	top: 298px;
+}
+.xuanze>.n5{
+	background: url(../img/rencai/n5.png) no-repeat center;
+	left: 428px;
+	top: 188px;
+}
+.xuanze>img{
+	position: absolute;
+	opacity: 0;
+	filter:alpha(opacity=0);
+	-moz-opacity:0;  
+}
+.xuanze>img.f1{
+	left: 16px;
+	top: 12px;
+}
+.xuanze>img.f2{
+	left: 726px;
+	top: 12px;
+}
+.xuanze>img.f3{
+	left: 779px;
+	top: 186px;
+}
+.xuanze>img.f4{
+	left: 419px;
+	top: 346px;
+}
+.xuanze>img.f5{
+	left: 4px;
+	top: 186px;
+}
+.xuanze>img.anim{
+	opacity: 1;
+	filter:alpha(opacity=100);
+	-moz-opacity:1;  
+	animation: mymove 0.4s ease-out;
+	-webkit-animation: mymove 0.4s ease-out;
+	-ms-animation: mymove 0.4s ease-out;
+}
+@keyframes mymove{
+	from{
+		-webkit-transform:rotateX(100deg);
+		-ms-transform:rotateX(100deg);
+		transform:rotateX(100deg);
+		opacity: 0;
+		filter:alpha(opacity=0);
+		-moz-opacity:0;  
+	}
+	to{
+		-webkit-transform:rotateX(0deg);
+		-ms-transform:rotateX(0deg);
+		transform:rotateX(0deg);
+		opacity: 1;
+		filter:alpha(opacity=100);
+		-moz-opacity:1; 
+	}
+}
+@-webkit-keyframes mymove{
+	from{
+		-webkit-transform:rotateX(100deg);
+		-ms-transform:rotateX(100deg);
+		transform:rotateX(100deg);
+		opacity: 0;
+		filter:alpha(opacity=0);
+		-moz-opacity:0;  
+	}
+	to{
+		-webkit-transform:rotateX(0deg);
+		-ms-transform:rotateX(0deg);
+		transform:rotateX(0deg);
+		opacity: 1;
+		filter:alpha(opacity=100);
+		-moz-opacity:1; 
+	}
+}
+@-ms-keyframes mymove{
+	from{
+		-webkit-transform:rotateX(100deg);
+		-ms-transform:rotateX(100deg);
+		transform:rotateX(100deg);
+		opacity: 0;
+		filter:alpha(opacity=0);
+		-moz-opacity:0;  
+	}
+	to{
+		-webkit-transform:rotateX(0deg);
+		-ms-transform:rotateX(0deg);
+		transform:rotateX(0deg);
+		opacity: 1;
+		filter:alpha(opacity=100);
+		-moz-opacity:1;  
+	}
+}
+.pic{
+	width: 1200px;
+	height: 295px;
+}
+.pic1{
+	background: url(../img/rencai/rencaiImg1.jpg) no-repeat center;
+	margin-top: 40px;
+}
+.pic2{
+	background: url(../img/rencai/rencaiImg2.jpg) no-repeat center;
+}
+.pic3{
+	background: url(../img/rencai/rencaiImg3.jpg) no-repeat center;
+	margin-bottom: 40px;
+}
+.xzp{
+	font-size: 20px;
+	text-align: center;
+	line-height: 36px;
+	color: #333333;
+	margin: 40px 0;
+}
+.xzCnt{
+	position: relative;
+	width: 1200px;
+	height: 780px;
+	background: url(../img/rencai/rcCnt.png) no-repeat center top;
+}
+.xzCnt>img{
+	position: absolute;
+	opacity: 0;
+	filter:alpha(opacity=0);
+	-moz-opacity:0; 
+}
+.xzCnt>img.show{
+	opacity: 1;
+	filter:alpha(opacity=100);
+	-moz-opacity:1;  
+	animation: showPic 0.4s ease-out;
+	-webkit-animation: showPic 0.4s ease-out;
+	-ms-animation: showPic 0.4s ease-out;
+}
+@keyframes showPic{
+	from{
+		-webkit-transform:scale(0,0);
+		-ms-transform:scale(0,0);
+		transform:scale(0,0);
+		opacity: 0;
+		filter:alpha(opacity=0);
+		-moz-opacity:0;  
+	}
+	to{
+		-webkit-transform:scale(1,1);
+		-ms-transform:scale(1,1);
+		transform:scale(1,1);
+		opacity: 1;
+		filter:alpha(opacity=100);
+		-moz-opacity:1; 
+	}
+}
+@-webkit-keyframes showPic{
+	from{
+		-webkit-transform:scale(0,0);
+		-ms-transform:scale(0,0);
+		transform:scale(0,0);
+		opacity: 0;
+		filter:alpha(opacity=0);
+		-moz-opacity:0;  
+	}
+	to{
+		-webkit-transform:scale(1,1);
+		-ms-transform:scale(1,1);
+		transform:scale(1,1);
+		opacity: 1;
+		filter:alpha(opacity=100);
+		-moz-opacity:1; 
+	}
+}
+@-ms-keyframes showPic{
+	from{
+		-webkit-transform:scale(0,0);
+		-ms-transform:scale(0,0);
+		transform:scale(0,0);
+		opacity: 0;
+		filter:alpha(opacity=0);
+		-moz-opacity:0;  
+	}
+	to{
+		-webkit-transform:scale(1,1);
+		-ms-transform:scale(1,1);
+		transform:scale(1,1);
+		opacity: 1;
+		filter:alpha(opacity=100);
+		-moz-opacity:1;  
+	}
+}
+.xzCnt>img.xzPic1{
+	left: 760px;
+	top: 48px;
+}
+.xzCnt>img.xzPic2{
+	left: 159px;
+	top: 172px;
+}
+.xzCnt>img.xzPic3{
+	left: 816px;
+	top: 293px;
+}
+.xzCnt>img.xzPic4{
+	left: 226px;
+	top: 412px;
+}
+.xzCnt>img.xzPic5{
+	left: 773px;
+	top: 538px;
+}
+.page2{
+	height: 188px;
+	padding-bottom: 120px;
+	background: url(../img/rencai/ftbg.jpg) no-repeat center top;
+}

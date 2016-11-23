@@ -1,0 +1,121 @@
+
+.about-us{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.us-biaoti{
+	margin-top: 50px;
+	margin-left: 250px;
+	margin-bottom: 50px;	
+}
+
+.company{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.gongsijieshao{
+	color: #47C8A2;
+	font-family: "microsoft yahei";
+	font-size: 22px;
+}
+
+.jieshao-content{
+	width: 550px;
+	height: auto;
+	color: #666666;
+	font-size: 18px;
+	display: inline-block;
+	float: left;
+	line-height: 30px;	
+	font-family: "microsoft yahei";
+	margin-left: 25px;
+	margin-top: 30px;
+	text-indent: 2em;
+}
+
+.xiangxi{
+	width: 100%;
+	height: 1100px;
+	background-color: #F8F8F8;
+	box-shadow: 0 0 10px #d7d7d7;
+	margin-top: 100px;
+}
+
+.xiangxi-content{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.xiangxi-content1{
+	width: 600px;
+	color:#666666;
+	font-family: "microsoft yahei";
+	font-size: 20px;
+	float: left;
+}
+
+.xiangxi-content2{
+	width:1200px;
+	color:#666666;
+	font-family: "microsoft yahei";
+	font-size: 20px;
+	float: left;
+	margin-top: 40px;
+}
+
+.shuohua{
+	width: 1200px;
+	height: auto;
+	text-align: center;
+	font-size: 40px;
+	font-family: "microsoft yahei";
+	color: #47C8A2;
+	margin: 0 auto;
+	margin-top: 120px;
+}
+
+.shuohua2{
+	width: 1200px;
+	height: auto;
+	text-align: center;
+	font-size: 24px;
+	font-family: "microsoft yahei";
+	color: #666666;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+.shuohua3{
+	width: 1200px;
+	height: auto;
+	text-align:right;
+	font-size: 24px;
+	font-family: "microsoft yahei";
+	color: #666666;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.shuohua4{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.shuohua5{
+	width: 1200px;
+	height: auto;
+	text-align:center;
+	font-size: 36px;
+	font-family: "microsoft yahei";
+	color: #47C8A2;
+	margin: 0 auto;
+	margin-top: 50px;
+}

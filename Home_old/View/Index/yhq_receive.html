@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>3998超值月嫂</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+		<link rel="stylesheet" href="__PUBLIC__/css/usually.css" />
+	</head>
+	<body>
+		 
+		   		<img src="__PUBLIC__/img/yhq/banner.jpg"  width="100%"/>
+				<form action="__ROOT__/yhq_receive" method="post" id="form"   enctype="multipart/form-data">
+					<input type="text" name="phone" id="phone" placeholder="请输入您的手机号" style="width: 100%;height: 40px;margin-top:10px;font-size: 22px;text-align: center;line-height:40px;border: none;box-shadow: 2px 0px 1px #47c8a2;font-family: 'microsoft yahei';" />
+
+					<button  style="width: 90%;height: 42px;margin:20px 0 0 5%;background-color: #47c8a2;border-style: none;color: white;font: 22px 'microsoft yahei'; " id="submit">
+						马上领取
+					</button>
+		   		</form>
+		        <img src="__PUBLIC__/img/yhq/shuoming.png"  width="90%"  style="margin: 20px 0 0 5%;"  />
+		   		
+		   		<div style="font-family: 'microsoft yahei';font-size: 1.2em;line-height:1.8em;color: #666666;margin: 10px 0 0 5%;">
+		   			1.输入手机号领取您的优惠码<br />
+					2.凭短信优惠码享受优惠，并可以到店领取惠氏S-26金装幼儿乐奶粉200g<br />
+					3.公司地址：成都高新区天府大道环球中心 E2-18 楼<br />
+					4.咨询热线：400-808-6090<br />
+		   		</div>
+		   		
+		   		
+		   		
+		   		
+	</body>
+	<script src="__PUBLIC__/js/jquery-1.7.1.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.longyuJs.js"></script>
+	<script>
+		$("#submit").live('click',function(){
+			var phone = $('#phone').val();
+			var reg = /^(1[34578]\d{9})$/;
+			if(!reg.test(phone)){
+				alert('手机号格式不正确！');
+				return false;
+			}
+			$('#form').submit();
+		});
+
+	</script>
+</html>

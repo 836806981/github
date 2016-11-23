@@ -1,0 +1,364 @@
+<include file="Nav/header" />
+
+		<div class="add">
+			<form action="__MODULE__/Ayi/addInfo" method="post" id="form" enctype="multipart/form-data">
+		   	 <h1 style="font-size: 45px;font-weight: normal;">添加阿姨</h1>
+		   	 <div class="kuang">
+		   	 	姓名：<input type="text" class="text" style="width: 10%;" name="name" id="name" value="{$training.name}"/>
+		   	 	&emsp;&emsp;身份证号：<input type="text" class="text" style="width: 15%;margin-top: 30px; min-width: 210px;"  name="id_card" id="id_card" value="{$training.id_card}"/>
+		   	 	&emsp;&emsp;价格：<input type="text" class="text" style="width: 5%;"  name="l_price" id="l_price" value="{$training.price}"/>~<input type="text" class="text" style="width: 5%;"  name="h_price" id="h_price" value="{$training.price}"/>
+		   	 	
+		   	 	<br />
+		   	 		   	 	
+		   	 	类型：
+		   	 	<select style="width: 10%;margin-top: 30px;margin-bottom: 20px;" id="type" name="type">
+		   	 		<option value="1">月嫂</option>
+		   	 		<option value="2">育儿嫂</option>
+		   	 		<option value="3">保姆</option>
+		   	 		<option value="4">钟点工</option>
+		   	 	</select>
+
+
+
+				 &emsp;&emsp;可兼职：
+				 <i id="jianzhi"> <input type="checkbox" value="2" id="others1" name="others1"/>育儿嫂 <input type="checkbox" id="" value="3" style="margin-left: 25px;" id="others2" name="others2"/>保姆</i>
+
+				 <br />
+
+				 学历：
+		   	 	<select style="width: 10%;" id="educational" name="educational">
+		   	 		<option value="1" <if condition="$training.educational eq 1">selected</if>>小学</option>
+		   	 		<option value="2" <if condition="$training.educational eq 2">selected</if>>初中</option>
+		   	 		<option value="3" <if condition="$training.educational eq 3">selected</if>>高中</option>
+		   	 		<option value="4" <if condition="$training.educational eq 4">selected</if>>专科</option>
+		   	 		<option value="5" <if condition="$training.educational eq 5">selected</if>>本科</option>
+		   	 	</select>
+		   	 	&emsp;&emsp;婚姻：
+		   	 	<select style="width: 10%;" id="marriage" name="marriage">
+		   	 			<option value="未婚"  <if condition="$training.marriage eq '未婚'">selected</if>>未婚</option>
+                        <option value="已婚"  <if condition="$training.marriage eq '已婚'">selected</if>>已婚</option>
+                        <option value="离异"  <if condition="$training.marriage eq '离异'">selected</if>>离异</option>
+		   	 	</select>
+		   	 	&emsp;&emsp;生育：
+		   	 	<select style="width: 10%;" id="birth" name="birth">
+		   	 			<option value="未育">未育</option>
+                        <option value="已育" <if condition="$training.birth gt 0">selected</if>>已育</option>
+                        <option value="多育">多育</option>
+		   	 	</select>
+
+				 <br/>
+		   	 	
+		   	 	身高：<input type="text" class="text" style="width: 10%;margin-top: 20px;" id="hight" name="hight" placeholder="80-200" value="{$training.height}"/>
+		   	 	&emsp;&emsp;体重：<input type="text" class="text" style="width: 10%;margin-top: 30px;" id="weigth" name="weight" placeholder="30-150" value="{$training.weight}"/>
+		   	 	&emsp;&emsp;籍贯：<input type="text" class="text" style="width: 10%;margin-top: 30px;" id="native_place" name="native_place" value="{$training.native_place}"/>
+		   	 	
+		   	 	<br />
+		   	 	
+				电话：<input type="text" class="text" style="width: 8%;margin-top: 30px; min-width: 135px" id="phone" name="phone" value="{$training.phone}"/>
+		   	 	&emsp;&emsp;紧急电话：<input type="text" class="text" style="width: 9%;margin-top: 30px;min-width: 135px;" id="urgent_phone" name="urgent_phone" />
+		   	 	&emsp;&emsp;微信号：<input type="text" class="text" style="width: 10%;margin-top: 30px;" id="wechat" name="wechat" placeholder="无则不填" />
+				
+				<br />
+		   	 	
+				证书：<input type="text" class="text" style="width: 8%;margin-top: 30px;" id="zhengshu_name" name="zhengshu_name"/>
+		   	 	&emsp;&emsp;领证时间：<input type="text" class="text" style="width: 9%;margin-top: 30px;" id="zhengshu_date" name="zhengshu_date"/>
+		   	 	&emsp;&emsp;从业时间：<input type="text" class="text" style="width: 8%;margin-top: 30px;" id="work_date" name="work_date"/>
+		   	 	&emsp;&emsp;培训机构：<input type="text" class="text" style="width: 10%;margin-top: 30px;" id="train" name="train"/>
+				
+				<br />
+				
+				排序：<input type="text" class="text" style="width: 8%;margin-top: 30px;" id="sort" name="sort" value="<?php echo $sort_num;?>"/>
+				&emsp;&emsp;技能等级：
+				<input type="text" class="text" style="width: 5%;margin-top: 30px;" id="skill1" name="skill1" placeholder="月子餐" title="月子餐" value="{$training['skill'][0]}"/>
+				<input type="text" class="text" style="width: 5%;margin-top: 30px;" id="skill2" name="skill2" placeholder="病理知识" title="病理知识"  value="{$training['skill'][1]}"/>
+				<input type="text" class="text" style="width: 5%;margin-top: 30px;" id="skill3" name="skill3" placeholder="护理经验" title="护理经验"  value="{$training['skill'][2]}"/>
+				<input type="text" class="text" style="width: 5%;margin-top: 30px;" id="skill4" name="skill4" placeholder="通乳催乳" title="通乳催乳"  value="{$training['skill'][3]}"/>
+				<input type="text" class="text" style="width: 5%;margin-top: 30px;" id="skill5" name="skill5" placeholder="心理疏导" title="心理疏导"  value="{$training['skill'][4]}"/>
+				<input type="text" class="text" style="width: 5%;margin-top: 30px;" id="skill6" name="skill6" placeholder="产后恢复" title="产后恢复"  value="{$training['skill'][5]}"/>
+				<input type="text" class="text" style="width: 5%;margin-top: 30px;" id="skill7" name="skill7" placeholder="科学喂养" title="科学喂养"  value="{$training['skill'][6]}"/>
+
+
+				<br />
+				
+				头像：<if condition="$training.title_img neq ''">
+				 <img src="__UPLOADS__/{$training.title_img}" alt="" style="max-width: 250px;"/>
+			 </if>
+				 
+				 
+				 
+				 <input type="file" style="margin-top: 30px;margin-bottom: 20px" name="title_img" id="title_img"/>
+				 <input type="hidden" name="is_training" id="is_training" value="{$training.id}"/>
+				 <input type="hidden" name="title_img_training" id="title_img_training" value="{$training.title_img}"/>
+				<br />
+				 推荐：
+				 <br />
+				 <textarea name="specialty" id="specialty" style="width: 80%;height: 150px; margin-top: 15px;"  class="form-control" >{$training.teacher_comments}</textarea>
+				 <br />
+
+				 家庭情况：<input type="test" readonly value="------" style="width: 100px;height: 30px;font-size: 14px;line-height: 30px;" id="fuzhi1"/>
+				 <input type="button" id="dianji1" value="复制" />
+				 <br />
+				 <textarea name="family" id="family" style="width: 80%;height: 150px; margin-top: 15px;"  class="form-control" >{$training.family}</textarea>
+				 <br />
+				经验：<input type="test" readonly value="------" style="width: 100px;height: 30px;font-size: 14px;line-height: 30px;" id="fuzhi2"/>
+				 <input type="button" id="dianji2" value="复制" />
+				<br />
+				<textarea name="experience" id="experience" style="width: 80%;height: 150px; margin-top: 15px;"  class="form-control" ></textarea>
+				<br />
+				性格：<input type="test" readonly value="------" style="width: 100px;height: 30px;font-size: 14px;line-height: 30px;" id="fuzhi3"/>
+				 <input type="button" id="dianji3" value="复制" />
+				<br />
+				<textarea name="character" id="character" style="width: 80%;height: 150px; margin-top: 15px;"  class="form-control" >{$training.character}</textarea>
+				<br /><br />
+				<span class="save-button" id="submit">保&nbsp;存</span>
+		   	 </div>
+			</form>
+		</div>
+
+<include file="Nav/footer" />
+
+
+<script>
+	var MODULE='__MODULE__';
+	$("#type").live('change',function(){
+		var str = '';
+		switch ($("#type").val()){
+			case '1':
+				 str = ' <input type="checkbox" value="2" id="others1" name="others1"/>育儿嫂 <input type="checkbox" id="" value="3" style="margin-left: 25px;" id="others2" name="others2"/>保姆';
+				$("#skill1").attr('placeholder','月子餐');
+				$("#skill1").attr('title','月子餐');
+
+				$("#skill2").attr('placeholder','病理知识');
+				$("#skill2").attr('title','病理知识');
+
+				$("#skill3").attr('placeholder','护理经验 ');
+				$("#skill3").attr('title','护理经验 ');
+
+				$("#skill4").attr('placeholder','通乳催乳 ');
+				$("#skill4").attr('title','通乳催乳 ');
+
+				$("#skill5").attr('placeholder','心里疏导');
+				$("#skill5").attr('title','心里疏导');
+
+				$("#skill6").attr('placeholder','产后恢复');
+				$("#skill6").attr('title','产后恢复');
+
+				$("#skill7").attr('placeholder','科学喂养');
+				$("#skill7").attr('title','科学喂养');
+
+
+				break;
+			case '2':
+				str = ' <input type="checkbox" value="1" id="others1" name="others1"/>月嫂 <input type="checkbox" id="" value="3" style="margin-left: 25px;" id="others2" name="others2"/>保姆';
+
+				$("#skill1").attr('placeholder','辅食添加');
+				$("#skill1").attr('title','辅食添加');
+
+				$("#skill2").attr('placeholder','早教');
+				$("#skill2").attr('title','早教');
+
+				$("#skill3").attr('placeholder','抚触/被动操 ');
+				$("#skill3").attr('title','抚触/被动操 ');
+
+				$("#skill4").attr('placeholder','普通话 ');
+				$("#skill4").attr('title','普通话 ');
+
+				$("#skill5").attr('placeholder','宝宝生活习惯调养');
+				$("#skill5").attr('title','宝宝生活习惯调养');
+
+				$("#skill6").attr('placeholder','病理知识');
+				$("#skill6").attr('title','病理知识');
+
+				$("#skill7").attr('placeholder','小儿推拿');
+				$("#skill7").attr('title','小儿推拿');
+
+
+				break;
+			case '3':
+				str = ' <input type="checkbox" value="1" id="others1" name="others1"/>月嫂 <input type="checkbox" id="" value="2" style="margin-left: 25px;" id="others2" name="others2"/>育儿嫂';
+
+				$("#skill1").attr('placeholder','家庭保洁');
+				$("#skill1").attr('title','家庭保洁');
+
+				$("#skill2").attr('placeholder','厨房收纳');
+				$("#skill2").attr('title','厨房收纳');
+
+				$("#skill3").attr('placeholder','饭菜烹饪 ');
+				$("#skill3").attr('title','饭菜烹饪 ');
+
+				$("#skill4").attr('placeholder','普通话 ');
+				$("#skill4").attr('title','普通话 ');
+
+				$("#skill5").attr('placeholder','衣服熨烫');
+				$("#skill5").attr('title','衣服熨烫');
+
+				$("#skill6").attr('placeholder','家庭收纳');
+				$("#skill6").attr('title','家庭收纳');
+
+				$("#skill7").attr('placeholder','早餐西餐');
+				$("#skill7").attr('title','早餐西餐');
+				break;
+			case '4':
+				$("#skill1").attr('placeholder','家庭保洁');
+				$("#skill1").attr('title','家庭保洁');
+
+				$("#skill2").attr('placeholder','厨房收纳');
+				$("#skill2").attr('title','厨房收纳');
+
+				$("#skill3").attr('placeholder','饭菜烹饪 ');
+				$("#skill3").attr('title','饭菜烹饪 ');
+
+				$("#skill4").attr('placeholder','普通话 ');
+				$("#skill4").attr('title','普通话 ');
+
+				$("#skill5").attr('placeholder','衣服熨烫');
+				$("#skill5").attr('title','衣服熨烫');
+
+				$("#skill6").attr('placeholder','家庭收纳');
+				$("#skill6").attr('title','家庭收纳');
+
+				$("#skill7").attr('placeholder','早餐西餐');
+				$("#skill7").attr('title','早餐西餐');
+
+				break;
+		}
+		$("#jianzhi").html(str);
+
+	});
+
+	$("#submit").live('click',function(){
+		var reg1 = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+		if(!$('#is_training').val()){
+			if($("#title_img").val()==''){
+				alert('请上传头像');
+				return false;
+			}
+		}else  if(!reg1.test($("#id_card").val())){
+			alert('请检查身份证格式');
+			return false;
+		}else  if($("#phone").val()==''||$("#urgent_phone").val()==''){
+			alert('请完善电话和紧急电话');
+			return false;
+		}else  if($("#l_price").val()==''||$("#h_price").val()==''||$("#h_price").val()<$("#l_price").val()){
+			alert('请填写正确价格');
+			return false;
+		}else  if($("#name").val()==''||$("#name").val().length>5){
+			alert('请填写姓名，不超过五个字');
+			return false;
+		}else  if($("#native_place").val()==''){
+			alert('请填写籍贯');
+			return false;
+		}else  if($("#hight").val()==''||$("#hight").val()>200||$("#hight").val()<80){
+			alert('请填写正确身高，80-200');
+			return false;
+		}else  if($("#weight").val()==''||$("#weight").val()<30||$("#weight").val()>150){
+			alert('请填写正确体重，30-150');
+			return false;
+		}else  if($("#skill1").val()<0||$("#skill1").val()>100||$("#skill2").val()>100||$("#skill2").val()<0||$("#skill3").val()>100||$("#skill3").val()<0||$("#skill4").val()>100||$("#skill4").val()<0||$("#skill5").val()>100||$("#skill5").val()<0||$("#skill6").val()>100||$("#skill6").val()<0||$("#skill7").val()>100||$("#skill7").val()<0){
+			alert('技能等级请填写0-100;');
+			return false;
+		}
+
+
+		$("#form").submit();
+	})
+
+	$("#dianji1").live('click',function(){
+		var d = document.getElementById("fuzhi1");
+		d.select();
+		document.execCommand("Copy");
+	})
+	$("#dianji2").live('click',function(){
+		var d = document.getElementById("fuzhi2");
+		d.select();
+		document.execCommand("Copy");
+	})
+	$("#dianji3").live('click',function(){
+		var d = document.getElementById("fuzhi3");
+		d.select();
+		document.execCommand("Copy");
+	})
+</script>
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

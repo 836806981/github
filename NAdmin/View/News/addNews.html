@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>田螺后台</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="__PUBLIC__/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="__PUBLIC__/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="__PUBLIC__/admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+
+<body>
+
+
+<div id="wrapper" >
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <include file="Nav/header" />
+        <!-- /.navbar-top-links -->
+
+        <!--左边导航-->
+        <include file="Nav/index" />
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">添加新闻</h3>
+            </div>
+            <!-- /.col-lg-12 -->
+
+            <div class="col-lg-8">
+
+                <form action="__MODULE__/News/addNews_p" method="post" id="form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>标题：</label>
+                        <input class="form-control"  name="title" id="title" value=""  />
+                    </div>
+
+                    <div class="form-group">
+                        <label>作者：</label>
+                        <input class="form-control"  name="author" id="author" value=""  />
+                    </div>
+
+                    <div class="form-group">
+                        <label style="float: left;">排序：</label>
+                        <input class="form-control"  name="sort" id="order" value="<?php echo $sort_num;?>"  style="width: 50px;height:26px; float: left;"/> <span style="font-size: 10px;margin-left: 10px; color: #CCCCCC;">默认最新，无特殊要求不需要更改。</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>所属栏目：</label>
+                        <select name="belong"  id="belong">
+                            <option value="1">月子餐</option>
+                            <option value="2">通乳</option>
+                            <option value="3">宝宝喂养与保健</option>
+                            <option value="4">妈妈健康与恢复</option>
+                            <option value="5">锦旗与表扬信</option>
+                            <option value="6">优秀月嫂</option>
+                            <option value="21">新闻动态</option>
+                            <option value="22">公司公告</option>
+                            <!--<option value="7">月嫂新闻6</option>-->
+
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="zhiding" >
+                        <label>推荐文章：</label>
+                        <label style="color: #CC0000"><input name="index_show" id="index_show" type="checkbox" value="1" />首页头条</label>
+                        <label style="color: #CC0000"><input name="recommend" id="recommend" type="checkbox" value="1" />首页推荐</label>
+
+                    </div>
+
+                    <!--<div class="form-group" id="tuijian">-->
+                        <!--<label>展示位置：</label>-->
+                        <!--<label style="color: #CC0000"><input name="index_show" id="index_show" type="checkbox" value="1" />首页推荐</label>-->
+                        <!--<label style="color: #CC0000"><input name="detail_show" id="detail_show" type="checkbox" value="1" />详细页推荐 </label>-->
+                    <!--</div>-->
+
+                    <div class="form-group">
+                        <label>简介：</label>
+                        <input class="form-control"  name="description" id="description" value=""  />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>关键词：</label>
+                        <input class="form-control"  name="keyword" id="keyword" value=""  placeholder="多个关键词请以英文逗号“,”隔开"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>头图：</label>
+                        <input class="form-control" type="file" name="title_img" id="title_img" value=""  />
+                    </div>
+
+
+                <script id="content" name="content" type="text/plain" style="width:100%;height:200px;">
+
+
+                </script>
+                <!-- 配置文件 -->
+                <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+                <!-- 编辑器源码文件 -->
+                <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.js"></script>
+                <!-- 实例化编辑器 -->
+                <script type="text/javascript">
+                    var ue = UE.getEditor('content');
+                </script>
+
+
+                    <!--<span id="erro" style="color: #CC0000;font-size: 12px;display: none;">用户名已存在！</span>-->
+                <br/>
+                    <span id="submit" class="btn btn-default">确认添加</span>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+    </nav>
+
+
+
+</div>
+
+
+
+<!-- jQuery -->
+<script src="__PUBLIC__/admin/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+
+<script src="__PUBLIC__/admin/js/jquery-1.7.1.min.js"></script>
+
+<script src="__PUBLIC__/admin/js/jquery.longyuJs.js"></script>
+
+<script>
+    var MODULE='__MODULE__';
+
+    $("#submit").live('click',function(){
+        if($("#title_img").val()==''){
+            alert('请上传头像');
+            return false;
+        }
+
+        $("#form").submit();
+    });
+
+    $('#belong').live('change',function(){
+        if($(this).val()==21){
+            var str = ' <label style="color: #CC0000"><input name="detail_show" id="detail_show" type="checkbox" value="1" />列表置顶</label>';
+            $('#zhiding').append(str);
+        }
+    });
+
+
+
+//    $("#belong").live('change',function(){
+//        if($("#belong").val()!=1){
+//            $("#tuijian").hide();
+//            $("#zhiding").show();
+//        }else{
+//            $("#zhiding").hide();
+//            $("#tuijian").show();
+//        }
+//    })
+
+
+
+
+    $("#belong").live('change',function(){
+        var belong = $("#belong").val();
+        $.AjaxPost(MODULE+"/News/change_order", {belong:belong}, function (backdata) {
+            if (backdata.code == 1000) {
+                var data = backdata.data;
+               $("#order").val(data);
+            }
+        }, true);
+
+    })
+
+</script>
+
+
+
+</body>
+
+</html>

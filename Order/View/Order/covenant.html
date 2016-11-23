@@ -1,0 +1,238 @@
+
+<include file="Nav/header"/>
+
+
+<style>
+	.row_text{
+		width: 30px;
+		height: 30px;
+		border-radius: 15px;
+		background: #47C87E;
+		text-align: center;
+		line-height: 30px;
+		font-size: 10px;
+		display: inline-block;
+		margin-left: 10px;
+		color: #ffffff;
+	}
+	.text{
+		height: 18px;vertical-align: middle;
+		font-size: 12px;
+	}
+	.row_text:hover{box-shadow: #0002F4 0px 0px 5px;background: #47C9FF;}
+</style>
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+
+
+<div style="width:80%;padding-bottom: 150px;padding-top: 60px;padding-left: 15%;color: #333F50;font-family: 'microsoft yahei';font-size: 18px;margin-left: 5%;" >
+	<h1 style="font-size: 45px;font-weight: normal;margin: 30px 0 20px 5%;">合同签订</h1>
+
+	<include file="Nav/info_header"/>
+
+
+	<br/>
+
+
+	<div class="ayi-information" style="height: auto;display: inline-block; position: relative;">
+		<ul class="infor-ul f-cb">
+			<li class="infor-address" style="width: 80px;height: 30px;">客户名字</li>
+			<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.name}
+
+				<if condition="$info.is_customer_service gt 0">
+					<a href="__MODULE__/Order/info/id/{$info.is_customer_service}.html"><i  class="row_text" 	title="售后单,点击查看原订单情况！">售</i></a>
+				</if>
+				<a href="__MODULE__/Order/editOrder/id/{$info.id}.html" style="float: right;"><i  class="row_text" 	title="修改基本信息">修</i></a></li>
+
+			<li class="infor-address" style="width: 80px;height: 30px;">订单状态</li>
+			<li class="infor-address-content" style="width: 200px;height: 30px;color: #47C8A2">
+				<if condition="$info.status eq 0">
+					<a href="{:U('Order/oList',array('type'=>0))}"><i  class="row_text" 	title="未派单">未</i></a>
+					<elseif condition="$info.status eq 1"/>
+					<a href="{:U('Order/oList',array('type'=>1))}"><i  class="row_text" 	title="已派单">派</i></a>
+					<elseif condition="$info.status eq 2"/>
+					<a href="{:U('Order/oList',array('type'=>2))}"><i  class="row_text" 	title="已签单">签</i></a>
+					<elseif condition="$info.status eq 3"/>
+					<a href="{:U('Order/oList',array('type'=>3))}"><i  class="row_text" 	title="已上户">户</i></a>
+					<elseif condition="$info.status eq 4"/>
+					<a href="{:U('Order/oList',array('type'=>4))}"><i  class="row_text" 	title="已下户">下</i></a>
+					<elseif condition="$info.status eq 5"/>
+					<a href="{:U('Order/oList',array('type'=>5))}"><i  class="row_text" 	title="已结算">结</i></a>
+					<elseif condition="$info.status eq 10"/>
+					<a href="{:U('Order/oList',array('type'=>10))}"><i  class="row_text" 	title="已放弃">弃{$info.die_time}</i></a>
+				</if>
+			</li>
+
+			<li class="infor-address" style="width: 80px;height: 30px;">订单类型</li>
+			<li class="infor-address-content" style="vertical-align: middle;width: 220px;height: 30px;color: #47C8A2">{$info.type_name}</li>
+
+			<li class="infor-address" style="width: 80px;height: 30px;">销售顾问</li>
+			<li class="infor-address-content" style="width: 200px;height: 30px;color: #47C8A2">{$info.sales_name} <a href="__MODULE__/Order/distribution/id/{$info.id}"><i  class="row_text" 	title="更换销售顾问">换</i></a></li>
+
+
+			<if condition="$info.status eq 10">
+				<li class="infor-address" style="width: 80px;height: 30px;">放弃原因</li>
+				<li class="infor-address-content" style="vertical-align: middle;width: 600px;height: auto;color: #47C8A2">{$info.die_reason}</li>
+			</if>
+		</ul>
+	</div>
+	<br/>
+	<br/>
+	<div class="add" style="min-height: 600px;margin-top: 100px;">
+		<form action="__MODULE__/Order/addCovenant" method="post" id="form" onsubmit="javascript:return window.confirm('确定添加么？')"  enctype="multipart/form-data">
+			<div class="kuang" style="font-size: 12px;">
+
+				<span style="font-size: 20px;color: #476849">合同信息</span>
+				<br/>
+				&emsp;&emsp;&emsp;&emsp;&emsp;签订阿姨：{$nurses[0].name}<br/>
+				<input type="hidden" class="text" style="width: 20%;" name="order_nurse_id" id="order_nurse_id" value="{$info.id}"/>
+				&emsp;&emsp;&emsp;&emsp;&emsp;签订日期：<input type="text" class="text" style="width: 20%;" name="covenant_time" id="covenant_time" />
+				<br/> <br/>
+				&emsp;&emsp;&emsp;预计上户日期：<input type="text" class="text" style="width: 20%;" name="expect_time_b" id="expect_time_b" />
+				<br />
+				<br />
+				&emsp;预计服务截止日期：<input type="text" class="text" style="width: 20%;" name="expect_time_s" id="expect_time_s" />
+				<br />
+				<br />
+
+
+				&emsp;&emsp;&emsp;&emsp;&emsp;体检日期：<input type="text" class="text" style="width: 20%;" name="body_test_time" id="body_test_time"/>
+				<br />
+				<br />
+
+				&emsp;&emsp;&emsp;购买保险日期：<input type="text" class="text" style="width: 20%;" name="buy_safe_time" id="buy_safe_time"/>
+				<br />
+				<br />
+
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;服务费：<input type="text" class="text" style="width: 20%;" name="service_charge" id="service_charge" />
+
+				<br/>
+				<br/>
+
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;管理费：<input type="text" class="text" style="width: 20%;" name="management_charge" id="management_charge" />
+
+				<br/>
+				<br/>
+				&emsp;&emsp;&emsp;售后截止日期：<input type="text" class="text" style="width: 20%;" name="customer_service_time" id="customer_service_time" />
+
+				<br/>
+				<br/>
+				&emsp;&emsp;&emsp;合同首页照片上传：
+				<input type="file" class="text" style="width: 28%;height: 18px;font-size: 12px;" name="covenant_img1" id="covenant_img1" /><br/>
+				<input type="file" class="text" style="width: 28%;height: 18px;font-size: 12px;" name="covenant_img2" id="covenant_img2" />
+
+				<br/>
+				<br/>
+
+				<span style="font-size: 20px;color: #476849">付款计划</span> <br/>
+
+				<i name="addExpect_pay">
+					&emsp;预计付款日期：<input type="text" class="text" style="width: 20%;" name="expect_time[]" pay="expect_time" />  
+					<br/>
+					<br/>
+					&emsp;&emsp;&emsp;付款金额：<input type="text" class="text" style="width: 20%;" name="expect_money[]" pay="expect_money" /><br/>
+					<br/>
+				</i>
+				<i  class="row_text" 	title="添加付款计划" id="add_pay">+</i>
+
+				<span class="save-button"  style="width:20%;margin-top: 20px;margin-left: 3%;" id="submit" >保&nbsp;存</span>
+			</div>
+		</form>
+	</div>
+
+	<i style="clear: both;"></i>
+
+</div>
+<include file="Nav/footer"/>
+
+<script src="__PUBLIC__/js/Chart.js"></script>
+
+
+<script>
+	//动态添加付款
+	$('#add_pay').live('click',function(){
+		var length = $('i[name=addExpect_pay]').length;
+		var add_pay = '<i name="addExpect_pay">\
+				&emsp;预计付款日期：<input type="text" class="text" style="width: 20%;" name="expect_time[]" pay="expect_time" />\
+				<i style="width: 20px;height: 20px;border-radius: 10px;font-size: 12px;line-height: 20px;text-align: center;color: #ffffff;background: #47C87E;display: inline-block;cursor: pointer;" name="close_addExpect">X</i>\
+				<br/>\
+				<br/>\
+				&emsp;&emsp;&emsp;付款金额：<input type="text" class="text" style="width: 20%;" name="expect_money[]" pay="expect_money" /><br/>\
+				<br/>\
+				</i>';
+		var addExpect = $('i[name=addExpect_pay]').get(length-1);
+		var jq_addExpect = $(addExpect);
+		jq_addExpect.after(add_pay);
+	});
+	$('i[name=close_addExpect]').live('click',function(){
+		$(this).parents('i[name=addExpect_pay]').remove();
+	});
+
+	var price = /^(([1-9]\d*)|\d)(\.\d{1,2})?$/;
+	var date=/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+
+	$("#submit").live('click',function(){
+		var expect_money = 0
+		var expect_time = 0
+		$("input[pay=expect_money]").each(function(){
+			if(!price.test($(this).val())){
+				expect_money =  1;
+				return false;
+			}
+		});
+		$("input[pay=expect_time]").each(function(){
+			if(!date.test($(this).val())){
+				expect_time =  1;
+				return false;
+			}
+		});
+		if(!(price.test($("#service_charge").val()))){
+			alert("服务费格式不正确!");
+			return false;
+		}else if(!price.test($("#management_charge").val())){
+				alert("管理费格式不正确！");
+				return false;
+		}else if(!date.test($("#covenant_time").val())){
+			alert("签订日期不正确！");
+			return false;
+		}else if(!date.test($("#expect_time_b").val())){
+			alert("预计上户时间不正确！");
+			return false;
+		}else if(!date.test($("#expect_time_s").val())){
+			alert("预计服务截止日期不正确！");
+			return false;
+		}else if(!date.test($("#body_test_time").val())){
+			alert("体检日期不正确！");
+			return false;
+		}else if(!date.test($("#buy_safe_time").val())){
+			alert("购买保险日期不正确！");
+			return false;
+		}else if(!date.test($("#customer_service_time").val())){
+			alert("售后截止日期不正确！");
+			return false;
+		}else if($("#expect_time_b").val()>$("#expect_time_s").val()){
+			alert("上户时间大于结束时间！");
+			return false;
+		}else if(expect_money===1){
+			alert("付款金额格式不正确！");
+			return false;
+		}else if(expect_time===1){
+			alert("预计付款日期不正确！");
+			return false;
+		}
+
+
+		$("#form").submit();
+	})
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</html>

@@ -1,0 +1,49 @@
+.jiesao p{
+	text-align: left;
+	font-size: 0.6em;
+	padding-right: 10px;
+	line-height: 1.8em;
+	color: #333;
+}
+.jiesao p span{
+	color: #f66161;
+	margin-right: 10px;
+	font-size: 1.4em;
+}
+.page_4 p{
+	padding: 20px 10px;
+	font-size: 0.8em;
+	line-height: 1.8em;
+	color: #333;
+}
+.page_5{
+	position: relative;
+}
+.zhuanye{
+	position: absolute;
+	top: 45.94%;
+	width: 100%;
+	text-align: center;
+	font-size: 0.8em;
+	line-height: 1.8em;
+}
+.pingjia{
+	margin: 0 auto 50px;
+}
+.pingjia ul li{
+	height: 50px;
+}
+.pingjia ul li p{
+	text-align: left;
+	line-height: 48px;
+	font-size: 0.6em;
+}
+.ipt{
+	background: none;
+	border: none;
+	font-size: 1em;
+	color: #FFFFFF;
+	position: absolute;
+	left: 30.53%;
+	top: 28.70%;
+}

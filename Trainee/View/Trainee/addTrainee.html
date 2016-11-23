@@ -1,0 +1,256 @@
+<include file="Nav/header" />
+
+		<div class="add" style="min-height: 600px;">
+			<form action="__MODULE__/Trainee/addTrainee" method="post" id="form" onsubmit="javascript:return window.confirm('确定添加么？')"  enctype="multipart/form-data">
+		   	 <h1 style="font-size: 45px;font-weight: normal;">添加新学员</h1>
+		   	 <div class="kuang">
+
+				 <input type="hidden"  name="trainee_id" value="{$trainee_info.id}"/>
+				 渠道来源：  <select style="width:10%;height: 28px; display: inline-block;vertical-align: middle;" id="source" name="source">
+				 <option <?php if($trainee_info['source']=='人才市场'){echo 'selected';}?>>人才市场</option>
+				 <option <?php if($trainee_info['source']=='客服'){echo 'selected';}?>>客服</option>
+				 <option <?php if($trainee_info['source']=='菜市场'){echo 'selected';}?>>菜市场</option>
+				 <option <?php if($trainee_info['source']=='DM单页'){echo 'selected';}?>>DM单页</option>
+				 <option <?php if($trainee_info['source']=='招聘网站'){echo 'selected';}?>>招聘网站</option>
+				 <option <?php if($trainee_info['source']=='介绍'){echo 'selected';}?>>介绍</option>
+				 <option <?php if($trainee_info['source']=='进店咨询'){echo 'selected';}?>>进店咨询</option>
+				 <option <?php if($trainee_info['source']=='大巴头套'){echo 'selected';}?>>大巴头套</option>
+				 <option <?php if($trainee_info['source']=='刷墙广告'){echo 'selected';}?>>刷墙广告</option>
+			 </select>
+				 <input type="text" class="text" style="width: 10%;display: inline-block;vertical-align: middle;"  name="source_name" id="source_name"  placeholder="地址" title="地址" value="{$trainee_info.source_name}"/>
+				 <br />
+				 <br />
+				 学员姓名： <input type="text" class="text" style="width: 20%;" name="name" id="name" value="{$trainee_info.name}"/>
+				 <br />
+				 <br />
+
+				 学员年龄： <input type="text" class="text" style="width: 20%;" name="age" id="age" value="{$trainee_info.age}"/>
+				 <br />
+				 <br />
+
+				 联系电话： <input type="text" class="text" style="width: 20%;" name="phone" id="phone" value="{$trainee_info.phone}"/>
+				 <br />
+				 <br />
+				 学员状态：
+				 <select style="width: 10%;height: 28px;" id="status" name="status">
+					 <option value="1" <?php if($trainee_info['status']==1){echo 'selected';}?>>新意向学员</option>
+					 <option value="2" <?php if($trainee_info['status']==2){echo 'selected';}?>>跟进中学员</option>
+					 <option value="3" <?php if($trainee_info['status']==3){echo 'selected';}?>>已缴费学员</option>
+					 <option value="4" <?php if($trainee_info['status']==4){echo 'selected';}?>>已报到学员</option>
+					 <option value="5" <?php if($trainee_info['status']==5){echo 'selected';}?>>已放弃学员</option>
+				 </select>
+				 <input type="text" class="text" style="width: 10%;display: <?php if($trainee_info['status']==4){echo 'inline-block';}else{echo 'none';}?>;vertical-align: middle;" value="{$trainee_info.cover}"  name="cover" id="cover"  placeholder="报道日期" title="报道日期"/>
+				 <br />
+				 <br />
+				 员工姓名：
+				 <select style="width: 20%;height: 28px;" id="employee_name" name="employee_name">
+					 <option value="张群华" <?php if($trainee_info['employee_name']=='张群华'){echo 'selected';}?>>张群华</option>
+					 <option value="曾军" <?php if($trainee_info['employee_name']=='曾军'){echo 'selected';}?>>曾军</option>
+					 <option value="孙飞龙" <?php if($trainee_info['employee_name']=='孙飞龙'){echo 'selected';}?>>孙飞龙</option>
+				 </select>
+				 <br />
+				 <br />
+				 意向等级：
+				 <select style="width: 20%;height: 28px;" id="priority" name="priority">
+					 <option value="1" <?php if($trainee_info['priority']==1){echo 'selected';}?>>非常有意向</option>
+					 <option value="2" <?php if($trainee_info['priority']==2){echo 'selected';}?>>比较有意向</option>
+					 <option value="3" <?php if($trainee_info['priority']==3){echo 'selected';}?>>一般</option>
+					 <option value="4" <?php if($trainee_info['priority']==4){echo 'selected';}?>>没有意向</option>
+				 </select>
+				 <br />
+				 <br />
+				 学员情况：
+				 <textarea name="detail" id="detail" rows="5" style="vertical-align: text-top;width:20%;">{$trainee_info.detail}</textarea>
+				 <br />
+				 <br />
+				 添加联系记录：
+				 <br/>
+				 <div id="use" style="width: 20%; height: 150px;margin-left: 50px; font-size:14px; display: block;border: 1px solid lightblue;margin-bottom: 10px; padding: 10px 0 0 10px;">
+					 下次联系时间：<input type="text" id="next_time" name="next_time" style="width: 60%; height: 20px; " placeholder="2015-05-03"/>
+					 <br/>
+					 备注：<textarea name="remark" id="remark"  rows="5" style="vertical-align: text-top; width: 70%;margin-top: 10px;"></textarea>
+					 <br/>
+
+				 </div>
+
+				<span class="save-button"  style="width:20%;margin-top: 20px;margin-left: 3%;" id="submit" >保&nbsp;存</span>
+		   	 </div>
+			</form>
+		</div>
+
+
+
+
+<include file="Nav/footer" />
+
+
+<script>
+	var MODULE='__MODULE__';
+
+	var reg=/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+
+	$("#source").live('change',function(){
+		var source = $("#source").val();
+		if(source =='人才市场'||source =='菜市场'||source =='DM单页'||source =='大巴头套'||source =='刷墙广告'){
+			$("#source_name").attr('placeholder','地址');
+			$("#source_name").attr('title','地址');
+			$("#source_name").show();
+		}else if(source == '招聘网站'){
+			$("#source_name").attr('placeholder','分类');
+			$("#source_name").attr('title','分类');
+			$("#source_name").show();
+		}else if(source == '介绍'){
+			$("#source_name").attr('placeholder','介绍人');
+			$("#source_name").attr('title','介绍人');
+			$("#source_name").show();
+		}else if(source == '进店咨询'){
+			$("#source_name").attr('placeholder','咨询种类');
+			$("#source_name").attr('title','咨询种类');
+			$("#source_name").show();
+		}else{
+			$("#source_name").hide();
+		}
+
+	});
+
+	$("#status").live('change',function(){
+		if($("#status").val()==4){
+			var date = new Date();
+			var seperator1 = "-";
+			var year = date.getFullYear();
+			var month = date.getMonth() + 1;
+			var strDate = date.getDate();
+			if (month >= 1 && month <= 9) {
+				month = "0" + month;
+			}
+			if (strDate >= 0 && strDate <= 9) {
+				strDate = "0" + strDate;
+			}
+			var currentdate = year + seperator1 + month + seperator1 + strDate;
+			$("#cover").val(currentdate);
+			$("#cover").show();
+		}else{
+			$("#cover").hide();
+		}
+
+	});
+
+
+	$("#submit").live('click',function(){
+		if($('#source').val()==''){
+			alert("请填写学员渠道来源！");
+			return false;
+		}else if($("#age").val()==''){
+			alert("请填写学员年龄！");
+			return false;
+		}else if($("#name").val()==''){
+			alert("请填写学员姓名!");
+			return false;
+		}else if(!(/^((0?1[34578]\d{9})|((0(10|2[1-9]|[3-9]\d{2}))?(-)?[1-9]\d{6,7}))$/.test($("#phone").val()))){
+			alert("请填写学员正确的电话!");
+			return false;
+		}else if($("#next_time").val()!==''){
+			var d = new Date()
+			var vYear = d.getFullYear()
+			var vMon = d.getMonth() + 1
+			var vDay = d.getDate()
+			if (vMon >= 1 && vMon <= 9) {
+				vMon = "0" + vMon;
+			}
+			if (vDay >= 0 && vDay <= 9) {
+				vDay = "0" + vDay;
+			}
+			var date = vYear+'-'+vMon+'-'+vDay;
+			if(!reg.test($("#next_time").val())||$("#next_time").val()<date){
+				alert("请按2015-01-01的格式填写不小于今天的时间！");
+				return false;
+			}
+		}else if($('#status').val()==4&&($("#cover").val()==''||!reg.test($("#cover").val()))){
+			alert("请填写正确报道日期!");
+			return false;
+		}
+
+		$("#form").submit();
+	})
+
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

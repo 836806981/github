@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<if condition="$belong eq 1">
+		<title>月子餐_月子餐食谱_月子餐制作及方法【田螺阿姨】</title>
+		<meta name="description" content="田螺阿姨是成都专业的母婴护理机构，提供专业的月嫂、育儿嫂等服务，此处为您展示田螺阿姨月嫂们制作的月子餐和提供的月子餐食谱，及月子餐制作方法。"/>
+		<meta name="keywords" content="月子餐,月子餐食谱,月子餐制作,月子餐制作方法"/>
+
+
+		<elseif condition="$belong eq 2"/>
+		<!--通乳-->
+		<title>通乳_催乳_开奶【田螺阿姨】</title>
+		<meta name="description" content="田螺阿姨是成都专业的母婴护理机构，提供专业的月嫂、育儿嫂等服务，此处为您展示田螺阿姨月嫂阿姨们自述的通乳、催乳、开奶的经验知识。"/>
+		<meta name="keywords" content="通乳,催乳,开奶"/>
+
+
+		<elseif condition="$belong eq 3"/>
+		<!--宝宝喂养与保健-->
+		<title>【宝宝喂养与保健】宝宝喂养_疾病观察_日常护理_黄疸_饮食-【田螺阿姨】</title>
+		<meta name="description" content="田螺阿姨是成都专业的母婴护理机构，提供专业的月嫂、育儿嫂等服务，此处为您展示田螺阿姨月嫂阿姨们总结分享的经验，包括宝宝喂养知识,疾病观察的经验,日常护理的经验和知识,黄疸观察,饮食的搭配。"/>
+		<meta name="keywords" content="宝宝喂养,疾病观察,黄疸,黄疸观察,宝宝饮食"/>
+		<elseif condition="$belong eq 4"/>
+		<!--妈妈健康与恢复-->
+		<title>【妈妈健康与恢复】产褥期护理_产褥期健康观察_形体恢复_产后恢复-【田螺阿姨】</title>
+		<meta name="description" content="田螺阿姨是成都专业的母婴护理机构，提供专业的月嫂、育儿嫂等服务，此处为您提供妈妈保健知识，包括产褥期护理，产褥期健康观察，产后形体恢复恢复等知识。"/>
+		<meta name="keywords" content="妈妈健康,产后健康观察,产后恢复,产后形体恢复"/>
+		<elseif condition="$belong eq 5"/>
+		<!--锦旗与表扬信-->
+		<title>【锦旗与表扬信】月嫂锦旗_月嫂表扬信-【田螺阿姨】</title>
+		<meta name="description" content="田螺阿姨是成都专业的母婴护理机构，提供专业的月嫂、育儿嫂等服务，此处为您展示田螺阿姨月嫂阿姨们获得的锦旗与表扬信"/>
+		<meta name="keywords" content="月嫂锦旗,月嫂表扬信"/>
+		<elseif condition="$belong eq 6"/>
+		<!--优秀月嫂-->
+		<title>【优秀月嫂】-【田螺阿姨】</title>
+		<meta name="description" content="田螺阿姨是成都专业的母婴护理机构，提供专业的月嫂、育儿嫂等服务，此处为您展示田螺阿姨的优秀月嫂展示，为您推荐优秀的阿姨"/>
+		<meta name="keywords" content="优秀月嫂"/>
+			</if>
+
+		<link rel="stylesheet" href="__PUBLIC__/css/style.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/articel.css" />
+		<script type="text/javascript" src="__PUBLIC__/layer_mobile/layer.js" ></script>
+	</head>
+	<body>
+
+	<include file="Nav/header"/>
+		<div class="banner">
+			<img src="__PUBLIC__/img/banner.jpg" alt="比朋友更靠谱的母婴专家" title="比朋友更靠谱的母婴专家" />
+		</div>
+	<p class="address">当前页面：<a href="__ROOT__/">首页</a>&gt;{$nav}</p>
+	<input type="hidden" id="belong" value="{$belong}"/>
+	<div class="articel_nav">
+			<ul class="articel_ul f-cb">
+				<li <if condition="$belong eq 1">class="active" </if> ><a href="__ROOT__/m/yuesao/yzc.html" class="nav_a1">月子餐</a></li>
+				<li <if condition="$belong eq 2">class="active" </if> ><a href="__ROOT__/m/yuesao/tr.html" class="nav_a2">通乳</a></li>
+				<li <if condition="$belong eq 3">class="active" </if> ><a href="__ROOT__/m/yuesao/wybj.html" class="nav_a3">宝宝喂养与保健</a></li>
+				<li <if condition="$belong eq 4">class="active" </if> ><a href="__ROOT__/m/yuesao/jkhf.html" class="nav_a4">妈妈健康与恢复</a></li>
+				<li <if condition="$belong eq 5">class="active" </if> ><a href="__ROOT__/m/yuesao/jqbyx.html" class="nav_a5">锦旗与表扬信</a></li>
+				<li <if condition="$belong eq 6">class="active" </if> ><a href="__ROOT__/m/yuesao/yxys.html" class="nav_a6">优秀月嫂</a></li>
+			</ul>
+		</div>
+	<i id="go_news_top"></i>
+		<div class="key f-cb">
+			<input type="text" value="{$keywords.keywords}" placeholder="此处输入关键词" class="f-fl"  id="keywords"/>
+			<input type="button" value="" class="f-fr" id="search"/>
+		</div>
+
+		<div class="page">
+
+			<ul class="activelist newslist2">
+				<!--<li>-->
+					<!--<a class="f-cb" href="#">-->
+						<!--<img src="__PUBLIC__/img/index/newsImg.jpg" class="newsimg f-fl" />-->
+						<!--<div class="newscnt f-fr">-->
+							<!--<p class="p1">田螺阿姨官网2.0正式上线啦</p>-->
+							<!--<p class="p2">2016-07-01</p>-->
+							<!--<p class="p3">田螺阿姨官网2.0正式上线了啦啦啦，好开心，哈哈哈啊哈啊哈哈哈开始懂了空间里疯狂的</p>-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+			</ul>
+			<!--分页-->
+			<div class="page" id="pagenum" style="clear: both;padding-top: 30px;">
+
+			</div>
+			<!--分页end-->
+		</div>
+		<div class="footer">
+			<a href="wtai://wp//mc;4008086090"><img src="__PUBLIC__/img/tel.png" class="telnum" title="tel:400-808-6090" /></a>
+			<p>地址：成都高新区天府大道1700号环球中心E2-18楼</p>
+			<p>©2014-2015 成都亿家政网络科技有限公司 版权所有蜀ICP备15008974号-1</p>
+		</div>
+	<include file="Nav/footer"/>
+	<script src="__PUBLIC__/js/jquery.longyuJs.js"></script>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script src="__PUBLIC__/js/news.js"></script>
+
+	<script type="text/javascript" src="__PUBLIC__/layer_mobile/layer.js" ></script>
+	<script>
+		$('#search').live('click',function(){
+			var keywords = $('#keywords').val();
+			if(keywords&&keywords!=''){
+				window.location.href = ROOT +"/m/keywords/"+keywords;
+			}
+		});
+	</script>
+
+		<script>
+			$('ul.articel_ul li a').live('click',function(){$(this).parent('li').addClass('active').siblings('li').removeClass('active');})
+			$('.key').css('width',$(window).width()*0.9026).css('height',$(window).width()*0.0565);
+			$('.key input[type=text]').css('width',$(window).width()*0.82).css('height',$(window).width()*0.0565).css('margin-left',$(window).width()*0.01);
+			$('.key input[type=button]').css('width',$(window).width()*0.07).css('height',$(window).width()*0.0565);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,258 @@
+<include file="Nav/header" />
+
+<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+    <style>
+
+        .addimg{
+            float: left;
+
+            height: 41px;
+
+
+            width: 144px;
+
+            position:relative;
+
+        }
+
+        .jiahao{
+
+            text-align:center;
+
+            padding-top:12px;
+
+            font-size:15px;
+
+            font-weight:800
+
+        }
+
+        .files{
+
+            width: 100px;
+
+            height: 100px;
+
+            cursor: pointer;
+
+            font-size: 30px;
+
+            outline: medium none;
+
+            position: absolute;
+
+            filter:alpha(opacity=0);
+
+            -moz-opacity:0;
+
+            opacity:0;
+
+            left:0px;
+
+            top: 0px;
+
+        }
+
+    </style>
+
+
+<div class="add">
+    <h1 style="font-size: 45px;font-weight: normal;">导师评价视频</h1>
+    <form action="__MODULE__/Ayi/addVideo_ajax/smp/<?php echo $_GET['smp']?>" method="post" id="form" enctype="multipart/form-data">
+        <div class="kuang">
+                <input type="hidden" name="id" value="<?php  echo $_GET['id'];?>"/>
+                <div class="form-group">
+                    <label>阿姨姓名：</label>{$nurse.name}
+                    <input   type="hidden" name="id" id="id" value="{$nurse.id}"  />
+                    <input   type="hidden" name="name" id="name" value="{$nurse.name}"  />
+                </div>
+
+                <div id="video_div">
+                    <volist name="video_info" id="vo" >
+                        <div class=""  style="border: 1px solid cornflowerblue;padding: 10px 0px 10px 10px ; width: 600px;margin-bottom: 10px;">
+                            <input type="text" name="do_word{$i-1}" value="{$vo.do_word}"/>
+                            <span  class="btn btn-default" style="margin-top: 0px;" id="del">删除</span>
+                            <if condition="$i==1">
+                                <span  class="btn btn-default" style="margin-top: 0px; display: none" id="up">上移</span>
+                                <span  class="btn btn-default" style="margin-top: 0px; display: inline-block" id="down">下移</span>
+                            <elseif condition="$i eq count($video_info)"/>
+                                <span  class="btn btn-default" style="margin-top: 0px; display: inline-block" id="up">上移</span>
+                                <span  class="btn btn-default" style="margin-top: 0px; display: none" id="down">下移</span>
+                            <else/>
+                                <span  class="btn btn-default" style="margin-top: 0px; display: inline-block" id="up">上移</span>
+                                <span  class="btn btn-default" style="margin-top: 0px; display: inline-block" id="down">下移</span>
+                             </if>
+                            <br/><br/>
+                            <video src="__UPLOADS__/{$vo.do_video}" controls="controls" style="max-width: 500px;">
+                            </video>
+                            <input type="hidden" name="old_src{$i-1}" value="{$vo.do_video}"/>
+                            <input type="file" name="do_video{$i-1}" />
+                        </div>
+                    </volist>
+                </div>
+                <br/>
+                <div  style="width: 100%; height: 150px;">
+
+                    <a class="addimg" href="javascript:"  id="img" style="text-align: center; width: 100px;height: 100px;border: 1px solid #00b7ee;text-decoration:none;">
+                        <div style="font-size: 50px; color: #00b7ee" class="jiahao">+</div>
+
+                    </a>
+                </div>
+                <span  id="queren" class="save-button" style="margin-top: 10px;">提交</span>
+            </div>
+    </form>
+
+
+</div>
+
+<include file="Nav/footer"/>
+
+<script>
+    var MODULE='__MODULE__';
+
+
+    $("#queren").live('click',function(){
+        $("#video_div").children().each(function(i,n){
+            var obj = $(n)
+            if(obj.children().first().val()==''){
+                alert('请完整填写栏目名');
+                var error = 1;
+                return false;
+            }
+        });
+        $("#form").submit();
+    })
+
+
+    $("#up").live("click",function(){
+        var prev = $(this).parent().prev();
+        $(this).parent().insertBefore(prev);
+
+        $("#video_div").children().each(function(i,n){
+            var obj = $(n)
+            if($("#video_div").children().length>1) {
+                if (i == 0) {
+                    obj.children('span[id=up]').css('display', 'none');
+                    obj.children('span[id=down]').css('display', 'inline-block');
+                } else if (i == $("#video_div").children().length - 1) {
+                    obj.children('span[id=up]').css('display', 'inline-block');
+                    obj.children('span[id=down]').css('display', 'none');
+                } else {
+                    obj.children('span[id=up]').css('display', 'inline-block');
+                    obj.children('span[id=down]').css('display', 'inline-block');
+                }
+            }else{
+                obj.children('span[id=up]').css('display', 'none');
+                obj.children('span[id=down]').css('display', 'none');
+            }
+
+            obj.children().first().attr('name','do_word'+i);
+            obj.children().last().attr('name','do_video'+i);
+            obj.children('input[type=hidden]').attr('name','old_src'+i);
+        });
+
+    });
+
+    $("#down").live("click",function(){
+        var prev = $(this).parent().next();
+        $(this).parent().insertAfter(prev);
+
+
+        $("#video_div").children().each(function(i,n){
+            var obj = $(n)
+            if($("#video_div").children().length>1) {
+                if (i == 0) {
+                    obj.children('span[id=up]').css('display', 'none');
+                    obj.children('span[id=down]').css('display', 'inline-block');
+                } else if (i == $("#video_div").children().length - 1) {
+                    obj.children('span[id=up]').css('display', 'inline-block');
+                    obj.children('span[id=down]').css('display', 'none');
+                } else {
+                    obj.children('span[id=up]').css('display', 'inline-block');
+                    obj.children('span[id=down]').css('display', 'inline-block');
+                }
+            }else{
+                obj.children('span[id=up]').css('display', 'none');
+                obj.children('span[id=down]').css('display', 'none');
+            }
+            obj.children().first().attr('name','do_word'+i);
+            obj.children().last().attr('name','do_video'+i);
+            obj.children('input[type=hidden]').attr('name','old_src'+i);
+        });
+
+    });
+
+    $("#del").live("click",function(){
+        $(this).parent().remove();
+        $("#video_div").children().each(function(i,n){
+            var obj = $(n)
+            if($("#video_div").children().length>1) {
+                if (i == 0) {
+                    obj.children('span[id=up]').css('display', 'none');
+                    obj.children('span[id=down]').css('display', 'inline-block');
+                } else if (i == $("#video_div").children().length - 1) {
+                    obj.children('span[id=up]').css('display', 'inline-block');
+                    obj.children('span[id=down]').css('display', 'none');
+                } else {
+                    obj.children('span[id=up]').css('display', 'inline-block');
+                    obj.children('span[id=down]').css('display', 'inline-block');
+                }
+            }else{
+                obj.children('span[id=up]').css('display', 'none');
+                obj.children('span[id=down]').css('display', 'none');
+            }
+            obj.children().first().attr('name','do_word'+i);
+            obj.children().last().attr('name','do_video'+i);
+            obj.children('input[type=hidden]').attr('name','old_src'+i);
+        });
+
+    });
+
+    $("#img").live("click",function(){
+
+        var leng = $("#video_div").children().length;
+
+        var str=' <div class=""  style="border: 1px solid cornflowerblue;padding: 10px 0px 10px 10px ; width: 600px;margin-bottom: 10px;">\
+                    <input type="text" name="do_word'+leng+'"/>\
+                    <span  class="btn btn-default" style="margin-top: 0px;" id="del">删除</span>\
+                     <span  class="btn btn-default" style="margin-top: 0px; display: inline-block" id="up">上移</span>\
+                    <span  class="btn btn-default" style="margin-top: 0px; display: inline-block" id="down">下移</span>\
+                    <br/><br/>\
+                    <input type="hidden" name="old_src'+leng+'" />\
+                    <input type="file" name="do_video'+leng+'" />\
+                </div>';
+        $("#video_div").append(str);
+
+
+        $("#video_div").children().each(function(i,n){
+            var obj = $(n)
+            if($("#video_div").children().length>1) {
+                if (i == 0) {
+                    obj.children('span[id=up]').css('display', 'none');
+                    obj.children('span[id=down]').css('display', 'inline-block');
+                } else if (i == $("#video_div").children().length - 1) {
+                    obj.children('span[id=up]').css('display', 'inline-block');
+                    obj.children('span[id=down]').css('display', 'none');
+                } else {
+                    obj.children('span[id=up]').css('display', 'inline-block');
+                    obj.children('span[id=down]').css('display', 'inline-block');
+                }
+            }else{
+                obj.children('span[id=up]').css('display', 'none');
+                obj.children('span[id=down]').css('display', 'none');
+            }
+            obj.children().first().attr('name','do_word'+i);
+            obj.children().last().attr('name','do_video'+i);
+            obj.children('input[type=hidden]').attr('name','old_src'+i);
+        });
+
+
+    });
+
+</script>
+
+
+
+</body>
+
+</html>

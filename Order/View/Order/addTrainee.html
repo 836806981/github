@@ -1,0 +1,131 @@
+<include file="Nav/header" />
+
+<div class="add" style="min-height: 600px;">
+    <form action="__MODULE__/Order/addTrainee" method="post" id="form" onsubmit="javascript:return window.confirm('确定添加么？')"  enctype="multipart/form-data">
+        <h1 style="font-size: 45px;font-weight: normal;">添加新学员</h1>
+        <div class="kuang">
+            <input type="hidden" name="trainee_id" value="{$trainee.id}"/>
+            渠道来源：  <select style="width:10%;height: 28px; display: inline-block;vertical-align: middle;" id="source" name="source" >
+            <option <if condition="$trainee.source eq '广告牌'">selected</if>>广告牌</option>
+            <option <if condition="$trainee.source eq '线下招生'">selected</if>>线下招生</option>
+            <option <if condition="$trainee.source eq '客服渠道'">selected</if>>客服渠道</option>
+            <option <if condition="$trainee.source eq '自然进店'">selected</if>>自然进店</option>
+            <option <if condition="$trainee.source eq '阿姨介绍'">selected</if>>阿姨介绍</option>
+            <option <if condition="$trainee.source eq '员工介绍'">selected</if>>员工介绍</option>
+            <option <if condition="$trainee.source eq '合作渠道'">selected</if>>合作渠道</option>
+            <option <if condition="$trainee.source eq '其他'">selected</if>>其他</option>
+        </select>
+            <input type="text" class="text" style="width: 10%;display: inline-block;vertical-align: middle;"  name="source_name" id="source_name"  placeholder="地址" title="地址"  value="{$trainee.source_name}"/>
+            <br />
+            <br />
+            学员姓名： <input type="text" class="text" style="width: 20%;" name="name" id="name"  value="{$trainee.name}"/>
+            <br />
+            <br />
+
+            学员年龄： <input type="text" class="text" style="width: 20%;" name="age" id="age"  value="{$trainee.age}"/>
+            <br />
+            <br />
+
+            联系电话： <input type="text" class="text" style="width: 20%;" name="phone" id="phone"  value="{$trainee.phone}"/>
+            <br />
+            <br />
+            招生顾问：
+            <select style="width: 20%;height: 28px;" id="employee_name" name="employee_name"  value="{$trainee.employee_name}">
+                <option value="张群华" <if condition="$trainee.employee_name eq '张群华'">selected</if>>张群华</option>
+                <option value="曾军" <if condition="$trainee.employee_name eq '曾军'">selected</if>>曾军</option>
+                <option value="孙飞龙" <if condition="$trainee.employee_name eq '孙飞龙'">selected</if>>孙飞龙</option>
+                <option value="不分配" <if condition="$trainee.employee_name eq '不分配'">selected</if>>不分配</option>
+            </select>
+            <br />
+            <br />
+
+            学员情况：
+            <textarea name="detail" id="detail" rows="5" style="vertical-align: text-top;width:20%;">{$trainee.detail}</textarea>
+            <br />
+            <br />
+
+
+            <span class="save-button"  style="width:20%;margin-top: 20px;margin-left: 3%;" id="submit" >保&nbsp;存</span>
+        </div>
+    </form>
+</div>
+
+
+
+
+<include file="Nav/footer" />
+
+
+<script>
+    var MODULE='__MODULE__';
+
+    var reg=/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+
+//    $("#source").live('change',function(){
+//        var source = $("#source").val();
+//        if(source =='人才市场'||source =='菜市场'||source =='DM单页'||source =='大巴头套'||source =='刷墙广告'){
+//            $("#source_name").attr('placeholder','地址');
+//            $("#source_name").attr('title','地址');
+//            $("#source_name").show();
+//        }else if(source == '招聘网站'){
+//            $("#source_name").attr('placeholder','分类');
+//            $("#source_name").attr('title','分类');
+//            $("#source_name").show();
+//        }else if(source == '介绍'){
+//            $("#source_name").attr('placeholder','介绍人');
+//            $("#source_name").attr('title','介绍人');
+//            $("#source_name").show();
+//        }else if(source == '进店咨询'){
+//            $("#source_name").attr('placeholder','咨询种类');
+//            $("#source_name").attr('title','咨询种类');
+//            $("#source_name").show();
+//        }else{
+//            $("#source_name").hide();
+//        }
+//
+//    });
+
+    $("#status").live('change',function(){
+        if($("#status").val()==4){
+            var date = new Date();
+            var seperator1 = "-";
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var currentdate = year + seperator1 + month + seperator1 + strDate;
+            $("#cover").val(currentdate);
+            $("#cover").show();
+        }else{
+            $("#cover").hide();
+        }
+
+    });
+
+
+    $("#submit").live('click',function(){
+        if($('#source').val()==''){
+            alert("请填写学员渠道来源！");
+            return false;
+        }else if($("#age").val()==''){
+            alert("请填写学员年龄！");
+            return false;
+        }else if($("#name").val()==''){
+            alert("请填写学员姓名!");
+            return false;
+        }else if($("#phone").val()==''){
+            alert("请填写学员电话没有请填“无”!");
+            return false;
+        }
+
+        $("#form").submit();
+    })
+
+</script>
+
+</html>

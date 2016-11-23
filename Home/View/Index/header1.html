@@ -1,0 +1,38 @@
+
+
+<script type="text/javascript">
+    var ACTION_NAME='<?php echo ACTION_NAME;?>';
+    switch (ACTION_NAME){
+        case 'yuesao':
+            var m_html = 'yuesao';
+            break;
+        case 'index':
+            var m_html = '';
+            break;
+        case 'yuersao':
+            var m_html = 'yuersao';
+            break;
+        case 'baomu':
+            var m_html = 'baomu';
+            break;
+        case 'zhaopin':
+            var m_html = 'zhaopin';
+            break;
+        default :
+            var m_html = '';
+            break;
+    }
+
+    try {
+        var urlhash = window.location.hash;
+        if (!urlhash.match("fromapp"))
+        {
+            if ((navigator.userAgent.match(/(iPhone|Android|ios)/i)))
+            {
+                window.location="http://www.tianluoayi.com/m/"+m_html+"";
+            }
+        }
+    }
+    catch(err)
+    {
+    }</script>

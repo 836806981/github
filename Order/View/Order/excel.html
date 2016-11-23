@@ -1,0 +1,444 @@
+<include file="Nav/header"/>
+
+<div class="right">
+	<table border="0" cellspacing="0" cellpadding="0">
+
+
+
+		<form action="__MODULE__/Order/excel_1" method="post" id="form1" enctype="multipart/form-data" >
+
+			<div class="search">
+
+				呼叫中心报表：&emsp;开始日期:
+				<input type="text" style="width: 100px;" name="time_b_1" id="time_b_1"/>
+				&emsp;结束日期:
+				<input type="text" style="width: 100px;" name="time_s_1" id="time_s_1"/>
+				&emsp;客服顾问:
+				<select style="height: 28px;" id="employee_name_1" name="employee_name_1">
+					<option value="">全部</option>
+					<volist name="user_2" id="vo">
+						<option>{$vo.real_name}</option>
+					</volist>
+				</select>
+
+				&emsp;业务类别:
+				<select style="height: 28px;" id="type_1" name="type_1">
+					<option value="">全部</option>
+					<option value="1">月嫂</option>
+					<option value="5">月子导师</option>
+					<option value="2">育儿嫂</option>
+					<option value="3">保姆</option>
+					<option value="4">钟点工</option>
+					<option value="10">其他业务</option>
+				</select>
+				&emsp;渠道来源:
+				<select style="height: 28px;" id="source_1" name="source_1">
+					<option value="">全部</option>
+					<option>菜市场广告牌</option>
+					<option>眉山的广场视频广告</option>
+					<option>朋友介绍</option>
+					<option>公司网站</option>
+					<option>传单</option>
+					<option>其他</option>
+				</select>
+
+
+					<span style=" ">
+						<input type="button" value="导出数据" class="search-button"  id="data_1"/>
+						<input type="button" value="导出统计" class="search-button"  id="count_1"/>
+					</span>
+			</div>
+		</form>
+
+
+
+		<form action="__MODULE__/Order/excel_2" method="post" id="form2" enctype="multipart/form-data" >
+
+			<div class="search">
+
+				销售报表：&emsp;开始日期:
+				<input type="text" style="width: 100px;" name="time_b_2" id="time_b_2"/>
+				&emsp;结束日期:
+				<input type="text" style="width: 100px;" name="time_s_2" id="time_s_2"/>
+				&emsp;母婴顾问:
+				<select style="height: 28px;" id="employee_name_2" name="employee_name_2">
+					<option value="">全部</option>
+					<volist name="user_3" id="vo">
+						<option value="{$vo.id}">{$vo.real_name}</option>
+					</volist>
+				</select>
+
+				&emsp;业务类别:
+				<select style="height: 28px;" id="type_2" name="type_2">
+					<option value="">全部</option>
+					<option value="1">月嫂</option>
+					<option value="5">月子导师</option>
+					<option value="2">育儿嫂</option>
+					<option value="3">保姆</option>
+					<option value="4">钟点工</option>
+					<option value="10">其他业务</option>
+				</select>
+				&emsp;渠道来源:
+				<select style="height: 28px;" id="source_2" name="source_2">
+					<option value="">全部</option>
+					<option>菜市场广告牌</option>
+					<option>眉山的广场视频广告</option>
+					<option>朋友介绍</option>
+					<option>公司网站</option>
+					<option>传单</option>
+					<option>其他</option>
+				</select>
+
+
+					<span style=" ">
+						<!--<input type="button" value="导出数据" class="search-button"  id="data_2"/>-->
+						<input type="button" value="导出统计" class="search-button"  id="count_2"/>
+					</span>
+			</div>
+		</form>
+
+
+		<form action="__MODULE__/Order/excel_3" method="post" id="form3" enctype="multipart/form-data" >
+
+			<div class="search">
+
+				督导报表：&emsp;开始日期:
+				<input type="text" style="width: 100px;" name="time_b_3" id="time_b_3"/>
+				&emsp;结束日期:
+				<input type="text" style="width: 100px;" name="time_s_3" id="time_s_3"/>
+				&emsp;督导顾问:
+				<select style="height: 28px;" id="employee_name_3" name="employee_name_3">
+					<option value="">全部</option>
+					<volist name="user_4" id="vo">
+						<option>{$vo.real_name}</option>
+					</volist>
+				</select>
+				&emsp;业务类别:
+				<select style="height: 28px;" id="type_3" name="type_3">
+					<option value="">全部</option>
+					<option value="1">月嫂</option>
+					<option value="5">月子导师</option>
+					<option value="2">育儿嫂</option>
+					<option value="3">保姆</option>
+					<option value="4">钟点工</option>
+					<option value="10">其他业务</option>
+				</select>
+				&emsp;渠道来源:
+				<select style="height: 28px;" id="source_3" name="source_3">
+					<option value="">全部</option>
+					<option>菜市场广告牌</option>
+					<option>眉山的广场视频广告</option>
+					<option>朋友介绍</option>
+					<option>公司网站</option>
+					<option>传单</option>
+					<option>其他</option>
+				</select>
+
+
+					<span style=" ">
+						<input type="button" value="导出数据" class="search-button"  id="data_3"/>
+						<input type="button" value="导出统计" class="search-button"  id="count_3"/>
+					</span>
+			</div>
+		</form>
+
+
+
+		<form action="__MODULE__/Order/excel_4" method="post" id="form4" enctype="multipart/form-data" >
+
+			<div class="search">
+
+				体检报表：&emsp;开始日期:
+				<input type="text" style="width: 100px;" name="time_b_4" id="time_b_4"/>
+				&emsp;结束日期:
+				<input type="text" style="width: 100px;" name="time_s_4" id="time_s_4"/>
+				&emsp;护理人员:
+				<input type="text" style="width: 100px;" name="nurse_name" id="nurse_name"/>
+				&emsp;业务类别:
+				<select style="height: 28px;" id="type_4" name="type_4">
+					<option value="">全部</option>
+					<option value="1">月嫂</option>
+					<option value="5">月子导师</option>
+					<option value="2">育儿嫂</option>
+					<option value="3">保姆</option>
+					<option value="4">钟点工</option>
+					<option value="10">其他业务</option>
+				</select>
+
+
+					<span style=" ">
+						<!--<input type="button" value="导出数据" class="search-button"  id="data_2"/>-->
+						<input type="button" value="导出统计" class="search-button"  id="count_4"/>
+					</span>
+			</div>
+		</form>
+
+		<form action="__MODULE__/Order/excel_5" method="post" id="form5" enctype="multipart/form-data" >
+
+			<div class="search">
+
+				面试报表：&emsp;开始日期:
+				<input type="text" style="width: 100px;" name="time_b_5" id="time_b_5"/>
+				&emsp;结束日期:
+				<input type="text" style="width: 100px;" name="time_s_5" id="time_s_5"/>
+
+				&emsp;护理人员:
+				<input type="text" style="width: 100px;" name="nurse_name_5" id="nurse_name_5"/>
+				&emsp;母婴顾问:
+				<select style="height: 28px;" id="employee_name_5" name="employee_name_5">
+					<option value="">全部</option>
+					<volist name="user_3" id="vo">
+						<option value="{$vo.id}">{$vo.real_name}</option>
+					</volist>
+				</select>
+
+
+				&emsp;业务类别:
+				<select style="height: 28px;" id="type_5" name="type_5">
+					<option value="">全部</option>
+					<option value="1">月嫂</option>
+					<option value="5">月子导师</option>
+					<option value="2">育儿嫂</option>
+					<option value="3">保姆</option>
+					<option value="4">钟点工</option>
+					<option value="10">其他业务</option>
+				</select>
+
+
+					<span style=" ">
+						<input type="button" value="导出数据" class="search-button"  id="data_5"/>
+						<input type="button" value="导出统计" class="search-button"  id="count_5"/>
+					</span>
+			</div>
+		</form>
+		<form action="__MODULE__/Order/excel_6" method="post" id="form6" enctype="multipart/form-data" >
+
+			<div class="search">
+
+				售后报表：&emsp;开始日期:
+				<input type="text" style="width: 100px;" name="time_b_6" id="time_b_6"/>
+				&emsp;结束日期:
+				<input type="text" style="width: 100px;" name="time_s_6" id="time_s_6"/>
+
+				&emsp;护理人员:
+				<input type="text" style="width: 100px;" name="nurse_name_6" id="nurse_name_6"/>
+				&emsp;母婴顾问:
+				<select style="height: 28px;" id="employee_name_6" name="employee_name_6">
+					<option value="">全部</option>
+					<volist name="user_3" id="vo">
+						<option value="{$vo.id}">{$vo.real_name}</option>
+					</volist>
+				</select>
+
+
+				&emsp;业务类别:
+				<select style="height: 28px;" id="type_6" name="type_6">
+					<option value="">全部</option>
+					<option value="1">月嫂</option>
+					<option value="5">月子导师</option>
+					<option value="2">育儿嫂</option>
+					<option value="3">保姆</option>
+					<option value="4">钟点工</option>
+					<option value="10">其他业务</option>
+				</select>
+
+
+					<span style=" ">
+						<input type="button" value="导出数据" class="search-button"  id="data_6"/>
+					</span>
+			</div>
+		</form>
+
+	</table>
+</div>
+<include file="Nav/footer"/>
+
+<script>
+	var date=/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+
+	$("#data_1").live('click',function(){
+		if(!($('#time_b_1').val()==''|| date.test($('#time_b_1').val()))){
+			alert('开始时间格式不正确！');
+			return false;
+		}
+		if(!($('#time_s_1').val()==''|| date.test($('#time_s_1').val()))){
+			alert('结束时间格式不正确！');
+			return false;
+		}
+		if($('#time_b_1').val()>$('#time_s_1').val()||$('#time_b_1').val()==''){
+			alert('请填写正确时间段！');
+			return false;
+		}
+
+		$('#form1').attr('action','__MODULE__/Order/excel_1/type/1');
+		$("#form1").submit();
+	});
+	$("#count_1").live('click',function(){
+		if(!($('#time_b_1').val()==''|| date.test($('#time_b_1').val()))){
+			alert('开始时间格式不正确！');
+			return false;
+		}
+		if(!($('#time_s_1').val()==''|| date.test($('#time_s_1').val()))){
+			alert('结束时间格式不正确！');
+			return false;
+		}
+
+		if($('#time_b_1').val()>$('#time_s_1').val()||$('#time_b_1').val()==''){
+			alert('请填写正确时间段！');
+			return false;
+		}
+		$('#form1').attr('action','__MODULE__/Order/excel_1/type/2');
+		$("#form1").submit();
+	});
+
+	$("#data_2").live('click',function(){
+
+		if(!($('#time_b_2').val()==''|| date.test($('#time_b_2').val()))){
+			alert('开始时间格式不正确！');
+			return false;
+		}
+		if(!($('#time_s_2').val()==''|| date.test($('#time_s_2').val()))){
+			alert('结束时间格式不正确！');
+			return false;
+		}
+		if($('#time_b_2').val()>$('#time_s_2').val()||$('#time_b_2').val()==''){
+			alert('请填写正确时间段！');
+			return false;
+		}
+		$('#form2').attr('action','__MODULE__/Order/excel_2/type/1');
+		$("#form2").submit();
+	});
+	$("#count_2").live('click',function(){
+		if(!($('#time_b_2').val()==''|| date.test($('#time_b_2').val()))){
+			alert('开始时间格式不正确！');
+			return false;
+		}
+		if(!($('#time_s_2').val()==''|| date.test($('#time_s_2').val()))){
+			alert('结束时间格式不正确！');
+			return false;
+		}
+		if($('#time_b_2').val()>$('#time_s_2').val()||$('#time_b_2').val()==''){
+			alert('请填写正确时间段！');
+			return false;
+		}
+
+		$('#form2').attr('action','__MODULE__/Order/excel_2/type/2');
+		$("#form2").submit();
+	});
+
+	$("#data_3").live('click',function(){
+
+		if(!($('#time_b_3').val()==''|| date.test($('#time_b_3').val()))){
+			alert('开始时间格式不正确！');
+			return false;
+		}
+		if(!($('#time_s_3').val()==''|| date.test($('#time_s_3').val()))){
+			alert('结束时间格式不正确！');
+			return false;
+		}
+		if($('#time_b_3').val()>$('#time_s_3').val()||$('#time_b_3').val()==''){
+			alert('请填写正确时间段！');
+			return false;
+		}
+
+		$('#form3').attr('action','__MODULE__/Order/excel_3/type/1');
+		$("#form3").submit();
+	});
+	$("#count_3").live('click',function(){
+		if(!($('#time_b_3').val()==''|| date.test($('#time_b_3').val()))){
+			alert('开始时间格式不正确！');
+			return false;
+		}
+		if(!($('#time_s_3').val()==''|| date.test($('#time_s_3').val()))){
+			alert('结束时间格式不正确！');
+			return false;
+		}
+		if($('#time_b_3').val()>$('#time_s_3').val()||$('#time_b_3').val()==''){
+			alert('请填写正确时间段！');
+			return false;
+		}
+
+		$('#form3').attr('action','__MODULE__/Order/excel_3/type/2');
+		$("#form3").submit();
+	});
+
+	$("#count_4").live('click',function(){
+		if(!($('#time_b_4').val()==''|| date.test($('#time_b_4').val()))){
+			alert('开始时间格式不正确！');
+			return false;
+		}
+		if(!($('#time_s_4').val()==''|| date.test($('#time_s_4').val()))){
+			alert('结束时间格式不正确！');
+			return false;
+		}
+		if($('#time_b_4').val()>$('#time_s_4').val()||$('#time_b_4').val()==''){
+			alert('请填写正确时间段！');
+			return false;
+		}
+
+		$('#form4').attr('action','__MODULE__/Order/excel_4/type/2');
+		$("#form4").submit();
+	});
+
+	$("#data_5").live('click',function(){
+
+		if(!($('#time_b_5').val()==''|| date.test($('#time_b_5').val()))){
+			alert('开始时间格式不正确！');
+			return false;
+		}
+		if(!($('#time_s_5').val()==''|| date.test($('#time_s_5').val()))){
+			alert('结束时间格式不正确！');
+			return false;
+		}
+		if($('#time_b_5').val()>$('#time_s_5').val()||$('#time_b_5').val()==''){
+			alert('请填写正确时间段！');
+			return false;
+		}
+
+
+		$('#form5').attr('action','__MODULE__/Order/excel_5/type/1');
+		$("#form5").submit();
+	});
+	$("#count_5").live('click',function(){
+		if(!($('#time_b_5').val()==''|| date.test($('#time_b_5').val()))){
+			alert('开始时间格式不正确！');
+			return false;
+		}
+		if(!($('#time_s_5').val()==''|| date.test($('#time_s_5').val()))){
+			alert('结束时间格式不正确！');
+			return false;
+		}
+		if($('#time_b_5').val()>$('#time_s_5').val()||$('#time_b_5').val()==''){
+			alert('请填写正确时间段！');
+			return false;
+		}
+
+		$('#form5').attr('action','__MODULE__/Order/excel_5/type/2');
+		$("#form5").submit();
+	});
+
+
+	$("#data_6").live('click',function(){
+
+		if(!($('#time_b_6').val()==''|| date.test($('#time_b_6').val()))){
+			alert('开始时间格式不正确！');
+			return false;
+		}
+		if(!($('#time_s_6').val()==''|| date.test($('#time_s_6').val()))){
+			alert('结束时间格式不正确！');
+			return false;
+		}
+		if($('#time_b_6').val()>$('#time_s_6').val()||$('#time_b_6').val()==''){
+			alert('请填写正确时间段！');
+			return false;
+		}
+
+
+		$('#form6').attr('action','__MODULE__/Order/excel_6/type/1');
+		$("#form6").submit();
+	});
+
+
+</script>
+
+</html>

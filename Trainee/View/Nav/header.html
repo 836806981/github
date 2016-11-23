@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>招生管理系统CRM</title>
+    <link rel="stylesheet" href="__PUBLIC__/css/usually.css" />
+    <link rel="stylesheet" href="__PUBLIC__/css/index.css" />
+</head>
+
+<body>
+<div class="header">
+
+
+    <img src="__PUBLIC__/img/logo.png" style="margin:13px 0 0 0;float: left;z-index: -1" />
+    <div class="close1">
+        <a href="{:U('Admin/login_out')}" onclick="javascript:return window.confirm('确定退出么？')"><img src="__PUBLIC__/img/close.png" /></a>
+    </div>
+    <ul>
+        <a href="{:U('Admin/info')}">
+        <li><?php echo $_SESSION[C('TRAINEE_AUTH_KEY')]['username'];?></li>
+        <li>用户名：</li>
+        </a>
+    </ul>
+    <span class="fenge"></span>
+
+    <?php if($_SESSION[C('TRAINEE_AUTH_KEY')]['permission']==1||$_SESSION[C('TRAINEE_AUTH_KEY')]['add_per']==1){?>
+    <a href="__MODULE__/Trainee/addTrainee"><span class="addNurse" >添加学员</span></a>
+    <?php }?>
+</div>
+
+

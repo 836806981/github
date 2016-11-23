@@ -1,0 +1,54 @@
+.banner img,.banner{
+	width: 100%;
+	height: auto;
+}
+.page1{
+	padding: 40px 20px 30px;
+	background: url(../img/about/green.png) no-repeat 20px 20px;
+	background-size: 8%;
+}
+.p1{
+	font-size: 1.6em;
+	line-height: 2em;
+	text-indent: 2em;
+	margin-bottom: 10px;
+}
+.p2{
+	font-size: 1.4em;
+	line-height: 1.8em;
+	text-indent: 2.3em;
+	margin-bottom: 10px;
+}
+.page1 img{
+	width: 90%;
+	height: auto;
+	margin: 0 auto;
+	display: block;
+	padding-top: 10px;
+}
+.page2{
+	padding: 40px 20px 30px;
+	background: url(../img/about/fff.png) no-repeat 20px 20px #47c8a2;
+	background-size: 8%;
+}
+.page2 .p1{
+	color: #FFFFFF;
+}
+.page2 .p2{
+	color: #FFFFFF;
+}
+.page2 img{
+	display: inline-block;
+	width: 35.67%;
+	height: auto;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+.page3{
+	padding: 40px 20px 30px;
+	background: url(../img/about/green.png) no-repeat 20px 20px;
+	background-size: 8%;
+}
+.teamImg{
+	margin: 0 auto;
+}

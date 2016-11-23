@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>保姆/钟点工服务【田螺阿姨】</title>
+		<meta name="description" content="保姆服务与钟点工服务"/>
+		<meta name="keywords" content="保姆,钟点工,保姆服务,钟点工服务,田螺阿姨保姆,田螺阿姨钟点工"/>
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<link rel="stylesheet" href="__PUBLIC__/Auction/css/shouji-usually.css" />
+	</head>
+	
+	<body>
+		
+		 <div style="width: 100%;height: auto;">
+			 <a href="http://www.tianluoayi.com/kst/" target="_blank" rel="nofollow" ><img src="__PUBLIC__/Auction/img/baomu/shouji-baomu_02.png" width="100%" /></a>
+		 </div>
+		 
+		 <img style="margin-top: 20px;" src="__PUBLIC__/Auction/img/baomu/shouji-baomu_04.png" width="100%"  />
+		 
+		 <img style="margin-left: 3%;margin-top: 10px;" src="__PUBLIC__/Auction/img/baomu/shouji-baomu_07.png" width="94%"  />
+		 
+		 <img style="margin-left: 3%;margin-top: 10px;" src="__PUBLIC__/Auction/img/baomu/shouji-baomu_10.png"  width="94%"  />
+		 
+		 <img style="margin-top: 20px;" src="__PUBLIC__/Auction/img/baomu/shouji-baomu_12.png" width="100%"  />
+		 
+		 <img style="margin-left: 3%;margin-top: 10px;" src="__PUBLIC__/Auction/img/baomu/shouji-baomu_15.png"  width="94%"  />
+		 
+		 
+		 <img style="margin-top: 20px;" src="__PUBLIC__/Auction/img/baomu/shouji-baomu_18.png" width="100%"  />
+		 
+		  <img style="margin-top: 20px;" src="__PUBLIC__/Auction/img/baomu/shouji-baomu_20.png" width="100%"  />
+		  
+		  <img style="margin-top: 20px;" src="__PUBLIC__/Auction/img/baomu/shouji-baomu_22.png" width="100%"  />
+		  
+		  <img style="margin-top: 20px;" src="__PUBLIC__/Auction/img/baomu/shouji-baomu_25.png" width="100%"  />
+		  
+		  <img style="margin-top: 20px;" src="__PUBLIC__/Auction/img/baomu/shouji-baomu_27.png" width="100%"  />
+		 
+		 <img style="margin-top: 10px;" src="__PUBLIC__/Auction/img/yuesao/shouji-yuesao_33.png" width="100%"  />
+		 
+		 
+		 <div style="width: 100%;height: auto;background-color: #a7d8e4;margin-top: 30px;padding-bottom: 30px;" class="f-cb">
+			 <a href="http://www.tianluoayi.com/kst/" target="_blank" rel="nofollow"><img style="margin-left: 6%;float: left;margin-top: 30px;" src="__PUBLIC__/Auction/img/baomu/shouji-baomu_30.png" width="40%"  /></a>
+		 	   <a href="http://www.tianluoayi.com/kst/" target="_blank" rel="nofollow"><img style="margin-left: 6%;float: left;margin-top: 35px;" src="__PUBLIC__/Auction/img/baomu/shouji-baomu_32.png" width="40%" /></a>
+		 	   <a href="http://www.tianluoayi.com/kst/" target="_blank" rel="nofollow"><img style="margin-left: 6%;float: left;margin-top: 35px;" src="__PUBLIC__/Auction/img/baomu/shouji-baomu_36.png" width="40%" /></a>
+		 	   <a href="http://www.tianluoayi.com/kst/" target="_blank" rel="nofollow"><img style="margin-left: 6%;float: left;margin-top: 35px;" src="__PUBLIC__/Auction/img/baomu/shouji-baomu_37.png" width="40%" /></a>
+		 </div>
+		 
+		 
+		 <div class="form">
+			 <form action="http://www.tianluoayi.com/addMessage_auction" method="post" id="form" enctype="multipart/form-data">
+				<div class="submit-kuang">
+					<p>联系我们</p>
+					<span class="name" >
+							姓名<input type="text"  name="name" id="name"/>
+						</span>
+					<span class="name" >
+							电话<input type="text"  name="phone" id="phone"/>
+
+							<input type="hidden" name="job" value="手机保姆竞价"/>
+							<input type="hidden" name="age" value="手机保姆竞价"/>
+							<input type="hidden" name="experience" value="手机保姆竞价"/>
+							<input type="hidden" name="certificate" value="手机保姆竞价"/>
+							<input type="hidden" name="type" value="2"/>
+						</span>
+
+					<span class="tijiao" id="tijiao">
+								提交
+							</span>
+				</div>
+			 </form>
+		</div>
+		 <div style="width: 100%;height: auto; background: #f1f1f1;text-align: center;margin-top: 40px;font-size: 10px;">
+			 <div class="banquan">
+				 ©2014-2015 成都亿家政网络科技有限公司 版权所有<br />蜀ICP备15008974号-1
+			 </div>
+		 </div>
+
+
+		 <script src="__PUBLIC__/js/jquery-1.7.1.min.js"></script>
+		 <script src="__PUBLIC__/js/jquery.longyuJs.js"></script>
+
+		 <script>
+			 $("#tijiao").click(function(){
+				 if(!(/^(0?1[345789]\d{9})$/.test($("#phone").val()))){
+					 alert('手机号不正确;请重新输入！');
+					 return false;
+				 }else if($("#name").val()==''){
+					 alert('请输入姓名！');
+					 return false;
+				 }
+				 $("#form").submit();
+			 });
+		 </script>
+
+
+
+	</body>
+</html>

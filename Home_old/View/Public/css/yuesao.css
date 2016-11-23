@@ -1,0 +1,997 @@
+﻿
+/*母婴护理师*/
+.fuwuneirong{
+	height: auto;
+}
+
+.fuwuneirong ul li{
+	float: left;
+	margin: 70px 0 0 15px;
+}
+
+.fuwuneirong ul li:first-child{
+	margin-left: 55px;
+}
+
+.grade-content{
+	width: 100%;
+	height: auto;
+	background: #F2F2F2;
+}
+
+.grade-kuang{
+	width: 1200px;
+	height: 660px;
+	background:  url(../img/yuesao/jinzita.png) no-repeat right;
+	margin: 0 auto;
+}
+
+.grade-kuang ul li{
+	width: 600px;
+	height: 90px;
+	margin-left: 30px;
+	float: left;
+}
+
+.grade-kuang ul li:first-child{
+	margin-top: 50px;
+}
+
+
+.youshi-content{
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+
+.youshi-content img{
+	margin-top: 50px;
+	width: 100%;
+}
+
+
+.chengnuo-content{
+	width: 1000px;
+	height: 600px;
+	margin: 0 auto;
+}
+
+.chengnuo-content ul li{
+	width: 180px;
+	height: auto;
+	margin:80px 120px 0 30px;
+	float: left;
+}
+
+
+.advantage-article ul li{
+	width: 1200px;
+	height: 372px;
+	margin: 40px auto;	
+	text-align: center;
+}
+
+
+
+
+/*育儿嫂*/
+
+.yuersao-kuang{
+	width: 1200px;
+	height: 660px;
+	background:  url(../img/yuesao/yuer-bg.png) no-repeat right;
+	margin: 0 auto;
+}
+
+.yuersao-kuang ul li{
+	width: 600px;
+	height: 90px;
+	margin-left: 30px;
+	margin-top: 30px;
+	float: left;
+}
+
+.yuersao-kuang ul li:first-child{
+	margin-top: 50px;
+}
+
+
+/*保姆*/
+.baomu-kuang{
+	width: 1200px;
+	height: 660px;
+	background:  url(../img/yuesao/baomu-bg.png) no-repeat right;
+	margin: 0 auto;
+}
+
+.baomu-kuang ul li{
+	width: 600px;
+	height: 90px;
+	margin-left: 30px;
+	margin-top: 30px;
+	float: left;
+}
+
+.baomu-kuang ul li:first-child{
+	margin-top: 50px;
+}
+
+
+
+
+/*小儿推拿*/
+
+.tuina{
+	width: 1200px;
+	height: 521px;
+	background:url(../img/tuina/tuina1.png) no-repeat center;
+	margin-top: 80px;
+}
+
+.tuinahaochu{
+	width: 1200px;
+	height: 66px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.haochu-content{
+	width: 1200px;
+	height: 618px;
+	margin-top: 80px;
+}
+
+
+.tuina-youshibiaoti{
+	width: 1200px;
+	height: 66px;
+	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.tuina-youshineirong{
+	width: 1200px;
+	height: 733px;
+	margin: 0 auto;
+	margin-top: 80px;
+}
+
+.tuina-content{
+	width: 500px;
+	height: 500px;
+	margin:0 auto;
+	font-family: "microsoft yahei";
+	font-size: 32px;
+	color: #47C8A2;
+	padding-top: 200px;
+}
+
+.tuina-content p{
+	width: 150px;
+	height: 200px;
+	float: left;
+}
+
+.tuina-content ul li{
+	width: 500px;
+	height: 50px;
+	font-size: 24px;
+	margin-top: 8px;
+}
+
+
+
+
+
+
+/*通乳*/
+
+.tongruhaochu-content{
+	width: 1200px;
+	height: 738px;
+	margin: 40px auto;
+}
+
+.tongru-commitment ul li{
+	margin: 100px 0 0 200px;
+	float: left;	
+}
+
+
+
+
+/*团队展示*/
+
+.tuandui-content{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.tuanduibiaoti{
+	margin-top: 100px;	
+}
+
+.gaojie{
+	width: 1200px;
+	height: 700px;
+	margin: 0 auto;
+}
+
+.gaojie ul{
+	width: 1200px;
+	height: auto;	
+	font-size: 26px;
+	font-family: "microsoft yahei";
+	color: #47C8A2;
+}
+
+.gaojie ul li{
+	float: left;
+}
+
+.gaojie ul li.tupian{
+	margin: 100px 0 0 40px;
+}
+
+.gaojie ul li.name{
+	width: 160px;
+	height: 62px;
+	margin: 100px 0 0 40px;
+	background: url(../img/tuandui/tuandui3.png) no-repeat 0 center;
+	float: left;
+	line-height: 62px;
+}
+
+.gaojie ul li.zhiwei{
+	width: 300px;
+	height: 62px;
+	margin: 102px 0 0 40px;
+	background: url(../img/tuandui/tuantui4.png) no-repeat 0 center;
+	float: left;
+	line-height: 62px;
+}
+
+.gaojie ul li.mingcheng ul{
+	width: 590px;
+	height: 230px;
+	background:#f0f0f0;
+	margin-left: 40px;
+	border-radius: 30px;
+}
+
+.gaojie ul li.mingcheng ul li{
+	width: 590px;
+	height: 36px;
+	font-size: 22px;
+	line-height: 36px;
+	margin-left: 20px;
+	margin-top:2px;
+}
+
+
+.gaojie ul li.xiangxi{
+	width: 990px;
+	height: 200px;
+	font-size: 22px;
+	text-indent: 2em;
+	margin-left: 36px;
+	margin-top: 40px;
+	line-height: 40px;
+	border: 3px #47C8A2 solid;
+	border-radius: 10px;
+}
+
+
+
+
+
+
+/*钟点工*/
+
+.zhongdian{
+	width: 1200px;
+	height: 800px;
+	background: #F0F0F0;
+	margin-top: 80px;
+	border-radius: 30px;
+}
+
+.zhongdian ul{
+	width: 1000px;
+	height: 800px;
+	margin: 0 auto;
+	padding-top: 100px;
+}
+
+
+.zhongdian ul li{
+	width: 1000px;
+	height: 60px;
+	margin: 0 auto;
+	font-family: "microsoft yahei";
+	font-size: 24px;
+	color: #47C8A2;
+	line-height: 60px;
+	text-align: center;
+}
+
+
+
+
+
+/*衣橱收纳*/
+
+.shouna-xiangxi img{
+	margin-top: 50px;
+}
+
+
+
+/*新闻动态*/
+
+.biaoti-news{
+	width: 100%;
+	height: 80px;
+	background: #F2F2F2;
+	margin-top: 100px;
+}
+
+.biaoti-news ul{
+	width: 1200px;
+	height: 80px;
+	margin: 0 auto;
+}
+.biaoti-news ul li{
+	float: left;
+}
+
+.zhuangshi{
+	width: 5px;
+	height: 50px;
+	background: #47C8A2;
+	border-radius: 2px;
+	margin:15px 0 0 10px;
+}
+
+.dazi{
+	font-family: "microsoft yahei";
+	font-size: 32px;
+	color: #47C8A2;
+	margin: 10px 0 0 30px;
+}
+
+.dazi p{
+	font-size: 20px;
+}
+
+.qq{
+	width: 80px;
+	height: 30px;
+	background: #47C8A2;
+	border-radius: 10px;
+	margin-left: 770px;
+	margin-top: 35px;
+	font-family: "microsoft yahei";
+	font-size: 18px;
+	color: white;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+.zixun{
+	width: 80px;
+	height: 30px;
+	background: #47C8A2;
+	border-radius: 10px;
+	margin-left: 10px;
+	margin-top: 35px;
+	font-family: "microsoft yahei";
+	font-size: 18px;
+	color: white;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+.qq:hover{
+	background: #666;
+}
+
+.zixun:hover{
+	background: #666;
+}
+
+
+/*公司简介*/
+
+.compay-content{
+	font-family: "microsoft yahei";
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.content1{
+	width: 1200px;
+	height: auto;
+	font-size: 40px;
+	color: #1d1d1d;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 100px;
+}
+
+.content2{
+
+	font-size: 18px;
+	color:#1D1D1D;
+	margin-top: 50px;
+	text-align: center;
+}
+
+.content3{
+	font-size: 18px;
+	color:#1D1D1D;
+	margin-top: 20px;
+	text-align: right;
+}
+
+.content4{
+	font-size: 18px;
+	color:#1D1D1D;
+	margin-top: 20px;
+	line-height: 28px;
+	margin:80px 0 0 50px;
+}
+
+.content5{
+	font-size: 32px;
+	color:#47C8A2;
+	margin-top: 20px;
+	line-height: 28px;
+	margin:80px 0 0 50px;
+}
+
+.compay-content img{
+	margin-top: 100px;
+}
+
+.content6{
+	font-size: 40px;
+	color: #47C8A2;
+	margin:100px;
+	text-align: center;
+}
+
+
+/*推荐文章*/
+
+.tuijian-article{
+	height: auto;
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.tuijian-article ul li{
+	font-family: "microsoft yahei";
+	font-size: 16px;
+}
+
+.xiala{
+	height: 300px;
+	width: 1200px;
+	text-align: center;
+	margin-top: 100px;
+	border: 3px #F2F2F2 solid;
+}
+
+.xiala ul li{
+	width: 580px;
+	height: 40px;
+	float: left;
+	font-family: "microsoft yahei";
+	font-size: 18px;
+	color: #666666;
+	text-align: center;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.xiala ul li:hover{
+	color: #47C8A2;
+}
+
+
+/*招聘入口*/
+.rukou{
+    width: 100%;
+    height: 240px;
+    background: #F2F2F2;
+    margin-top: 50px;
+}
+
+.rukou-kuang{
+	width: 1200px;
+	height: 240px;
+	margin: 0 auto;	
+}
+
+.rukou-content{
+	width: 1200px;
+	height: 150px;
+	margin-left:100px;
+}
+
+.rukou-content ul li{
+	float: left;
+	margin-top: 40px;
+	margin-left: 30px;
+	font-family: "microsoft yahei";
+	font-size: 20px;
+	color: #6d6d6d;
+	line-height: 30px;
+}
+
+.button{
+	width: 1200px;
+	height: 80px;
+	color: white;
+}
+
+.button ul li{
+	width: 400px;
+	height: 80px;
+	float: left;
+}
+
+.button1{
+	width: 120px;
+	height: 40px;
+	background: #47C8A2;
+	border-radius: 10px;
+	color: white;
+	margin:15px 0 0 200px;
+	font-family: "microsoft yahei";
+	font-size:18px;
+	text-align: center;
+	line-height: 40px;
+	display: block;
+}
+
+.button2{
+	width: 120px;
+	height: 40px;
+	background: #47C8A2;
+	border-radius: 10px;
+	color: white;
+	margin:15px 0 0 100px;
+	font-family: "microsoft yahei";
+	font-size:18px;
+	text-align: center;
+	line-height: 40px;
+	display: block;
+}
+
+.button3{
+	width: 120px;
+	height: 40px;
+	background: #47C8A2;
+	border-radius: 10px;
+	color: white;
+	margin:15px 0 0 0px;
+	font-family: "microsoft yahei";
+	font-size:18px;
+	text-align: center;
+	line-height: 40px;
+	display: block;
+}
+
+
+/*招聘填写*/
+
+.tianxie{
+	width: 100%;
+	height: 300px;
+	background: #F2F2F2;
+	margin-top: 50px;
+}
+
+.tianxie p{
+	font-family: "microsoft yahei";
+	font-size: 30px;
+	line-height: 80px;
+	text-align: center;
+}
+
+.tianxie-content{
+	width: 700px;
+	height: auto;
+}
+
+.tianxie-content ul li{
+	width: 250px;
+	height: 40px;
+	font-family: "microsoft yahei";
+	font-size: 20px;
+	margin:10px 0 0 80px;
+	color: #666666;
+	float: left;
+}
+
+.tijiao{
+	width: 100px;
+	height: 40px;
+	background: #666666;
+	border-radius: 10px;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+	font-family: "microsoft yahei";
+	font-size: 22px;
+	float: right;
+	margin-right: 120px;
+	margin-top: 10px;
+	cursor: pointer;
+	display: block;
+}
+
+.tijiao:hover{
+	background: #47C8A2;	
+}
+
+.kuang-tijiao{
+	width: 800px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.input{
+	width: 180px;
+	height: 30px;
+	font-family: "microsoft yahei";
+	font-size: 20px;
+}
+
+
+/*新闻内容*/
+
+
+.news-content-biaoti{
+	width: 100%;
+	height: 50px;
+	background: #F2F2F2;
+	margin-top: 50px;
+}
+
+.news-content-biaoti ul {
+	width: 1200px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.news-content-biaoti ul li{
+	float: left;
+	color: #47C8A2;
+	font-family:"microsoft yahei";
+	font-size: 22px;
+	line-height: 50px;
+	margin-left: 10px;
+}
+
+.news-content-biaoti ul li:first-child{
+	margin-top: 8px;
+}
+
+.news-content-biaoti ul li a{
+
+	color: #47C8A2;
+
+}
+
+.news-content-biaoti ul li a:hover{
+
+	color: #666666;
+
+}
+
+.guanjianci{
+	color: #666666;
+	font-size: 16px;
+	font-family: "microsoft yahei";
+	margin-left: 180px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	float: left;
+}
+
+.fabushijian{
+	color: #666666;
+	font-size: 16px;
+	font-family: "microsoft yahei";
+	margin-left: 450px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	float: left;
+}
+
+
+.last-article{
+	width: 1200px;
+	height: auto;
+	font-family: "microsoft yahei";
+	font-size: 22px;
+	
+}
+
+.next-article{
+	float: right;
+}
+
+.last-article a{
+	color: #1D1D1D;
+}
+
+.last-article a:hover{
+	color: #47C8A2;
+}
+
+
+.fanye{
+	width: 1200px;
+	height: 30px;
+	color: #1D1D1D;
+	font-family: "microsoft yahei";
+	font-size: 22px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+.fanye ul li{
+	cursor: pointer;
+	float: left;
+}
+
+
+.fanye ul li:first-child,.fanye ul li:last-child{
+	width: 575px;
+	height: 100px;
+	text-align: center;
+}
+
+.fanye select{
+	height: 50px;
+	width: 50px;
+	font-size: 32px;
+}
+
+.fanye ul li:hover{
+	color: #47C8A2;
+}
+
+
+.jiajiao-content{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.zhaopin-text{
+	width: 1200px;
+	height: auto;
+	float: left;
+	font-family:"microsoft yahei";
+	font-size: 20px;
+	text-indent: 2em;
+	line-height: 30px;
+	color: #515151;
+	margin-top: 40px;
+}
+
+.zhaopin-youshi{
+	margin-top: 80px;
+	margin-left: 10px;
+	width: 600px;
+}
+
+.zhaopin-tupian{
+	width: 1200px;
+	height: auto;
+	margin-top: 60px;
+}
+
+.zhaopin-tupian li{
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.zhaopin-baoming{
+	font-family: "microsoft yahei";
+	font-size: 26px;
+	color: #515151;
+}
+
+/*
+ * 
+ * 通乳招聘
+ * 
+ * 
+ * */
+
+.tongru-biaoti{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.wenzi-1{
+	width: 1200px;
+	height: 410px;
+	background: url(../img/tongru/wenzi-bg1.png) no-repeat center;
+	margin:0 auto;
+	margin-top: 20px;
+}
+
+.wenzi-1-biaoti{
+	width: 200px;
+	height: 40px;
+	color: #333333;
+	font-size: 28px;
+	font-family: "microsoft yahei";
+	margin-left: 530px;
+	padding-top: 40px;
+}
+
+.wenzi-1-content{
+	width: 650px;
+	height: 400px;
+	color: #a27651;
+	font-size: 18px;
+	font-family: "microsoft yahei";
+	margin-left: 530px;
+	padding-top: 60px;
+	line-height:36px;
+}
+
+.wenzi-2{
+	width: 1200px;
+	height: 410px;
+	background: url(../img/tongru/wenzi-bg2.png) no-repeat center;
+	margin:0 auto;
+	margin-top: 45px;
+}
+
+.wenzi-2-biaoti{
+	width: 200px;
+	height: 40px;
+	color: #333333;
+	font-size: 28px;
+	font-family: "microsoft yahei";
+	margin-left: 40px;
+	padding-top:50px;
+}
+
+.wenzi-2-content{
+	width: 650px;
+	height: 400px;
+	color: #a27651;
+	font-size: 18px;
+	font-family: "microsoft yahei";
+	margin-left:40px;
+	padding-top: 70px;
+	line-height:38px;
+}
+
+.wenzi-3{
+	width: 1200px;
+	height: 410px;
+	background: url(../img/tongru/wenzi-bg3.png) no-repeat center;
+	margin:0 auto;
+	margin-top: 20px;
+}
+
+.wenzi-3-biaoti{
+	width: 200px;
+	height: 40px;
+	color: #333333;
+	font-size: 28px;
+	font-family: "microsoft yahei";
+	margin-left: 530px;
+	padding-top: 80px;
+}
+
+.wenzi-3-content{
+	width: 650px;
+	height: 400px;
+	color: #a27651;
+	font-size: 20px;
+	font-family: "microsoft yahei";
+	margin-left: 530px;
+	padding-top: 70px;
+	line-height:40px;
+}
+
+.jiuyefangxiang{
+	width: 1200px;
+	height: 275px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 50px;
+}
+
+.tese{
+	width: 100%;
+	height: 700px;
+	background-color: #f8f8f8;
+	box-shadow: #d8d8d8 0px 0px 10px;
+	margin-top: 50px;
+}
+
+.tese-biaoti{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 30px;
+}
+
+.tese-img{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 30px;
+}
+
+.huanjing{
+	width: 1200px;
+	height: 180px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 50px;
+}
+
+.huanjing-img{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.fengcai{
+	width: 1200px;
+	height: 180px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 50px;
+}
+
+.huanjing-img{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

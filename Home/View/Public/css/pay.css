@@ -1,0 +1,22 @@
+.font{
+	font-size: 36px;
+	line-height: 98px;
+	color: #333333;
+	padding-left: 140px;
+	font-weight: bold;
+	width: 400px;
+    margin: 0 auto;
+}
+.page,.page>.content{
+	background: #fafaf5;
+}
+.page>.content{
+	padding: 160px 0;
+}
+.fail{
+	background: url(../img/fail.png) no-repeat;
+}
+.success{
+
+	background: url(../img/sec.png) no-repeat;
+}

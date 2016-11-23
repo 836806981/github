@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title></title>
+		<link rel="stylesheet" href="__PUBLIC__/css/style.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/articel.css" />
+	</head>
+	<body>
+		<include file="Nav/header"/>
+		<!-- <style>
+			.nTxt img{max-width: 100%;}
+		</style> -->
+
+		<div class="banner">
+			<img src="__PUBLIC__/img/banner.jpg" alt="比朋友更靠谱的母婴专家" title="比朋友更靠谱的母婴专家" />
+		</div>
+		<div class="page">
+			<p class="address">当前页面：首页&gt;
+				<if condition="$news_info.belong eq 21">
+					<a href="__ROOT__/m/newsEvents.html">新闻动态</a>&gt;新闻详情
+					<elseif condition="$news_info.belong eq 21" />
+					<a href="__ROOT__/m/notice.html">公司公告</a>&gt;公告详情
+				</if>
+			</p>
+			<div class="cnt">
+				<p class="tle">{$news_info.title}</p>
+				<p class="nInf f-cb">
+					<!--<span class="f-fl">关键词：<a href="#">月嫂</a>&nbsp;<a href="#">月嫂</a></span>-->
+					<span class="f-fr">时间：{$news_info.add_time}</span>
+				</p>
+				<div class="nTxt">
+					{$news_info.content|htmlspecialchars_decode}
+				</div>
+
+				<p class="f-cb" style="margin-bottom: 20px;">
+					<?php if($down_news&&down_news!=''){?>
+					<a href="__ROOT__/m/<?php echo $belong_url;?>/<?php echo $down_news[0]['id'];?>.html" class="next-article">上一篇：<?php echo $down_news[0]['title'];?></a>
+					<?php }else{?>
+					<span class="next-article">
+					上一篇：没有了
+						</span>
+					<?php }?>
+
+					<?php if($up_news&&up_news!=''){?>
+					<a href="__ROOT__/m/<?php echo $belong_url;?>/<?php echo $up_news[0]['id'];?>.html" class="last-article">下一篇：<?php echo $up_news[0]['title'];?></a>
+					<?php }else{?>
+					<span class="last-article">
+					下一篇：没有了
+						</span>
+					<?php }?>
+
+				</p>
+
+			</div>
+			<!--<div class="recommend">-->
+				<!--<p class="recommendTle">推荐阅读<i class="bl"></i></p>-->
+				<!--<ul>-->
+					<!--<li><a class="f-cb" href="#"><div class="rec_tle">这是一个推荐阅读标题甜甜提提</div><span class="rec_time">2016.05.06</span></a></li>-->
+					<!--<li><a class="f-cb" href="#"><div class="rec_tle">这是一个推荐阅读标题甜甜提提</div><span class="rec_time">2016.05.06</span></a></li>-->
+					<!--<li><a class="f-cb" href="#"><div class="rec_tle">这是一个推荐阅读标题甜甜提提</div><span class="rec_time">2016.05.06</span></a></li>-->
+					<!--<li><a class="f-cb" href="#"><div class="rec_tle">这是一个推荐阅读标题甜甜提提</div><span class="rec_time">2016.05.06</span></a></li>-->
+					<!--<li><a class="f-cb" href="#"><div class="rec_tle">这是一个推荐阅读标题甜甜提提</div><span class="rec_time">2016.05.06</span></a></li>-->
+				<!--</ul>-->
+			<!--</div>-->
+		</div>
+		<div class="footer">
+			<a href="wtai://wp//mc;4008086090"><img src="__PUBLIC__/img/tel.png" class="telnum" title="tel:400-808-6090" /></a>
+			<p>地址：成都高新区天府大道1700号环球中心E2-18楼</p>
+			<p>©2014-2015 成都亿家政网络科技有限公司 版权所有蜀ICP备15008974号-1</p>
+		</div>
+		<include file="Nav/footer"/>
+		<script>
+			$('.nTxt img').css('width','100%').css('height','auto');
+		</script>
+	</body>
+</html>

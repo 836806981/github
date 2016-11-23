@@ -1,0 +1,55 @@
+<include file="Nav/header"/>
+
+		<div class="list_right">
+
+
+			<div class="table">
+				<table class="hovertable" id="nurse_list">
+					<form action="__MODULE__/Ayi/to_excel" method="post" id="form1" enctype="multipart/form-data" >
+
+						<div class="search">
+
+							&emsp;开始日期:
+							<input type="text" style="width: 100px;" name="time_b_1" id="time_b_1"/>
+							&emsp;结束日期:
+							<input type="text" style="width: 100px;" name="time_s_1" id="time_s_1"/>
+
+
+
+					<span style=" ">
+						<input type="button" value="导出统计" class="search-button"  id="count_1"/>
+					</span>
+						</div>
+					</form>
+				</table>
+			</div>
+
+		</div>
+
+
+<include file="Nav/footer"/>
+<script>
+	var date=/^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;
+
+
+	$("#count_1").live('click',function(){
+		if(!($('#time_b_1').val()==''|| date.test($('#time_b_1').val()))){
+			alert('开始时间格式不正确！');
+			return false;
+		}
+		if(!($('#time_s_1').val()==''|| date.test($('#time_s_1').val()))){
+			alert('结束时间格式不正确！');
+			return false;
+		}
+
+		if($('#time_b_1').val()>$('#time_s_1').val()||$('#time_b_1').val()==''){
+			alert('请填写正确时间段！');
+			return false;
+		}
+		$('#form1').attr('action','__MODULE__/Ayi/to_excel/type/1');
+		$("#form1").submit();
+	});
+
+</script>
+
+</html>

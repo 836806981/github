@@ -1,0 +1,52 @@
+.banner img,.banner{
+	width: 100%;
+	height: auto;
+}
+.tle{
+	width: 100%;
+	height: auto;
+	display: block;
+	margin-top: 20px;
+}
+.page1 .cnt1{
+	font-size: 1.3em;
+	color: #ff5757;
+	text-align: center;
+	line-height: 1.6em;
+	padding: 0 20px;
+}
+.page1 .cnt2{
+	font-size: 1.4em;
+	color: #10a4c2;
+	text-align: center;
+	line-height: 1.6em;
+}
+.page1{padding: 20px 0;}
+.page2 .p1{
+	font-size: 1.8em;
+	font-weight: 700;
+	color: #ff5757;
+	text-align: center;
+	line-height: 1.6em;
+	padding: 5px 0 10px;
+}
+.page2>img{
+	width: 100%;
+	height: auto;
+}
+.page3>img{
+	width: 100%;
+	height: auto;
+	padding: 20px 0 0;
+}
+.page4>p{
+	font-size: 1.4em;
+	line-height: 1.6em;
+	text-align: center;
+	padding: 0 20px;
+	color: #666666;
+}
+.page5{
+	padding: 20px 0;
+}
+.page5>div{width: 100%;}

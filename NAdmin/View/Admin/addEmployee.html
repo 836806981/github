@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>田螺后台</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="__PUBLIC__/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="__PUBLIC__/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="__PUBLIC__/admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div id="wrapper" >
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <include file="Nav/header" />
+        <!-- /.navbar-top-links -->
+
+        <!--左边导航-->
+        <include file="Nav/index" />
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">添加员工</h3>
+            </div>
+            <!-- /.col-lg-12 -->
+
+            <div class="col-lg-8">
+                    <div class="form-group">
+                        <label>用户名：</label>
+                        <input class="form-control"  name="username" id="username" value=""  style="width: 150px;"/>
+                    </div>
+                    <span style="font-size: 8px;">密码默认为：tlay123</span>
+                    <br/><br/>
+
+                    <div class="form-group">
+                        <label><input name="permission" type="radio" value="1" />超级管理员</label>
+                        <label><input name="permission" type="radio" value="2"  checked/>普通管理员</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>昵称：</label>
+                        <input class="form-control"  name="real_name" id="real_name" value=""  style="width: 150px;"/>
+                    </div>
+
+
+                    <div class="form-group" id="per1">
+                        <label>拥有权限：</label>
+                        <label style="color: #CC0000"><input name="add_per" id="add_per" type="checkbox" value="1" />添加权限</label>
+                        <label style="color: #CC0000"><input name="edit_per" id="edit_per" type="checkbox" value="1" />编辑权限</label>
+                        <label style="color: #CC0000"><input name="del_per" id="del_per" type="checkbox" value="1" />删除权限 </label>
+
+                    </div>
+                    <div class="form-group" id="per2">
+                        <label>栏目管理：</label>
+                        <!--<label style="color: #CC0000"><input name="nurse" id="nurse" type="checkbox" value="1" />阿姨管理</label>-->
+                        <label style="color: #CC0000"><input name="banner" id="banner" type="checkbox" value="1" />banner </label>
+                        <label style="color: #CC0000"><input name="friend_ship" id="friend_ship" type="checkbox" value="1" />友链 </label>
+                        <label style="color: #CC0000"><input name="news" id="news" type="checkbox" value="1" />新闻管理 </label>
+                        <!--<label style="color: #CC0000"><input name="job" id="job" type="checkbox" value="1" />招聘管理 </label>-->
+                        <!--<label style="color: #CC0000"><input name="destine" id="destine" type="checkbox" value="1" />预约管理 </label>-->
+                        <!--<label style="color: #CC0000"><input name="trainee" id="trainee" type="checkbox" value="1" />招生管理 </label>-->
+                        <!--<label style="color: #CC0000"><input name="training" id="training" type="checkbox" value="1" />培训管理 </label>-->
+                        <!--<label style="color: #CC0000"><input name="order" id="order" type="checkbox" value="1" />订单管理 </label>-->
+                        <label style="color: #CC0000"><input name="video" id="video" type="checkbox" value="1" />视频管理 </label>
+                        <label style="color: #CC0000"><input name="pay" id="pay" type="checkbox" value="1" />支付管理 </label>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>电话号码：</label>
+                        <input class="form-control"  name="phone" id="phone" value="{$user_info.phone}"  style="width: 150px;"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>性别：</label>
+                        <label><input name="sex" type="radio" value="0" checked/>保密</label>
+                        <label><input name="sex" type="radio" value="1"/>男 </label>
+                        <label><input name="sex" type="radio" value="2"/>女 </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>生日：</label>
+                        <input class="form-control"  name="birthday"  id="birthday" value="{$user_info.birthday}"  style="width: 150px;"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>个人说明：</label>
+                        <input class="form-control"  name="remark" id="remark" value="{$user_info.remark}" />
+                    </div>
+                    <span id="erro" style="color: #CC0000;font-size: 12px;display: none;">用户名已存在！</span>
+                <br/>
+                    <button type="submit" id="submit" class="btn btn-default">确认添加</button>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+    </nav>
+
+
+
+</div>
+
+<!-- jQuery -->
+<script src="__PUBLIC__/admin/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="__PUBLIC__/admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="__PUBLIC__/admin/dist/js/sb-admin-2.js"></script>
+
+<script src="__PUBLIC__/admin/js/jquery-1.7.1.min.js"></script>
+
+<script src="__PUBLIC__/admin/js/jquery.longyuJs.js"></script>
+
+<script>
+
+    $('input[name="permission"]').live('change',function(){
+        $("#per1").css('display','none');
+        $("#per2").css('display','none');
+        if($('input[name="permission"]:checked ').val()==2){
+            $("#per1").css('display','block');
+            $("#per2").css('display','block');
+        }
+    });
+
+    var MODULE='__MODULE__';
+
+    $("#submit").live('click',function(){
+        $("#erro").hide();
+        var username = $("#username").val();
+        var real_name = $("#real_name").val();
+        var phone = $("#phone").val();
+        var birthday = $("#birthday").val();
+        var remark = $("#remark").val();
+        var permission = $('input[name="permission"]:checked ').val();
+        var sex = $('input[name="sex"]:checked ').val();
+        var edit_per = $("#edit_per").attr('checked')=='checked'?1:0;
+        var del_per = $("#del_per").attr('checked')=='checked'?1:0;
+        var add_per = $("#add_per").attr('checked')=='checked'?1:0;
+        var nurse = $("#nurse").attr('checked')=='checked'?1:0;
+        var news = $("#news").attr('checked')=='checked'?1:0;
+        var job = $("#job").attr('checked')=='checked'?1:0;
+        var destine = $("#destine").attr('checked')=='checked'?1:0;
+        var trainee = $("#trainee").attr('checked')=='checked'?1:0;
+        var training = $("#training").attr('checked')=='checked'?1:0;
+        var order = $("#order").attr('checked')=='checked'?1:0;
+        var video = $("#video").attr('checked')=='checked'?1:0;
+        var banner = $("#banner").attr('checked')=='checked'?1:0;
+        var friend_ship = $("#friend_ship").attr('checked')=='checked'?1:0;
+        var pay = $("#pay").attr('checked')=='checked'?1:0;
+
+        $.AjaxPost(MODULE+"/Admin/addEmployee", {username:username,edit_per:edit_per,add_per:add_per,del_per:del_per,trainee:trainee,training:training,order:order,nurse:nurse,news:news,job:job,video:video,destine:destine,real_name:real_name,phone:phone,birthday:birthday,remark:remark,permission:permission,sex:sex,banner:banner,friend_ship:friend_ship,pay:pay}, function (backdata) {
+            if (backdata.code == 1000) {
+                alert('添加成功');
+                window.location.href=MODULE+"/Admin/employee.html";
+            }else if(backdata.code == 1001){
+                alert('添加失败');
+            }else if(backdata.code == 1002){
+                $("#erro").show();
+                return false;
+            }
+        }, true);
+
+    })
+
+    Math.round(Math.random()*14);
+
+    var  arrayA = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];//20道题
+    var  arrayB = [16,17,18,19,20];//5道题
+    var  back_data = [];//返回结果
+    var round_arr = [];//
+    var round = '';
+    var round_two = '';
+    function in_array(search,array){
+        for(var i in array){
+            if(array[i]==search){
+                return true;
+            }
+        }
+        return false;
+    }
+    for(var i=0;i<4;i++){
+        Outer:for(var j=0;j<1;j++){
+            round = parseInt(Math.random()*15);
+            round_arr[i] = round;
+            console.log(round_arr);
+            if(in_array(round,round_arr)){
+                continue Outer;
+            }
+        }
+        back_data[i] = arrayA[round];
+    }
+    Outer1:for(var j=0;j<1;j++){
+                round_two = parseInt(Math.random()*4);
+                if(round_two==4){
+                    continue Outer1;
+                }
+            }
+    back_data[4] = arrayB[round_two];
+    console.log(back_data);
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

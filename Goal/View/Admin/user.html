@@ -1,0 +1,25 @@
+<include file="Nav/header"/>
+
+<style>
+	.name_class{
+		font-size: 24px;
+		color:#47C8A2;
+	}
+	.name_class_add{
+		width: 15px; height: 15px; border-radius: 15px;background: red;font-size:8px;color: #ffffff; text-align:center;line-height:16px;display: inline-block;
+	}
+</style>
+
+<div style="width: 50%;height: auto; margin-top:50px;margin-left: 42%;text-align: left">
+		{$users}
+</div>
+<include file="Nav/footer"/>
+
+<script>
+	$("#submit").live('click',function(){
+		$("#form").submit();
+	});
+
+</script>
+
+</html>

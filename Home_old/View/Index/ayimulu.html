@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="description" content="婴幼家庭保洁与日式家庭保洁服务是田螺阿姨提出的特色母婴家庭保洁服务，属于婴幼儿家庭的全程日式化专属保洁服务。专业进口工具、0污染源、专业放心、安全可靠。"/>
+		<meta name="keywords" content="婴幼保洁,母婴家庭保洁,婴幼家庭保洁,婴幼家庭保洁价格,母婴家庭保洁价格,家庭保洁培训"/>
+		<include file="Index/header1"/>
+	</head>
+	<body>
+	<include file="Index/header2"/>
+		<div class="ayi-container" style="width: 100%;height:auto;background: #f1f2f3;">
+			<!--   header  -->
+
+			
+			<div class="content1200">
+				<div class="ayi-title">
+					<span>田螺阿姨共有<?php echo $count;?>名阿姨&nbsp;&nbsp;&nbsp;&nbsp;如有疑问拨打电话400-808-6090</span>
+				</div>
+				
+				<div class="search">
+					<input type="text" name="name" id="name" value="<?php echo $name;?>" class="search-text" placeholder="请输入阿姨姓名" />
+					<img src="__PUBLIC__/img/iconfont-sousuo.png" width="20px" height="20px"  id="search" style="cursor: pointer;"/>
+				</div>
+				
+				<div class="ayi-mulu-img">
+					<img src="__PUBLIC__/img/iconfont-sousuo.png"  width="370px" height="600px"/>
+				</div>
+				<div id="list" style="height: <?php echo $px;?>px;">
+
+
+
+
+				</div>
+				<!--<div class="ayi-information">-->
+					<!--<ul class="infor-ul f-cb">-->
+						<!--<li class="infor-li1"><img src="__PUBLIC__/img/new-img1.png" width="180px" height="185px" /></li>-->
+						<!--<li class="infor-name">姓名</li>-->
+						<!--<li class="infor-name-content">大兄弟</li>-->
+						<!--<li class="infor-height">身高</li>-->
+						<!--<li class="infor-height-content">185cm</li>-->
+						<!--<li class="infor-age">年龄</li>-->
+						<!--<li class="infor-age-content">23岁</li>-->
+						<!--<li class="infor-weight">体重</li>-->
+						<!--<li class="infor-weight-content">56kg</li>-->
+						<!--<li class="infor-address">籍贯</li>-->
+						<!--<li class="infor-address-content">四川成都</li>-->
+						<!--<li class="infor-level">等级</li>-->
+						<!--<li class="infor-level-content">初级</li>-->
+						<!--<li class="infor-zodiac">属相</li>-->
+						<!--<li class="infor-zodiac-content">猪</li>-->
+						<!--<li class="infor-marriage">婚姻</li>-->
+						<!--<li class="infor-marriage-content">已婚</li>-->
+						<!--<li class="infor-star">星座</li>-->
+						<!--<li class="infor-star-content">处女座</li>-->
+						<!--<li class="infor-birth">生育</li>-->
+						<!--<li class="infor-birth-content">已育</li>-->
+						<!--<li class="yuding">点击查看</li>-->
+					<!--</ul>		-->
+				<!--</div>-->
+				<!--<div class="ayi-information">-->
+					<!--<ul class="infor-ul f-cb">-->
+						<!--<li class="infor-li1"><img src="__PUBLIC__/img/new-img1.png" width="180px" height="185px" /></li>-->
+						<!--<li class="infor-name">姓名</li>-->
+						<!--<li class="infor-name-content">大兄弟</li>-->
+						<!--<li class="infor-height">身高</li>-->
+						<!--<li class="infor-height-content">185cm</li>-->
+						<!--<li class="infor-age">年龄</li>-->
+						<!--<li class="infor-age-content">23岁</li>-->
+						<!--<li class="infor-weight">体重</li>-->
+						<!--<li class="infor-weight-content">56kg</li>-->
+						<!--<li class="infor-address">籍贯</li>-->
+						<!--<li class="infor-address-content">四川成都</li>-->
+						<!--<li class="infor-level">等级</li>-->
+						<!--<li class="infor-level-content">初级</li>-->
+						<!--<li class="infor-zodiac">属相</li>-->
+						<!--<li class="infor-zodiac-content">猪</li>-->
+						<!--<li class="infor-marriage">婚姻</li>-->
+						<!--<li class="infor-marriage-content">已婚</li>-->
+						<!--<li class="infor-star">星座</li>-->
+						<!--<li class="infor-star-content">处女座</li>-->
+						<!--<li class="infor-birth">生育</li>-->
+						<!--<li class="infor-birth-content">已育</li>-->
+						<!--<li class="yuding">点击查看</li>-->
+					<!--</ul>		-->
+				<!--</div>-->
+				<!---->
+				
+			</div>
+			<div class="page" id="pagenum" style="margin: 0 auto;width: 1200px; text-align: center;">
+
+
+			</div>
+
+
+
+			<include file="Index/footer"/>
+			
+			
+		</div>
+
+		<!--轮播图效果-->
+	<script src="__PUBLIC__/js/jquery-2.1.1.min.js"></script>
+		<script src="__PUBLIC__/js/osSlider.js"></script>
+		<script src="__PUBLIC__/js/jquery.kxbdMarquee.js"></script>
+
+		<script src="__PUBLIC__/js/jquery-1.7.1.min.js"></script>
+		<script src="__PUBLIC__/js/jquery.longyuJs.js"></script>
+		<script src="__PUBLIC__/js/common.js"></script>
+		<script src="__PUBLIC__/js/ayimulu.js"></script>
+
+		<script type="text/javascript">
+
+			var slider = new osSlider({ //开始创建效果
+				pNode:'.slider', //容器的选择器 必填
+				cNode:'.slider-main li', //轮播体的选择器 必填
+				speed:4000, //速度 默认3000 可不填写
+				autoPlay:true //是否自动播放 默认true 可不填写
+			});
+
+		</script>
+			
+	</body>
+</html>

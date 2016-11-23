@@ -1,0 +1,829 @@
+
+body{
+	background: #f1f2f3;
+}
+
+.header{
+	width: 100%;
+	height: 100px;
+	background: #333f50;
+	position: fixed;
+	top: 0px;
+	z-index: 5;
+}
+.col-lg-12{
+	width: 80%;
+	margin: 28px auto;
+}
+.col-lg-12 a {
+	text-decoration: none;
+	color: #666;
+}
+
+.col-lg-12 span{
+	display: inline-block;
+	text-align: center;
+	line-height: 30px;
+	background: #dddddd;
+	width: 13%;
+	height: 30px;
+	min-width: 90px;
+	border-radius: 15px;
+}
+
+
+.content1200{
+	width: 1200px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+
+.close1{
+	width: 120px;
+	height: 100px;
+	background: #47C8A2;
+	float: right;
+	text-align: center;
+}
+
+.close1 img{
+	margin-top: 22px;
+	cursor: pointer;
+}
+
+.fenge{
+	display: block;
+	background: white;
+	width: 1px;
+	height: 100px;
+	margin-right: 20px;
+	float:right;
+}
+.addNurse{
+	display: block;
+	font-family: "microsoft yahei";
+	vertical-align: middle;
+	text-align: center;
+	width: 120px;
+	height: 40px;
+	font-size: 18px;
+	margin-top: 20px;
+	border-radius: 4px;
+	padding-top: 10px;
+	color: white;
+	margin-right: 20px;
+	float:right;
+	background: #47C8A2;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.2);
+	cursor: pointer;
+	transition: background-color 0.5s linear;
+}
+.addNurse:hover{
+	background: #1295bf;
+}
+
+.header ul li{
+	font-family: "microsoft yahei";
+	font-size: 20px;
+	color: white;
+	float: right;
+	z-index: 5;
+	line-height: 100px;
+	cursor: pointer;
+}
+
+.header ul li:first-child{
+	margin: 0 5px;
+}
+
+.left{
+	width:10%;
+	height: 100%;
+	background: #47C8A2;
+	position: fixed;
+	top: 100px;
+}
+.left ul li{
+	text-align: center;
+	margin-top: 10px;
+}
+.left ul li img{
+	width: 70%;
+	max-height: 100px;
+	cursor: pointer;
+}
+.nav_current{
+	box-shadow: #808080 0 0 20px;
+}
+
+.left ul li img:hover{
+	box-shadow: #808080 0 0 20px;
+}
+
+.right{
+	width:100%;
+	height: 1000px;
+	background: white;
+	margin: 0 auto;
+}
+
+table{
+	margin-left: 200px;
+	margin-top: 100px;
+	font-size: 24px;
+	font-family: "microsoft yahei";
+	color: #333F50;
+}
+
+.name{
+	width: 300px;
+	height: 40px;
+	font-size: 16px;
+	margin-top: 20px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	padding-left: 8px;
+	color: #666666;
+	font-family: "microsoft yahei";
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.2);
+}
+
+.tel{
+	width: 200px;
+	height: 40px;
+	font-size: 16px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.2);
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	padding-left: 8px;
+	color: #666666;
+	font-family: "microsoft yahei";
+}
+
+.save{
+	display:block;
+	width: 120px;
+	height: 50px;
+	font-size: 18px;
+	margin-top: 20px;
+	border-radius: 4px;
+	color: white;
+	background: #333F50;
+	line-height: 50px;
+	text-align: center;
+	font-family: "microsoft yahei";
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.2);
+	cursor: pointer;
+	transition: background-color 0.5s linear;
+}
+
+.save:hover{
+	background: #47C8A2;
+}
+
+
+
+/*
+
+分页样式
+
+*/
+
+
+
+
+.pagehide{display: none !important;}
+.yahei{
+	font-family:"Microsoft YaHei",\5fae\8f6f\96c5\9ed1,arial,\5b8b\4f53;
+	text-decoration: none;
+	color: #666666;
+	text-align: center;
+	border-radius:5px;
+	line-height: 25px;
+	margin-left: 20px;
+}
+.prev_page,.next_page{
+	width: 75px;
+	height: 25px;
+	border: 1px solid #666666;
+}
+
+.yahei:hover{
+	border: 1px solid #47c8a2;
+	background: #47c8a2;
+	color: white;
+}
+
+.pagenum{
+	width: 30px;
+	height: 25px;
+	border: 1px solid #666666;
+	display: inline-block;
+
+}
+
+.current{
+	width: 30px;
+	height: 25px;
+	background: #47c8a2;
+	color: white;
+	display: inline-block;
+}
+
+
+/*
+ * 
+ * 
+ * 月嫂列表
+ * 
+ * 
+ * 
+ * */
+
+#divID{
+	max-width: 80%;
+	max-height: 90%;
+	box-shadow: #47C8A2 0px 0px 10px;
+	position: fixed;
+	display: none;
+	filter:alpha(opacity=90);
+	-moz-opacity:0.9;
+	-khtml-opacity: 0.9;
+	opacity: 0.95;
+	margin:auto;left:0; right:0; top:0; bottom:0;
+
+	z-index: 55;
+}
+#useBox{
+	width: 180px;
+	height: auto;
+	background: #CCCCCC;
+	box-shadow: #47C8A2 0px 0px 10px;
+	position: fixed;
+	display: none;
+	filter:alpha(opacity=90);
+	-moz-opacity:0.9;
+	-khtml-opacity: 0.9;
+	opacity: 0.9;
+}
+
+.list_right{
+	width:100%;
+	height: auto;
+	background: white;
+	margin: 0 auto;
+	padding-top: 100px;
+}
+.search {
+	width:90%;
+	min-width: 950px;
+	margin: 0 auto;
+	height: auto;
+	background: #F1F2F3;
+	color: #333F50;
+	font-size: 14px;
+	line-height: 60px;
+	font-family: "microsoft yahei";
+	padding-left: 10%;
+	margin-top: 10px;
+}
+
+.table{
+	min-height: 600px;
+	overflow: auto;
+}
+
+.search_input{
+	width: 65px;
+
+}
+.search-button {
+	display: block;
+	width: 60px;
+	height:26px;
+	background: #333F50;
+	margin-right: 3%;
+	color: white;
+	font-size: 14px;
+	line-height: 26px;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s linear;
+}
+
+.search-button:hover {
+	background: #47C8A2;
+}
+
+.hovertable {
+	font-family: verdana, arial, sans-serif;
+	font-size: 11px;
+		color: #333333;
+		border-width: 1px;
+		border-color: #999999;
+		border-collapse: collapse;
+		text-align: center;
+	margin: 20px auto;
+	width: 84%;
+
+}
+
+.hovertable th {
+	background-color: #c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+	text-align: center;
+}
+
+.hovertable tr {
+	background-color: #d4e3e5;
+}
+
+.hovertable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
+
+/*
+ * 
+ * 
+ * 添加阿姨
+ * 
+ * 
+ * 
+ * */
+
+
+.add{
+	width:85%;
+	padding-bottom: 150px;
+	height: auto;
+	background: white;
+	padding-left: 15%;
+	color: #333F50;
+	font-family: "microsoft yahei";
+	font-size: 18px;
+}
+
+.kuang{
+	width: 100%;
+	height: auto;
+	margin-top: 1%;
+}
+
+.text{
+	font-size: 18px;
+	font-family: "microsoft yahei";
+	color: #333F50;
+}
+
+.save-button{
+	display: block;
+	width: 80px;
+	height: 30px;
+	background: #333F50;
+	color: white;
+	font-size: 18px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s linear;
+}
+
+.save-button:hover{
+	background: #47C8A2;
+}
+
+
+
+/*
+ *
+ *
+ *
+ * 阿姨信息
+ *
+ *
+ * */
+.ayi-information{
+	width: 780px;
+	height: 350px;
+	background:white;
+	margin: 25px 0 5px 12px;
+	float: left;
+}
+
+.nurse_info{
+	width:95%;
+	padding-bottom: 150px;
+	padding-top: 130px;
+	padding-left: 15%;
+	color: #333F50;
+	font-family: "microsoft yahei";
+	font-size: 18px;
+	margin-left: 5%;
+}
+
+.ayi-information:hover,
+.talent-map:hover,
+.experience:hover,
+.character:hover,
+.advertisement-first:hover,
+.recommend-content:hover
+{
+	box-shadow: #47C8A2 0px 0px 10px;
+}
+
+.infor-ul li{
+	color: #666666;
+	float: left;
+	font-size: 20px;
+	font-family: "微软雅黑","Microsoft Yahei","Tahoma","SimSun";
+}
+
+.infor-li1 img{
+	width: 180px;
+	height: 250px;
+	margin: 25px 0 0 35px;
+}
+
+.infor-name{
+	margin: 50px 0 0 50px;
+	color: #000000 !important;
+}
+
+.infor-name-content{
+	width: 100px;
+	height: 35px;
+	margin: 50px 0 0 40px;
+}
+
+.infor-height{
+	margin: 50px 0 0 30px;
+	color: #000000 !important;
+}
+
+.infor-height-content
+{
+	width: 200px;
+	height: 35px;
+	margin: 50px 0 0 40px;
+}
+
+.infor-age,
+.infor-address,
+.infor-zodiac,
+.infor-star
+{
+	margin: 15px 0 0 50px;
+	color: #000000 !important;
+}
+
+.infor-age-content,
+.infor-address-content,
+.infor-zodiac-content,
+.infor-star-content
+{
+	width: 100px;
+	height: 35px;
+	margin: 15px 0 0 40px;
+}
+
+.infor-weight,
+.infor-level,
+.infor-marriage,
+.infor-birth
+{
+	margin: 15px 0 0 30px;
+	color: #000000 !important;
+}
+
+.infor-weight-content,
+.infor-level-content,
+.infor-marriage-content,
+.infor-birth-content
+{
+	width: 200px;
+	height: 35px;
+	margin: 15px 0 0 40px;
+}
+
+.yuding{
+	width: 96px;
+	height: 39px;
+	color: white!important;
+	background: #47C8A2;
+	margin-left: 650px;
+	margin-top: 10px;
+	text-align: center;
+	line-height: 39px;
+	letter-spacing: 1px;
+	font-size: 16px!important;
+	cursor: pointer;
+	transition:background-color 0.2s linear;
+}
+
+.yuding:hover{
+	background: orange;
+}
+
+.talent-map{
+	width: 780px;
+	height: 400px;
+	background: white;
+	margin: 30px 0 5px 12px;
+	float: left;
+}
+
+.talent-map-content{
+	width: 50%;
+	margin-left: 40px;
+	float: left;
+}
+
+.talent-grade{
+	color: #666666;
+	float: left;
+	font-size: 20px;
+	font-family: "微软雅黑","Microsoft Yahei","Tahoma","SimSun";
+}
+
+.talent-grade-type{
+	margin-left: 65px;
+	margin-top: 65px;
+	float: left;
+}
+
+.talent-grade-type-grade{
+	margin-left: 20px;
+	margin-top: 65px;
+	float: left;
+}
+
+.talent-grade-type li,
+.talent-grade-type-grade li
+{
+	text-align: right;
+	margin-top: 10px;
+}
+
+.ayi-sousuo{
+	margin-top: 25px;
+}
+
+.advertisement-first{
+	width: 370px;
+	height: 715px;
+	background: white;
+	float: right;
+	margin: 20px 18px 0 0;
+}
+
+
+.experience,
+.character{
+	width: 780px;
+	height: auto;
+	background: white;
+	margin: 30px 0 5px 12px;
+	color: #666666;
+	font-size: 26px;
+	font-family: "微软雅黑","Microsoft Yahei","Tahoma","SimSun";
+	float: left;
+}
+
+.experience-title,
+.character-title,
+.teacher-title
+{
+	width: 180px;
+	height: 50px;
+	background: #47C8A2;
+	color: white;
+	text-align: center;
+	line-height: 50px;
+	margin: 10px 0 0 40px;
+	letter-spacing: 5px;
+	display: block;
+}
+
+.experience ul li,
+.character ul li
+{
+	width: 680px;
+	min-height: 40px;
+	font-size: 20px;
+	background: url(../img/circle.png) 1px 12px no-repeat;
+	text-indent: 1.6em;
+	line-height: 40px;
+	margin-left: 60px;
+	margin-top: 10px;
+}
+
+.experience ul li:first-child,
+.character ul li:first-child
+{
+	margin-top: 20px;
+}
+
+.experience ul li:last-child,
+.character ul li:last-child
+{
+	margin-bottom: 30px;
+}
+
+.recommend{
+	width: 370px;
+	height: 510px;
+	background: white;
+	float: right;
+	margin: 30px 18px 0 0;
+
+}
+
+.recommend-title{
+	width: 100px;
+	height: 40px;
+	background: #47C8A2;
+	display: block;
+	color: white;
+	font-family: "微软雅黑","Microsoft Yahei","Tahoma","SimSun";
+	font-size: 16px;
+	text-align: center;
+	line-height: 40px;
+	letter-spacing: 3px;
+	margin: 10px 0 0 10px;
+}
+
+.recommend-content{
+	width: 340px;
+	height: 130px;
+	background: #f1f2f3;
+	margin:10px 0 0 15px;
+	cursor: pointer;
+}
+
+.recommend-content ul li{
+	font-family: "微软雅黑","Microsoft Yahei","Tahoma","SimSun";
+	float: left;
+	color: black;
+}
+
+.recommend-content-img img{
+	width: 80px;
+	height: 100px;
+	margin: 10px 0 0 10px;
+}
+
+.recommend-content-name
+{
+	margin: 20px 0 0 15px;
+}
+
+.recommend-content-name-content
+{
+	width: 75px;
+	height: 26px;
+	margin: 20px 0 0 10px;
+}
+
+.recommend-content-height
+{
+	margin: 20px 0 0 0px;
+}
+
+.recommend-content-height-content
+{
+	width: 75px;
+	height: 26px;
+	margin: 20px 0 0 10px;
+}
+
+.recommend-content-age,
+.recommend-content-address{
+	margin: 10px 0 0 15px;
+}
+
+.recommend-content-age-content,
+.recommend-content-address-content{
+	width: 75px;
+	height: 26px;
+	margin: 10px 0 0 10px;
+}
+
+
+
+.recommend-content-weight,
+.recommend-content-level{
+	margin: 10px 0 0 0px;
+}
+
+.recommend-content-weight-content,
+.recommend-content-level-content
+{
+	width: 75px;
+	height: 26px;
+	margin: 10px 0 0 10px;
+}
+
+.teacher{
+	width: 780px;
+	height: auto;
+	background: white;
+	margin: 30px 0 5px 12px;
+	color: #666666;
+	font-size: 26px;
+	font-family: "微软雅黑","Microsoft Yahei","Tahoma","SimSun";
+	float: left;
+}
+
+.teacher-tuijian{
+	display: block;
+	font-size: 26px;
+	margin:25px 0 0 80px;
+}
+
+.teacher video{
+	width:90%;
+	height: auto;
+	margin-left: 40px;
+	margin-top: 25px;
+	border-radius: 20px;
+}
+
+.teacher-tuijian-content{
+	width: 90%;
+	height: auto;
+	font-size: 18px;
+	margin:0 auto;
+	text-indent: 2em;
+	margin-top: 20px;
+	margin-bottom: 50px;
+	display: block;
+}
+
+.demonstration{
+	width: 780px;
+	height: auto;
+	background: white;
+	margin: 30px 0 5px 12px;
+	color: #666666;
+	font-size: 26px;
+	font-family: "微软雅黑","Microsoft Yahei","Tahoma","SimSun";
+	float: left;
+}
+
+.demonstration video{
+	width:90%;
+	height: auto;
+	margin-left: 40px;
+	margin-top: 25px;
+	border-radius: 20px;
+}
+
+
+/*
+ 弹出框样式
+
+*/
+
+#dialog {
+	background-color:#fff;
+	border:5px solid rgba(0,0,0, 0.4);
+	height:200px;
+	left:50%;
+	margin:-200px 0 0 -200px;
+	padding:1px;
+	position:fixed !important; /* 浮动对话框 */
+	position:absolute;
+	top:50%;
+	width:400px;
+	z-index:5;
+	border-radius:5px;
+	display:none;
+}
+#dialog p:nth-child(1) {
+	margin:0 0 5px;
+	height:24px;
+	line-height:24px;
+	background:deepskyblue;
+}
+#dialog p.close {
+	text-align:right;
+	display: inline-block;
+	width: 40px;
+	text-align: center;
+}
+#dialog p.close a {
+	color:darkslategrey;
+	text-decoration:none;
+}

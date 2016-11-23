@@ -1,0 +1,154 @@
+<include file="Nav/header"/>
+
+<style>
+
+	.icon_number{width: 30px; height: 20px; border-radius: 10px;display: inline-block;background: red;font-size:10px;color: #ffffff; line-height: 20px;text-align: center}
+</style>
+		<!--<div class="list_right">-->
+			<!--<div class="search">-->
+
+				<!--<?php if($_GET['type']==6||$_GET['type']<3||!$_GET['type']){?>-->
+
+				<!--&emsp;意向等级:-->
+				<!--<select style="width: 10%;height: 28px;" id="priority" name="priority">-->
+					<!--<option value="0">全部</option>-->
+					<!--<option value="1">非常有意向</option>-->
+					<!--<option value="2">比较有意向</option>-->
+					<!--<option value="3">一般</option>-->
+					<!--<option value="4">没有意向</option>-->
+				<!--</select>-->
+
+				<!--<?php }?>-->
+				<!--&emsp;招生顾问:-->
+				<!--<select style="width: 10%;height: 28px;" id="employee_name" name="employee_name">-->
+					<!--<option value="0">全部</option>-->
+					<!--<option value="张金丽">张金丽</option>-->
+					<!--<option value="曾军">曾军</option>-->
+				<!--</select>-->
+
+				<!--<span style="  margin-left: 30%; ">-->
+					<!--<input type="text" placeholder="输入学员姓名或联系电话进行搜索" style="width:20%;" id="keyword"/><input type="button" value="搜索" class="search-button"  id="find"/>-->
+				<!--</span>-->
+			<!--</div>-->
+			<if condition="$_GET['id'] gt 0 ">
+				<span style="margin-left: 150px;color: #47C8A2;">{$user_info.name}</span><span style="color: #999;">的目标</span>
+				<a href="__MODULE__/Goal/project/id/{$_GET['id']}"><i class="icon_number">项目</i></a>
+			<else/>
+				<span style="margin-left: 150px;color: #999;">所有目标</span>
+			</if>
+			<?php if($_SESSION[C('GOAL_AUTH_KEY')]['id'] == $user_info['pid']||$_SESSION[C('GOAL_AUTH_KEY')]['id'] == $user_info['id']){?>
+			<a href="__MODULE__/Goal/add_goal/id/<?php echo $_GET['id'];?>"><i class="icon_number" title="添加目标">＋</i></a>
+			<?php }?>
+
+			<input type="hidden" id="user_id" value="{$user_info.id}"/>
+			<input type="hidden" id="status" value="1"/>
+			<div class="table">
+
+				<table class="hovertable" id="nurse_list">
+					<tr>
+
+						<th>目标名称</th>
+						<th>担当者</th>
+						<th>所属项目</th>
+						<th>开始时间</th>
+						<th>目标耗时</th>
+						<!--<th>交付件</th>-->
+						<th>计划完成时间</th>
+						<th>我的完成时间</th>
+						<th>我的状态</th>
+						<th>项目是否完成</th>
+						<th>操作</th>
+					</tr>
+					<!--<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">-->
+						<!--<td>1</td>-->
+						<!--<td><img src="__UPLOADS__/nurse/57_HY2/head/5667f043bcf8c.jpg" title="点击看大图" style="width: 60px;height: 26px;" id="dd"/></td>-->
+						<!--<td>23</td>-->
+					    <!--<td>5000~5600</td>-->
+						<!--<td>牛</td>-->
+					<!--</tr>-->
+				</table>
+			</div>
+
+			<div class="page" id="pagenum" style="margin:25px auto;width: 80%; text-align: center;">
+
+
+			</div>
+
+
+
+		<!--</div>-->
+
+
+<img src="" id="divID">
+
+<div id="useBox" style="min-height: 1500px;">
+
+</div>
+
+<include file="Nav/footer"/>
+<script>
+
+	var user_id = $('#user_id').val();
+	var status = $('#status').val();
+	$("#showUse").live('click',function(){
+		var str_use = $(this).next('div').html();
+		$("#useBox").html(str_use);
+
+		if($("#useBox").css('display')=='block'){
+			$("#useBox").css('display','none');
+		}else{
+			var e_ = window.event || e; // 兼容IE，FF事件源
+			var x = e_.clientX,y = e_.clientY; // 获取鼠标位置
+
+			$("#useBox").css('left',(x-10)+'px');
+			$("#useBox").css('top',(y-15)+'px');
+			$("#useBox").css('display','block');
+		}
+	});
+	$("#useBox").live('click',function(){
+		$("#useBox").toggle();
+	});
+
+	$("#useBox").live('mouseon',function(){
+		$("#useBox").toggle();;
+	});
+
+
+
+	$("#dd").live('click',function(){
+		var src = $(this).attr('src');
+		$("#divID").attr('src',src);
+
+		if($("#divID").css('display')=='block'){
+			$("#divID").css('display','none');
+		}else{
+//			var e_ = window.event || e; // 兼容IE，FF事件源
+//			var x = e_.clientX,y = e_.clientY; // 获取鼠标位置
+//
+//			$("#divID").css('left',(x-90)+'px');
+////			if((y-100)>$("#divID").height()){
+////				y = y-$("#divID").height();
+////			}
+//			$("#divID").css('top',(y-90)+'px');
+			$("#divID").css('display','block');
+		}
+	});
+	$("#divID").live('click',function(){
+		$("#divID").css('display','none');
+	});
+
+//	$("#divID").live('mouseon',function(){
+//		$("#divID").css('display','block');
+//	});
+//	$("#divID").live('mouseout',function(){
+//		$("#divID").css('display','none');
+//	});
+
+
+
+</script>
+
+	<script src="__PUBLIC__/js/trainee.js"></script>
+	<script src="__PUBLIC__/js/common.js"></script>
+
+</html>

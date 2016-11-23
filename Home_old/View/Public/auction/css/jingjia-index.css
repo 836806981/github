@@ -1,0 +1,397 @@
+
+/*
+ * 
+ * 
+ * 月嫂页面
+ * 
+ * 
+ * */
+
+.banquan{
+	width: 450px;
+	height: 80px;
+	margin: 0 auto;
+	text-align: center;
+	color: #525252;
+
+	line-height: 30px;
+	font-size: 16px;
+	font-family: "microsoft yahei" arial;
+}
+
+
+.head{
+	width: 1200px;
+	height: 150px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.tel{
+	width:300px;
+	height: 105px;
+	float: right;
+	background: url(../img/jingjia-yuesao_03.png)  no-repeat right;
+	margin-top: 23px;
+	margin-bottom: 22px;
+}
+
+.tel a{
+	display: inline-block;
+	margin-top: 65px;
+	margin-right: 5px;
+}
+
+.erweima{
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	top: 15px;
+	right: 230px;
+	display: none;
+}
+
+
+.banner-bg{
+	width: 100%;
+	height: 655px;
+	background-color: #e5fbfa;
+}
+
+.banner{
+	width: 1200px;
+	height: 655px;
+	margin: 0 auto;
+	background: url(../img/jingjia-yuesao_07.png) no-repeat center;
+}
+
+.fisrt-button{
+	display: inline-block;
+	width: 128px;
+	height: 42px;
+	border: 1px solid white;
+	border-radius: 5px;
+	background-color:#47c8a2;
+	color: white;
+	font-family: "microsoft yahei";
+	font-size: 18px;
+	text-align: center;
+	line-height: 40px;
+	margin-top: 465px;
+	margin-left: 150px;
+}
+
+/*.fisrt-button:hover{
+	background-color:white;
+	color: #47C8A2;
+	border: 1px solid #47C8A2;
+}*/
+
+.second-button{
+	display: inline-block;
+	width: 128px;
+	height: 42px;
+	border:1px solid #47C8A2;
+	border-radius: 5px;
+	background-color:white;
+	color: #333;
+	font-family: "microsoft yahei";
+	font-size: 18px;
+	text-align: center;
+	line-height: 38px;
+	margin-top: 465px;
+	margin-left: 40px;
+}
+/*
+.second-button:hover{
+	background-color:#47C8A2;
+	color: white;
+	border: 1px solid white;
+}
+*/
+
+.different1{
+	width: 100%;
+	height: 92px;
+	background-color: #a7d8e4;
+	margin-top: 110px;
+}
+
+.different1 div{
+	width: 1200px;
+	height: 92px;
+	margin: 0 auto;
+	background: url(../img/jingjia-yuesao_10.png) no-repeat center;
+}
+
+.different-content{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.different-content1{
+	width: 577px;
+	height: 631px;
+	float: left;
+	margin-top: 80px;
+	background: url(../img/jingjia-yuesao_14.png) no-repeat center;
+}
+
+.different-content2{
+	width: 577px;
+	height: 631px;
+	float: left;
+	margin-top: 80px;
+	margin-left: 20px;
+	background: url(../img/jingjia-yuesao_16.png) no-repeat center;
+}
+
+.different2{
+	width: 100%;
+	height: 92px;
+	background-color: #a7d8e4;
+	margin-top: 110px;
+}
+
+.different2 div{
+	width: 1200px;
+	height: 92px;
+	margin: 0 auto;
+	background: url(../img/jingjia-yuesao_21.png) no-repeat center;
+}
+
+.jingjia-yuesao_24{
+	width: 1200px;
+	height: 443px;
+	margin: 0 auto;
+	margin-top: 80px;
+	margin-bottom: 100px;
+	background: url(../img/jingjia-yuesao_24.png) no-repeat center;
+}
+
+.jingjia-yuesao-28{
+	width: 1264px;
+	height: 461px;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 30px;
+	background: #f1ebe5;
+}
+
+.jingjia-yuesao-31{
+	width: 100%;
+	height: 92px;
+	background-color: #a7d8e4;
+	margin-top: 60px;
+}
+
+.jingjia-yuesao-31 div{
+	width: 1144px;
+	height: 92px;
+	margin: 0 auto;
+	background:url(../img/jingjia-yuesao_31.png) no-repeat center;
+}
+
+.jingjia-yuesao-33{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.true-bg{
+	width: 100%;
+	height: auto;
+	background: #F1EBE5;
+	margin-top: 100px;
+}
+
+.true{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 20px;
+	
+}
+
+.true-content{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.true-content img{
+	float: left;
+	margin-top: 80px;
+	margin-left: 30px;
+}
+
+.jingjia-yuesao-73{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 80px;
+	text-align: center;
+}
+
+
+.product{
+	width: 100%;
+	height: auto;
+	background: #a7d8e4;
+}
+
+.product-content{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 60px;
+}
+
+.product-content a{
+	display: inline-block;
+	margin-top: 80px;
+	margin-left: 140px;
+}
+
+.form{
+	width: 1200px;
+	height: 426px;
+	margin: 0 auto;
+	padding-top: 230px;
+	background: url(../img/jingjia-yuesao_91.png) no-repeat ;
+}
+
+.submit-kuang{
+	width: 500px;
+	height: 300px;
+	margin-left: 350px;
+	padding-top: 55px;
+	background: rgba(255,255,255,0.5);
+}
+
+.submit-kuang p{
+	width: 500px;
+	height: 50px;
+	color: #fa8c35;
+	text-align: center;
+	line-height: 50px;
+	font-size: 28px;
+	font-family: "microsoft yahei";
+	letter-spacing: 4px;
+}
+
+.name{
+	display: inline-block;
+	width: 243px;
+	height: 46px;
+	margin-left: 120px;
+	margin-top: 30px;
+	border-radius: 5px;
+	background: #FA8C35;
+	color: white;
+	line-height: 46px;
+	font-size: 24px;
+	font-family: "microsoft yahei";
+	letter-spacing: 4px;
+	padding-left: 10px;
+}
+
+.name input{
+	display: inline-block;
+	border: none;
+	width: 170px;
+	height: 30px;
+	background: #FA8C35;
+	font-size: 22px;
+	color: white;
+	margin-left: 10px;
+}
+
+.tijiao{
+	display: inline-block;
+	width: 132px;
+	height: 48px;
+	background: #36bbf6;
+	color: white;
+	line-height: 48px;
+	font-size: 22px;
+	text-align: center;
+	border-radius: 5px;
+	margin-top: 25px;
+	margin-left: 185px;
+	font-family: "microsoft yahei";
+	cursor: pointer;
+}
+
+
+/*
+ * 
+ * 
+ * 育儿嫂页面
+ * 
+ * 
+ * */
+
+.yuersao-banner-bg{
+	width: 100%;
+	height: 655px;
+	background-color: #fbe5e4;
+}
+
+.yuersao-banner{
+	width: 1200px;
+	height: 655px;
+	margin: 0 auto;
+	background:url(../img/yuersao/jingjia-yuersao_03.png) no-repeat center;
+}
+
+
+/*
+ * 
+ * 
+ * 保姆页面
+ * 
+ * 
+ * */
+
+.baomu-banner-bg{
+	width: 100%;
+	height: 655px;
+	background-color: #f4f2f1;
+}
+
+.baomu-banner{
+	width: 1200px;
+	height: 655px;
+	margin: 0 auto;
+	background:url(../img/baomu/jingjia-baomu_03.png) no-repeat center;
+}
+
+
+/*
+ * 
+ * 
+ * 招聘页面
+ * 
+ * 
+ * */
+
+
+.zhaopin-banner-bg{
+	width: 100%;
+	height: 655px;
+	background-color: #b0e2e0;
+}
+
+.zhaopin-banner{
+	width: 1200px;
+	height: 655px;
+	margin: 0 auto;
+	background:url(../img/zhaopin/jingjia-zhaopin_03.png) no-repeat center;
+}
+
+
+

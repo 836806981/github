@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>{$news_info.title}</title>
+		<meta name="description" content="{$news_info.description}"/>
+		<meta name="keywords" content="{$news_info.keyword}"/>
+		<link rel="stylesheet" href="__PUBLIC__/css/usually.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/news.css" />
+		<script type="text/javascript" src="__PUBLIC__/js/lunbo.js" ></script>
+	</head>
+	<body>
+	<include file="Index/header1"/>
+	<include file="Index/header2"/>
+		
+		<script>
+			$(".nav>li").eq(1).addClass("active");
+		</script>
+
+
+		<div class="nCnt">
+			<div class="content f-cb">
+				<p class="address">当前页面：首页&gt;<a href="__ROOT__/m/yuesao.html">月嫂</a>&gt;{$nav_name_url}新闻详情</p>
+				<div class="nCnt_lef f-cb">
+					<p class="nTle">{$news_info.title}</p>
+					<p class="nInf f-cb">
+						<span class="f-fl">关键词：
+
+						<volist name="keyword" id="vo" offset="0" length='4'>
+							<a href="__ROOT__/m/keywords/{$vo}">{$vo}</a> &nbsp;
+							<!--{$vo}-->
+						</volist>
+
+
+						</span>
+						<span class="f-fr">时间：{$news_info.add_time}&nbsp;&nbsp;&nbsp;&nbsp;作者：{$news_info.author}</span>
+					</p>
+					<div class="nTxt">
+						{$news_info.content|htmlspecialchars_decode}
+					</div>
+
+					<!--上一篇下一篇开始-->
+					<p class="f-cb">
+						<?php if($down_news&&down_news!=''){?>
+						<a href="__ROOT__/m/<?php echo $belong_url;?>/<?php echo $down_news[0]['id'];?>.html" class="next-article">上一篇：<?php echo $down_news[0]['title'];?></a>
+						<?php }else{?>
+					<span class="next-article">
+					下一篇：没有了
+						</span>
+						<?php }?>
+
+						<?php if($up_news&&up_news!=''){?>
+						<a href="__ROOT__/m/<?php echo $belong_url;?>/<?php echo $up_news[0]['id'];?>.html" class="last-article">下一篇：<?php echo $up_news[0]['title'];?></a>
+						<?php }else{?>
+					<span class="last-article">
+					上一篇：没有了
+						</span>
+						<?php }?>
+
+					</p>
+
+					<!--上一篇下一篇结束-->
+				</div>
+
+
+				
+				<div class="nCnt_rgt">
+					<div class="sea">
+						<input type="text" class="sea_ipt" value="" placeholder="此处输入关键词" id="keywords"/>
+						<input type="submit" class="sea_sub"  value="&nbsp;" id="search"/>
+					</div>
+
+					<div class="rgt_pic">
+						<a href="__ROOT__/tejiayuesao" target="_blank"><img src="__PUBLIC__/img/adv1.jpg"/></a>
+					</div>
+					
+					<div class="recommend">
+						<p class="recommendTle">推荐阅读<i class="bl"></i></p>
+						<ul>
+							<volist name="news_right_list" id="vo">
+
+								<li><a class="f-cb" href="__ROOT__/m/{$vo.belong_url}/{$vo.id}"><span class="rec_tle">{$vo.title}</span><span class="rec_time">{$vo.add_time}</span></a></li>
+
+
+							</volist>
+
+							<!--<li><a class="f-cb" href="#"><div class="rec_tle">这是一个推荐阅读标题甜甜提提</div><span class="rec_time">2016.05.06</span></a></li>-->
+							<!--<li><a class="f-cb" href="#"><div class="rec_tle">这是一个推荐阅读标题甜甜提提</div><span class="rec_time">2016.05.06</span></a></li>-->
+							<!--<li><a class="f-cb" href="#"><div class="rec_tle">这是一个推荐阅读标题甜甜提提</div><span class="rec_time">2016.05.06</span></a></li>-->
+							<!--<li><a class="f-cb" href="#"><div class="rec_tle">这是一个推荐阅读标题甜甜提提</div><span class="rec_time">2016.05.06</span></a></li>-->
+							<!--<li><a class="f-cb" href="#"><div class="rec_tle">这是一个推荐阅读标题甜甜提提</div><span class="rec_time">2016.05.06</span></a></li>-->
+							<!--<li><a class="f-cb" href="#"><div class="rec_tle">这是一个推荐阅读标题甜甜提提</div><span class="rec_time">2016.05.06</span></a></li>-->
+							<!--<li><a class="f-cb" href="#"><div class="rec_tle">这是一个推荐阅读标题甜甜提提</div><span class="rec_time">2016.05.06</span></a></li>-->
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+	<include file="Index/footer"/>
+
+
+	<script>
+
+		$('#search').live('click',function(){
+			var keywords = $('#keywords').val();
+			if(keywords&&keywords!=''){
+				window.location.href = ROOT +"/keywords/"+keywords;
+			}
+		});
+
+	</script>
+	</body>
+</html>

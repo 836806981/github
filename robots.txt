@@ -1,0 +1,27 @@
+User-agent: *
+Disallow: /
+Disallow: /Admin
+Disallow: /Ayi
+Disallow: /Common
+Disallow: /Goal
+Disallow: /NAdmin
+Disallow: /Order
+Disallow: /Phone
+Disallow: /Runtime
+Disallow: /ThinkPHP
+Disallow: /Trainee
+Disallow: /Training
+Disallow: /Uploads
+Disallow: /Home_old
+Disallow: /beifen
+Disallow: /Video
+Disallow: /admin.php/*
+Disallow: /nadmin.php/*
+Disallow: /ayi.php/*
+Disallow: /order.php/*
+Disallow: /trainee.php/*
+Disallow: /training.php/*
+Disallow: /goal.php/*
+Disallow: /goal.php/*
+
+Sitemap:http://www.tianluoayi.com/sitemap.html

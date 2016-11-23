@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>【成都田螺阿姨月嫂服务及价格】月嫂_金牌月嫂_月嫂价格</title>
+		<meta name="description" content="成都田螺阿姨为您提供月嫂服务和金牌月嫂服务，同时为您提供成都月嫂价格/月嫂服务价格咨询，咨询成都月嫂价格|金牌月嫂价格|普通月嫂服务价格请拨打4008086090."/>
+		<meta name="keywords" content="月嫂,金牌月嫂,月嫂价格,月嫂服务价格,金牌月嫂价格,金牌月嫂服务价格,成都月嫂服务价格,成都金牌月嫂服务价格,成都金牌月嫂服务,"/>
+
+		<link rel="stylesheet" href="__PUBLIC__/css/usually.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/yuesao.css" />
+	</head>
+	<body>
+	<include file="Index/header1"/>
+	<include file="Index/header2"/>
+
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.carousel.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/layer/layer.js" ></script>
+
+		<script>
+			$(".nav li").eq(1).addClass("active");
+			var PRICE_NUMBER = 1;
+			var SCALE = 1;
+		</script>
+
+
+
+		<div class="page page1">
+			<div class="content">
+				<div class="page1cnt f-cb">
+					<div class="page1cnt_lft f-cb">
+						<div class="page1cnt_o">
+							<p class="p1">方便快捷</p>
+							<p class="p2">最快速度为您挑选阿姨</p>
+						</div>
+						<div class="page1cnt_t">
+							<p class="p1">安全保障</p>
+							<p class="p2">免费体检+百万保险</p>
+						</div>
+					</div>
+					<div class="page1cnt_rgt f-cb">
+						<ul class="f-cb">
+							<li>
+								累计已培养月嫂<br/><span>1000+</span>名
+							</li>
+							<li>
+								累计服务客户<br/><span>1000+</span>家
+							</li>
+							<li class="last_li">
+								累计服务城市<br/><span>30+</span>个
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page page2">
+			<div class="content">
+				<p class="page_tle">母婴护理服务<span>YUESAO SERVICE</span></p>
+				<div class="page_cnt f-cb">
+					<img src="__PUBLIC__/img/ys2.png" class="img_ys2" alt="月嫂服务，金牌月嫂服务，月嫂服务价格，金牌月嫂服务价格" />
+					<div class="page2_info">
+						<p class="p1">
+							月嫂26天的贴身护理<br />
+							全程服务督导<br />
+							100万人身+财产保险一份
+						</p>
+						<div class="xuan">
+							<input value="5880" type="button" class="btn" price="btn"/>
+							<input value="7880" type="button" class="btn active" price="btn"/>
+							<input value="9880" type="button" class="btn" price="btn"/>
+							<input value="12880" type="button" class="btn" price="btn"/>
+						</div>
+						<p class="p2">注：西南四省（四川、云南、贵州、重庆、成都）免交通费用，异地客户承担往返交通费用</p>
+						<input value="立即购买" type="button" class="btn" onclick="buy()" id="buy_now"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+//		   	选中的样式
+			$(function(){
+				$("input[price=btn]").click(function() {
+					PRICE_NUMBER = $("input[price=btn]").index(this);
+					$(this).addClass("active").siblings().removeClass("active");
+				});
+			});
+//			购买窗口
+			function buy(){
+				SCALE = 1;
+
+				layer.open({
+				  	type: 1,
+				  	title: '',
+					area: ['auto', 'auto'], //宽高
+					content: '<form action="__ROOT__/doalipay" method="post" id="form_buy" enctype="multipart/form-data">'
+							+'<div class="open_info">'
+							+	'<ul>'
+							+		'<li>'
+							+			'<label>价格：</label>'
+							+			'<div class="xuan">'
+							+				'<input value="5880" type="button" class="btn" price="btn_n"/>'
+							+				'<input value="7880" type="button" class="btn active"  price="btn_n"/>'
+							+				'<input value="9880" type="button" class="btn"  price="btn_n"/>'
+							+				'<input value="12880" type="button" class="btn"  price="btn_n"/>'
+							+				'<input value="" type="hidden" name="total_fee" id="total_fee"/>'
+							+				'<input value="" type="hidden" name="total_fee_choice" id="total_fee_choice"/>'
+							+			'</div>'
+							+		'</li>'
+							+		'<li><label>付款比例：</label><input type="radio" name="scale" value="0.2"/>20% &nbsp;&nbsp;'
+							+ 					'<input type="radio" name="scale" value="0.3"/>30% &nbsp;&nbsp;'
+							+ 					'<input type="radio" name="scale" value="0.5"/>50% &nbsp;&nbsp;'
+							+ 					'<input type="radio" name="scale" value="0.8"/>80% &nbsp;&nbsp;'
+							+ 					'<input type="radio" name="scale" value="1" checked/>100%</li>'
+							+		'<li><label>付款金额：</label><input type="text" class="txt" name="total_fee_show" id="total_fee_show"  value="" readonly/></li>'
+							+		'<li><label>姓名：</label><input type="text" class="txt" name="buy_name" id="buy_name"  value=""></li>'
+							+		'<li><label>地区：</label><input type="text" class="txt" name="area" id="area"  value=""></li>'
+							+		'<li><label>联系电话：</label><input type="text" class="txt" name="phone" id="phone" value=""></li>'
+							+		'<li>'
+							+			'<label>订单要求：</label>'
+							+			'<textarea class="txtarea" id="txtarea" name="ask">请认真填写，提交购买后会有工作人员与您联系</textarea>'
+							+		'</li>'
+							+		'<li class="last_li">'
+							+			'<input value="立即购买" type="button" class="btn queren" id="sub_buy"/>'
+							+		'</li>'
+							+	'</ul>'
+							+'</div>'
+					        +	'</form>'
+				});
+				clearfont();
+				$(function(){
+					$("input[price=btn_n]").click(function() {
+						SCALE = $('input[name=scale]:checked').val();//弹框付款金额
+						PRICE_NUMBER = $("input[price=btn_n]").index(this);//弹框金额选择
+						$(this).addClass("active").siblings().removeClass("active");//弹框金额选择样式
+						$("input[price=btn]").eq(PRICE_NUMBER).addClass("active").siblings().removeClass("active");//页面样式
+
+						$('#total_fee').val($("input[price=btn_n]").eq(PRICE_NUMBER).val()*SCALE);//计算实际支付金额到total_fee
+						$('#total_fee_choice').val($("input[price=btn_n]").eq(PRICE_NUMBER).val());//计算实际应付支付金额到total_fee_choice
+						$('#total_fee_show').val($("input[price=btn_n]").eq(PRICE_NUMBER).val()*SCALE);//显示实际支付金额
+					});
+					$("input[price=btn_n]").eq(PRICE_NUMBER).addClass("active").siblings().removeClass("active");//根据页面显示所选金额
+					$('#total_fee').val($("input[price=btn_n]").eq(PRICE_NUMBER).val()*SCALE);//计算实际支付金额到total_fee
+					$('#total_fee_choice').val($("input[price=btn_n]").eq(PRICE_NUMBER).val());//计算实际应付支付金额到total_fee_choice
+					$('#total_fee_show').val($("input[price=btn_n]").eq(PRICE_NUMBER).val()*SCALE);//显示实际支付金额
+
+					$("input[name=scale]").click(function() {
+						SCALE = $('input[name=scale]:checked').val();//弹框付款金额
+						$('#total_fee').val($("input[price=btn_n]").eq(PRICE_NUMBER).val()*SCALE);//计算实际支付金额到total_fee
+						$('#total_fee_show').val($("input[price=btn_n]").eq(PRICE_NUMBER).val()*SCALE);//显示实际支付金额
+					});
+				});
+
+
+
+				$('#sub_buy').click(function(){
+					var reg2 = /^((0?1[34578]\d{9})|((0(10|2[1-9]|[3-9]\d{2}))?(-)?[1-9]\d{6,7}))$/;
+					if($('#total_fee').val()==''){
+						layer.msg('请选择价位');
+						return false;
+					}else if(!(reg2.test($("#phone").val()))){
+						layer.msg('请填写正确的联系电话');
+						return false;
+					}else  if($('#buy_name').val()==''){
+						layer.msg('请填写姓名或称呼');
+						return false;
+					}else  if($('#area').val()==''){
+						layer.msg('请填写地区');
+						return false;
+					}else  if($('#txtarea').val()==''||$('#txtarea').val()=='请认真填写，提交购买后会有工作人员与您联系'){
+						layer.msg('请填写订单要求');
+						return false;
+					}
+
+					$('#form_buy').submit();
+				});
+
+				$("#k_s_ol_inviteWin").css("z-index","1000");
+
+			}
+
+//			文本框文字提示
+			function clearfont(){
+
+				var str = "请认真填写，提交购买后会有工作人员与您联系";
+				$("#txtarea").focus(function(){
+					$(this).text("");
+				});
+				$("#txtarea").blur(function(){
+					var val = $(this).text();
+					if(val=="" || val == null) $(this).text(str);
+				});
+			}
+			
+		</script>
+		
+		<div class="page page3">
+			<div class="content">
+				<p class="page_tle">母婴护理学院<span>YUESAO SCHOOL</span></p>
+				<div class="page_cnt f-cb">
+					<p class="p1">我们的护理员均来自田螺阿姨母婴护理学院，拥有月子酒店工作经验。</p>
+					<div class="page3img">
+						<img src="__PUBLIC__/img/ys3.jpg" alt="成都田螺阿姨月嫂服务/金牌月嫂服务价格，图为田螺阿姨月嫂公司现场"/>
+						<img src="__PUBLIC__/img/ys4.jpg" alt="成都田螺阿姨月嫂服务/金牌月嫂服务价格，图为田螺阿姨月嫂公司现场"/>
+						<img src="__PUBLIC__/img/ys5.jpg" alt="成都田螺阿姨月嫂服务/金牌月嫂服务价格，图为田螺阿姨月嫂公司现场"/>
+						<img src="__PUBLIC__/img/ys6.jpg" alt="成都田螺阿姨月嫂服务/金牌月嫂服务价格，图为田螺阿姨月嫂公司现场"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="__PUBLIC__/js/jquery.als-1.7.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() 
+			{
+				$("#demo").als({
+					visible_items: 5,
+					scrolling_items: 1,
+					orientation: "horizontal",
+					circular: "yes",
+					autoscroll: "yes",
+					interval: 2000
+				});
+			});
+		</script>
+		<div class="page page4">
+			<div class="content">
+				<p class="page_tle">客户的选择<span>CUSTOMER CHOICE</span></p>
+				<div class="page_cnt f-cb">
+					<p class="p1">上千家庭的选择<br />PICC百万保险，美年大健康32项体检</p>
+					<div class="als-container" id="demo">
+					  <span class="als-prev"></span>
+					  <div class="als-viewport">
+					    <ul class="als-wrapper">
+					      <li class="als-item"><img src="__PUBLIC__/img/ys12.jpg" alt="成都田螺阿姨月嫂服务/金牌月嫂服务价格，图为田螺阿姨月嫂公司现场" /></li>
+					      <li class="als-item"><img src="__PUBLIC__/img/ys8.jpg" alt="成都田螺阿姨月嫂服务/金牌月嫂服务价格，图为田螺阿姨月嫂公司现场" /></li>
+					      <li class="als-item"><img src="__PUBLIC__/img/ys14.png" alt="成都田螺阿姨月嫂服务/金牌月嫂服务价格，图为田螺阿姨月嫂公司现场" /></li>
+					      <li class="als-item"><img src="__PUBLIC__/img/ys9.jpg" alt="成都田螺阿姨月嫂服务/金牌月嫂服务价格，图为田螺阿姨月嫂公司现场" /></li>
+					      <li class="als-item"><img src="__PUBLIC__/img/ys10.jpg" alt="成都田螺阿姨月嫂服务/金牌月嫂服务价格，图为田螺阿姨月嫂公司现场" /></li>
+					      <li class="als-item"><img src="__PUBLIC__/img/ys11.jpg" alt="成都田螺阿姨月嫂服务/金牌月嫂服务价格，图为田螺阿姨月嫂公司现场" /></li>
+					    </ul>
+					  </div>
+					  <span class="als-next"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+		
+		
+		<div class="page page5">
+			<div class="content">
+				<p class="page_tle">我们的产品<span>OUR PRODUCT</span></p>
+				<div class="page_cnt f-cb">
+					<div class = "caroursel poster-main" data-setting = '{
+				        "width":1100,
+				        "height":330,
+				        "posterWidth":572,
+				        "posterHeight":329,
+				        "scale":0.8,
+				        "dealy":"2000",
+				        "algin":"middle"
+				    }'>
+				        <ul class = "poster-list">
+				            <li class = "poster-item li5880"><input type="button" value="立即购买" class="btn"/></li>
+				            <li class = "poster-item li7880"><input type="button" value="立即购买" class="btn"/></li>
+				            <li class = "poster-item li9880"><input type="button" value="立即购买" class="btn"/></li>
+				            <li class = "poster-item li12880"><input type="button" value="立即购买" class="btn"/></li>
+				            <li class = "poster-item li7880"><input type="button" value="立即购买" class="btn"/></li>
+				        </ul>
+				        <div class = "poster-btn poster-next-btn"></div>
+				        <div class = "poster-btn poster-prev-btn"></div>
+				    </div>
+				</div>
+			</div>
+		</div>
+		<script>
+		    Caroursel.init($('.caroursel'))
+
+			//点击下方banner购买执行。选价并弹窗
+			$('.poster-list').find('.btn').live('click',function(){
+				var class_name = $(".poster-item").index($(this).parent('li'));
+				class_name==4?class_name=1:'';
+				$("input[price=btn]").eq(class_name).click();
+				$('#buy_now').click();
+			});
+
+
+
+		</script>
+
+
+		<div class="page page6">
+			<div class="page6_1">
+				<div class="content">
+					<p>把月子中心带回家</p>
+				</div>
+			</div>
+			<div class="page6_2 server">
+				<div class="content">
+					<div class="div1">
+						<p class="p1">婴儿基础护理</p>
+						<p class="p2">喂养、起居照顾、用具清洗消毒</p>
+					</div>
+				</div>
+			</div>
+			<div class="page6_3 server">
+				<div class="content f-cb">
+					<div class="div1">
+						<p class="p1">增值服务2</p>
+						<p class="p2">营养师定制食谱 / 心理疏导 / PICC百万保险<br/>产妇房监测</p>
+					</div>
+					<div class="div2">
+						<p class="p1">生长体征监控</p>
+						<p class="p2">身高、体重、常见生理现象/体征</p>
+					</div>
+				</div>
+			</div>
+			<div class="page6_4 server">
+				<div class="content f-cb">
+					<div class="div1">
+						<p class="p1">增值服务1</p>
+						<p class="p2">儿童保健 / 通乳医师上门<br/>孕检陪护 / 产后美容 </p>
+					</div>
+					<div class="div2">
+						<p class="p1">婴儿沐浴</p>
+						<p class="p2">脐带护理、五官护理、身体<br/>清洗、抚触按摩</p>
+					</div>
+				</div>
+			</div>
+			<div class="page6_5 server">
+				<div class="content f-cb">
+					<div class="div1">
+						<p class="p1">产妇疾病观察</p>
+						<p class="p2">乳腺炎、产褥热、产后腰腿痛</p>
+					</div>
+					<div class="div2">
+						<p class="p1">疾病观察</p>
+						<p class="p2">黄疸、湿疹、红屁股、肺炎、鹅口疮等</p>
+					</div>
+				</div>
+			</div>
+			<div class="page6_6 server">
+				<div class="content">
+					<div class="div1">
+						<p class="p1">产妇基础护理</p>
+						<p class="p2">产褥期卫生、乳房护理、缠腹带 </p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+		<div class="page page7">
+			<div class="content">
+				<p class="page_tle">服务流程<span>SERVICE PROCESS</span></p>
+				<div class="page_cnt">
+					<ul class="f-cb">
+						<li class="li1">沟通咨询</li>
+						<li class="li2">签订合同</li>
+						<li class="li3">产前沟通</li>
+						<li class="li4">导师上户</li>
+						<li class="li5">月嫂入户</li>
+						<li class="li6">服务督导</li>
+						<li class="li7">售后服务</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="page page8">
+			<div class="content">
+				<p class="page_tle">服务保障<span>SERVICE ASSURANCE</span></p>
+				<div class="page_cnt">
+					<ul class="f-cb">
+						<li class="li1">持证上岗</li>
+						<li class="li2">3天试用更换</li>
+						<li class="li3">全国可达</li>
+						<li class="li4">标准定价</li>
+						<li class="li5">售后保障</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="page9"></div>
+
+
+	<include file="Index/footer"/>
+
+	<script src="__PUBLIC__/js/jquery.longyuJs.js"></script>
+
+
+	</body>
+	<script type="text/javascript" src="__PUBLIC__/js/fzAnimation.js" ></script>
+	
+</html>

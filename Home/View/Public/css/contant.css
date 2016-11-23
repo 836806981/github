@@ -1,0 +1,35 @@
+.footer{
+	margin-top: 60px;
+}
+
+.page{
+	width: 100%;
+}
+.page>.content{
+	padding: 60px 0;
+}
+.map{
+	width: 580px;
+	height: 400px;
+	overflow: hidden;
+	background: #999999;
+	float: left;
+	-webkit-box-shadow: 0px 0px 8px;
+	-moz-box-shadow: 0px 0px 8px;
+	-o-box-shadow: 0px 0px 8px;
+	box-shadow: 0px 0px 8px;
+}
+.page>.content>.font{
+	width: 600px;
+	float: right;
+}
+.page>.content>.font>.p1{
+	font-size: 22px;
+	color: #333333;
+	margin-bottom: 52px;
+}
+.page>.content>.font>.p2{
+	font-size: 18px;
+	color: #666666;
+	line-height: 30px;
+}

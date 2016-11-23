@@ -1,0 +1,124 @@
+<include file="Nav/header"/>
+
+<style>
+
+	.icon_number{width: 30px; height: 20px; border-radius: 10px;display: inline-block;background: red;font-size:10px;color: #ffffff; line-height: 20px;text-align: center;}
+</style>
+
+
+
+
+			<input type="hidden" id="user_id" value="{$user_info.id}"/>
+			<input type="hidden" id="status" value="1"/>
+			<div class="table">
+				<if condition="$_GET['id'] gt 0 ">
+				<span style="margin-left: 150px;color: #47C8A2;">{$user_info.name}</span><span style="color: #999;">发起的项目</span>
+					<a href="__MODULE__/Goal/goal/id/{$_GET['id']}"><i class="icon_number">目标</i></a>
+					<else/>
+					<span style="margin-left: 150px;color: #999;">所有项目</span>
+				</if>
+				<table class="hovertable" id="nurse_list">
+					<tr>
+
+						<th>项目名称</th>
+						<th>发起者</th>
+						<th>开始时间</th>
+						<th>项目耗时</th>
+						<th>计划完成时间</th>
+						<th>实际完成时间</th>
+						<th>状态</th>
+						<th>操作</th>
+					</tr>
+					<!--<tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">-->
+						<!--<td>1</td>-->
+						<!--<td><img src="__UPLOADS__/nurse/57_HY2/head/5667f043bcf8c.jpg" title="点击看大图" style="width: 60px;height: 26px;" id="dd"/></td>-->
+						<!--<td>23</td>-->
+					    <!--<td>5000~5600</td>-->
+						<!--<td>牛</td>-->
+					<!--</tr>-->
+				</table>
+			</div>
+
+			<div class="page" id="pagenum" style="margin:25px auto;width: 80%; text-align: center;">
+
+
+			</div>
+
+
+
+		<!--</div>-->
+
+
+<img src="" id="divID">
+
+<div id="useBox" style="min-height: 1500px;">
+
+</div>
+
+<include file="Nav/footer"/>
+<script>
+
+	var user_id = $('#user_id').val();
+	var status = $('#status').val();
+	$("#showUse").live('click',function(){
+		var str_use = $(this).next('div').html();
+		$("#useBox").html(str_use);
+
+		if($("#useBox").css('display')=='block'){
+			$("#useBox").css('display','none');
+		}else{
+			var e_ = window.event || e; // 兼容IE，FF事件源
+			var x = e_.clientX,y = e_.clientY; // 获取鼠标位置
+
+			$("#useBox").css('left',(x-10)+'px');
+			$("#useBox").css('top',(y-15)+'px');
+			$("#useBox").css('display','block');
+		}
+	});
+	$("#useBox").live('click',function(){
+		$("#useBox").toggle();
+	});
+
+	$("#useBox").live('mouseon',function(){
+		$("#useBox").toggle();;
+	});
+
+
+
+	$("#dd").live('click',function(){
+		var src = $(this).attr('src');
+		$("#divID").attr('src',src);
+
+		if($("#divID").css('display')=='block'){
+			$("#divID").css('display','none');
+		}else{
+//			var e_ = window.event || e; // 兼容IE，FF事件源
+//			var x = e_.clientX,y = e_.clientY; // 获取鼠标位置
+//
+//			$("#divID").css('left',(x-90)+'px');
+////			if((y-100)>$("#divID").height()){
+////				y = y-$("#divID").height();
+////			}
+//			$("#divID").css('top',(y-90)+'px');
+			$("#divID").css('display','block');
+		}
+	});
+	$("#divID").live('click',function(){
+		$("#divID").css('display','none');
+	});
+
+//	$("#divID").live('mouseon',function(){
+//		$("#divID").css('display','block');
+//	});
+//	$("#divID").live('mouseout',function(){
+//		$("#divID").css('display','none');
+//	});
+
+
+
+</script>
+
+	<script src="__PUBLIC__/js/project.js"></script>
+	<script src="__PUBLIC__/js/common.js"></script>
+
+</html>

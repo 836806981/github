@@ -1,0 +1,327 @@
+
+.zhaopinfuwu{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.zhaopin-biaoti{
+	margin-top: 50px;
+	margin-left: 250px;
+	margin-bottom: 50px;	
+}	
+
+
+.about-bg{
+	width: 100%;
+	height: auto;
+	background-color:#f8f8f8;
+	box-shadow: 0 0 10px #EEEEEE;
+	margin-top: 60px;
+}
+
+.aboutyuesao{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.aboutyuesao-biaoti{
+	margin-top: 50px;
+	margin-left: 250px;
+	margin-bottom: 50px;	
+}	
+
+.aboutyuesao-img1{
+	
+}
+
+.aboutyuesao-img2{
+	margin-left: 20px;
+}
+
+.aboutyuesao-img3{
+	margin-left: 20px;
+}
+
+.aboutyuesao-img4{
+	margin:100px 0 100px 150px;
+}
+
+.ourbaozhang{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.baozhang-biaoti{
+	margin-top: 50px;
+	margin-left: 250px;
+	margin-bottom: 50px;	
+	float: left;
+}	
+
+.peixunbaozhang{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.peixun-biaoti{
+	margin-top: 100px;
+	margin-bottom: 50px;	
+}
+
+
+
+
+
+
+
+
+
+
+/*通乳css*/
+
+
+.tongru-biaoti{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.wenzi-1{
+	width: 1200px;
+	height: 410px;
+	background: url(../../img/tongru/wenzi-bg1.png) no-repeat center;
+	margin:0 auto;
+	margin-top: 20px;
+}
+
+.wenzi-1-biaoti{
+	width: 200px;
+	height: 40px;
+	color: #333333;
+	font-size: 28px;
+	font-family: "microsoft yahei";
+	margin-left: 530px;
+	padding-top: 40px;
+}
+
+.wenzi-1-content{
+	width: 650px;
+	height: 400px;
+	color: #a27651;
+	font-size: 18px;
+	font-family: "microsoft yahei";
+	margin-left: 530px;
+	padding-top: 60px;
+	line-height:36px;
+}
+
+.wenzi-2{
+	width: 1200px;
+	height: 410px;
+	background: url(../../img/tongru/wenzi-bg2.png) no-repeat center;
+	margin:0 auto;
+	margin-top: 45px;
+}
+
+.wenzi-2-biaoti{
+	width: 200px;
+	height: 40px;
+	color: #333333;
+	font-size: 28px;
+	font-family: "microsoft yahei";
+	margin-left: 40px;
+	padding-top:50px;
+}
+
+.wenzi-2-content{
+	width: 650px;
+	height: 400px;
+	color: #a27651;
+	font-size: 18px;
+	font-family: "microsoft yahei";
+	margin-left:40px;
+	padding-top: 70px;
+	line-height:38px;
+}
+
+.wenzi-3{
+	width: 1200px;
+	height: 410px;
+	background: url(../../img/tongru/wenzi-bg3.png) no-repeat center;
+	margin:0 auto;
+	margin-top: 20px;
+}
+
+.wenzi-3-biaoti{
+	width: 200px;
+	height: 40px;
+	color: #333333;
+	font-size: 28px;
+	font-family: "microsoft yahei";
+	margin-left: 530px;
+	padding-top: 80px;
+}
+
+.wenzi-3-content{
+	width: 650px;
+	height: 400px;
+	color: #a27651;
+	font-size: 20px;
+	font-family: "microsoft yahei";
+	margin-left: 530px;
+	padding-top: 70px;
+	line-height:40px;
+}
+
+.jiuyefangxiang{
+	width: 1200px;
+	height: 275px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 50px;
+}
+
+.tese{
+	width: 100%;
+	height: 700px;
+	background-color: #f8f8f8;
+	box-shadow: #d8d8d8 0px 0px 10px;
+	margin-top: 50px;
+}
+
+.tese-biaoti{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 30px;
+}
+
+.tese-img{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 30px;
+}
+
+.huanjing{
+	width: 1200px;
+	height: 180px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 50px;
+}
+
+.huanjing-img{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.fengcai{
+	width: 1200px;
+	height: 180px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 50px;
+}
+
+.huanjing-img{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+
+
+
+
+/*招聘填写*/
+
+.tianxie{
+	width: 100%;
+	height: 300px;
+	background: #F2F2F2;
+	margin-top: 50px;
+}
+
+.tianxie p{
+	font-family: "microsoft yahei";
+	font-size: 30px;
+	line-height: 80px;
+	text-align: center;
+}
+
+.tianxie-content{
+	width: 700px !important;
+	height: auto;
+}
+
+.tianxie-content ul li{
+	width: 250px;
+	height: 40px;
+	font-family: "microsoft yahei";
+	font-size: 20px;
+	margin:10px 0 0 80px;
+	color: #666666;
+	float: left;
+}
+
+.tijiao{
+	width: 100px;
+	height: 40px;
+	background: #666666;
+	border-radius: 10px;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+	font-family: "microsoft yahei";
+	font-size: 22px;
+	float: right;
+	margin-right: 120px;
+	margin-top: 10px;
+	cursor: pointer;
+	display: block;
+}
+
+.tijiao:hover{
+	background: #47C8A2;
+}
+
+.kuang-tijiao{
+	width: 800px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.input{
+	width: 180px;
+	height: 30px;
+	font-family: "microsoft yahei";
+	font-size: 20px;
+}
+
+.content1200{width: 1200px; height: auto;margin: 0 auto;}
+
+
+
+
+
+
+
+
+
+
+
+

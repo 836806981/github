@@ -1,0 +1,26 @@
+
+.news-content{
+    margin-top: 130px;
+}
+.news-text{
+    width: 100%;
+    max-width: 1070px;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+.news-text pre{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    line-height: 30px;
+}
+.news-text .ntitle{
+    font-size: 30px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.news-text .ndate{
+    font-size: 14px;
+    padding-bottom: 15px;
+}
